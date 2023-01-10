@@ -1,38 +1,71 @@
 import pandas as pd
 import math
 import numpy as np
+import random
 
 def lecture_count(file):
     df = pd.read_csv(file)
 
-    # Get the total amount of hoorcolleges rooms needed
-    hoor_count = df.sum(axis=0)[1]
+    hoor_dict = {}
+    werk_dict = {}
+    prac_dict = {}
 
-    werk_count = 0
-    prac_count = 0
-    courses_list = []
-    # Loop over the vakken and count the number of werkcolleges and practica rooms needed
-    for _, row in df.iterrows():
+    for nr, row in df.iterrows():
         for hoor in range(row['#Hoorcolleges']):
-            # If there are werkcolleges then add the correct amount of rooms to the total
-            courses_list.append(row['Vak'] + f' H{hoor + 1}')
-        if row['#Werkcolleges'] > 0:
-            # If there are werkcolleges then add the correct amount of rooms to the total
-            count = math.ceil(row['Verwacht'] / row['Max. stud. Werkcollege'])
-            werk_count += count
-            for werk in range(count):
-                courses_list.append(row['Vak'] + f' W{werk + 1}')
-        if row['#Practica'] > 0:
-            # If there are practica then add the correct amount of rooms to the total
-            count = math.ceil(row['Verwacht'] / row['Max. stud. Practicum'])
-            prac_count += count
-            for prac in range(count):
-                courses_list.append(row['Vak'] + f' P{prac + 1}')
+            hoor_dict[int(f'{nr + 11}1{hoor + 1}')] = row['Vak'] + f' H{hoor + 1}', row['Verwacht']
+        if row['Max. stud. Werkcollege'] > 0:
+            for werk in range(math.ceil(row['Verwacht'] / row['Max. stud. Werkcollege'])):
+                werk_dict[int(f'{nr + 11}2{werk + 1}')] = row['Vak'] + f' W{werk + 1}', row['Max. stud. Werkcollege']
+        if row['Max. stud. Practicum'] > 0:
+            for prac in range(math.ceil(row['Verwacht'] / row['Max. stud. Practicum'])):
+                prac_dict[int(f'{nr + 11}3{prac + 1}')] = row['Vak'] + f' P{prac + 1}', row['Max. stud. Practicum']
 
-    return courses_list, hoor_count, werk_count, prac_count
+    return dict(sorted(hoor_dict.items(), key=lambda item: item[1][1], reverse=True)), \
+            dict(sorted(werk_dict.items(), key=lambda item: item[1][1], reverse=True)), \
+            dict(sorted(prac_dict.items(), key=lambda item: item[1][1], reverse=True))
 
-courses_list, hoor_count, werk_count, prac_count = lecture_count('LecturesLesroosters/vakken.csv')
-print(courses_list)
+hoor_dict, werk_dict, prac_dict = lecture_count('LecturesLesroosters/vakken.csv')
+courses_dict = {**hoor_dict,**werk_dict,**prac_dict}
+courses_list = list(courses_dict.keys())
+
+def make_rooster_random(courses_list, hours, days, rooms):
+    rooster = np.zeros(hours * days * rooms)
+    slots = random.sample(range(hours * days * rooms), len(courses_list))
+    for nr, slot in enumerate(slots):
+        rooster[slot] = courses_list[nr]
+    return rooster.reshape((rooms, hours, days))
+
+room_rooster = make_rooster_random(courses_list, 4, 5, 7)
+
+df = pd.read_csv('LecturesLesroosters/studenten_en_vakken.csv')
+df = df.fillna(0)
+vakken = []
+for _, row in df.iterrows():
+    vak = [row['Vak1']]
+    if row['Vak2'] != 0:
+        vak.append(row['Vak2'])
+    if row['Vak3'] != 0:
+        vak.append(row['Vak3'])
+    if row['Vak4'] != 0:
+        vak.append(row['Vak4'])
+    if row['Vak5'] != 0:
+        vak.append(row['Vak5'])
+    vakken.append(set(vak))
+df.insert(3, 'Vakken', vakken)
+df.replace(0, np.nan, inplace=True)
+print(df['Vakken'])
+print(df)
+df.to_csv('LecturesLesroosters/studenten_en_vakken2.csv')  
+
+
+def get_output(room_rooster, file):
+    df = pd.read_csv(file)
+    df['Vakken'] = df['Vak1'] + df['Vak2'] + df['Vak3'] + df['Vak4'] + df['Vak5']
+    for room in np.nditer(room_rooster):
+        t=1
+    #print(df)
+
+get_output(room_rooster, 'LecturesLesroosters/studenten_en_vakken.csv')
 
 
 def malus_count(df, rooms):
