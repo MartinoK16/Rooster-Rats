@@ -37,38 +37,39 @@ def make_rooster_random(courses_list, hours, days, rooms):
 
 room_rooster = make_rooster_random(courses_list, 4, 5, 7)
 
-df = pd.read_csv('LecturesLesroosters/studenten_en_vakken.csv')
-df = df.fillna(0)
-vakken = []
-for _, row in df.iterrows():
-    vak = [row['Vak1']]
-    if row['Vak2'] != 0:
-        vak.append(row['Vak2'])
-    if row['Vak3'] != 0:
-        vak.append(row['Vak3'])
-    if row['Vak4'] != 0:
-        vak.append(row['Vak4'])
-    if row['Vak5'] != 0:
-        vak.append(row['Vak5'])
-    vakken.append(set(vak))
-df.insert(3, 'Vakken', vakken)
-df.replace(0, np.nan, inplace=True)
-print(df['Vakken'])
-print(df)
-df.to_csv('LecturesLesroosters/studenten_en_vakken2.csv')  
-
-
-def get_output(room_rooster, file):
+def rooms_dict(file):
+    room_dict = {}
+    cap_dict = {}
     df = pd.read_csv(file)
-    df['Vakken'] = df['Vak1'] + df['Vak2'] + df['Vak3'] + df['Vak4'] + df['Vak5']
-    for room in np.nditer(room_rooster):
-        t=1
-    #print(df)
+    for nr, row in df.iterrows():
+        room_dict[nr] = row['Zaalnummber'], row['Max. capaciteit']
+        cap_dict[row['Zaalnummber']] = row['Max. capaciteit']
+    return room_dict, cap_dict
 
-get_output(room_rooster, 'LecturesLesroosters/studenten_en_vakken.csv')
+room_dict, cap_dict = rooms_dict('LecturesLesroosters/zalen.csv')
+day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
 
+def get_output(room_rooster, file, courses_dict, room_dict, day_dict):
+    d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
+    df = pd.read_csv(file)
+    for index in np.ndindex(room_rooster.shape):
+        if room_rooster[index] != 0:
+            course = courses_dict[int(room_rooster[index])][0]
+            for _, student in df.iterrows():
+                if course[:-3] in student['Vakken']:
+                    d['student'].append(student['Stud.Nr.'])
+                    d['vak'].append(course[:-3])
+                    d['activiteit'].append(course[-2:])
+                    d['zaal'].append(room_dict[index[0]][0])
+                    d['dag'].append(day_dict[index[2]])
+                    d['tijdslot'].append(9 + 2 * index[1])
+    output = pd.DataFrame(data=d)
+    return output
 
-def malus_count(df, rooms):
+student_rooster = get_output(room_rooster, 'LecturesLesroosters/studenten_en_vakken2.csv', courses_dict, room_dict, day_dict)
+#student_rooster.to_csv('LecturesLesroosters/test.csv')
+
+def malus_count(df, cap_dict):
     malus = 0
     # Loop over all the students
     for student in df['student'].unique():
@@ -100,16 +101,37 @@ def malus_count(df, rooms):
             elif tussenuur == 1:
                 malus += 1
 
-        # Loop over the different rooms
-        for room in df['zaal'].unique():
-            # Get expected people of the rooms
-            expected = df[df['zaal'] == room].sort_values(by=['dag', 'tijdslot']).groupby(['dag', 'tijdslot']).size()
-            # Add malus points if the expected value is bigger than the capacity of the room
-            malus += max(expected - rooms[room], 0)
+    # Loop over the different rooms
+    for room in df['zaal'].unique():
+        # Get expected people of the rooms
+        expected = df[df['zaal'] == room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
+        # print(df[df['zaal'] == room])
+        # print(expected)
+        for row in expected - cap_dict[room]:
+            if row > 0:
+                malus += row
 
     return malus
 
-print(malus_count(df))
+print(malus_count(student_rooster, cap_dict))
 
-
-#def random_rooster(courses, count_timeslots):
+# Made an extra column with a set of all the vakken of each student
+# df = pd.read_csv('LecturesLesroosters/studenten_en_vakken.csv')
+# df = df.fillna(0)
+# vakken = []
+# for _, row in df.iterrows():
+#     vak = [row['Vak1']]
+#     if row['Vak2'] != 0:
+#         vak.append(row['Vak2'])
+#     if row['Vak3'] != 0:
+#         vak.append(row['Vak3'])
+#     if row['Vak4'] != 0:
+#         vak.append(row['Vak4'])
+#     if row['Vak5'] != 0:
+#         vak.append(row['Vak5'])
+#     vakken.append(set(vak))
+# df.insert(3, 'Vakken', vakken)
+# df.replace(0, np.nan, inplace=True)
+# print(df['Vakken'])
+# print(df)
+# df.to_csv('LecturesLesroosters/studenten_en_vakken2.csv')
