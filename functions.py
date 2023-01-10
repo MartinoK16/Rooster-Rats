@@ -10,19 +10,29 @@ def lecture_count(file):
 
     werk_count = 0
     prac_count = 0
+    courses_list = []
     # Loop over the vakken and count the number of werkcolleges and practica rooms needed
     for _, row in df.iterrows():
+        for hoor in range(row['#Hoorcolleges']):
+            # If there are werkcolleges then add the correct amount of rooms to the total
+            courses_list.append(row['Vak'] + f' H{hoor + 1}')
         if row['#Werkcolleges'] > 0:
             # If there are werkcolleges then add the correct amount of rooms to the total
-            werk_count += math.ceil(row['Verwacht'] / row['Max. stud. Werkcollege'])
+            count = math.ceil(row['Verwacht'] / row['Max. stud. Werkcollege'])
+            werk_count += count
+            for werk in range(count):
+                courses_list.append(row['Vak'] + f' W{werk + 1}')
         if row['#Practica'] > 0:
             # If there are practica then add the correct amount of rooms to the total
-            prac_count += math.ceil(row['Verwacht'] / row['Max. stud. Practicum'])
+            count = math.ceil(row['Verwacht'] / row['Max. stud. Practicum'])
+            prac_count += count
+            for prac in range(count):
+                courses_list.append(row['Vak'] + f' P{prac + 1}')
 
-    return hoor_count, werk_count, prac_count
+    return courses_list, hoor_count, werk_count, prac_count
 
-counts = lecture_count('LecturesLesroosters/vakken.csv')
-print(counts)
+courses_list, hoor_count, werk_count, prac_count = lecture_count('LecturesLesroosters/vakken.csv')
+print(courses_list)
 
 
 def malus_count(df, rooms):
@@ -67,3 +77,6 @@ def malus_count(df, rooms):
     return malus
 
 print(malus_count(df))
+
+
+#def random_rooster(courses, count_timeslots):
