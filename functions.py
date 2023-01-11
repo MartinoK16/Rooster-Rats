@@ -36,6 +36,7 @@ def make_rooster_random(courses_list, hours, days, rooms):
     return rooster.reshape((rooms, hours, days))
 
 room_rooster = make_rooster_random(courses_list, 4, 5, 7)
+print(room_rooster)
 
 def rooms_dict(file):
     room_dict = {}
@@ -106,6 +107,7 @@ def malus_count(df, cap_dict):
         # Get expected people of the rooms
         expected = df[df['zaal'] == room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
         # print(df[df['zaal'] == room])
+        # print(room)
         # print(expected)
         for row in expected - cap_dict[room]:
             if row > 0:
