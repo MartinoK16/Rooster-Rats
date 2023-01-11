@@ -1,4 +1,6 @@
 import pandas as pd
+import numpy as np
+import random
 
 # Create list of DataFrame column
 def select_data(file, column_name):
@@ -56,3 +58,41 @@ for room, capacity in sorted_rooms_with_capacity:
     start_range = end_range
 
 print(room_dictionary)
+
+# def decomposition(i, maximum):
+#     while i > 0:
+#         if i < maximum:
+#             n = random.randint(1, i)
+#         else:
+#             n = random.randint(1, maximum)
+#         yield n
+#         i -= n
+#
+# print(list(decomposition(20, 6)))
+
+
+# def split_num(n, maximum, parts):
+#     # n = 50
+#     # parts = random.randint(1,n)
+#     result = []
+#     for i in range(parts-1):
+#         if n-parts+i+1 < maximum:
+#             x = random.randint(1,maximum)
+#         else:
+#             x = random.randint(1,n-parts+i+1)
+#         n = n - x
+#         result.append(x)
+#     result.append(n)
+#     print(result)
+#     print(sum(result))
+#
+# split_num(100, 20, 6)
+
+
+# t['Vakken']= t.values.tolist()
+
+# s = pd.read_csv("LecturesLesroosters/studenten_en_vakken.csv")
+# s = t[t.columns[3:]]
+# s['Vakken'] = [[e for e in row if e==e] for row in s.values.tolist()]
+# s['Vakken2']=np.where(s.Vakken=='','',s.Vakken.map(set))
+# print(s)
