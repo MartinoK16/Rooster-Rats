@@ -41,7 +41,7 @@ class Course():
         for nr in range(len(slices) - 1):
             self.W.append(Lecture(self.name, f'W{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
 
-    def add_prac(self, nr_studs, max_studs):
+    def add_prac(self, max_studs):
         slices = self.make_slices(max_studs)
         for nr in range(len(slices) - 1):
             self.P.append(Lecture(self.name, f'P{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
@@ -273,7 +273,7 @@ class Room():
     def remove_course(self, timeslot):
         self.rooster[day, timeslot] = 0
 
-    def add_course(self, timeslot, )
+    #def add_course(self, timeslot, )
 
 
 class Experiment():
