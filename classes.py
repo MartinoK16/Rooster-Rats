@@ -12,10 +12,6 @@ class Lecture():
         self.studs = lecture_studs
         self.code = int(f'{class_nr + 11}{d[lecture_type[0]]}{lecture_type[1]}')
         self.size = len(lecture_studs)
-        # print(self.code)
-        # print(self.name)
-        # print(self.type)
-        # print(self.studs)
 
 class Course():
     def __init__(self, course, student_list, class_nr):
@@ -62,24 +58,6 @@ class Course():
             slices.append(group + slices[nr])
 
         return slices
-
-
-                    # # Nr of werkcolleges and groups of students per werkcollege and make a lecture of it
-                    # rooms = 0
-                    # if self.werk > 0:
-                    #     rooms = math.ceil(len(self.students) / self.werk)
-                    # for nr in range(rooms):
-                    #     nr_students = len(self.students) // rooms
-                    #     self.lectures.append(Lecture(self.name, f'W{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
-                    #
-                    # # Nr of practica and groups of students per practica and make a lecture of it
-                    # rooms = 0
-                    # if self.prac > 0:
-                    #     rooms = math.ceil(len(self.students) / self.prac)
-                    # for nr in range(rooms):
-                    #     nr_students = len(self.students) // rooms
-                    #     self.lectures.append(Lecture(self.name, f'P{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
-
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df):
@@ -216,13 +194,6 @@ print(my_rooster.output)
 my_rooster.output.to_csv('LecturesLesroosters/test.csv')
 my_rooster.malus_count()
 print(my_rooster.malus)
-
-
-
-
-
-
-#print(malus_count(output, cap_dict))
 
 
 #--------------------------------------------------------------------------------------
