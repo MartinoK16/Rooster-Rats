@@ -18,6 +18,8 @@ print(expected_list)
 print(room_list)
 print(courses_list)
 
+
+
 rooms_with_capacity = list(zip(room_list, capacity_list))
 print(rooms_with_capacity)
 
