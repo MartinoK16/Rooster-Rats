@@ -17,15 +17,15 @@ class Course():
     def __init__(self, course, student_list, class_nr):
         # Give for every course its name, #hoor, max studs werk, max studs prac and the student list for this course
         self.name = course[0]
-        self.hoor = course[1]
-        self.werk = course[2]
-        self.prac = course[3]
-        self.lectures = []
+        self.nr = class_nr
         self.students = random.sample(student_list, len(student_list))
+        self.size = len(self.students)
+        self.H = []
+        self.W = []
+        self.P = []
 
-        # Make a lecture for each hoorcollege with all the students
-        for nr in range(self.hoor):
-            self.lectures.append(Lecture(self.name, f'H{nr + 1}', self.students, class_nr))
+        for nr in range(course[1]):
+            self.H.append(Lecture(self.name, f'H{nr + 1}', self.students, self.nr))
 
         if course[2] > 0:
             self.add_werk(course[2])
@@ -80,7 +80,6 @@ class Rooster():
         courses_list = []
         for _, row in df.iterrows():
             courses_list.append([row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']])
-
         return courses_list
 
     def make_courses(self, courses_list, student_df):
@@ -101,8 +100,14 @@ class Rooster():
     def make_lecture_list(self):
         lectures = []
         for course in self.courses:
-            for lecture in course.lectures:
-                lectures.append(lecture)
+            for hoor in course.H:
+                lectures.append(hoor)
+        for course in self.courses:
+            for werk in course.W:
+                lectures.append(werk)
+        for course in self.courses:
+            for prac in course.P:
+                lectures.append(prac)
 
         return lectures
 
@@ -121,8 +126,8 @@ class Rooster():
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
         for index in np.ndindex(self.rooster.shape):
             if self.rooster[index] != 0:
+                lecture = self.rooster[index]
                 for stud in self.rooster[index].studs:
-                    lecture = self.rooster[index]
                     d['student'].append(stud)
                     d['vak'].append(lecture.name)
                     d['activiteit'].append(lecture.type)
@@ -186,6 +191,7 @@ my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)
 my_rooster.make_output()
 print(my_rooster.output)
+my_rooster.output.to_csv('LecturesLesroosters/test.csv')
 my_rooster.malus_count()
 print(my_rooster.malus)
 
@@ -207,17 +213,15 @@ nr_days = 5
 
 # ------------------------------------------------------------------------------------------------------------------------------------------
 class Room():
-    def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity, day, timeslot, course):
+    def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity, day, timeslot):
         self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
         self.nr_days = nr_days
         self.room = room
         self.evening = evening # Boolean
-        self.capacity = room_capacity
 
-        # Wat moet je hiermee?
+        self.capacity = room_capacity
         self.day = day
         self.timeslot = timeslot
-        self.course = course
 
         # Create first version of rooster and availability
         if self.evening:
@@ -229,28 +233,63 @@ class Room():
 
     def check_availability(self):
         """
-        Accepts a 3D array of shape nr_rooms x nr_days x nr_timeslots and checks
-        the availability for a given room. The function returns a boolean 3D
-        array of shape nr_days x nr_timeslots which shows if the timeslot is
-        occupied (True) or not (False).
+        Accepts a 3D array of shape nr_rooms x nr_days x nr_timeslots and checks the
+        availability for a given room. The function returns a boolean 3D array of
+        shape nr_days x nr_timeslots which shows if the timeslot is occupied (True)
+        or not (False).
         """
-        # Check availability for the room; switch True and False (occupied = 1;
-        # not occupied = 0)
+        # Check availability for the room; switch True and False (occupied = 1; not occupied = 0)
         self.availability = np.invert(self.rooster[self.room] == self.availability)
 
     def remove_course(self, timeslot):
         self.rooster[day, timeslot] = 0
-        # Ook availability updaten naar 0?
 
-    def add_course(self, timeslot):
-        self.rooster[day, timeslot] = self.courses
-        # Ook availability updaten naar 1?
+    #def add_course(self, timeslot, )
 
-output_df = pd.read_csv('LecturesLesroosters/test.csv')
 
-# Loop over the different rooms
-count = 0
-for student in output_df['student'].unique():
-    # Get expected people of the rooms
-    expected = output_df[output_df['student'] == student]
-    print(expected)
+class Experiment():
+    def __init__(self, poging):
+        self.poging = poging
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    def add_rooms(self, number_of_rabbits):
+        """
+        This function accepts a number of rabbits and fills a list of
+        number_of_rabbits rabbits with random locations and angles.
+        """
+        for i in range(number_of_rabbits):
+            # Create a random location and angle for the rabbit
+            self.create_random_pos_angle()
+            # Add the random location and angle of the rabbit to creatures list
+            self.creatures.append(Rabbit(self.pos_x, self.pos_y, self.angle))
+# Create Room object
+
+
+
+
+# # Check availability for each room; switch True and False (occupied = 1; not occupied = 0)
+# for room in range(nr_rooms):
+#     test = check_availability(self, room_rooster, availability, room)
+#     test2 = np.invert(test)
+#     print(test2 * 5)
+
+
+
+        # Give the lecture its name, type, lecture code and student numbers
+        d = {'H': 1, 'W': 2, 'P': 3}
+        self.name = lecture_name
+        self.type = lecture_type
+        self.studs = lecture_studs
+        self.code = int(f'{class_nr + 11}{d[lecture_type[0]]}{lecture_type[1]}')
