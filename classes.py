@@ -21,31 +21,65 @@ class Course():
     def __init__(self, course, student_list, class_nr):
         # Give for every course its name, #hoor, max studs werk, max studs prac and the student list for this course
         self.name = course[0]
-        self.hoor = course[1]
-        self.werk = course[2]
-        self.prac = course[3]
-        self.lectures = []
+        self.nr = class_nr
         self.students = random.sample(student_list, len(student_list))
+        self.size = len(self.students)
+        self.H = []
+        self.W = []
+        self.P = []
 
-        # Make a lecture for each hoorcollege with all the students
-        for nr in range(self.hoor):
-            self.lectures.append(Lecture(self.name, f'H{nr + 1}', self.students, class_nr))
+        for nr in range(course[1]):
+            self.H.append(Lecture(self.name, f'H{nr + 1}', self.students, self.nr))
 
-        # Nr of werkcolleges and groups of students per werkcollege and make a lecture of it
-        rooms = 0
-        if self.werk > 0:
-            rooms = math.ceil(len(self.students) / self.werk)
-        for nr in range(rooms):
-            nr_students = len(self.students) // rooms
-            self.lectures.append(Lecture(self.name, f'W{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
+        if course[2] > 0:
+            self.add_werk(course[2])
+        if course[3] > 0:
+            self.add_werk(course[3])
 
-        # Nr of practica and groups of students per practica and make a lecture of it
-        rooms = 0
-        if self.prac > 0:
-            rooms = math.ceil(len(self.students) / self.prac)
-        for nr in range(rooms):
-            nr_students = len(self.students) // rooms
-            self.lectures.append(Lecture(self.name, f'P{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
+    def add_werk(self, max_studs):
+        slices = self.make_slices(max_studs)
+        for nr in range(len(slices) - 1):
+            self.W.append(Lecture(self.name, f'W{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
+
+    def add_prac(self, nr_studs, max_studs):
+        slices = self.make_slices(max_studs)
+        for nr in range(len(slices) - 1):
+            self.P.append(Lecture(self.name, f'P{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
+
+    def make_slices(self, max_studs):
+        rooms = math.ceil(self.size / max_studs)
+        min_stud = self.size // rooms
+        extra_stud = self.size % rooms
+
+        groups = []
+        for nr, room in enumerate(range(rooms)):
+            groups.append(min_stud)
+            if nr < extra_stud:
+                groups[nr] += 1
+
+        slices = [0]
+        for nr, group in enumerate(groups):
+            slices.append(group + slices[nr])
+
+        return slices
+
+
+                    # # Nr of werkcolleges and groups of students per werkcollege and make a lecture of it
+                    # rooms = 0
+                    # if self.werk > 0:
+                    #     rooms = math.ceil(len(self.students) / self.werk)
+                    # for nr in range(rooms):
+                    #     nr_students = len(self.students) // rooms
+                    #     self.lectures.append(Lecture(self.name, f'W{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
+                    #
+                    # # Nr of practica and groups of students per practica and make a lecture of it
+                    # rooms = 0
+                    # if self.prac > 0:
+                    #     rooms = math.ceil(len(self.students) / self.prac)
+                    # for nr in range(rooms):
+                    #     nr_students = len(self.students) // rooms
+                    #     self.lectures.append(Lecture(self.name, f'P{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
+
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df):
@@ -68,7 +102,6 @@ class Rooster():
         courses_list = []
         for _, row in df.iterrows():
             courses_list.append([row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']])
-
         return courses_list
 
     def make_courses(self, courses_list, student_df):
@@ -89,8 +122,14 @@ class Rooster():
     def make_lecture_list(self):
         lectures = []
         for course in self.courses:
-            for lecture in course.lectures:
-                lectures.append(lecture)
+            for hoor in course.H:
+                lectures.append(hoor)
+        for course in self.courses:
+            for werk in course.W:
+                lectures.append(werk)
+        for course in self.courses:
+            for prac in course.P:
+                lectures.append(prac)
 
         return lectures
 
@@ -109,8 +148,8 @@ class Rooster():
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
         for index in np.ndindex(self.rooster.shape):
             if self.rooster[index] != 0:
+                lecture = self.rooster[index]
                 for stud in self.rooster[index].studs:
-                    lecture = self.rooster[index]
                     d['student'].append(stud)
                     d['vak'].append(lecture.name)
                     d['activiteit'].append(lecture.type)
@@ -174,6 +213,7 @@ my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)
 my_rooster.make_output()
 print(my_rooster.output)
+my_rooster.output.to_csv('LecturesLesroosters/test.csv')  
 my_rooster.malus_count()
 print(my_rooster.malus)
 
