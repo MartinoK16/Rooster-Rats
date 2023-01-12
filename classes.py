@@ -34,7 +34,7 @@ class Course():
         if course[2] > 0:
             self.add_werk(course[2])
         if course[3] > 0:
-            self.add_werk(course[3])
+            self.add_prac(course[3])
 
     def add_werk(self, max_studs):
         slices = self.make_slices(max_studs)
@@ -213,7 +213,7 @@ my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)
 my_rooster.make_output()
 print(my_rooster.output)
-my_rooster.output.to_csv('LecturesLesroosters/test.csv')  
+my_rooster.output.to_csv('LecturesLesroosters/test.csv')
 my_rooster.malus_count()
 print(my_rooster.malus)
 
