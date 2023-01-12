@@ -11,6 +11,7 @@ class Lecture():
         self.type = lecture_type
         self.studs = lecture_studs
         self.code = int(f'{class_nr + 11}{d[lecture_type[0]]}{lecture_type[1]}')
+        self.size = len(lecture_studs)
         # print(self.code)
         # print(self.name)
         # print(self.type)
@@ -47,9 +48,30 @@ class Course():
             self.lectures.append(Lecture(self.name, f'P{nr + 1}', self.students[nr * nr_students:(nr + 1) * nr_students], class_nr))
 
 class Rooster():
-    def __init__(self, courses_list, student_df):
+    def __init__(self, courses_df, student_df, rooms_df):
+        self.courses_list = self.make_courses_list(courses_df)
         self.courses = []
+        self.make_courses(self.courses_list, student_df)
+        self.lectures_list = self.make_lecture_list()
+        self.day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
+        self.room_dict, self.cap_dict = self.make_room_dict(rooms_df)
 
+    def make_room_dict(self, rooms_df):
+        room_dict = {}
+        cap_dict = {}
+        for nr, row in rooms_df.iterrows():
+            room_dict[nr] = row['Zaalnummber'], row['Max. capaciteit']
+            cap_dict[row['Zaalnummber']] = row['Max. capaciteit']
+        return room_dict, cap_dict
+
+    def make_courses_list(self, df):
+        courses_list = []
+        for _, row in df.iterrows():
+            courses_list.append([row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']])
+
+        return courses_list
+
+    def make_courses(self, courses_list, student_df):
         # Loop over all the courses needed for the rooster
         for nr, course in enumerate(courses_list):
             # Replace NaN with 0
@@ -64,135 +86,103 @@ class Rooster():
             # Add the course to the rooster
             self.courses.append(Course(course, student_list, nr))
 
+    def make_lecture_list(self):
+        lectures = []
+        for course in self.courses:
+            for lecture in course.lectures:
+                lectures.append(lecture)
 
-def lecture_count(file):
-    df = pd.read_csv(file)
-    courses_list = []
+        return lectures
 
-    for _, row in df.iterrows():
-        courses_list.append([row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']])
+    def make_rooster_random(self, hours, days, rooms):
+        # Make a zeros array with the correct length
+        rooster = np.zeros(hours * days * rooms, dtype=object)
+        # Get the indices where the lectures will be planned
+        slots = random.sample(range(hours * days * rooms), len(self.lectures_list))
+        # Put the lecture in the deterimined spot
+        for nr, slot in enumerate(slots):
+            rooster[slot] = self.lectures_list[nr]
+        # Reshape the 1D array to a 3D array for clarity
+        self.rooster = rooster.reshape((rooms, hours, days))
 
-    return courses_list
+    def make_output(self):
+        d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
+        for index in np.ndindex(self.rooster.shape):
+            if self.rooster[index] != 0:
+                for stud in self.rooster[index].studs:
+                    lecture = self.rooster[index]
+                    d['student'].append(stud)
+                    d['vak'].append(lecture.name)
+                    d['activiteit'].append(lecture.type)
+                    d['zaal'].append(self.room_dict[index[0]][0])
+                    d['dag'].append(self.day_dict[index[2]])
+                    d['tijdslot'].append(9 + 2 * index[1])
 
+        self.output = pd.DataFrame(data=d)
 
-def make_rooster_random(codes_list, hours, days, rooms):
-    # Make a zeros array with the correct length
-    rooster = np.zeros(hours * days * rooms)
-    # Get the indices where the lectures will be planned
-    slots = random.sample(range(hours * days * rooms), len(codes_list))
-    # Put the lecture in the deterimined spot
-    for nr, slot in enumerate(slots):
-        rooster[slot] = codes_list[nr]
-    # Reshape the 1D array to a 3D array for clarity
-    return rooster.reshape((rooms, hours, days))
+    def malus_count(self):
+        malus = 0
+        # Loop over all the students
+        for student in self.output['student'].unique():
+            # Get the dagen and tijdsloten of the student
+            rooster = self.output[self.output['student'] == student].sort_values(by=['dag', 'tijdslot']).loc[:,('dag', 'tijdslot')]
+            # Check if there are more than 1 lecture at the same time for this student
+            malus += sum(rooster.groupby(['dag', 'tijdslot']).size() - 1)
+
+            # Loop over the days in the students rooster
+            for day in rooster['dag'].unique():
+                # Get the times of this day
+                dag = rooster[rooster['dag'] == day]
+                time = dag['tijdslot'].unique()
+
+                # Check if the student has tussenuren
+                tussenuur = 0
+                if len(time) > 1:
+                    for timeslot in range(len(time) - 1):
+                        # The rooster is not possible if a student has 3 tussenuren
+                        if time[timeslot + 1] - time[timeslot] >= 8:
+                            print('Not possible')
+                        elif time[timeslot + 1] - time[timeslot] == 6:
+                            tussenuur += 2
+                        elif time[timeslot + 1] - time[timeslot] == 4:
+                            tussenuur += 1
+                # If the student has 2 tussenuren it is 3 maluspoints and with 1 tussenuur its 1 maluspoint
+                if tussenuur == 2:
+                    malus += 3
+                elif tussenuur == 1:
+                    malus += 1
+
+        # Loop over the different rooms
+        for room in self.output['zaal'].unique():
+            # Get expected people of the rooms
+            expected = self.output[self.output['zaal'] == room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
+            for row in expected - self.cap_dict[room]:
+                if row > 0:
+                    malus += row
+
+        self.malus = malus
 
 
 # Returns a list with Name, #Hoorcolleges, Max Stud Werkcollege, Max Stud Practicum
-courses_list = lecture_count('LecturesLesroosters/vakken.csv')
+courses_df = pd.read_csv('LecturesLesroosters/vakken.csv')
+student_df = pd.read_csv('LecturesLesroosters/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('LecturesLesroosters/zalen.csv')
 
 # Make a Rooster object with the courses and students DataFrame
-my_rooster = Rooster(courses_list, pd.read_csv('LecturesLesroosters/studenten_en_vakken2.csv'))
-
-# Get all the lecture codes form the rooster Class
-codes = []
-count = 0
-for course in my_rooster.courses:
-    for lecture in course.lectures:
-        codes.append(lecture.code)
-        count += 1
-print(count)
-
-# Make a rooster in an array with the lecture codes
-room_rooster = make_rooster_random(codes, 4, 5, 7)
-print(room_rooster)
+my_rooster = Rooster(courses_df, student_df, rooms_df)
+my_rooster.make_rooster_random(4, 5, 7)
+print(my_rooster.rooster)
+my_rooster.make_output()
+print(my_rooster.output)
+my_rooster.malus_count()
+print(my_rooster.malus)
 
 
-def make_rooster_random(codes_list, hours, days, rooms):
-    # Make a zeros array with the correct length
-    rooster = np.zeros(hours * days * rooms)
-    # Get the indices where the lectures will be planned
-    slots = random.sample(range(hours * days * rooms), len(codes_list))
-    # Put the lecture in the deterimined spot
-    for nr, slot in enumerate(slots):
-        rooster[slot] = codes_list[nr]
-    # Reshape the 1D array to a 3D array for clarity
-    return rooster.reshape((rooms, hours, days))
 
 
-def rooms_dict(file):
-    room_dict = {}
-    cap_dict = {}
-    df = pd.read_csv(file)
-    for nr, row in df.iterrows():
-        room_dict[nr] = row['Zaalnummber'], row['Max. capaciteit']
-        cap_dict[row['Zaalnummber']] = row['Max. capaciteit']
-    return room_dict, cap_dict
 
-room_dict, cap_dict = rooms_dict('LecturesLesroosters/zalen.csv')
-day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
 
-d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
-df = pd.read_csv('LecturesLesroosters/studenten_en_vakken2.csv')
-for index in np.ndindex(room_rooster.shape):
-    if room_rooster[index] != 0:
-        for course in my_rooster.courses:
-            for lecture in course.lectures:
-                if lecture.code == room_rooster[index]:
-                    for stud in lecture.studs:
-                        d['student'].append(stud)
-                        d['vak'].append(course)
-                        d['activiteit'].append(lecture.type)
-                        d['zaal'].append(room_dict[index[0]][0])
-                        d['dag'].append(day_dict[index[2]])
-                        d['tijdslot'].append(9 + 2 * index[1])
-output = pd.DataFrame(data=d)
-
-def malus_count(df, cap_dict):
-    malus = 0
-    # Loop over all the students
-    for student in df['student'].unique():
-        # Get the dagen and tijdsloten of the student
-        rooster = df[df['student'] == student].sort_values(by=['dag', 'tijdslot']).loc[:,('dag', 'tijdslot')]
-        # Check if there are more than 1 lecture at the same time for this student
-        malus += sum(rooster.groupby(['dag', 'tijdslot']).size() - 1)
-
-        # Loop over the days in the students rooster
-        for day in rooster['dag'].unique():
-            # Get the times of this day
-            dag = rooster[rooster['dag'] == day]
-            time = dag['tijdslot'].unique()
-
-            # Check if the student has tussenuren
-            tussenuur = 0
-            if len(time) > 1:
-                for timeslot in range(len(time) - 1):
-                    # The rooster is not possible if a student has 3 tussenuren
-                    if time[timeslot + 1] - time[timeslot] >= 8:
-                        print('Not possible')
-                    elif time[timeslot + 1] - time[timeslot] == 6:
-                        tussenuur += 2
-                    elif time[timeslot + 1] - time[timeslot] == 4:
-                        tussenuur += 1
-            # If the student has 2 tussenuren it is 3 maluspoints and with 1 tussenuur its 1 maluspoint
-            if tussenuur == 2:
-                malus += 3
-            elif tussenuur == 1:
-                malus += 1
-
-    # Loop over the different rooms
-    for room in df['zaal'].unique():
-        # Get expected people of the rooms
-        expected = df[df['zaal'] == room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
-        # print(df[df['zaal'] == room])
-        # print(room)
-        # print(expected)
-        for row in expected - cap_dict[room]:
-            if row > 0:
-                malus += row
-
-    return malus
-
-print(malus_count(output, cap_dict))
+#print(malus_count(output, cap_dict))
 
 
 #--------------------------------------------------------------------------------------
