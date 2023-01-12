@@ -76,7 +76,7 @@ def lecture_count(file):
 
 
 def make_rooster_random(codes_list, hours, days, rooms):
-    # Make a zeros array with the correct lenght
+    # Make a zeros array with the correct length
     rooster = np.zeros(hours * days * rooms)
     # Get the indices where the lectures will be planned
     slots = random.sample(range(hours * days * rooms), len(codes_list))
@@ -105,6 +105,19 @@ print(count)
 # Make a rooster in an array with the lecture codes
 room_rooster = make_rooster_random(codes, 4, 5, 7)
 print(room_rooster)
+
+
+def make_rooster_random(codes_list, hours, days, rooms):
+    # Make a zeros array with the correct length
+    rooster = np.zeros(hours * days * rooms)
+    # Get the indices where the lectures will be planned
+    slots = random.sample(range(hours * days * rooms), len(codes_list))
+    # Put the lecture in the deterimined spot
+    for nr, slot in enumerate(slots):
+        rooster[slot] = codes_list[nr]
+    # Reshape the 1D array to a 3D array for clarity
+    return rooster.reshape((rooms, hours, days))
+
 
 def rooms_dict(file):
     room_dict = {}
@@ -180,3 +193,52 @@ def malus_count(df, cap_dict):
     return malus
 
 print(malus_count(output, cap_dict))
+
+
+#--------------------------------------------------------------------------------------
+nr_rooms = 7
+nr_timeslots = 4
+nr_days = 5
+
+# Availability
+# Plan een vak in op basis van availability
+# Update availability
+
+availability = np.zeros((nr_timeslots, nr_days))
+
+def check_availability(room_rooster, availability, room):
+    """
+    Accepts a 3D array of shape nr_rooms x nr_days x nr_timeslots and checks the
+    availability for a given room. The function returns a boolean 3D array of
+    shape nr_days x nr_timeslots which shows if the timeslot is occupied (False)
+    or not (True).
+    """
+    new_availability = room_rooster[room] == availability
+    return new_availability
+
+# Check availability for each room; switch True and False (occupied = 1; not occupied = 0)
+for room in range(nr_rooms):
+    test = check_availability(room_rooster, availability, room)
+    test2 = np.invert(test)
+    print(test2 * 5)
+
+
+# for i in range(nr_lokalen):
+#     for j in range(nr_timeslots):
+#         for k in range(nr_days):
+#             print(room_rooster[i, j, k])
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+# class Room():
+#     def __init__(self, room_name, room_capacity, timeslot, class_nr):
+#         self.name = room_name
+#         self.capacity = room_capacity
+#         self.timeslot = timeslot # Combination of day and timeslot
+#
+#
+#         # Give the lecture its name, type, lecture code and student numbers
+#         d = {'H': 1, 'W': 2, 'P': 3}
+#         self.name = lecture_name
+#         self.type = lecture_type
+#         self.studs = lecture_studs
+#         self.code = int(f'{class_nr + 11}{d[lecture_type[0]]}{lecture_type[1]}')
