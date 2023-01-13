@@ -12,14 +12,74 @@ count = 0
 for student in output_df['student'].unique():
     # Get expected people of the rooms
     expected = output_df[output_df['student'] == student]
-    #print(expected)
+print(expected)
 
 #---------------------------------------------------------------------------------------------------------
 # Room class
+class Room():
+    def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity, day, timeslot, course):
+        self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
+        self.nr_days = nr_days
+        self.room = room
+        self.evening = evening # boolean
+        self.capacity = room_capacity
 
+        self.day = day
+        self.timeslot = timeslot
+        self.course = course
 
+        # Create first version of rooster and availability
+        if self.evening:
+            self.availability = np.zeros((nr_timeslots + 1, nr_days))
+            self.rooster = np.zeros((nr_timeslots + 1, nr_days))
+        else:
+            self.availability = np.zeros((nr_timeslots, nr_days))
+            self.rooster = np.zeros((nr_timeslots, nr_days))
+
+    def check_availability(self):
+        """
+        Accepts a 3D array of shape nr_rooms x nr_days x nr_timeslots and checks the
+        availability for a given room. The function returns a boolean 3D array of
+        shape nr_days x nr_timeslots which shows if the timeslot is occupied (True)
+        or not (False).
+        """
+        # Check availability for the room; switch True and False (occupied = 1; not occupied = 0)
+        self.availability = np.invert(self.rooster[self.room] == self.availability)
+
+    def remove_course(self):
+        self.rooster[self.day, self.timeslot] = 0
+
+    def add_course(self):
+        self.rooster[self.day, self.timeslot] = self.course
+
+room_obj = Room(4, 5, 1, True, 120, 2, 3, 38)
+room_obj.check_availability()
+print(room_obj.availability)
+room_obj.add_course()
+print(room_obj.rooster)
+room_obj.check_availability() # Werkt niet
+print(room_obj.availability)
 #---------------------------------------------------------------------------------------------------------
 # Room dictionary met aantal vakken
+
+# Create list of DataFrame column
+def select_data(file, column_name):
+    df = pd.read_csv(file)
+    data_list = df[column_name].values.tolist()
+    return data_list
+
+capacity_list = select_data("LecturesLesroosters/zalen.csv", "Max. capaciteit")
+expected_list = select_data("LecturesLesroosters/vakken.csv", "Verwacht")
+room_list = select_data("LecturesLesroosters/zalen.csv", "Zaalnummber")
+courses_list = select_data("LecturesLesroosters/vakken.csv", "Vak")
+
+print(capacity_list)
+print(expected_list)
+print(room_list)
+print(courses_list)
+
+rooms_with_capacity = list(zip(room_list, capacity_list))
+
 
 # Function to sort the list by second item of tuple
 def Sort_Tuple(tup):
@@ -29,7 +89,8 @@ def Sort_Tuple(tup):
     """
     # reverse = None (Sorts in Ascending order)
     # key is set to sort using second element of sublist lambda has been used
-    return(sorted(tup, key = lambda x: x[1]))
+    return(sorted(tup, key=lambda x: x[1]))
+
 
 sorted_rooms_with_capacity = Sort_Tuple(rooms_with_capacity)
 # printing the sorted list of tuples
