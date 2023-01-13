@@ -7,10 +7,9 @@ from .room import Room
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df):
-        self.courses_list = self.make_courses_list(courses_df)
-        self.courses = []
-        self.make_courses(self.courses_list, student_df)
-        self.lectures_list = self.make_lecture_list()
+        self.make_courses(courses_df, student_df)
+        self.make_rooms(rooms_df)
+        self.make_lecture_list()
         self.day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
         self.room_dict, self.cap_dict = self.make_room_dict(rooms_df)
 
@@ -22,18 +21,19 @@ class Rooster():
             cap_dict[row['Zaalnummber']] = row['Max. capaciteit']
         return room_dict, cap_dict
 
-    def make_courses_list(self, df):
-        courses_list = []
-        for _, row in df.iterrows():
-            courses_list.append([row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']])
-        return courses_list
+    def make_rooms(self, rooms_df):
+        self.rooms = []
+        for _, row in rooms_df.iterrows():
+            self.rooms.append(Room(4, 5, row['Zaalnummber'], row['Zaalnummber'] == 'C0.110', row['Max. capaciteit']))
+        self.rooms.sort(key=lambda x: x.capacity, reverse=True)
 
-    def make_courses(self, courses_list, student_df):
+    def make_courses(self, courses_df, student_df):
+        self.courses = []
         # Loop over all the courses needed for the rooster
-        for nr, course in enumerate(courses_list):
+        for nr, row in courses_df.iterrows():
+            course = [row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']]
             # Replace NaN with 0
             course[1:] = [0 if math.isnan(i) else i for i in course[1:]]
-
             # Loop over the students to see who has this course and add it to the student list
             student_list = []
             for _, student in student_df.iterrows():
@@ -44,18 +44,22 @@ class Rooster():
             self.courses.append(Course(course, student_list, nr))
 
     def make_lecture_list(self):
-        lectures = []
+        hoor_list = []
         for course in self.courses:
             for hoor in course.H:
-                lectures.append(hoor)
+                hoor_list.append(hoor)
+        hoor_list.sort(key=lambda x: x.size, reverse=True)
+
+        wp_list = []
         for course in self.courses:
             for werk in course.W:
-                lectures.append(werk)
+                wp_list.append(werk)
         for course in self.courses:
             for prac in course.P:
-                lectures.append(prac)
+                wp_list.append(prac)
+        wp_list.sort(key=lambda x: x.size, reverse=True)
 
-        return lectures
+        self.lectures_list = hoor_list + wp_list
 
     def make_rooster_random(self, hours, days, rooms):
         # Make a zeros array with the correct length
@@ -67,6 +71,18 @@ class Rooster():
             rooster[slot] = self.lectures_list[nr]
         # Reshape the 1D array to a 3D array for clarity
         self.rooster = rooster.reshape((rooms, hours, days))
+
+    def make_rooster_greedy(self):
+        # This can be optimized
+        for lecture in self.lectures_list:
+            for room in self.rooms:
+                if room.capacity > lecture.size and room.availability.any():
+                    for slot in np.ndindex(room.rooster.shape):
+                        if room.availability[slot]:
+                            room.add_course(lecture, slot)
+                            break
+                    break
+            # Make else statement if lecture is not possible to be put in
 
     def make_output(self):
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
