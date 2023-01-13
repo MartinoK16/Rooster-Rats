@@ -6,7 +6,7 @@ import numpy as np
 # Melanie
 
 # Output csv naar rooster per student
-output_df = pd.read_csv('LecturesLesroosters/test.csv')
+output_df = pd.read_csv('data/test.csv')
 # Loop over the different rooms
 count = 0
 for student in output_df['student'].unique():
@@ -20,7 +20,7 @@ class Room():
     def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity):
         self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
         self.nr_days = nr_days
-        self.room = room
+        self.room = room # object or integer
         self.evening = evening # boolean
         self.capacity = room_capacity
 
@@ -64,10 +64,10 @@ def select_data(file, column_name):
     data_list = df[column_name].values.tolist()
     return data_list
 
-capacity_list = select_data("LecturesLesroosters/zalen.csv", "Max. capaciteit")
-expected_list = select_data("LecturesLesroosters/vakken.csv", "Verwacht")
-room_list = select_data("LecturesLesroosters/zalen.csv", "Zaalnummber")
-courses_list = select_data("LecturesLesroosters/vakken.csv", "Vak")
+capacity_list = select_data("data/zalen.csv", "Max. capaciteit")
+expected_list = select_data("data/vakken.csv", "Verwacht")
+room_list = select_data("data/zalen.csv", "Zaalnummber")
+courses_list = select_data("data/vakken.csv", "Vak")
 
 print(capacity_list)
 print(expected_list)
