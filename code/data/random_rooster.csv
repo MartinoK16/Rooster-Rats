@@ -1,0 +1,3523 @@
+,student,vak,activiteit,zaal,dag,tijdslot
+0,26406342,Compilerbouw practicum,P3,C0.110,ma,9
+1,65675896,Compilerbouw practicum,P3,C0.110,ma,9
+2,64418623,Compilerbouw practicum,P3,C0.110,ma,9
+3,25994016,Compilerbouw practicum,P3,C0.110,ma,9
+4,535689,Compilerbouw practicum,P3,C0.110,ma,9
+5,55103073,Compilerbouw practicum,P3,C0.110,ma,9
+6,1665980,Compilerbouw practicum,P3,C0.110,ma,9
+7,4568018,Compilerbouw practicum,P3,C0.110,ma,9
+8,51472074,Compilerbouw practicum,P3,C0.110,ma,9
+9,82066165,Compilerbouw practicum,P3,C0.110,ma,9
+10,52715680,Compilerbouw practicum,P3,C0.110,ma,9
+11,11068043,Compilerbouw practicum,P3,C0.110,ma,9
+12,99272880,Compilerbouw practicum,P3,C0.110,ma,9
+13,66701209,Project Genetic Algorithms,P3,C0.110,di,9
+14,48678993,Project Genetic Algorithms,P3,C0.110,di,9
+15,34773179,Project Genetic Algorithms,P3,C0.110,di,9
+16,88737765,Project Genetic Algorithms,P3,C0.110,di,9
+17,37770881,Project Genetic Algorithms,P3,C0.110,di,9
+18,69459473,Project Genetic Algorithms,P3,C0.110,di,9
+19,41644639,Project Genetic Algorithms,P3,C0.110,di,9
+20,27950803,Project Genetic Algorithms,P3,C0.110,di,9
+21,76661016,Project Genetic Algorithms,P3,C0.110,di,9
+22,94467156,Project Genetic Algorithms,P3,C0.110,di,9
+23,99283252,Project Genetic Algorithms,P3,C0.110,di,9
+24,68409833,Project Genetic Algorithms,P3,C0.110,di,9
+25,15187217,Databases 2,W1,C0.110,wo,9
+26,4921119,Databases 2,W1,C0.110,wo,9
+27,3168419,Databases 2,W1,C0.110,wo,9
+28,72456780,Databases 2,W1,C0.110,wo,9
+29,51566595,Databases 2,W1,C0.110,wo,9
+30,51542218,Databases 2,W1,C0.110,wo,9
+31,5526560,Databases 2,W1,C0.110,wo,9
+32,27123462,Databases 2,W1,C0.110,wo,9
+33,54540997,Databases 2,W1,C0.110,wo,9
+34,56191333,Databases 2,W1,C0.110,wo,9
+35,64947290,Databases 2,W1,C0.110,wo,9
+36,43902015,Databases 2,W1,C0.110,wo,9
+37,26207525,Databases 2,W1,C0.110,wo,9
+38,24277163,Databases 2,W1,C0.110,wo,9
+39,23257088,Databases 2,W1,C0.110,wo,9
+40,96054456,Databases 2,W1,C0.110,wo,9
+41,13092455,Databases 2,W1,C0.110,wo,9
+42,52552718,Databases 2,W1,C0.110,wo,9
+43,56749879,Databases 2,W1,C0.110,wo,9
+44,46989508,Databases 2,W1,C0.110,wo,9
+45,39459642,Databases 2,W1,C0.110,wo,9
+46,4529208,Databases 2,W1,C0.110,wo,9
+47,25077484,Databases 2,W1,C0.110,wo,9
+48,26406342,Databases 2,W1,C0.110,wo,9
+49,29526540,Databases 2,W1,C0.110,wo,9
+50,70072978,Databases 2,W1,C0.110,wo,9
+51,64296965,Databases 2,W1,C0.110,wo,9
+52,57467488,Databases 2,W1,C0.110,wo,9
+53,86180471,Databases 2,W1,C0.110,wo,9
+54,59397895,Databases 2,W1,C0.110,wo,9
+55,29640619,Databases 2,W1,C0.110,wo,9
+56,40141996,Databases 2,W1,C0.110,wo,9
+57,58083680,Databases 2,W1,C0.110,wo,9
+58,73823548,Databases 2,W1,C0.110,wo,9
+59,670011,Databases 2,W1,C0.110,wo,9
+60,62736669,Databases 2,W1,C0.110,wo,9
+61,28358060,Webprogrammeren en databases,H1,C0.110,do,9
+62,3474870,Webprogrammeren en databases,H1,C0.110,do,9
+63,6249823,Webprogrammeren en databases,H1,C0.110,do,9
+64,1137946,Webprogrammeren en databases,H1,C0.110,do,9
+65,64228258,Webprogrammeren en databases,H1,C0.110,do,9
+66,16333449,Webprogrammeren en databases,H1,C0.110,do,9
+67,24891081,Webprogrammeren en databases,H1,C0.110,do,9
+68,10698627,Webprogrammeren en databases,H1,C0.110,do,9
+69,33877725,Webprogrammeren en databases,H1,C0.110,do,9
+70,66034145,Webprogrammeren en databases,H1,C0.110,do,9
+71,53512831,Webprogrammeren en databases,H1,C0.110,do,9
+72,57086672,Webprogrammeren en databases,H1,C0.110,do,9
+73,89180944,Webprogrammeren en databases,H1,C0.110,do,9
+74,20618153,Webprogrammeren en databases,H1,C0.110,do,9
+75,77392404,Webprogrammeren en databases,H1,C0.110,do,9
+76,76648468,Webprogrammeren en databases,H1,C0.110,do,9
+77,14847953,Webprogrammeren en databases,H1,C0.110,do,9
+78,17092717,Webprogrammeren en databases,H1,C0.110,do,9
+79,78243495,Webprogrammeren en databases,H1,C0.110,do,9
+80,76903244,Webprogrammeren en databases,H1,C0.110,do,9
+81,94930277,Webprogrammeren en databases,H1,C0.110,do,9
+82,76123484,Webprogrammeren en databases,H1,C0.110,do,9
+83,49908313,Webprogrammeren en databases,H1,C0.110,do,9
+84,72895450,Webprogrammeren en databases,H1,C0.110,do,9
+85,41790793,Webprogrammeren en databases,H1,C0.110,do,9
+86,43902015,Webprogrammeren en databases,H1,C0.110,do,9
+87,22288615,Webprogrammeren en databases,H1,C0.110,do,9
+88,2416751,Webprogrammeren en databases,H1,C0.110,do,9
+89,72577292,Webprogrammeren en databases,H1,C0.110,do,9
+90,39230359,Webprogrammeren en databases,H1,C0.110,do,9
+91,53202517,Webprogrammeren en databases,H1,C0.110,do,9
+92,61443567,Webprogrammeren en databases,H1,C0.110,do,9
+93,40434933,Webprogrammeren en databases,H1,C0.110,do,9
+94,69459473,Webprogrammeren en databases,H1,C0.110,do,9
+95,14303208,Webprogrammeren en databases,H1,C0.110,do,9
+96,27064249,Webprogrammeren en databases,H1,C0.110,do,9
+97,43460038,Webprogrammeren en databases,H1,C0.110,do,9
+98,67073567,Webprogrammeren en databases,H1,C0.110,do,9
+99,5615125,Webprogrammeren en databases,H1,C0.110,do,9
+100,75521763,Technology for games,W1,C0.110,vr,9
+101,43680781,Technology for games,W1,C0.110,vr,9
+102,36785409,Technology for games,W1,C0.110,vr,9
+103,70336464,Technology for games,W1,C0.110,vr,9
+104,14383795,Technology for games,W1,C0.110,vr,9
+105,58565406,Technology for games,W1,C0.110,vr,9
+106,6249823,Technology for games,W1,C0.110,vr,9
+107,32204977,Technology for games,W1,C0.110,vr,9
+108,48308205,Technology for games,W1,C0.110,vr,9
+109,44901052,Technology for games,W1,C0.110,vr,9
+110,89338938,Technology for games,W1,C0.110,vr,9
+111,21192048,Technology for games,W1,C0.110,vr,9
+112,7106649,Technology for games,W1,C0.110,vr,9
+113,92496780,Technology for games,W1,C0.110,vr,9
+114,77264363,Technology for games,W1,C0.110,vr,9
+115,12077419,Technology for games,W1,C0.110,vr,9
+116,47982619,Technology for games,W1,C0.110,vr,9
+117,9332762,Technology for games,W1,C0.110,vr,9
+118,23547619,Technology for games,W1,C0.110,vr,9
+119,68409833,Autonomous Agents 2,W1,C0.110,ma,11
+120,39459642,Autonomous Agents 2,W1,C0.110,ma,11
+121,88627897,Autonomous Agents 2,W1,C0.110,ma,11
+122,62872965,Autonomous Agents 2,W1,C0.110,ma,11
+123,74131924,Autonomous Agents 2,W1,C0.110,ma,11
+124,11915563,Autonomous Agents 2,W1,C0.110,ma,11
+125,72796858,Autonomous Agents 2,W1,C0.110,ma,11
+126,16097870,Autonomous Agents 2,W1,C0.110,ma,11
+127,53585410,Calculus 2,W3,C0.110,di,11
+128,15902055,Calculus 2,W3,C0.110,di,11
+129,74182182,Calculus 2,W3,C0.110,di,11
+130,6709529,Calculus 2,W3,C0.110,di,11
+131,11593163,Calculus 2,W3,C0.110,di,11
+132,64228258,Calculus 2,W3,C0.110,di,11
+133,64600457,Calculus 2,W3,C0.110,di,11
+134,27187154,Calculus 2,W3,C0.110,di,11
+135,93361408,Calculus 2,W3,C0.110,di,11
+136,96054456,Calculus 2,W3,C0.110,di,11
+137,76661016,Calculus 2,W3,C0.110,di,11
+138,10609762,Calculus 2,W3,C0.110,di,11
+139,87900893,Calculus 2,W3,C0.110,di,11
+140,48357272,Calculus 2,W3,C0.110,di,11
+141,72665524,Calculus 2,W3,C0.110,di,11
+142,81155296,Calculus 2,W3,C0.110,di,11
+143,65408517,Calculus 2,W3,C0.110,di,11
+144,85335143,Calculus 2,W3,C0.110,di,11
+145,33760909,Calculus 2,W3,C0.110,di,11
+146,73823548,Calculus 2,W3,C0.110,di,11
+147,47932106,Calculus 2,W3,C0.110,di,11
+148,79888156,Calculus 2,W3,C0.110,di,11
+149,88855695,Calculus 2,W3,C0.110,di,11
+150,58592894,Calculus 2,W3,C0.110,di,11
+151,86000192,Calculus 2,W3,C0.110,di,11
+152,62105897,Calculus 2,W3,C0.110,di,11
+153,55530367,Calculus 2,W3,C0.110,di,11
+154,80188025,Calculus 2,W3,C0.110,di,11
+155,72526473,Calculus 2,W3,C0.110,di,11
+156,38296757,Calculus 2,W3,C0.110,di,11
+157,97135019,Calculus 2,W3,C0.110,di,11
+158,56544130,Calculus 2,W3,C0.110,di,11
+159,14816774,Calculus 2,W3,C0.110,di,11
+160,40141996,Calculus 2,W3,C0.110,di,11
+161,10792879,Calculus 2,W3,C0.110,di,11
+162,51741554,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+163,25330192,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+164,53267490,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+165,7308727,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+166,14398123,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+167,28618400,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+168,81385263,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+169,5590289,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+170,25557516,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+171,87830198,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+172,16912993,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+173,70939718,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+174,82872148,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+175,12170832,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+176,26207525,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+177,81022997,Netwerken en systeembeveiliging,P4,C0.110,wo,11
+178,77376714,Algoritmen en complexiteit,W1,C0.110,do,11
+179,3474870,Algoritmen en complexiteit,W1,C0.110,do,11
+180,27298319,Algoritmen en complexiteit,W1,C0.110,do,11
+181,46701583,Algoritmen en complexiteit,W1,C0.110,do,11
+182,26260141,Algoritmen en complexiteit,W1,C0.110,do,11
+183,96453361,Algoritmen en complexiteit,W1,C0.110,do,11
+184,66433883,Algoritmen en complexiteit,W1,C0.110,do,11
+185,19540225,Algoritmen en complexiteit,W1,C0.110,do,11
+186,88596522,Algoritmen en complexiteit,W1,C0.110,do,11
+187,3707829,Algoritmen en complexiteit,W1,C0.110,do,11
+188,23983476,Algoritmen en complexiteit,W1,C0.110,do,11
+189,8522855,Algoritmen en complexiteit,W1,C0.110,do,11
+190,51509565,Algoritmen en complexiteit,W1,C0.110,do,11
+191,53585410,Algoritmen en complexiteit,W1,C0.110,do,11
+192,21095566,Algoritmen en complexiteit,W1,C0.110,do,11
+193,64947290,Algoritmen en complexiteit,W1,C0.110,do,11
+194,91527663,Algoritmen en complexiteit,W1,C0.110,do,11
+195,41585485,Algoritmen en complexiteit,W1,C0.110,do,11
+196,82689818,Algoritmen en complexiteit,W1,C0.110,do,11
+197,40343779,Algoritmen en complexiteit,W1,C0.110,do,11
+198,81385263,Algoritmen en complexiteit,W1,C0.110,do,11
+199,14671406,Algoritmen en complexiteit,W1,C0.110,do,11
+200,44901052,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+201,13116738,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+202,8557857,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+203,18266644,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+204,70878567,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+205,23983476,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+206,17496687,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+207,13658563,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+208,68315599,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+209,19958553,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+210,32204977,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+211,29718115,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+212,58332004,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+213,11459236,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+214,62701040,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+215,36748818,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+216,92977271,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+217,77636749,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+218,23257088,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+219,75521763,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+220,75585647,Informatie- en organisatieontwerp,H2,C0.110,vr,11
+221,56988998,Machine Learning,H1,C0.110,ma,13
+222,67625383,Machine Learning,H1,C0.110,ma,13
+223,46701583,Machine Learning,H1,C0.110,ma,13
+224,77240949,Machine Learning,H1,C0.110,ma,13
+225,39459642,Machine Learning,H1,C0.110,ma,13
+226,2079771,Machine Learning,H1,C0.110,ma,13
+227,33252501,Machine Learning,H1,C0.110,ma,13
+228,27187154,Machine Learning,H1,C0.110,ma,13
+229,5976174,Machine Learning,H1,C0.110,ma,13
+230,94467156,Machine Learning,H1,C0.110,ma,13
+231,37744525,Machine Learning,H1,C0.110,ma,13
+232,26857113,Machine Learning,H1,C0.110,ma,13
+233,3685034,Machine Learning,H1,C0.110,ma,13
+234,49683101,Machine Learning,H1,C0.110,ma,13
+235,15051051,Machine Learning,H1,C0.110,ma,13
+236,85236626,Machine Learning,H1,C0.110,ma,13
+237,63111000,Machine Learning,H1,C0.110,ma,13
+238,40791377,Machine Learning,H1,C0.110,ma,13
+239,90067329,Machine Learning,H1,C0.110,ma,13
+240,61518436,Machine Learning,H1,C0.110,ma,13
+241,38296757,Machine Learning,H1,C0.110,ma,13
+242,23798155,Machine Learning,H1,C0.110,ma,13
+243,96104167,Collectieve Intelligentie,W4,C0.110,di,13
+244,97135019,Collectieve Intelligentie,W4,C0.110,di,13
+245,29640619,Collectieve Intelligentie,W4,C0.110,di,13
+246,54310617,Collectieve Intelligentie,W4,C0.110,di,13
+247,43027916,Collectieve Intelligentie,W4,C0.110,di,13
+248,42778953,Collectieve Intelligentie,W4,C0.110,di,13
+249,86000192,Collectieve Intelligentie,W4,C0.110,di,13
+250,53107172,Collectieve Intelligentie,W4,C0.110,di,13
+251,46052388,Collectieve Intelligentie,W4,C0.110,di,13
+252,25106480,Collectieve Intelligentie,W4,C0.110,di,13
+253,35330349,Collectieve Intelligentie,W4,C0.110,di,13
+254,31416266,Collectieve Intelligentie,W4,C0.110,di,13
+255,51741554,Collectieve Intelligentie,W4,C0.110,di,13
+256,68601184,Collectieve Intelligentie,W4,C0.110,di,13
+257,23547619,Collectieve Intelligentie,W4,C0.110,di,13
+258,45556081,Collectieve Intelligentie,P2,C0.110,wo,13
+259,17575088,Collectieve Intelligentie,P2,C0.110,wo,13
+260,1075391,Collectieve Intelligentie,P2,C0.110,wo,13
+261,7308727,Collectieve Intelligentie,P2,C0.110,wo,13
+262,72577292,Collectieve Intelligentie,P2,C0.110,wo,13
+263,64393888,Collectieve Intelligentie,P2,C0.110,wo,13
+264,26406342,Collectieve Intelligentie,P2,C0.110,wo,13
+265,50143947,Collectieve Intelligentie,P2,C0.110,wo,13
+266,75521763,Collectieve Intelligentie,P2,C0.110,wo,13
+267,21964491,Collectieve Intelligentie,P2,C0.110,wo,13
+268,65960683,Collectieve Intelligentie,P2,C0.110,wo,13
+269,77896638,Collectieve Intelligentie,P2,C0.110,wo,13
+270,48601268,Collectieve Intelligentie,P2,C0.110,wo,13
+271,5517869,Collectieve Intelligentie,P2,C0.110,wo,13
+272,29474737,Collectieve Intelligentie,P2,C0.110,wo,13
+273,58522654,Compilerbouw,H2,C0.110,do,13
+274,74361881,Compilerbouw,H2,C0.110,do,13
+275,38499176,Compilerbouw,H2,C0.110,do,13
+276,94687383,Compilerbouw,H2,C0.110,do,13
+277,98105190,Compilerbouw,H2,C0.110,do,13
+278,76661016,Compilerbouw,H2,C0.110,do,13
+279,81385263,Compilerbouw,H2,C0.110,do,13
+280,13911001,Compilerbouw,H2,C0.110,do,13
+281,39459642,Compilerbouw,H2,C0.110,do,13
+282,75599734,Compilerbouw,H2,C0.110,do,13
+283,11741347,Compilerbouw,H2,C0.110,do,13
+284,71839156,Compilerbouw,H2,C0.110,do,13
+285,53585410,Compilerbouw,H2,C0.110,do,13
+286,83266686,Compilerbouw,H2,C0.110,do,13
+287,48308205,Compilerbouw,H2,C0.110,do,13
+288,44151631,Compilerbouw,H2,C0.110,do,13
+289,31194811,Compilerbouw,H2,C0.110,do,13
+290,84524083,Compilerbouw,H2,C0.110,do,13
+291,65675896,Compilerbouw,H2,C0.110,do,13
+292,65852230,Compilerbouw,H2,C0.110,do,13
+293,34110913,Compilerbouw,H2,C0.110,do,13
+294,5595824,Compilerbouw,H2,C0.110,do,13
+295,60312776,Compilerbouw,H2,C0.110,do,13
+296,9067939,Compilerbouw,H2,C0.110,do,13
+297,42778953,Compilerbouw,H2,C0.110,do,13
+298,72895450,Compilerbouw,H2,C0.110,do,13
+299,5085194,Compilerbouw,H2,C0.110,do,13
+300,75759231,Compilerbouw,H2,C0.110,do,13
+301,95007221,Compilerbouw,H2,C0.110,do,13
+302,91250534,Compilerbouw,H2,C0.110,do,13
+303,34872117,Compilerbouw,H2,C0.110,do,13
+304,14383795,Compilerbouw,H2,C0.110,do,13
+305,25994016,Compilerbouw,H2,C0.110,do,13
+306,27950803,Compilerbouw,H2,C0.110,do,13
+307,53202517,Compilerbouw,H2,C0.110,do,13
+308,8464817,Compilerbouw,H2,C0.110,do,13
+309,40791377,Compilerbouw,H2,C0.110,do,13
+310,86291592,Compilerbouw,H2,C0.110,do,13
+311,3407554,Compilerbouw,H2,C0.110,do,13
+312,23215240,Compilerbouw,H2,C0.110,do,13
+313,37770881,Compilerbouw,H2,C0.110,do,13
+314,89985072,Compilerbouw,H2,C0.110,do,13
+315,5892092,Compilerbouw,H2,C0.110,do,13
+316,6723948,Compilerbouw,H2,C0.110,do,13
+317,52715680,Compilerbouw,H2,C0.110,do,13
+318,66701209,Compilerbouw,H2,C0.110,do,13
+319,57595888,Compilerbouw,H2,C0.110,do,13
+320,34243356,Compilerbouw,H2,C0.110,do,13
+321,64418623,Compilerbouw,H2,C0.110,do,13
+322,76802764,Compilerbouw,H2,C0.110,do,13
+323,4568018,Compilerbouw,H2,C0.110,do,13
+324,11068043,Compilerbouw,H2,C0.110,do,13
+325,24613625,Compilerbouw,H2,C0.110,do,13
+326,10792879,Compilerbouw,H2,C0.110,do,13
+327,14303208,Compilerbouw,H2,C0.110,do,13
+328,82066165,Compilerbouw,H2,C0.110,do,13
+329,75664412,Compilerbouw,H2,C0.110,do,13
+330,88636924,Compilerbouw,H2,C0.110,do,13
+331,49683101,Compilerbouw,H2,C0.110,do,13
+332,88855695,Compilerbouw,H2,C0.110,do,13
+333,73236988,Compilerbouw,H2,C0.110,do,13
+334,86988337,Compilerbouw,H2,C0.110,do,13
+335,42297781,Compilerbouw,H2,C0.110,do,13
+336,50143947,Compilerbouw,H2,C0.110,do,13
+337,2079771,Compilerbouw,H2,C0.110,do,13
+338,51673172,Compilerbouw,H2,C0.110,do,13
+339,30658799,Compilerbouw,H2,C0.110,do,13
+340,7957843,Compilerbouw,H2,C0.110,do,13
+341,92665222,Compilerbouw,H2,C0.110,do,13
+342,54772132,Compilerbouw,H2,C0.110,do,13
+343,5368702,Compilerbouw,H2,C0.110,do,13
+344,1695839,Compilerbouw,H2,C0.110,do,13
+345,1665980,Compilerbouw,H2,C0.110,do,13
+346,51472074,Compilerbouw,H2,C0.110,do,13
+347,68315599,Compilerbouw,H2,C0.110,do,13
+348,48503689,Compilerbouw,H2,C0.110,do,13
+349,26406342,Compilerbouw,H2,C0.110,do,13
+350,99272880,Compilerbouw,H2,C0.110,do,13
+351,12077419,Compilerbouw,H2,C0.110,do,13
+352,535689,Compilerbouw,H2,C0.110,do,13
+353,11459236,Compilerbouw,H2,C0.110,do,13
+354,14138904,Compilerbouw,H2,C0.110,do,13
+355,72796858,Compilerbouw,H2,C0.110,do,13
+356,15911353,Compilerbouw,H2,C0.110,do,13
+357,44391517,Compilerbouw,H2,C0.110,do,13
+358,27187154,Compilerbouw,H2,C0.110,do,13
+359,47260040,Compilerbouw,H2,C0.110,do,13
+360,80135353,Compilerbouw,H2,C0.110,do,13
+361,13284244,Compilerbouw,H2,C0.110,do,13
+362,2317551,Compilerbouw,H2,C0.110,do,13
+363,32204977,Compilerbouw,H2,C0.110,do,13
+364,14309255,Compilerbouw,H2,C0.110,do,13
+365,11915563,Compilerbouw,H2,C0.110,do,13
+366,63634350,Compilerbouw,H2,C0.110,do,13
+367,79033175,Compilerbouw,H2,C0.110,do,13
+368,43689934,Compilerbouw,H2,C0.110,do,13
+369,88596522,Compilerbouw,H2,C0.110,do,13
+370,79167252,Compilerbouw,H2,C0.110,do,13
+371,72665524,Compilerbouw,H2,C0.110,do,13
+372,65960683,Compilerbouw,H2,C0.110,do,13
+373,46989508,Compilerbouw,H2,C0.110,do,13
+374,1766560,Compilerbouw,H2,C0.110,do,13
+375,88752563,Compilerbouw,H2,C0.110,do,13
+376,55103073,Compilerbouw,H2,C0.110,do,13
+377,77896638,Compilerbouw,H2,C0.110,do,13
+378,95631564,Compilerbouw,H2,C0.110,do,13
+379,41644639,Compilerbouw,H2,C0.110,do,13
+380,22826928,Programmeren in Java 2,P1,C0.110,vr,13
+381,70113753,Programmeren in Java 2,P1,C0.110,vr,13
+382,31416266,Programmeren in Java 2,P1,C0.110,vr,13
+383,4709948,Programmeren in Java 2,P1,C0.110,vr,13
+384,2550487,Programmeren in Java 2,P1,C0.110,vr,13
+385,88519892,Programmeren in Java 2,P1,C0.110,vr,13
+386,9731271,Programmeren in Java 2,P1,C0.110,vr,13
+387,77896638,Programmeren in Java 2,P1,C0.110,vr,13
+388,86988337,Programmeren in Java 2,P1,C0.110,vr,13
+389,7386961,Programmeren in Java 2,P1,C0.110,vr,13
+390,54772132,Programmeren in Java 2,P1,C0.110,vr,13
+391,22288615,Programmeren in Java 2,P1,C0.110,vr,13
+392,64393888,Programmeren in Java 2,P1,C0.110,vr,13
+393,86000192,Programmeren in Java 2,P1,C0.110,vr,13
+394,88263855,Programmeren in Java 2,P1,C0.110,vr,13
+395,27187154,Programmeren in Java 2,P1,C0.110,vr,13
+396,96054456,Programmeren in Java 2,P1,C0.110,vr,13
+397,23658570,Programmeren in Java 2,P1,C0.110,vr,13
+398,64053722,Programmeren in Java 2,P1,C0.110,vr,13
+399,40791377,Compilerbouw,W2,C0.110,ma,15
+400,86291592,Compilerbouw,W2,C0.110,ma,15
+401,3407554,Compilerbouw,W2,C0.110,ma,15
+402,23215240,Compilerbouw,W2,C0.110,ma,15
+403,37770881,Compilerbouw,W2,C0.110,ma,15
+404,89985072,Compilerbouw,W2,C0.110,ma,15
+405,5892092,Compilerbouw,W2,C0.110,ma,15
+406,6723948,Compilerbouw,W2,C0.110,ma,15
+407,52715680,Compilerbouw,W2,C0.110,ma,15
+408,66701209,Compilerbouw,W2,C0.110,ma,15
+409,57595888,Compilerbouw,W2,C0.110,ma,15
+410,34243356,Compilerbouw,W2,C0.110,ma,15
+411,64418623,Compilerbouw,W2,C0.110,ma,15
+412,76802764,Compilerbouw,W2,C0.110,ma,15
+413,4568018,Compilerbouw,W2,C0.110,ma,15
+414,11068043,Compilerbouw,W2,C0.110,ma,15
+415,24613625,Compilerbouw,W2,C0.110,ma,15
+416,10792879,Compilerbouw,W2,C0.110,ma,15
+417,14303208,Compilerbouw,W2,C0.110,ma,15
+418,82066165,Compilerbouw,W2,C0.110,ma,15
+419,75664412,Compilerbouw,W2,C0.110,ma,15
+420,88636924,Compilerbouw,W2,C0.110,ma,15
+421,49683101,Compilerbouw,W2,C0.110,ma,15
+422,88855695,Compilerbouw,W2,C0.110,ma,15
+423,73236988,Compilerbouw,W2,C0.110,ma,15
+424,86988337,Compilerbouw,W2,C0.110,ma,15
+425,42297781,Compilerbouw,W2,C0.110,ma,15
+426,50143947,Compilerbouw,W2,C0.110,ma,15
+427,2079771,Compilerbouw,W2,C0.110,ma,15
+428,51673172,Compilerbouw,W2,C0.110,ma,15
+429,30658799,Compilerbouw,W2,C0.110,ma,15
+430,7957843,Compilerbouw,W2,C0.110,ma,15
+431,92665222,Compilerbouw,W2,C0.110,ma,15
+432,54772132,Compilerbouw,W2,C0.110,ma,15
+433,5368702,Compilerbouw,W2,C0.110,ma,15
+434,1695839,Compilerbouw,W2,C0.110,ma,15
+435,44901052,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+436,13116738,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+437,8557857,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+438,18266644,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+439,70878567,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+440,23983476,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+441,17496687,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+442,13658563,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+443,68315599,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+444,19958553,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+445,32204977,Informatie- en organisatieontwerp,P1,C0.110,wo,15
+446,15187217,Databases 2,H1,C0.110,do,15
+447,4921119,Databases 2,H1,C0.110,do,15
+448,3168419,Databases 2,H1,C0.110,do,15
+449,72456780,Databases 2,H1,C0.110,do,15
+450,51566595,Databases 2,H1,C0.110,do,15
+451,51542218,Databases 2,H1,C0.110,do,15
+452,5526560,Databases 2,H1,C0.110,do,15
+453,27123462,Databases 2,H1,C0.110,do,15
+454,54540997,Databases 2,H1,C0.110,do,15
+455,56191333,Databases 2,H1,C0.110,do,15
+456,64947290,Databases 2,H1,C0.110,do,15
+457,43902015,Databases 2,H1,C0.110,do,15
+458,26207525,Databases 2,H1,C0.110,do,15
+459,24277163,Databases 2,H1,C0.110,do,15
+460,23257088,Databases 2,H1,C0.110,do,15
+461,96054456,Databases 2,H1,C0.110,do,15
+462,13092455,Databases 2,H1,C0.110,do,15
+463,52552718,Databases 2,H1,C0.110,do,15
+464,56749879,Databases 2,H1,C0.110,do,15
+465,46989508,Databases 2,H1,C0.110,do,15
+466,39459642,Databases 2,H1,C0.110,do,15
+467,4529208,Databases 2,H1,C0.110,do,15
+468,25077484,Databases 2,H1,C0.110,do,15
+469,26406342,Databases 2,H1,C0.110,do,15
+470,29526540,Databases 2,H1,C0.110,do,15
+471,70072978,Databases 2,H1,C0.110,do,15
+472,64296965,Databases 2,H1,C0.110,do,15
+473,57467488,Databases 2,H1,C0.110,do,15
+474,86180471,Databases 2,H1,C0.110,do,15
+475,59397895,Databases 2,H1,C0.110,do,15
+476,29640619,Databases 2,H1,C0.110,do,15
+477,40141996,Databases 2,H1,C0.110,do,15
+478,58083680,Databases 2,H1,C0.110,do,15
+479,73823548,Databases 2,H1,C0.110,do,15
+480,670011,Databases 2,H1,C0.110,do,15
+481,62736669,Databases 2,H1,C0.110,do,15
+482,60352393,Databases 2,H1,C0.110,do,15
+483,58592894,Databases 2,H1,C0.110,do,15
+484,11996292,Databases 2,H1,C0.110,do,15
+485,12091019,Databases 2,H1,C0.110,do,15
+486,17092717,Databases 2,H1,C0.110,do,15
+487,47477884,Databases 2,H1,C0.110,do,15
+488,14816774,Databases 2,H1,C0.110,do,15
+489,76123484,Databases 2,H1,C0.110,do,15
+490,47932106,Databases 2,H1,C0.110,do,15
+491,13132925,Databases 2,H1,C0.110,do,15
+492,56872729,Databases 2,H1,C0.110,do,15
+493,17222374,Databases 2,H1,C0.110,do,15
+494,82689818,Databases 2,H1,C0.110,do,15
+495,86988337,Databases 2,H1,C0.110,do,15
+496,77960666,Databases 2,H1,C0.110,do,15
+497,58332004,Databases 2,H1,C0.110,do,15
+498,5517869,Databases 2,H1,C0.110,do,15
+499,34872117,Databases 2,H1,C0.110,do,15
+500,94686490,Databases 2,H1,C0.110,do,15
+501,91527663,Databases 2,H1,C0.110,do,15
+502,75005528,Databases 2,H1,C0.110,do,15
+503,78821918,Databases 2,H1,C0.110,do,15
+504,90474003,Databases 2,H1,C0.110,do,15
+505,43027916,Databases 2,H1,C0.110,do,15
+506,247918,Databases 2,H1,C0.110,do,15
+507,37701751,Databases 2,H1,C0.110,do,15
+508,56121590,Databases 2,H1,C0.110,do,15
+509,72796858,Databases 2,H1,C0.110,do,15
+510,5085194,Databases 2,H1,C0.110,do,15
+511,49631542,Databases 2,H1,C0.110,do,15
+512,88752563,Databases 2,H1,C0.110,do,15
+513,23658570,Databases 2,H1,C0.110,do,15
+514,40434933,Databases 2,H1,C0.110,do,15
+515,42196732,Databases 2,H1,C0.110,do,15
+516,77896638,Databases 2,H1,C0.110,do,15
+517,83869542,Databases 2,H1,C0.110,do,15
+518,58040377,Programmeren in Java 2,P5,C0.110,vr,15
+519,12782624,Programmeren in Java 2,P5,C0.110,vr,15
+520,15902055,Programmeren in Java 2,P5,C0.110,vr,15
+521,27582862,Programmeren in Java 2,P5,C0.110,vr,15
+522,33776961,Programmeren in Java 2,P5,C0.110,vr,15
+523,37744525,Programmeren in Java 2,P5,C0.110,vr,15
+524,47982619,Programmeren in Java 2,P5,C0.110,vr,15
+525,97019450,Programmeren in Java 2,P5,C0.110,vr,15
+526,54395877,Programmeren in Java 2,P5,C0.110,vr,15
+527,10702778,Programmeren in Java 2,P5,C0.110,vr,15
+528,23391676,Programmeren in Java 2,P5,C0.110,vr,15
+529,10698627,Programmeren in Java 2,P5,C0.110,vr,15
+530,8464817,Programmeren in Java 2,P5,C0.110,vr,15
+531,47477884,Programmeren in Java 2,P5,C0.110,vr,15
+532,88597745,Programmeren in Java 2,P5,C0.110,vr,15
+533,62701040,Programmeren in Java 2,P5,C0.110,vr,15
+534,73196865,Programmeren in Java 2,P5,C0.110,vr,15
+535,39459642,Programmeren in Java 2,P5,C0.110,vr,15
+536,94930277,Webprogrammeren en databases,P2,C1.112,ma,9
+537,76123484,Webprogrammeren en databases,P2,C1.112,ma,9
+538,49908313,Webprogrammeren en databases,P2,C1.112,ma,9
+539,72895450,Webprogrammeren en databases,P2,C1.112,ma,9
+540,41790793,Webprogrammeren en databases,P2,C1.112,ma,9
+541,43902015,Webprogrammeren en databases,P2,C1.112,ma,9
+542,22288615,Webprogrammeren en databases,P2,C1.112,ma,9
+543,2416751,Webprogrammeren en databases,P2,C1.112,ma,9
+544,72577292,Webprogrammeren en databases,P2,C1.112,ma,9
+545,39230359,Webprogrammeren en databases,P2,C1.112,ma,9
+546,53202517,Webprogrammeren en databases,P2,C1.112,ma,9
+547,61443567,Webprogrammeren en databases,P2,C1.112,ma,9
+548,40434933,Webprogrammeren en databases,P2,C1.112,ma,9
+549,69459473,Webprogrammeren en databases,P2,C1.112,ma,9
+550,14303208,Webprogrammeren en databases,P2,C1.112,ma,9
+551,27064249,Webprogrammeren en databases,P2,C1.112,ma,9
+552,43460038,Webprogrammeren en databases,P2,C1.112,ma,9
+553,67073567,Webprogrammeren en databases,P2,C1.112,ma,9
+554,5615125,Webprogrammeren en databases,P2,C1.112,ma,9
+555,45556081,Collectieve Intelligentie,W2,C1.112,di,9
+556,17575088,Collectieve Intelligentie,W2,C1.112,di,9
+557,1075391,Collectieve Intelligentie,W2,C1.112,di,9
+558,7308727,Collectieve Intelligentie,W2,C1.112,di,9
+559,72577292,Collectieve Intelligentie,W2,C1.112,di,9
+560,64393888,Collectieve Intelligentie,W2,C1.112,di,9
+561,26406342,Collectieve Intelligentie,W2,C1.112,di,9
+562,50143947,Collectieve Intelligentie,W2,C1.112,di,9
+563,75521763,Collectieve Intelligentie,W2,C1.112,di,9
+564,21964491,Collectieve Intelligentie,W2,C1.112,di,9
+565,65960683,Collectieve Intelligentie,W2,C1.112,di,9
+566,77896638,Collectieve Intelligentie,W2,C1.112,di,9
+567,48601268,Collectieve Intelligentie,W2,C1.112,di,9
+568,5517869,Collectieve Intelligentie,W2,C1.112,di,9
+569,29474737,Collectieve Intelligentie,W2,C1.112,di,9
+570,58522654,Compilerbouw,P1,C1.112,wo,9
+571,74361881,Compilerbouw,P1,C1.112,wo,9
+572,38499176,Compilerbouw,P1,C1.112,wo,9
+573,94687383,Compilerbouw,P1,C1.112,wo,9
+574,98105190,Compilerbouw,P1,C1.112,wo,9
+575,76661016,Compilerbouw,P1,C1.112,wo,9
+576,81385263,Compilerbouw,P1,C1.112,wo,9
+577,13911001,Compilerbouw,P1,C1.112,wo,9
+578,39459642,Compilerbouw,P1,C1.112,wo,9
+579,75599734,Compilerbouw,P1,C1.112,wo,9
+580,11741347,Compilerbouw,P1,C1.112,wo,9
+581,71839156,Compilerbouw,P1,C1.112,wo,9
+582,53585410,Compilerbouw,P1,C1.112,wo,9
+583,83266686,Compilerbouw,P1,C1.112,wo,9
+584,48308205,Compilerbouw,P1,C1.112,wo,9
+585,44151631,Compilerbouw,P1,C1.112,wo,9
+586,31194811,Compilerbouw,P1,C1.112,wo,9
+587,84524083,Compilerbouw,P1,C1.112,wo,9
+588,65675896,Compilerbouw,P1,C1.112,wo,9
+589,65852230,Compilerbouw,P1,C1.112,wo,9
+590,34110913,Compilerbouw,P1,C1.112,wo,9
+591,5595824,Compilerbouw,P1,C1.112,wo,9
+592,60312776,Compilerbouw,P1,C1.112,wo,9
+593,9067939,Compilerbouw,P1,C1.112,wo,9
+594,42778953,Compilerbouw,P1,C1.112,wo,9
+595,72895450,Compilerbouw,P1,C1.112,wo,9
+596,5085194,Compilerbouw,P1,C1.112,wo,9
+597,75759231,Compilerbouw,P1,C1.112,wo,9
+598,95007221,Compilerbouw,P1,C1.112,wo,9
+599,91250534,Compilerbouw,P1,C1.112,wo,9
+600,34872117,Compilerbouw,P1,C1.112,wo,9
+601,14383795,Compilerbouw,P1,C1.112,wo,9
+602,25994016,Compilerbouw,P1,C1.112,wo,9
+603,27950803,Compilerbouw,P1,C1.112,wo,9
+604,53202517,Compilerbouw,P1,C1.112,wo,9
+605,8464817,Compilerbouw,P1,C1.112,wo,9
+606,24277163,Moderne Databases,W2,C1.112,do,9
+607,51650744,Moderne Databases,W2,C1.112,do,9
+608,17222374,Moderne Databases,W2,C1.112,do,9
+609,77376714,Moderne Databases,W2,C1.112,do,9
+610,27916487,Moderne Databases,W2,C1.112,do,9
+611,89180944,Moderne Databases,W2,C1.112,do,9
+612,84449005,Moderne Databases,W2,C1.112,do,9
+613,99283252,Moderne Databases,W2,C1.112,do,9
+614,48198668,Moderne Databases,W2,C1.112,do,9
+615,66621166,Moderne Databases,W2,C1.112,do,9
+616,18144425,Moderne Databases,W2,C1.112,do,9
+617,68315599,Moderne Databases,W2,C1.112,do,9
+618,29526540,Moderne Databases,W2,C1.112,do,9
+619,58592894,Moderne Databases,W2,C1.112,do,9
+620,13218321,Moderne Databases,W2,C1.112,do,9
+621,58699305,Moderne Databases,W2,C1.112,do,9
+622,42171678,Moderne Databases,W2,C1.112,do,9
+623,27241113,Moderne Databases,W2,C1.112,do,9
+624,59544049,Software engineering,H1,C1.112,vr,9
+625,44671041,Software engineering,H1,C1.112,vr,9
+626,27582862,Software engineering,H1,C1.112,vr,9
+627,77376714,Software engineering,H1,C1.112,vr,9
+628,44868097,Software engineering,H1,C1.112,vr,9
+629,4783858,Software engineering,H1,C1.112,vr,9
+630,31103066,Software engineering,H1,C1.112,vr,9
+631,55474917,Software engineering,H1,C1.112,vr,9
+632,33877725,Software engineering,H1,C1.112,vr,9
+633,60312776,Software engineering,H1,C1.112,vr,9
+634,89338938,Software engineering,H1,C1.112,vr,9
+635,37744525,Software engineering,H1,C1.112,vr,9
+636,65408517,Software engineering,H1,C1.112,vr,9
+637,50143947,Software engineering,H1,C1.112,vr,9
+638,22871048,Software engineering,H1,C1.112,vr,9
+639,26260141,Software engineering,H1,C1.112,vr,9
+640,52715680,Software engineering,H1,C1.112,vr,9
+641,58565406,Software engineering,H1,C1.112,vr,9
+642,73236988,Software engineering,H1,C1.112,vr,9
+643,78243495,Software engineering,H1,C1.112,vr,9
+644,51593625,Software engineering,H1,C1.112,vr,9
+645,21095566,Software engineering,H1,C1.112,vr,9
+646,52311353,Software engineering,H1,C1.112,vr,9
+647,31247305,Software engineering,H1,C1.112,vr,9
+648,4546613,Software engineering,H1,C1.112,vr,9
+649,62356458,Software engineering,H1,C1.112,vr,9
+650,84110134,Software engineering,H1,C1.112,vr,9
+651,14309255,Software engineering,H1,C1.112,vr,9
+652,82872148,Software engineering,H1,C1.112,vr,9
+653,1048485,Software engineering,H1,C1.112,vr,9
+654,14671406,Software engineering,H1,C1.112,vr,9
+655,25106480,Software engineering,H1,C1.112,vr,9
+656,31633723,Software engineering,H1,C1.112,vr,9
+657,11068043,Software engineering,H1,C1.112,vr,9
+658,62105897,Software engineering,H1,C1.112,vr,9
+659,4568018,Software engineering,H1,C1.112,vr,9
+660,80709893,Software engineering,H1,C1.112,vr,9
+661,88176729,Software engineering,H1,C1.112,vr,9
+662,37830626,Software engineering,H1,C1.112,vr,9
+663,3727435,Software engineering,H1,C1.112,vr,9
+664,89985072,Software engineering,H1,C1.112,vr,9
+665,89180944,Software engineering,H1,C1.112,vr,9
+666,83210352,Software engineering,H1,C1.112,vr,9
+667,27950803,Software engineering,H1,C1.112,vr,9
+668,14072826,Software engineering,H1,C1.112,vr,9
+669,28357474,Software engineering,H1,C1.112,vr,9
+670,41153310,Software engineering,H1,C1.112,vr,9
+671,65318664,Software engineering,H1,C1.112,vr,9
+672,22323043,Software engineering,H1,C1.112,vr,9
+673,96554914,Software engineering,H1,C1.112,vr,9
+674,52552718,Software engineering,H1,C1.112,vr,9
+675,99283252,Software engineering,H1,C1.112,vr,9
+676,48357272,Software engineering,H1,C1.112,vr,9
+677,95631564,Software engineering,H1,C1.112,vr,9
+678,78443067,Software engineering,H1,C1.112,vr,9
+679,68409833,Software engineering,H1,C1.112,vr,9
+680,42115591,Software engineering,H1,C1.112,vr,9
+681,61060652,Software engineering,H1,C1.112,vr,9
+682,48601268,Software engineering,H1,C1.112,vr,9
+683,45915482,Software engineering,H1,C1.112,vr,9
+684,3233378,Software engineering,H1,C1.112,vr,9
+685,5976174,Software engineering,H1,C1.112,vr,9
+686,29640619,Software engineering,H1,C1.112,vr,9
+687,40343779,Software engineering,H1,C1.112,vr,9
+688,58074656,Software engineering,H1,C1.112,vr,9
+689,41527759,Software engineering,H1,C1.112,vr,9
+690,94467156,Software engineering,H1,C1.112,vr,9
+691,11915563,Software engineering,H1,C1.112,vr,9
+692,70015932,Software engineering,H1,C1.112,vr,9
+693,73302736,Software engineering,H1,C1.112,vr,9
+694,54026378,Software engineering,H1,C1.112,vr,9
+695,43460038,Software engineering,H1,C1.112,vr,9
+696,13718298,Software engineering,H1,C1.112,vr,9
+697,75599734,Software engineering,H1,C1.112,vr,9
+698,9287708,Software engineering,H1,C1.112,vr,9
+699,29718115,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+700,58332004,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+701,11459236,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+702,62701040,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+703,36748818,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+704,92977271,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+705,77636749,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+706,23257088,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+707,75521763,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+708,75585647,Informatie- en organisatieontwerp,W2,C1.112,ma,11
+709,11996292,Heuristieken 1,H1,C1.112,di,11
+710,4568018,Heuristieken 1,H1,C1.112,di,11
+711,79879876,Heuristieken 1,H1,C1.112,di,11
+712,14591033,Heuristieken 1,H1,C1.112,di,11
+713,94930277,Heuristieken 1,H1,C1.112,di,11
+714,37110913,Heuristieken 1,H1,C1.112,di,11
+715,75997788,Heuristieken 1,H1,C1.112,di,11
+716,57467488,Heuristieken 1,H1,C1.112,di,11
+717,14816774,Heuristieken 1,H1,C1.112,di,11
+718,19858730,Heuristieken 1,H1,C1.112,di,11
+719,14138904,Heuristieken 1,H1,C1.112,di,11
+720,31897288,Heuristieken 1,H1,C1.112,di,11
+721,86807027,Heuristieken 1,H1,C1.112,di,11
+722,36903574,Heuristieken 1,H1,C1.112,di,11
+723,75521763,Heuristieken 1,H1,C1.112,di,11
+724,66122625,Heuristieken 1,H1,C1.112,di,11
+725,81218347,Heuristieken 1,H1,C1.112,di,11
+726,22323043,Heuristieken 1,H1,C1.112,di,11
+727,83443653,Heuristieken 1,H1,C1.112,di,11
+728,42171678,Heuristieken 1,H1,C1.112,di,11
+729,44901052,Heuristieken 1,H1,C1.112,di,11
+730,61060652,Heuristieken 1,H1,C1.112,di,11
+731,4783858,Heuristieken 1,H1,C1.112,di,11
+732,48357272,Heuristieken 1,H1,C1.112,di,11
+733,4353500,Heuristieken 1,H1,C1.112,di,11
+734,13658563,Heuristieken 1,H1,C1.112,di,11
+735,97417002,Heuristieken 1,H1,C1.112,di,11
+736,76393508,Heuristieken 1,H1,C1.112,di,11
+737,59075181,Heuristieken 1,H1,C1.112,di,11
+738,14941752,Heuristieken 1,H1,C1.112,di,11
+739,20331158,Heuristieken 1,H1,C1.112,di,11
+740,58736785,Heuristieken 1,H1,C1.112,di,11
+741,92977271,Heuristieken 1,H1,C1.112,di,11
+742,98105190,Heuristieken 1,H1,C1.112,di,11
+743,71839156,Heuristieken 1,H1,C1.112,di,11
+744,97019450,Heuristieken 1,H1,C1.112,di,11
+745,20830477,Heuristieken 1,H1,C1.112,di,11
+746,53107172,Heuristieken 1,H1,C1.112,di,11
+747,22871048,Heuristieken 1,H1,C1.112,di,11
+748,87210640,Heuristieken 1,H1,C1.112,di,11
+749,45660925,Heuristieken 1,H1,C1.112,di,11
+750,56749879,Heuristieken 1,H1,C1.112,di,11
+751,53775014,Heuristieken 1,H1,C1.112,di,11
+752,1696500,Heuristieken 1,H1,C1.112,di,11
+753,59753700,Data Mining,P1,C1.112,wo,11
+754,45414528,Data Mining,P1,C1.112,wo,11
+755,70878567,Data Mining,P1,C1.112,wo,11
+756,98780382,Data Mining,P1,C1.112,wo,11
+757,87900893,Data Mining,P1,C1.112,wo,11
+758,87314964,Data Mining,P1,C1.112,wo,11
+759,37110913,Data Mining,P1,C1.112,wo,11
+760,81200278,Data Mining,P1,C1.112,wo,11
+761,97136582,Data Mining,P1,C1.112,wo,11
+762,27925117,Architectuur en computerorganisatie,H1,C1.112,do,11
+763,40434933,Architectuur en computerorganisatie,H1,C1.112,do,11
+764,45556081,Architectuur en computerorganisatie,H1,C1.112,do,11
+765,10149535,Architectuur en computerorganisatie,H1,C1.112,do,11
+766,49683101,Architectuur en computerorganisatie,H1,C1.112,do,11
+767,20331158,Architectuur en computerorganisatie,H1,C1.112,do,11
+768,70015932,Architectuur en computerorganisatie,H1,C1.112,do,11
+769,34872117,Architectuur en computerorganisatie,H1,C1.112,do,11
+770,72683344,Architectuur en computerorganisatie,H1,C1.112,do,11
+771,82689818,Architectuur en computerorganisatie,H1,C1.112,do,11
+772,59289233,Architectuur en computerorganisatie,H1,C1.112,do,11
+773,72577292,Architectuur en computerorganisatie,H1,C1.112,do,11
+774,23798155,Architectuur en computerorganisatie,H1,C1.112,do,11
+775,58866007,Architectuur en computerorganisatie,H1,C1.112,do,11
+776,28618400,Architectuur en computerorganisatie,H1,C1.112,do,11
+777,14138904,Architectuur en computerorganisatie,H1,C1.112,do,11
+778,29718115,Architectuur en computerorganisatie,H1,C1.112,do,11
+779,89180944,Architectuur en computerorganisatie,H1,C1.112,do,11
+780,83266686,Architectuur en computerorganisatie,H1,C1.112,do,11
+781,13798030,Architectuur en computerorganisatie,H1,C1.112,do,11
+782,43460038,Architectuur en computerorganisatie,H1,C1.112,do,11
+783,58522654,Compilerbouw,W1,C1.112,vr,11
+784,74361881,Compilerbouw,W1,C1.112,vr,11
+785,38499176,Compilerbouw,W1,C1.112,vr,11
+786,94687383,Compilerbouw,W1,C1.112,vr,11
+787,98105190,Compilerbouw,W1,C1.112,vr,11
+788,76661016,Compilerbouw,W1,C1.112,vr,11
+789,81385263,Compilerbouw,W1,C1.112,vr,11
+790,13911001,Compilerbouw,W1,C1.112,vr,11
+791,39459642,Compilerbouw,W1,C1.112,vr,11
+792,75599734,Compilerbouw,W1,C1.112,vr,11
+793,11741347,Compilerbouw,W1,C1.112,vr,11
+794,71839156,Compilerbouw,W1,C1.112,vr,11
+795,53585410,Compilerbouw,W1,C1.112,vr,11
+796,83266686,Compilerbouw,W1,C1.112,vr,11
+797,48308205,Compilerbouw,W1,C1.112,vr,11
+798,44151631,Compilerbouw,W1,C1.112,vr,11
+799,31194811,Compilerbouw,W1,C1.112,vr,11
+800,84524083,Compilerbouw,W1,C1.112,vr,11
+801,65675896,Compilerbouw,W1,C1.112,vr,11
+802,65852230,Compilerbouw,W1,C1.112,vr,11
+803,34110913,Compilerbouw,W1,C1.112,vr,11
+804,5595824,Compilerbouw,W1,C1.112,vr,11
+805,60312776,Compilerbouw,W1,C1.112,vr,11
+806,9067939,Compilerbouw,W1,C1.112,vr,11
+807,42778953,Compilerbouw,W1,C1.112,vr,11
+808,72895450,Compilerbouw,W1,C1.112,vr,11
+809,5085194,Compilerbouw,W1,C1.112,vr,11
+810,75759231,Compilerbouw,W1,C1.112,vr,11
+811,95007221,Compilerbouw,W1,C1.112,vr,11
+812,91250534,Compilerbouw,W1,C1.112,vr,11
+813,34872117,Compilerbouw,W1,C1.112,vr,11
+814,14383795,Compilerbouw,W1,C1.112,vr,11
+815,25994016,Compilerbouw,W1,C1.112,vr,11
+816,27950803,Compilerbouw,W1,C1.112,vr,11
+817,53202517,Compilerbouw,W1,C1.112,vr,11
+818,8464817,Compilerbouw,W1,C1.112,vr,11
+819,59753700,Data Mining,W1,C1.112,ma,13
+820,45414528,Data Mining,W1,C1.112,ma,13
+821,70878567,Data Mining,W1,C1.112,ma,13
+822,98780382,Data Mining,W1,C1.112,ma,13
+823,87900893,Data Mining,W1,C1.112,ma,13
+824,87314964,Data Mining,W1,C1.112,ma,13
+825,37110913,Data Mining,W1,C1.112,ma,13
+826,81200278,Data Mining,W1,C1.112,ma,13
+827,97136582,Data Mining,W1,C1.112,ma,13
+828,86807027,Advanced Heuristics,P2,C1.112,di,13
+829,72577292,Advanced Heuristics,P2,C1.112,di,13
+830,78136904,Advanced Heuristics,P2,C1.112,di,13
+831,72665524,Advanced Heuristics,P2,C1.112,di,13
+832,3168419,Advanced Heuristics,P2,C1.112,di,13
+833,92665222,Advanced Heuristics,P2,C1.112,di,13
+834,75997788,Advanced Heuristics,P2,C1.112,di,13
+835,39429093,Advanced Heuristics,P2,C1.112,di,13
+836,27064249,Advanced Heuristics,P2,C1.112,di,13
+837,20883994,Advanced Heuristics,P2,C1.112,di,13
+838,37830626,Software engineering,P2,C1.112,wo,13
+839,3727435,Software engineering,P2,C1.112,wo,13
+840,89985072,Software engineering,P2,C1.112,wo,13
+841,89180944,Software engineering,P2,C1.112,wo,13
+842,83210352,Software engineering,P2,C1.112,wo,13
+843,27950803,Software engineering,P2,C1.112,wo,13
+844,14072826,Software engineering,P2,C1.112,wo,13
+845,28357474,Software engineering,P2,C1.112,wo,13
+846,41153310,Software engineering,P2,C1.112,wo,13
+847,65318664,Software engineering,P2,C1.112,wo,13
+848,22323043,Software engineering,P2,C1.112,wo,13
+849,96554914,Software engineering,P2,C1.112,wo,13
+850,52552718,Software engineering,P2,C1.112,wo,13
+851,99283252,Software engineering,P2,C1.112,wo,13
+852,48357272,Software engineering,P2,C1.112,wo,13
+853,95631564,Software engineering,P2,C1.112,wo,13
+854,78443067,Software engineering,P2,C1.112,wo,13
+855,68409833,Software engineering,P2,C1.112,wo,13
+856,42115591,Software engineering,P2,C1.112,wo,13
+857,61060652,Software engineering,P2,C1.112,wo,13
+858,48601268,Software engineering,P2,C1.112,wo,13
+859,45915482,Software engineering,P2,C1.112,wo,13
+860,3233378,Software engineering,P2,C1.112,wo,13
+861,5976174,Software engineering,P2,C1.112,wo,13
+862,29640619,Software engineering,P2,C1.112,wo,13
+863,40343779,Software engineering,P2,C1.112,wo,13
+864,58074656,Software engineering,P2,C1.112,wo,13
+865,41527759,Software engineering,P2,C1.112,wo,13
+866,94467156,Software engineering,P2,C1.112,wo,13
+867,11915563,Software engineering,P2,C1.112,wo,13
+868,70015932,Software engineering,P2,C1.112,wo,13
+869,73302736,Software engineering,P2,C1.112,wo,13
+870,54026378,Software engineering,P2,C1.112,wo,13
+871,43460038,Software engineering,P2,C1.112,wo,13
+872,13718298,Software engineering,P2,C1.112,wo,13
+873,75599734,Software engineering,P2,C1.112,wo,13
+874,9287708,Software engineering,P2,C1.112,wo,13
+875,41527759,Algoritmen en complexiteit,W2,C1.112,vr,13
+876,57467488,Algoritmen en complexiteit,W2,C1.112,vr,13
+877,72895450,Algoritmen en complexiteit,W2,C1.112,vr,13
+878,52715680,Algoritmen en complexiteit,W2,C1.112,vr,13
+879,44828429,Algoritmen en complexiteit,W2,C1.112,vr,13
+880,36903574,Algoritmen en complexiteit,W2,C1.112,vr,13
+881,15902055,Algoritmen en complexiteit,W2,C1.112,vr,13
+882,86988337,Algoritmen en complexiteit,W2,C1.112,vr,13
+883,34765676,Algoritmen en complexiteit,W2,C1.112,vr,13
+884,5976174,Algoritmen en complexiteit,W2,C1.112,vr,13
+885,43902015,Algoritmen en complexiteit,W2,C1.112,vr,13
+886,51566595,Algoritmen en complexiteit,W2,C1.112,vr,13
+887,67817269,Algoritmen en complexiteit,W2,C1.112,vr,13
+888,12077419,Algoritmen en complexiteit,W2,C1.112,vr,13
+889,78136904,Algoritmen en complexiteit,W2,C1.112,vr,13
+890,58592894,Algoritmen en complexiteit,W2,C1.112,vr,13
+891,23652927,Algoritmen en complexiteit,W2,C1.112,vr,13
+892,21964491,Algoritmen en complexiteit,W2,C1.112,vr,13
+893,64554442,Algoritmen en complexiteit,W2,C1.112,vr,13
+894,1665980,Algoritmen en complexiteit,W2,C1.112,vr,13
+895,50143947,Algoritmen en complexiteit,W2,C1.112,vr,13
+896,3685034,Project Numerical Recipes,P2,C1.112,ma,15
+897,62356458,Project Numerical Recipes,P2,C1.112,ma,15
+898,86291592,Project Numerical Recipes,P2,C1.112,ma,15
+899,37419523,Project Numerical Recipes,P2,C1.112,ma,15
+900,28618400,Project Numerical Recipes,P2,C1.112,ma,15
+901,32044893,Project Numerical Recipes,P2,C1.112,ma,15
+902,73823548,Project Numerical Recipes,P2,C1.112,ma,15
+903,13092455,Project Numerical Recipes,P2,C1.112,ma,15
+904,34691309,Project Numerical Recipes,P2,C1.112,ma,15
+905,32183908,Project Numerical Recipes,P2,C1.112,ma,15
+906,88752563,Project Numerical Recipes,P2,C1.112,ma,15
+907,72895450,Project Numerical Recipes,P2,C1.112,ma,15
+908,74182182,Project Numerical Recipes,P2,C1.112,ma,15
+909,6939933,Project Numerical Recipes,P2,C1.112,ma,15
+910,60312776,Project Numerical Recipes,P2,C1.112,ma,15
+911,27298319,Autonomous Agents 2,P2,C1.112,di,15
+912,61611295,Autonomous Agents 2,P2,C1.112,di,15
+913,5517869,Autonomous Agents 2,P2,C1.112,di,15
+914,70113753,Autonomous Agents 2,P2,C1.112,di,15
+915,34806836,Autonomous Agents 2,P2,C1.112,di,15
+916,52552718,Autonomous Agents 2,P2,C1.112,di,15
+917,19858730,Autonomous Agents 2,P2,C1.112,di,15
+918,44940353,Kansrekenen 2,H1,C1.112,wo,15
+919,72547110,Kansrekenen 2,H1,C1.112,wo,15
+920,84524083,Kansrekenen 2,H1,C1.112,wo,15
+921,96054456,Kansrekenen 2,H1,C1.112,wo,15
+922,91196968,Kansrekenen 2,H1,C1.112,wo,15
+923,54310617,Kansrekenen 2,H1,C1.112,wo,15
+924,31247305,Kansrekenen 2,H1,C1.112,wo,15
+925,94955328,Kansrekenen 2,H1,C1.112,wo,15
+926,46570285,Kansrekenen 2,H1,C1.112,wo,15
+927,81218347,Kansrekenen 2,H1,C1.112,wo,15
+928,39230359,Kansrekenen 2,H1,C1.112,wo,15
+929,47605891,Kansrekenen 2,H1,C1.112,wo,15
+930,20239127,Kansrekenen 2,H1,C1.112,wo,15
+931,3685034,Kansrekenen 2,H1,C1.112,wo,15
+932,47462856,Kansrekenen 2,H1,C1.112,wo,15
+933,82688900,Kansrekenen 2,H1,C1.112,wo,15
+934,42115591,Kansrekenen 2,H1,C1.112,wo,15
+935,8522855,Kansrekenen 2,H1,C1.112,wo,15
+936,63408522,Kansrekenen 2,H1,C1.112,wo,15
+937,61518436,Kansrekenen 2,H1,C1.112,wo,15
+938,97019450,Kansrekenen 2,H1,C1.112,wo,15
+939,20331158,Kansrekenen 2,H1,C1.112,wo,15
+940,63634350,Kansrekenen 2,H1,C1.112,wo,15
+941,59075181,Kansrekenen 2,H1,C1.112,wo,15
+942,55474917,Kansrekenen 2,H1,C1.112,wo,15
+943,38499176,Kansrekenen 2,H1,C1.112,wo,15
+944,36903574,Kansrekenen 2,H1,C1.112,wo,15
+945,32705005,Kansrekenen 2,H1,C1.112,wo,15
+946,94467156,Kansrekenen 2,H1,C1.112,wo,15
+947,77240949,Kansrekenen 2,H1,C1.112,wo,15
+948,5368702,Kansrekenen 2,H1,C1.112,wo,15
+949,58469172,Kansrekenen 2,H1,C1.112,wo,15
+950,23798155,Kansrekenen 2,H1,C1.112,wo,15
+951,78735049,Kansrekenen 2,H1,C1.112,wo,15
+952,79858178,Kansrekenen 2,H1,C1.112,wo,15
+953,79366078,Kansrekenen 2,H1,C1.112,wo,15
+954,23391676,Kansrekenen 2,H1,C1.112,wo,15
+955,65003379,Kansrekenen 2,H1,C1.112,wo,15
+956,10792879,Kansrekenen 2,H1,C1.112,wo,15
+957,49631542,Kansrekenen 2,H1,C1.112,wo,15
+958,54569540,Kansrekenen 2,H1,C1.112,wo,15
+959,22731474,Kansrekenen 2,H1,C1.112,wo,15
+960,84110134,Kansrekenen 2,H1,C1.112,wo,15
+961,58332004,Kansrekenen 2,H1,C1.112,wo,15
+962,14398123,Kansrekenen 2,H1,C1.112,wo,15
+963,56749879,Kansrekenen 2,H1,C1.112,wo,15
+964,27187154,Kansrekenen 2,H1,C1.112,wo,15
+965,89338938,Kansrekenen 2,H1,C1.112,wo,15
+966,76924297,Kansrekenen 2,H1,C1.112,wo,15
+967,5615125,Kansrekenen 2,H1,C1.112,wo,15
+968,31633723,Kansrekenen 2,H1,C1.112,wo,15
+969,69086548,Kansrekenen 2,H1,C1.112,wo,15
+970,51186803,Kansrekenen 2,H1,C1.112,wo,15
+971,14671406,Kansrekenen 2,H1,C1.112,wo,15
+972,41585485,Kansrekenen 2,H1,C1.112,wo,15
+973,34243356,Kansrekenen 2,H1,C1.112,wo,15
+974,28957789,Kansrekenen 2,H1,C1.112,wo,15
+975,58522654,Kansrekenen 2,H1,C1.112,wo,15
+976,37498675,Kansrekenen 2,H1,C1.112,wo,15
+977,51542218,Kansrekenen 2,H1,C1.112,wo,15
+978,63955238,Kansrekenen 2,H1,C1.112,wo,15
+979,78136904,Kansrekenen 2,H1,C1.112,wo,15
+980,24875739,Kansrekenen 2,H1,C1.112,wo,15
+981,11915563,Kansrekenen 2,H1,C1.112,wo,15
+982,38329455,Kansrekenen 2,H1,C1.112,wo,15
+983,20883994,Kansrekenen 2,H1,C1.112,wo,15
+984,74182182,Kansrekenen 2,H1,C1.112,wo,15
+985,64296965,Kansrekenen 2,H1,C1.112,wo,15
+986,18266644,Kansrekenen 2,H1,C1.112,wo,15
+987,91139627,Kansrekenen 2,H1,C1.112,wo,15
+988,97371272,Kansrekenen 2,H1,C1.112,wo,15
+989,14591033,Kansrekenen 2,H1,C1.112,wo,15
+990,56988998,Kansrekenen 2,H1,C1.112,wo,15
+991,9731271,Kansrekenen 2,H1,C1.112,wo,15
+992,10872825,Kansrekenen 2,H1,C1.112,wo,15
+993,77636749,Kansrekenen 2,H1,C1.112,wo,15
+994,41527759,Kansrekenen 2,H1,C1.112,wo,15
+995,34262212,Kansrekenen 2,H1,C1.112,wo,15
+996,17823206,Kansrekenen 2,H1,C1.112,wo,15
+997,39919665,Kansrekenen 2,H1,C1.112,wo,15
+998,7492204,Kansrekenen 2,H1,C1.112,wo,15
+999,99272880,Kansrekenen 2,H1,C1.112,wo,15
+1000,39659121,Kansrekenen 2,H1,C1.112,wo,15
+1001,59544049,Kansrekenen 2,H1,C1.112,wo,15
+1002,88176729,Bioinformatica,P2,C1.112,do,15
+1003,6913074,Bioinformatica,P2,C1.112,do,15
+1004,81200278,Bioinformatica,P2,C1.112,do,15
+1005,29526540,Bioinformatica,P2,C1.112,do,15
+1006,14591033,Bioinformatica,P2,C1.112,do,15
+1007,56749879,Bioinformatica,P2,C1.112,do,15
+1008,64600457,Bioinformatica,P2,C1.112,do,15
+1009,85335143,Bioinformatica,P2,C1.112,do,15
+1010,5298748,Bioinformatica,P2,C1.112,do,15
+1011,33930505,Bioinformatica,P2,C1.112,do,15
+1012,11068043,Bioinformatica,P2,C1.112,do,15
+1013,30195935,Bioinformatica,P2,C1.112,do,15
+1014,21029457,Bioinformatica,P2,C1.112,do,15
+1015,54026378,Bioinformatica,P2,C1.112,do,15
+1016,44868097,Bioinformatica,P2,C1.112,do,15
+1017,8522855,Project Genetic Algorithms,P1,C1.112,vr,15
+1018,5526560,Project Genetic Algorithms,P1,C1.112,vr,15
+1019,78821918,Project Genetic Algorithms,P1,C1.112,vr,15
+1020,74361881,Project Genetic Algorithms,P1,C1.112,vr,15
+1021,24613625,Project Genetic Algorithms,P1,C1.112,vr,15
+1022,14398123,Project Genetic Algorithms,P1,C1.112,vr,15
+1023,25106480,Project Genetic Algorithms,P1,C1.112,vr,15
+1024,58253841,Project Genetic Algorithms,P1,C1.112,vr,15
+1025,25077484,Project Genetic Algorithms,P1,C1.112,vr,15
+1026,46701583,Project Genetic Algorithms,P1,C1.112,vr,15
+1027,41578612,Project Genetic Algorithms,P1,C1.112,vr,15
+1028,86180471,Project Genetic Algorithms,P1,C1.112,vr,15
+1029,66433883,Programmeren in Java 2,P3,A1.10,ma,9
+1030,29640619,Programmeren in Java 2,P3,A1.10,ma,9
+1031,94955328,Programmeren in Java 2,P3,A1.10,ma,9
+1032,4921119,Programmeren in Java 2,P3,A1.10,ma,9
+1033,86291592,Programmeren in Java 2,P3,A1.10,ma,9
+1034,6723948,Programmeren in Java 2,P3,A1.10,ma,9
+1035,99272880,Programmeren in Java 2,P3,A1.10,ma,9
+1036,45414528,Programmeren in Java 2,P3,A1.10,ma,9
+1037,23215240,Programmeren in Java 2,P3,A1.10,ma,9
+1038,2317551,Programmeren in Java 2,P3,A1.10,ma,9
+1039,77960666,Programmeren in Java 2,P3,A1.10,ma,9
+1040,17823206,Programmeren in Java 2,P3,A1.10,ma,9
+1041,51791169,Programmeren in Java 2,P3,A1.10,ma,9
+1042,48503689,Programmeren in Java 2,P3,A1.10,ma,9
+1043,41585485,Programmeren in Java 2,P3,A1.10,ma,9
+1044,92778619,Programmeren in Java 2,P3,A1.10,ma,9
+1045,36903574,Programmeren in Java 2,P3,A1.10,ma,9
+1046,34900967,Programmeren in Java 2,P3,A1.10,ma,9
+1047,93566383,Lineaire Algebra,H2,A1.10,di,9
+1048,75005528,Lineaire Algebra,H2,A1.10,di,9
+1049,32595335,Lineaire Algebra,H2,A1.10,di,9
+1050,79617364,Lineaire Algebra,H2,A1.10,di,9
+1051,38499176,Lineaire Algebra,H2,A1.10,di,9
+1052,5517869,Lineaire Algebra,H2,A1.10,di,9
+1053,68409833,Lineaire Algebra,H2,A1.10,di,9
+1054,71839156,Lineaire Algebra,H2,A1.10,di,9
+1055,14591033,Lineaire Algebra,H2,A1.10,di,9
+1056,55474917,Lineaire Algebra,H2,A1.10,di,9
+1057,87758823,Lineaire Algebra,H2,A1.10,di,9
+1058,96118484,Lineaire Algebra,H2,A1.10,di,9
+1059,42115591,Lineaire Algebra,H2,A1.10,di,9
+1060,4921119,Lineaire Algebra,H2,A1.10,di,9
+1061,81385263,Lineaire Algebra,H2,A1.10,di,9
+1062,16333449,Lineaire Algebra,H2,A1.10,di,9
+1063,21311067,Lineaire Algebra,H2,A1.10,di,9
+1064,81218347,Lineaire Algebra,H2,A1.10,di,9
+1065,79937969,Lineaire Algebra,H2,A1.10,di,9
+1066,55412918,Lineaire Algebra,H2,A1.10,di,9
+1067,34243356,Lineaire Algebra,H2,A1.10,di,9
+1068,48308205,Lineaire Algebra,H2,A1.10,di,9
+1069,54074680,Lineaire Algebra,H2,A1.10,di,9
+1070,62872965,Lineaire Algebra,H2,A1.10,di,9
+1071,56872729,Lineaire Algebra,H2,A1.10,di,9
+1072,42196732,Lineaire Algebra,H2,A1.10,di,9
+1073,83210352,Lineaire Algebra,H2,A1.10,di,9
+1074,80709893,Lineaire Algebra,H2,A1.10,di,9
+1075,10149535,Lineaire Algebra,H2,A1.10,di,9
+1076,36527838,Lineaire Algebra,H2,A1.10,di,9
+1077,35330349,Lineaire Algebra,H2,A1.10,di,9
+1078,90743504,Lineaire Algebra,H2,A1.10,di,9
+1079,37399898,Lineaire Algebra,H2,A1.10,di,9
+1080,91196968,Lineaire Algebra,H2,A1.10,di,9
+1081,80998260,Lineaire Algebra,H2,A1.10,di,9
+1082,66570705,Lineaire Algebra,H2,A1.10,di,9
+1083,16097870,Lineaire Algebra,H2,A1.10,di,9
+1084,26172512,Lineaire Algebra,H2,A1.10,di,9
+1085,94686490,Lineaire Algebra,H2,A1.10,di,9
+1086,670011,Lineaire Algebra,H2,A1.10,di,9
+1087,31416266,Lineaire Algebra,H2,A1.10,di,9
+1088,3474870,Lineaire Algebra,H2,A1.10,di,9
+1089,23565001,Lineaire Algebra,H2,A1.10,di,9
+1090,36508571,Lineaire Algebra,H2,A1.10,di,9
+1091,41578612,Lineaire Algebra,H2,A1.10,di,9
+1092,74182182,Lineaire Algebra,H2,A1.10,di,9
+1093,58866007,Lineaire Algebra,H2,A1.10,di,9
+1094,16011419,Lineaire Algebra,H2,A1.10,di,9
+1095,52311353,Lineaire Algebra,H2,A1.10,di,9
+1096,77896638,Lineaire Algebra,H2,A1.10,di,9
+1097,61060652,Lineaire Algebra,H2,A1.10,di,9
+1098,42778953,Lineaire Algebra,H2,A1.10,di,9
+1099,34588570,Lineaire Algebra,H2,A1.10,di,9
+1100,94955328,Lineaire Algebra,H2,A1.10,di,9
+1101,28358060,Webprogrammeren en databases,W1,A1.10,vr,9
+1102,3474870,Webprogrammeren en databases,W1,A1.10,vr,9
+1103,6249823,Webprogrammeren en databases,W1,A1.10,vr,9
+1104,1137946,Webprogrammeren en databases,W1,A1.10,vr,9
+1105,64228258,Webprogrammeren en databases,W1,A1.10,vr,9
+1106,16333449,Webprogrammeren en databases,W1,A1.10,vr,9
+1107,24891081,Webprogrammeren en databases,W1,A1.10,vr,9
+1108,10698627,Webprogrammeren en databases,W1,A1.10,vr,9
+1109,33877725,Webprogrammeren en databases,W1,A1.10,vr,9
+1110,66034145,Webprogrammeren en databases,W1,A1.10,vr,9
+1111,53512831,Webprogrammeren en databases,W1,A1.10,vr,9
+1112,57086672,Webprogrammeren en databases,W1,A1.10,vr,9
+1113,89180944,Webprogrammeren en databases,W1,A1.10,vr,9
+1114,20618153,Webprogrammeren en databases,W1,A1.10,vr,9
+1115,77392404,Webprogrammeren en databases,W1,A1.10,vr,9
+1116,76648468,Webprogrammeren en databases,W1,A1.10,vr,9
+1117,14847953,Webprogrammeren en databases,W1,A1.10,vr,9
+1118,17092717,Webprogrammeren en databases,W1,A1.10,vr,9
+1119,78243495,Webprogrammeren en databases,W1,A1.10,vr,9
+1120,76903244,Webprogrammeren en databases,W1,A1.10,vr,9
+1121,43680781,Moderne Databases,H1,A1.10,ma,11
+1122,14309255,Moderne Databases,H1,A1.10,ma,11
+1123,13911001,Moderne Databases,H1,A1.10,ma,11
+1124,63111000,Moderne Databases,H1,A1.10,ma,11
+1125,59111489,Moderne Databases,H1,A1.10,ma,11
+1126,4709948,Moderne Databases,H1,A1.10,ma,11
+1127,36527838,Moderne Databases,H1,A1.10,ma,11
+1128,11996292,Moderne Databases,H1,A1.10,ma,11
+1129,46570285,Moderne Databases,H1,A1.10,ma,11
+1130,49219163,Moderne Databases,H1,A1.10,ma,11
+1131,78243495,Moderne Databases,H1,A1.10,ma,11
+1132,78443067,Moderne Databases,H1,A1.10,ma,11
+1133,64600457,Moderne Databases,H1,A1.10,ma,11
+1134,78544592,Moderne Databases,H1,A1.10,ma,11
+1135,50184318,Moderne Databases,H1,A1.10,ma,11
+1136,78821918,Moderne Databases,H1,A1.10,ma,11
+1137,1766560,Moderne Databases,H1,A1.10,ma,11
+1138,83415514,Moderne Databases,H1,A1.10,ma,11
+1139,24277163,Moderne Databases,H1,A1.10,ma,11
+1140,51650744,Moderne Databases,H1,A1.10,ma,11
+1141,17222374,Moderne Databases,H1,A1.10,ma,11
+1142,77376714,Moderne Databases,H1,A1.10,ma,11
+1143,27916487,Moderne Databases,H1,A1.10,ma,11
+1144,89180944,Moderne Databases,H1,A1.10,ma,11
+1145,84449005,Moderne Databases,H1,A1.10,ma,11
+1146,99283252,Moderne Databases,H1,A1.10,ma,11
+1147,48198668,Moderne Databases,H1,A1.10,ma,11
+1148,66621166,Moderne Databases,H1,A1.10,ma,11
+1149,18144425,Moderne Databases,H1,A1.10,ma,11
+1150,68315599,Moderne Databases,H1,A1.10,ma,11
+1151,29526540,Moderne Databases,H1,A1.10,ma,11
+1152,58592894,Moderne Databases,H1,A1.10,ma,11
+1153,13218321,Moderne Databases,H1,A1.10,ma,11
+1154,58699305,Moderne Databases,H1,A1.10,ma,11
+1155,42171678,Moderne Databases,H1,A1.10,ma,11
+1156,27241113,Moderne Databases,H1,A1.10,ma,11
+1157,5517869,Moderne Databases,H1,A1.10,ma,11
+1158,96082155,Moderne Databases,H1,A1.10,ma,11
+1159,1181560,Moderne Databases,H1,A1.10,ma,11
+1160,30658799,Moderne Databases,H1,A1.10,ma,11
+1161,75521763,Moderne Databases,H1,A1.10,ma,11
+1162,41489515,Moderne Databases,H1,A1.10,ma,11
+1163,85335143,Moderne Databases,H1,A1.10,ma,11
+1164,15051051,Moderne Databases,H1,A1.10,ma,11
+1165,36748818,Moderne Databases,H1,A1.10,ma,11
+1166,33776961,Moderne Databases,H1,A1.10,ma,11
+1167,3883025,Moderne Databases,H1,A1.10,ma,11
+1168,47462856,Moderne Databases,H1,A1.10,ma,11
+1169,11741347,Moderne Databases,H1,A1.10,ma,11
+1170,75997788,Moderne Databases,H1,A1.10,ma,11
+1171,58332004,Moderne Databases,H1,A1.10,ma,11
+1172,83266686,Moderne Databases,H1,A1.10,ma,11
+1173,49631542,Moderne Databases,H1,A1.10,ma,11
+1174,70072978,Moderne Databases,H1,A1.10,ma,11
+1175,96054456,Bioinformatica,P1,A1.10,di,11
+1176,4568018,Bioinformatica,P1,A1.10,di,11
+1177,7308727,Bioinformatica,P1,A1.10,di,11
+1178,28359697,Bioinformatica,P1,A1.10,di,11
+1179,58522654,Bioinformatica,P1,A1.10,di,11
+1180,22826928,Bioinformatica,P1,A1.10,di,11
+1181,53202517,Bioinformatica,P1,A1.10,di,11
+1182,77831658,Bioinformatica,P1,A1.10,di,11
+1183,74131924,Bioinformatica,P1,A1.10,di,11
+1184,43680781,Bioinformatica,P1,A1.10,di,11
+1185,14816774,Bioinformatica,P1,A1.10,di,11
+1186,59544049,Bioinformatica,P1,A1.10,di,11
+1187,56815156,Bioinformatica,P1,A1.10,di,11
+1188,66120270,Bioinformatica,P1,A1.10,di,11
+1189,96453361,Bioinformatica,P1,A1.10,di,11
+1190,59753700,Data Mining,H1,A1.10,wo,11
+1191,45414528,Data Mining,H1,A1.10,wo,11
+1192,70878567,Data Mining,H1,A1.10,wo,11
+1193,98780382,Data Mining,H1,A1.10,wo,11
+1194,87900893,Data Mining,H1,A1.10,wo,11
+1195,87314964,Data Mining,H1,A1.10,wo,11
+1196,37110913,Data Mining,H1,A1.10,wo,11
+1197,81200278,Data Mining,H1,A1.10,wo,11
+1198,97136582,Data Mining,H1,A1.10,wo,11
+1199,99453514,Data Mining,H1,A1.10,wo,11
+1200,13996448,Data Mining,H1,A1.10,wo,11
+1201,21964491,Data Mining,H1,A1.10,wo,11
+1202,81022997,Data Mining,H1,A1.10,wo,11
+1203,51566595,Data Mining,H1,A1.10,wo,11
+1204,50143947,Data Mining,H1,A1.10,wo,11
+1205,19337738,Data Mining,H1,A1.10,wo,11
+1206,93023961,Data Mining,H1,A1.10,wo,11
+1207,17823206,Data Mining,H1,A1.10,wo,11
+1208,25330192,Data Mining,H1,A1.10,wo,11
+1209,74131924,Data Mining,H1,A1.10,wo,11
+1210,52311353,Data Mining,H1,A1.10,wo,11
+1211,91196968,Data Mining,H1,A1.10,wo,11
+1212,66122625,Data Mining,H1,A1.10,wo,11
+1213,68360259,Data Mining,H1,A1.10,wo,11
+1214,13116738,Data Mining,H1,A1.10,wo,11
+1215,22323043,Data Mining,H1,A1.10,wo,11
+1216,37744525,Data Mining,H1,A1.10,wo,11
+1217,1696500,Collectieve Intelligentie,P1,A1.10,do,11
+1218,42171678,Collectieve Intelligentie,P1,A1.10,do,11
+1219,42196732,Collectieve Intelligentie,P1,A1.10,do,11
+1220,24277163,Collectieve Intelligentie,P1,A1.10,do,11
+1221,57595888,Collectieve Intelligentie,P1,A1.10,do,11
+1222,3233378,Collectieve Intelligentie,P1,A1.10,do,11
+1223,82689818,Collectieve Intelligentie,P1,A1.10,do,11
+1224,1665980,Collectieve Intelligentie,P1,A1.10,do,11
+1225,13092455,Collectieve Intelligentie,P1,A1.10,do,11
+1226,76123484,Collectieve Intelligentie,P1,A1.10,do,11
+1227,87758823,Collectieve Intelligentie,P1,A1.10,do,11
+1228,37770881,Collectieve Intelligentie,P1,A1.10,do,11
+1229,28357474,Collectieve Intelligentie,P1,A1.10,do,11
+1230,86291592,Collectieve Intelligentie,P1,A1.10,do,11
+1231,58522654,Collectieve Intelligentie,P1,A1.10,do,11
+1232,64296965,Collectieve Intelligentie,P1,A1.10,do,11
+1233,37830626,Software engineering,W2,A1.10,vr,11
+1234,3727435,Software engineering,W2,A1.10,vr,11
+1235,89985072,Software engineering,W2,A1.10,vr,11
+1236,89180944,Software engineering,W2,A1.10,vr,11
+1237,83210352,Software engineering,W2,A1.10,vr,11
+1238,27950803,Software engineering,W2,A1.10,vr,11
+1239,14072826,Software engineering,W2,A1.10,vr,11
+1240,28357474,Software engineering,W2,A1.10,vr,11
+1241,41153310,Software engineering,W2,A1.10,vr,11
+1242,65318664,Software engineering,W2,A1.10,vr,11
+1243,22323043,Software engineering,W2,A1.10,vr,11
+1244,96554914,Software engineering,W2,A1.10,vr,11
+1245,52552718,Software engineering,W2,A1.10,vr,11
+1246,99283252,Software engineering,W2,A1.10,vr,11
+1247,48357272,Software engineering,W2,A1.10,vr,11
+1248,95631564,Software engineering,W2,A1.10,vr,11
+1249,78443067,Software engineering,W2,A1.10,vr,11
+1250,68409833,Software engineering,W2,A1.10,vr,11
+1251,42115591,Software engineering,W2,A1.10,vr,11
+1252,61060652,Software engineering,W2,A1.10,vr,11
+1253,48601268,Software engineering,W2,A1.10,vr,11
+1254,45915482,Software engineering,W2,A1.10,vr,11
+1255,3233378,Software engineering,W2,A1.10,vr,11
+1256,5976174,Software engineering,W2,A1.10,vr,11
+1257,29640619,Software engineering,W2,A1.10,vr,11
+1258,40343779,Software engineering,W2,A1.10,vr,11
+1259,58074656,Software engineering,W2,A1.10,vr,11
+1260,41527759,Software engineering,W2,A1.10,vr,11
+1261,94467156,Software engineering,W2,A1.10,vr,11
+1262,11915563,Software engineering,W2,A1.10,vr,11
+1263,70015932,Software engineering,W2,A1.10,vr,11
+1264,73302736,Software engineering,W2,A1.10,vr,11
+1265,54026378,Software engineering,W2,A1.10,vr,11
+1266,43460038,Software engineering,W2,A1.10,vr,11
+1267,13718298,Software engineering,W2,A1.10,vr,11
+1268,75599734,Software engineering,W2,A1.10,vr,11
+1269,9287708,Software engineering,W2,A1.10,vr,11
+1270,79167252,Programmeren in Java 2,P6,A1.10,ma,13
+1271,64600457,Programmeren in Java 2,P6,A1.10,ma,13
+1272,83415514,Programmeren in Java 2,P6,A1.10,ma,13
+1273,73893840,Programmeren in Java 2,P6,A1.10,ma,13
+1274,63111000,Programmeren in Java 2,P6,A1.10,ma,13
+1275,55474917,Programmeren in Java 2,P6,A1.10,ma,13
+1276,53585410,Programmeren in Java 2,P6,A1.10,ma,13
+1277,44671041,Programmeren in Java 2,P6,A1.10,ma,13
+1278,34262212,Programmeren in Java 2,P6,A1.10,ma,13
+1279,63096281,Programmeren in Java 2,P6,A1.10,ma,13
+1280,64947290,Programmeren in Java 2,P6,A1.10,ma,13
+1281,23257088,Programmeren in Java 2,P6,A1.10,ma,13
+1282,58469172,Programmeren in Java 2,P6,A1.10,ma,13
+1283,26857113,Programmeren in Java 2,P6,A1.10,ma,13
+1284,38499176,Programmeren in Java 2,P6,A1.10,ma,13
+1285,7492204,Programmeren in Java 2,P6,A1.10,ma,13
+1286,3678531,Programmeren in Java 2,P6,A1.10,ma,13
+1287,68601184,Programmeren in Java 2,P6,A1.10,ma,13
+1288,58253841,Calculus 2,H1,A1.10,di,13
+1289,83266686,Calculus 2,H1,A1.10,di,13
+1290,27925117,Calculus 2,H1,A1.10,di,13
+1291,34173695,Calculus 2,H1,A1.10,di,13
+1292,38179241,Calculus 2,H1,A1.10,di,13
+1293,82412626,Calculus 2,H1,A1.10,di,13
+1294,44868097,Calculus 2,H1,A1.10,di,13
+1295,27298319,Calculus 2,H1,A1.10,di,13
+1296,86807027,Calculus 2,H1,A1.10,di,13
+1297,58469172,Calculus 2,H1,A1.10,di,13
+1298,61520025,Calculus 2,H1,A1.10,di,13
+1299,23628642,Calculus 2,H1,A1.10,di,13
+1300,63634350,Calculus 2,H1,A1.10,di,13
+1301,14591033,Calculus 2,H1,A1.10,di,13
+1302,79167252,Calculus 2,H1,A1.10,di,13
+1303,75623387,Calculus 2,H1,A1.10,di,13
+1304,75997788,Calculus 2,H1,A1.10,di,13
+1305,3678531,Calculus 2,H1,A1.10,di,13
+1306,78544592,Calculus 2,H1,A1.10,di,13
+1307,24875739,Calculus 2,H1,A1.10,di,13
+1308,83415514,Calculus 2,H1,A1.10,di,13
+1309,4783858,Calculus 2,H1,A1.10,di,13
+1310,9731271,Calculus 2,H1,A1.10,di,13
+1311,12091019,Calculus 2,H1,A1.10,di,13
+1312,56872729,Calculus 2,H1,A1.10,di,13
+1313,59220392,Calculus 2,H1,A1.10,di,13
+1314,46701583,Calculus 2,H1,A1.10,di,13
+1315,77306636,Calculus 2,H1,A1.10,di,13
+1316,73302736,Calculus 2,H1,A1.10,di,13
+1317,70939718,Calculus 2,H1,A1.10,di,13
+1318,16097870,Calculus 2,H1,A1.10,di,13
+1319,86180471,Calculus 2,H1,A1.10,di,13
+1320,46570285,Calculus 2,H1,A1.10,di,13
+1321,78735049,Calculus 2,H1,A1.10,di,13
+1322,10149535,Calculus 2,H1,A1.10,di,13
+1323,32705005,Calculus 2,H1,A1.10,di,13
+1324,6723948,Calculus 2,H1,A1.10,di,13
+1325,23658570,Calculus 2,H1,A1.10,di,13
+1326,22168693,Calculus 2,H1,A1.10,di,13
+1327,47477884,Calculus 2,H1,A1.10,di,13
+1328,56348773,Calculus 2,H1,A1.10,di,13
+1329,21029457,Calculus 2,H1,A1.10,di,13
+1330,14303208,Calculus 2,H1,A1.10,di,13
+1331,19717077,Calculus 2,H1,A1.10,di,13
+1332,58040377,Calculus 2,H1,A1.10,di,13
+1333,33672995,Calculus 2,H1,A1.10,di,13
+1334,55412918,Calculus 2,H1,A1.10,di,13
+1335,37279234,Calculus 2,H1,A1.10,di,13
+1336,31306819,Calculus 2,H1,A1.10,di,13
+1337,87602030,Calculus 2,H1,A1.10,di,13
+1338,78443067,Calculus 2,H1,A1.10,di,13
+1339,28957789,Calculus 2,H1,A1.10,di,13
+1340,4546613,Calculus 2,H1,A1.10,di,13
+1341,65978354,Calculus 2,H1,A1.10,di,13
+1342,45915482,Calculus 2,H1,A1.10,di,13
+1343,27064249,Calculus 2,H1,A1.10,di,13
+1344,79617364,Calculus 2,H1,A1.10,di,13
+1345,23565001,Calculus 2,H1,A1.10,di,13
+1346,51741554,Calculus 2,H1,A1.10,di,13
+1347,6913074,Calculus 2,H1,A1.10,di,13
+1348,14179347,Calculus 2,H1,A1.10,di,13
+1349,94686490,Calculus 2,H1,A1.10,di,13
+1350,26260141,Calculus 2,H1,A1.10,di,13
+1351,62363761,Calculus 2,H1,A1.10,di,13
+1352,88752563,Calculus 2,H1,A1.10,di,13
+1353,75446434,Calculus 2,H1,A1.10,di,13
+1354,6939933,Calculus 2,H1,A1.10,di,13
+1355,75585647,Calculus 2,H1,A1.10,di,13
+1356,58699305,Calculus 2,H1,A1.10,di,13
+1357,5615125,Calculus 2,H1,A1.10,di,13
+1358,53139134,Calculus 2,H1,A1.10,di,13
+1359,53585410,Calculus 2,H1,A1.10,di,13
+1360,15902055,Calculus 2,H1,A1.10,di,13
+1361,74182182,Calculus 2,H1,A1.10,di,13
+1362,6709529,Calculus 2,H1,A1.10,di,13
+1363,11593163,Calculus 2,H1,A1.10,di,13
+1364,64228258,Calculus 2,H1,A1.10,di,13
+1365,64600457,Calculus 2,H1,A1.10,di,13
+1366,27187154,Calculus 2,H1,A1.10,di,13
+1367,93361408,Calculus 2,H1,A1.10,di,13
+1368,96054456,Calculus 2,H1,A1.10,di,13
+1369,76661016,Calculus 2,H1,A1.10,di,13
+1370,10609762,Calculus 2,H1,A1.10,di,13
+1371,87900893,Calculus 2,H1,A1.10,di,13
+1372,48357272,Calculus 2,H1,A1.10,di,13
+1373,72665524,Calculus 2,H1,A1.10,di,13
+1374,81155296,Calculus 2,H1,A1.10,di,13
+1375,65408517,Calculus 2,H1,A1.10,di,13
+1376,85335143,Calculus 2,H1,A1.10,di,13
+1377,33760909,Calculus 2,H1,A1.10,di,13
+1378,73823548,Calculus 2,H1,A1.10,di,13
+1379,47932106,Calculus 2,H1,A1.10,di,13
+1380,79888156,Calculus 2,H1,A1.10,di,13
+1381,88855695,Calculus 2,H1,A1.10,di,13
+1382,58592894,Calculus 2,H1,A1.10,di,13
+1383,86000192,Calculus 2,H1,A1.10,di,13
+1384,62105897,Calculus 2,H1,A1.10,di,13
+1385,55530367,Calculus 2,H1,A1.10,di,13
+1386,80188025,Calculus 2,H1,A1.10,di,13
+1387,72526473,Calculus 2,H1,A1.10,di,13
+1388,38296757,Calculus 2,H1,A1.10,di,13
+1389,97135019,Calculus 2,H1,A1.10,di,13
+1390,56544130,Calculus 2,H1,A1.10,di,13
+1391,14816774,Calculus 2,H1,A1.10,di,13
+1392,40141996,Calculus 2,H1,A1.10,di,13
+1393,10792879,Calculus 2,H1,A1.10,di,13
+1394,75521763,Technology for games,H1,A1.10,wo,13
+1395,43680781,Technology for games,H1,A1.10,wo,13
+1396,36785409,Technology for games,H1,A1.10,wo,13
+1397,70336464,Technology for games,H1,A1.10,wo,13
+1398,14383795,Technology for games,H1,A1.10,wo,13
+1399,58565406,Technology for games,H1,A1.10,wo,13
+1400,6249823,Technology for games,H1,A1.10,wo,13
+1401,32204977,Technology for games,H1,A1.10,wo,13
+1402,48308205,Technology for games,H1,A1.10,wo,13
+1403,44901052,Technology for games,H1,A1.10,wo,13
+1404,89338938,Technology for games,H1,A1.10,wo,13
+1405,21192048,Technology for games,H1,A1.10,wo,13
+1406,7106649,Technology for games,H1,A1.10,wo,13
+1407,92496780,Technology for games,H1,A1.10,wo,13
+1408,77264363,Technology for games,H1,A1.10,wo,13
+1409,12077419,Technology for games,H1,A1.10,wo,13
+1410,47982619,Technology for games,H1,A1.10,wo,13
+1411,9332762,Technology for games,H1,A1.10,wo,13
+1412,23547619,Technology for games,H1,A1.10,wo,13
+1413,37110913,Technology for games,H1,A1.10,wo,13
+1414,97371272,Technology for games,H1,A1.10,wo,13
+1415,14309255,Technology for games,H1,A1.10,wo,13
+1416,26406342,Technology for games,H1,A1.10,wo,13
+1417,4697362,Technology for games,H1,A1.10,wo,13
+1418,76487754,Technology for games,H1,A1.10,wo,13
+1419,11996292,Technology for games,H1,A1.10,wo,13
+1420,75664412,Technology for games,H1,A1.10,wo,13
+1421,93041523,Technology for games,H1,A1.10,wo,13
+1422,69086548,Technology for games,H1,A1.10,wo,13
+1423,40434933,Technology for games,H1,A1.10,wo,13
+1424,77636749,Technology for games,H1,A1.10,wo,13
+1425,10149535,Technology for games,H1,A1.10,wo,13
+1426,22323043,Technology for games,H1,A1.10,wo,13
+1427,41578612,Technology for games,H1,A1.10,wo,13
+1428,12430748,Technology for games,H1,A1.10,wo,13
+1429,31194811,Technology for games,H1,A1.10,wo,13
+1430,68315599,Technology for games,H1,A1.10,wo,13
+1431,85335143,Technology for games,H1,A1.10,wo,13
+1432,1696500,Collectieve Intelligentie,H2,A1.10,do,13
+1433,42171678,Collectieve Intelligentie,H2,A1.10,do,13
+1434,42196732,Collectieve Intelligentie,H2,A1.10,do,13
+1435,24277163,Collectieve Intelligentie,H2,A1.10,do,13
+1436,57595888,Collectieve Intelligentie,H2,A1.10,do,13
+1437,3233378,Collectieve Intelligentie,H2,A1.10,do,13
+1438,82689818,Collectieve Intelligentie,H2,A1.10,do,13
+1439,1665980,Collectieve Intelligentie,H2,A1.10,do,13
+1440,13092455,Collectieve Intelligentie,H2,A1.10,do,13
+1441,76123484,Collectieve Intelligentie,H2,A1.10,do,13
+1442,87758823,Collectieve Intelligentie,H2,A1.10,do,13
+1443,37770881,Collectieve Intelligentie,H2,A1.10,do,13
+1444,28357474,Collectieve Intelligentie,H2,A1.10,do,13
+1445,86291592,Collectieve Intelligentie,H2,A1.10,do,13
+1446,58522654,Collectieve Intelligentie,H2,A1.10,do,13
+1447,64296965,Collectieve Intelligentie,H2,A1.10,do,13
+1448,45556081,Collectieve Intelligentie,H2,A1.10,do,13
+1449,17575088,Collectieve Intelligentie,H2,A1.10,do,13
+1450,1075391,Collectieve Intelligentie,H2,A1.10,do,13
+1451,7308727,Collectieve Intelligentie,H2,A1.10,do,13
+1452,72577292,Collectieve Intelligentie,H2,A1.10,do,13
+1453,64393888,Collectieve Intelligentie,H2,A1.10,do,13
+1454,26406342,Collectieve Intelligentie,H2,A1.10,do,13
+1455,50143947,Collectieve Intelligentie,H2,A1.10,do,13
+1456,75521763,Collectieve Intelligentie,H2,A1.10,do,13
+1457,21964491,Collectieve Intelligentie,H2,A1.10,do,13
+1458,65960683,Collectieve Intelligentie,H2,A1.10,do,13
+1459,77896638,Collectieve Intelligentie,H2,A1.10,do,13
+1460,48601268,Collectieve Intelligentie,H2,A1.10,do,13
+1461,5517869,Collectieve Intelligentie,H2,A1.10,do,13
+1462,29474737,Collectieve Intelligentie,H2,A1.10,do,13
+1463,62701040,Collectieve Intelligentie,H2,A1.10,do,13
+1464,60312776,Collectieve Intelligentie,H2,A1.10,do,13
+1465,22699561,Collectieve Intelligentie,H2,A1.10,do,13
+1466,73980360,Collectieve Intelligentie,H2,A1.10,do,13
+1467,13534377,Collectieve Intelligentie,H2,A1.10,do,13
+1468,17222374,Collectieve Intelligentie,H2,A1.10,do,13
+1469,34773179,Collectieve Intelligentie,H2,A1.10,do,13
+1470,15902055,Collectieve Intelligentie,H2,A1.10,do,13
+1471,33760909,Collectieve Intelligentie,H2,A1.10,do,13
+1472,61443567,Collectieve Intelligentie,H2,A1.10,do,13
+1473,9332762,Collectieve Intelligentie,H2,A1.10,do,13
+1474,4783858,Collectieve Intelligentie,H2,A1.10,do,13
+1475,77240949,Collectieve Intelligentie,H2,A1.10,do,13
+1476,50184318,Collectieve Intelligentie,H2,A1.10,do,13
+1477,64228258,Collectieve Intelligentie,H2,A1.10,do,13
+1478,96104167,Collectieve Intelligentie,H2,A1.10,do,13
+1479,97135019,Collectieve Intelligentie,H2,A1.10,do,13
+1480,29640619,Collectieve Intelligentie,H2,A1.10,do,13
+1481,54310617,Collectieve Intelligentie,H2,A1.10,do,13
+1482,43027916,Collectieve Intelligentie,H2,A1.10,do,13
+1483,42778953,Collectieve Intelligentie,H2,A1.10,do,13
+1484,86000192,Collectieve Intelligentie,H2,A1.10,do,13
+1485,53107172,Collectieve Intelligentie,H2,A1.10,do,13
+1486,46052388,Collectieve Intelligentie,H2,A1.10,do,13
+1487,25106480,Collectieve Intelligentie,H2,A1.10,do,13
+1488,35330349,Collectieve Intelligentie,H2,A1.10,do,13
+1489,31416266,Collectieve Intelligentie,H2,A1.10,do,13
+1490,51741554,Collectieve Intelligentie,H2,A1.10,do,13
+1491,68601184,Collectieve Intelligentie,H2,A1.10,do,13
+1492,23547619,Collectieve Intelligentie,H2,A1.10,do,13
+1493,62701040,Collectieve Intelligentie,P3,A1.10,vr,13
+1494,60312776,Collectieve Intelligentie,P3,A1.10,vr,13
+1495,22699561,Collectieve Intelligentie,P3,A1.10,vr,13
+1496,73980360,Collectieve Intelligentie,P3,A1.10,vr,13
+1497,13534377,Collectieve Intelligentie,P3,A1.10,vr,13
+1498,17222374,Collectieve Intelligentie,P3,A1.10,vr,13
+1499,34773179,Collectieve Intelligentie,P3,A1.10,vr,13
+1500,15902055,Collectieve Intelligentie,P3,A1.10,vr,13
+1501,33760909,Collectieve Intelligentie,P3,A1.10,vr,13
+1502,61443567,Collectieve Intelligentie,P3,A1.10,vr,13
+1503,9332762,Collectieve Intelligentie,P3,A1.10,vr,13
+1504,4783858,Collectieve Intelligentie,P3,A1.10,vr,13
+1505,77240949,Collectieve Intelligentie,P3,A1.10,vr,13
+1506,50184318,Collectieve Intelligentie,P3,A1.10,vr,13
+1507,64228258,Collectieve Intelligentie,P3,A1.10,vr,13
+1508,96104167,Collectieve Intelligentie,P4,A1.10,ma,15
+1509,97135019,Collectieve Intelligentie,P4,A1.10,ma,15
+1510,29640619,Collectieve Intelligentie,P4,A1.10,ma,15
+1511,54310617,Collectieve Intelligentie,P4,A1.10,ma,15
+1512,43027916,Collectieve Intelligentie,P4,A1.10,ma,15
+1513,42778953,Collectieve Intelligentie,P4,A1.10,ma,15
+1514,86000192,Collectieve Intelligentie,P4,A1.10,ma,15
+1515,53107172,Collectieve Intelligentie,P4,A1.10,ma,15
+1516,46052388,Collectieve Intelligentie,P4,A1.10,ma,15
+1517,25106480,Collectieve Intelligentie,P4,A1.10,ma,15
+1518,35330349,Collectieve Intelligentie,P4,A1.10,ma,15
+1519,31416266,Collectieve Intelligentie,P4,A1.10,ma,15
+1520,51741554,Collectieve Intelligentie,P4,A1.10,ma,15
+1521,68601184,Collectieve Intelligentie,P4,A1.10,ma,15
+1522,23547619,Collectieve Intelligentie,P4,A1.10,ma,15
+1523,53585410,Compilerbouw practicum,P2,A1.10,di,15
+1524,44151631,Compilerbouw practicum,P2,A1.10,di,15
+1525,72665524,Compilerbouw practicum,P2,A1.10,di,15
+1526,42297781,Compilerbouw practicum,P2,A1.10,di,15
+1527,11459236,Compilerbouw practicum,P2,A1.10,di,15
+1528,41644639,Compilerbouw practicum,P2,A1.10,di,15
+1529,14303208,Compilerbouw practicum,P2,A1.10,di,15
+1530,14138904,Compilerbouw practicum,P2,A1.10,di,15
+1531,91250534,Compilerbouw practicum,P2,A1.10,di,15
+1532,32204977,Compilerbouw practicum,P2,A1.10,di,15
+1533,23215240,Compilerbouw practicum,P2,A1.10,di,15
+1534,14383795,Compilerbouw practicum,P2,A1.10,di,15
+1535,63634350,Compilerbouw practicum,P2,A1.10,di,15
+1536,34765676,Heuristieken 2,W1,A1.10,wo,15
+1537,82968410,Heuristieken 2,W1,A1.10,wo,15
+1538,7106649,Heuristieken 2,W1,A1.10,wo,15
+1539,83869542,Heuristieken 2,W1,A1.10,wo,15
+1540,43027916,Heuristieken 2,W1,A1.10,wo,15
+1541,58040377,Heuristieken 2,W1,A1.10,wo,15
+1542,16097870,Heuristieken 2,W1,A1.10,wo,15
+1543,52304977,Heuristieken 2,W1,A1.10,wo,15
+1544,63634350,Heuristieken 2,W1,A1.10,wo,15
+1545,87602030,Heuristieken 2,W1,A1.10,wo,15
+1546,57086672,Heuristieken 2,W1,A1.10,wo,15
+1547,99975346,Heuristieken 2,W1,A1.10,wo,15
+1548,78243495,Heuristieken 2,W1,A1.10,wo,15
+1549,33760909,Heuristieken 2,W1,A1.10,wo,15
+1550,35315956,Heuristieken 2,W1,A1.10,wo,15
+1551,1886996,Heuristieken 2,W1,A1.10,wo,15
+1552,2416751,Programmeren in Java 2,P2,A1.10,do,15
+1553,20830477,Programmeren in Java 2,P2,A1.10,do,15
+1554,9332762,Programmeren in Java 2,P2,A1.10,do,15
+1555,56749879,Programmeren in Java 2,P2,A1.10,do,15
+1556,63634350,Programmeren in Java 2,P2,A1.10,do,15
+1557,91196968,Programmeren in Java 2,P2,A1.10,do,15
+1558,28943658,Programmeren in Java 2,P2,A1.10,do,15
+1559,90296821,Programmeren in Java 2,P2,A1.10,do,15
+1560,51593625,Programmeren in Java 2,P2,A1.10,do,15
+1561,13996448,Programmeren in Java 2,P2,A1.10,do,15
+1562,15249775,Programmeren in Java 2,P2,A1.10,do,15
+1563,44391517,Programmeren in Java 2,P2,A1.10,do,15
+1564,86807027,Programmeren in Java 2,P2,A1.10,do,15
+1565,94687383,Programmeren in Java 2,P2,A1.10,do,15
+1566,93566383,Programmeren in Java 2,P2,A1.10,do,15
+1567,70072978,Programmeren in Java 2,P2,A1.10,do,15
+1568,94467156,Programmeren in Java 2,P2,A1.10,do,15
+1569,37279234,Programmeren in Java 2,P2,A1.10,do,15
+1570,23983476,Programmeren in Java 2,P2,A1.10,do,15
+1571,1696500,Collectieve Intelligentie,H3,A1.10,vr,15
+1572,42171678,Collectieve Intelligentie,H3,A1.10,vr,15
+1573,42196732,Collectieve Intelligentie,H3,A1.10,vr,15
+1574,24277163,Collectieve Intelligentie,H3,A1.10,vr,15
+1575,57595888,Collectieve Intelligentie,H3,A1.10,vr,15
+1576,3233378,Collectieve Intelligentie,H3,A1.10,vr,15
+1577,82689818,Collectieve Intelligentie,H3,A1.10,vr,15
+1578,1665980,Collectieve Intelligentie,H3,A1.10,vr,15
+1579,13092455,Collectieve Intelligentie,H3,A1.10,vr,15
+1580,76123484,Collectieve Intelligentie,H3,A1.10,vr,15
+1581,87758823,Collectieve Intelligentie,H3,A1.10,vr,15
+1582,37770881,Collectieve Intelligentie,H3,A1.10,vr,15
+1583,28357474,Collectieve Intelligentie,H3,A1.10,vr,15
+1584,86291592,Collectieve Intelligentie,H3,A1.10,vr,15
+1585,58522654,Collectieve Intelligentie,H3,A1.10,vr,15
+1586,64296965,Collectieve Intelligentie,H3,A1.10,vr,15
+1587,45556081,Collectieve Intelligentie,H3,A1.10,vr,15
+1588,17575088,Collectieve Intelligentie,H3,A1.10,vr,15
+1589,1075391,Collectieve Intelligentie,H3,A1.10,vr,15
+1590,7308727,Collectieve Intelligentie,H3,A1.10,vr,15
+1591,72577292,Collectieve Intelligentie,H3,A1.10,vr,15
+1592,64393888,Collectieve Intelligentie,H3,A1.10,vr,15
+1593,26406342,Collectieve Intelligentie,H3,A1.10,vr,15
+1594,50143947,Collectieve Intelligentie,H3,A1.10,vr,15
+1595,75521763,Collectieve Intelligentie,H3,A1.10,vr,15
+1596,21964491,Collectieve Intelligentie,H3,A1.10,vr,15
+1597,65960683,Collectieve Intelligentie,H3,A1.10,vr,15
+1598,77896638,Collectieve Intelligentie,H3,A1.10,vr,15
+1599,48601268,Collectieve Intelligentie,H3,A1.10,vr,15
+1600,5517869,Collectieve Intelligentie,H3,A1.10,vr,15
+1601,29474737,Collectieve Intelligentie,H3,A1.10,vr,15
+1602,62701040,Collectieve Intelligentie,H3,A1.10,vr,15
+1603,60312776,Collectieve Intelligentie,H3,A1.10,vr,15
+1604,22699561,Collectieve Intelligentie,H3,A1.10,vr,15
+1605,73980360,Collectieve Intelligentie,H3,A1.10,vr,15
+1606,13534377,Collectieve Intelligentie,H3,A1.10,vr,15
+1607,17222374,Collectieve Intelligentie,H3,A1.10,vr,15
+1608,34773179,Collectieve Intelligentie,H3,A1.10,vr,15
+1609,15902055,Collectieve Intelligentie,H3,A1.10,vr,15
+1610,33760909,Collectieve Intelligentie,H3,A1.10,vr,15
+1611,61443567,Collectieve Intelligentie,H3,A1.10,vr,15
+1612,9332762,Collectieve Intelligentie,H3,A1.10,vr,15
+1613,4783858,Collectieve Intelligentie,H3,A1.10,vr,15
+1614,77240949,Collectieve Intelligentie,H3,A1.10,vr,15
+1615,50184318,Collectieve Intelligentie,H3,A1.10,vr,15
+1616,64228258,Collectieve Intelligentie,H3,A1.10,vr,15
+1617,96104167,Collectieve Intelligentie,H3,A1.10,vr,15
+1618,97135019,Collectieve Intelligentie,H3,A1.10,vr,15
+1619,29640619,Collectieve Intelligentie,H3,A1.10,vr,15
+1620,54310617,Collectieve Intelligentie,H3,A1.10,vr,15
+1621,43027916,Collectieve Intelligentie,H3,A1.10,vr,15
+1622,42778953,Collectieve Intelligentie,H3,A1.10,vr,15
+1623,86000192,Collectieve Intelligentie,H3,A1.10,vr,15
+1624,53107172,Collectieve Intelligentie,H3,A1.10,vr,15
+1625,46052388,Collectieve Intelligentie,H3,A1.10,vr,15
+1626,25106480,Collectieve Intelligentie,H3,A1.10,vr,15
+1627,35330349,Collectieve Intelligentie,H3,A1.10,vr,15
+1628,31416266,Collectieve Intelligentie,H3,A1.10,vr,15
+1629,51741554,Collectieve Intelligentie,H3,A1.10,vr,15
+1630,68601184,Collectieve Intelligentie,H3,A1.10,vr,15
+1631,23547619,Collectieve Intelligentie,H3,A1.10,vr,15
+1632,4709948,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1633,18266644,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1634,81200278,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1635,30195935,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1636,70844780,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1637,37744525,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1638,72665524,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1639,33930505,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1640,44901052,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1641,40343779,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1642,56121590,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1643,56191333,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1644,66120270,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1645,97136582,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1646,19058315,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1647,38499176,Netwerken en systeembeveiliging,P2,B0.201,ma,9
+1648,96054456,Bioinformatica,H1,B0.201,di,9
+1649,4568018,Bioinformatica,H1,B0.201,di,9
+1650,7308727,Bioinformatica,H1,B0.201,di,9
+1651,28359697,Bioinformatica,H1,B0.201,di,9
+1652,58522654,Bioinformatica,H1,B0.201,di,9
+1653,22826928,Bioinformatica,H1,B0.201,di,9
+1654,53202517,Bioinformatica,H1,B0.201,di,9
+1655,77831658,Bioinformatica,H1,B0.201,di,9
+1656,74131924,Bioinformatica,H1,B0.201,di,9
+1657,43680781,Bioinformatica,H1,B0.201,di,9
+1658,14816774,Bioinformatica,H1,B0.201,di,9
+1659,59544049,Bioinformatica,H1,B0.201,di,9
+1660,56815156,Bioinformatica,H1,B0.201,di,9
+1661,66120270,Bioinformatica,H1,B0.201,di,9
+1662,96453361,Bioinformatica,H1,B0.201,di,9
+1663,88176729,Bioinformatica,H1,B0.201,di,9
+1664,6913074,Bioinformatica,H1,B0.201,di,9
+1665,81200278,Bioinformatica,H1,B0.201,di,9
+1666,29526540,Bioinformatica,H1,B0.201,di,9
+1667,14591033,Bioinformatica,H1,B0.201,di,9
+1668,56749879,Bioinformatica,H1,B0.201,di,9
+1669,64600457,Bioinformatica,H1,B0.201,di,9
+1670,85335143,Bioinformatica,H1,B0.201,di,9
+1671,5298748,Bioinformatica,H1,B0.201,di,9
+1672,33930505,Bioinformatica,H1,B0.201,di,9
+1673,11068043,Bioinformatica,H1,B0.201,di,9
+1674,30195935,Bioinformatica,H1,B0.201,di,9
+1675,21029457,Bioinformatica,H1,B0.201,di,9
+1676,54026378,Bioinformatica,H1,B0.201,di,9
+1677,44868097,Bioinformatica,H1,B0.201,di,9
+1678,42196732,Bioinformatica,H1,B0.201,di,9
+1679,70878567,Bioinformatica,H1,B0.201,di,9
+1680,6723948,Bioinformatica,H1,B0.201,di,9
+1681,247918,Bioinformatica,H1,B0.201,di,9
+1682,24613625,Bioinformatica,H1,B0.201,di,9
+1683,20883994,Bioinformatica,H1,B0.201,di,9
+1684,15051051,Bioinformatica,H1,B0.201,di,9
+1685,89985072,Bioinformatica,H1,B0.201,di,9
+1686,30050930,Bioinformatica,H1,B0.201,di,9
+1687,3168419,Bioinformatica,H1,B0.201,di,9
+1688,22731474,Bioinformatica,H1,B0.201,di,9
+1689,73236988,Bioinformatica,H1,B0.201,di,9
+1690,79617364,Bioinformatica,H1,B0.201,di,9
+1691,33877725,Bioinformatica,H1,B0.201,di,9
+1692,21964491,Bioinformatica,H1,B0.201,di,9
+1693,43680781,Moderne Databases,P1,B0.201,wo,9
+1694,14309255,Moderne Databases,P1,B0.201,wo,9
+1695,13911001,Moderne Databases,P1,B0.201,wo,9
+1696,63111000,Moderne Databases,P1,B0.201,wo,9
+1697,59111489,Moderne Databases,P1,B0.201,wo,9
+1698,4709948,Moderne Databases,P1,B0.201,wo,9
+1699,36527838,Moderne Databases,P1,B0.201,wo,9
+1700,11996292,Moderne Databases,P1,B0.201,wo,9
+1701,46570285,Moderne Databases,P1,B0.201,wo,9
+1702,49219163,Moderne Databases,P1,B0.201,wo,9
+1703,78243495,Moderne Databases,P1,B0.201,wo,9
+1704,78443067,Moderne Databases,P1,B0.201,wo,9
+1705,64600457,Moderne Databases,P1,B0.201,wo,9
+1706,78544592,Moderne Databases,P1,B0.201,wo,9
+1707,50184318,Moderne Databases,P1,B0.201,wo,9
+1708,78821918,Moderne Databases,P1,B0.201,wo,9
+1709,1766560,Moderne Databases,P1,B0.201,wo,9
+1710,83415514,Moderne Databases,P1,B0.201,wo,9
+1711,43680781,Moderne Databases,W1,B0.201,do,9
+1712,14309255,Moderne Databases,W1,B0.201,do,9
+1713,13911001,Moderne Databases,W1,B0.201,do,9
+1714,63111000,Moderne Databases,W1,B0.201,do,9
+1715,59111489,Moderne Databases,W1,B0.201,do,9
+1716,4709948,Moderne Databases,W1,B0.201,do,9
+1717,36527838,Moderne Databases,W1,B0.201,do,9
+1718,11996292,Moderne Databases,W1,B0.201,do,9
+1719,46570285,Moderne Databases,W1,B0.201,do,9
+1720,49219163,Moderne Databases,W1,B0.201,do,9
+1721,78243495,Moderne Databases,W1,B0.201,do,9
+1722,78443067,Moderne Databases,W1,B0.201,do,9
+1723,64600457,Moderne Databases,W1,B0.201,do,9
+1724,78544592,Moderne Databases,W1,B0.201,do,9
+1725,50184318,Moderne Databases,W1,B0.201,do,9
+1726,78821918,Moderne Databases,W1,B0.201,do,9
+1727,1766560,Moderne Databases,W1,B0.201,do,9
+1728,83415514,Moderne Databases,W1,B0.201,do,9
+1729,29718115,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1730,58332004,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1731,11459236,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1732,62701040,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1733,36748818,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1734,92977271,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1735,77636749,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1736,23257088,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1737,75521763,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1738,75585647,Informatie- en organisatieontwerp,P2,B0.201,vr,9
+1739,60352393,Advanced Heuristics,H1,B0.201,ma,11
+1740,1886996,Advanced Heuristics,H1,B0.201,ma,11
+1741,28618400,Advanced Heuristics,H1,B0.201,ma,11
+1742,62613937,Advanced Heuristics,H1,B0.201,ma,11
+1743,72683344,Advanced Heuristics,H1,B0.201,ma,11
+1744,47477884,Advanced Heuristics,H1,B0.201,ma,11
+1745,23547619,Advanced Heuristics,H1,B0.201,ma,11
+1746,40633534,Advanced Heuristics,H1,B0.201,ma,11
+1747,70844780,Advanced Heuristics,H1,B0.201,ma,11
+1748,14847953,Advanced Heuristics,H1,B0.201,ma,11
+1749,86807027,Advanced Heuristics,H1,B0.201,ma,11
+1750,72577292,Advanced Heuristics,H1,B0.201,ma,11
+1751,78136904,Advanced Heuristics,H1,B0.201,ma,11
+1752,72665524,Advanced Heuristics,H1,B0.201,ma,11
+1753,3168419,Advanced Heuristics,H1,B0.201,ma,11
+1754,92665222,Advanced Heuristics,H1,B0.201,ma,11
+1755,75997788,Advanced Heuristics,H1,B0.201,ma,11
+1756,39429093,Advanced Heuristics,H1,B0.201,ma,11
+1757,27064249,Advanced Heuristics,H1,B0.201,ma,11
+1758,20883994,Advanced Heuristics,H1,B0.201,ma,11
+1759,1665980,Compilerbouw,P3,B0.201,di,11
+1760,51472074,Compilerbouw,P3,B0.201,di,11
+1761,68315599,Compilerbouw,P3,B0.201,di,11
+1762,48503689,Compilerbouw,P3,B0.201,di,11
+1763,26406342,Compilerbouw,P3,B0.201,di,11
+1764,99272880,Compilerbouw,P3,B0.201,di,11
+1765,12077419,Compilerbouw,P3,B0.201,di,11
+1766,535689,Compilerbouw,P3,B0.201,di,11
+1767,11459236,Compilerbouw,P3,B0.201,di,11
+1768,14138904,Compilerbouw,P3,B0.201,di,11
+1769,72796858,Compilerbouw,P3,B0.201,di,11
+1770,15911353,Compilerbouw,P3,B0.201,di,11
+1771,44391517,Compilerbouw,P3,B0.201,di,11
+1772,27187154,Compilerbouw,P3,B0.201,di,11
+1773,47260040,Compilerbouw,P3,B0.201,di,11
+1774,80135353,Compilerbouw,P3,B0.201,di,11
+1775,13284244,Compilerbouw,P3,B0.201,di,11
+1776,2317551,Compilerbouw,P3,B0.201,di,11
+1777,32204977,Compilerbouw,P3,B0.201,di,11
+1778,14309255,Compilerbouw,P3,B0.201,di,11
+1779,11915563,Compilerbouw,P3,B0.201,di,11
+1780,63634350,Compilerbouw,P3,B0.201,di,11
+1781,79033175,Compilerbouw,P3,B0.201,di,11
+1782,43689934,Compilerbouw,P3,B0.201,di,11
+1783,88596522,Compilerbouw,P3,B0.201,di,11
+1784,79167252,Compilerbouw,P3,B0.201,di,11
+1785,72665524,Compilerbouw,P3,B0.201,di,11
+1786,65960683,Compilerbouw,P3,B0.201,di,11
+1787,46989508,Compilerbouw,P3,B0.201,di,11
+1788,1766560,Compilerbouw,P3,B0.201,di,11
+1789,88752563,Compilerbouw,P3,B0.201,di,11
+1790,55103073,Compilerbouw,P3,B0.201,di,11
+1791,77896638,Compilerbouw,P3,B0.201,di,11
+1792,95631564,Compilerbouw,P3,B0.201,di,11
+1793,41644639,Compilerbouw,P3,B0.201,di,11
+1794,60352393,Databases 2,W2,B0.201,wo,11
+1795,58592894,Databases 2,W2,B0.201,wo,11
+1796,11996292,Databases 2,W2,B0.201,wo,11
+1797,12091019,Databases 2,W2,B0.201,wo,11
+1798,17092717,Databases 2,W2,B0.201,wo,11
+1799,47477884,Databases 2,W2,B0.201,wo,11
+1800,14816774,Databases 2,W2,B0.201,wo,11
+1801,76123484,Databases 2,W2,B0.201,wo,11
+1802,47932106,Databases 2,W2,B0.201,wo,11
+1803,13132925,Databases 2,W2,B0.201,wo,11
+1804,56872729,Databases 2,W2,B0.201,wo,11
+1805,17222374,Databases 2,W2,B0.201,wo,11
+1806,82689818,Databases 2,W2,B0.201,wo,11
+1807,86988337,Databases 2,W2,B0.201,wo,11
+1808,77960666,Databases 2,W2,B0.201,wo,11
+1809,58332004,Databases 2,W2,B0.201,wo,11
+1810,5517869,Databases 2,W2,B0.201,wo,11
+1811,34872117,Databases 2,W2,B0.201,wo,11
+1812,94686490,Databases 2,W2,B0.201,wo,11
+1813,91527663,Databases 2,W2,B0.201,wo,11
+1814,75005528,Databases 2,W2,B0.201,wo,11
+1815,78821918,Databases 2,W2,B0.201,wo,11
+1816,90474003,Databases 2,W2,B0.201,wo,11
+1817,43027916,Databases 2,W2,B0.201,wo,11
+1818,247918,Databases 2,W2,B0.201,wo,11
+1819,37701751,Databases 2,W2,B0.201,wo,11
+1820,56121590,Databases 2,W2,B0.201,wo,11
+1821,72796858,Databases 2,W2,B0.201,wo,11
+1822,5085194,Databases 2,W2,B0.201,wo,11
+1823,49631542,Databases 2,W2,B0.201,wo,11
+1824,88752563,Databases 2,W2,B0.201,wo,11
+1825,23658570,Databases 2,W2,B0.201,wo,11
+1826,40434933,Databases 2,W2,B0.201,wo,11
+1827,42196732,Databases 2,W2,B0.201,wo,11
+1828,77896638,Databases 2,W2,B0.201,wo,11
+1829,83869542,Databases 2,W2,B0.201,wo,11
+1830,1696500,Collectieve Intelligentie,W1,B0.201,do,11
+1831,42171678,Collectieve Intelligentie,W1,B0.201,do,11
+1832,42196732,Collectieve Intelligentie,W1,B0.201,do,11
+1833,24277163,Collectieve Intelligentie,W1,B0.201,do,11
+1834,57595888,Collectieve Intelligentie,W1,B0.201,do,11
+1835,3233378,Collectieve Intelligentie,W1,B0.201,do,11
+1836,82689818,Collectieve Intelligentie,W1,B0.201,do,11
+1837,1665980,Collectieve Intelligentie,W1,B0.201,do,11
+1838,13092455,Collectieve Intelligentie,W1,B0.201,do,11
+1839,76123484,Collectieve Intelligentie,W1,B0.201,do,11
+1840,87758823,Collectieve Intelligentie,W1,B0.201,do,11
+1841,37770881,Collectieve Intelligentie,W1,B0.201,do,11
+1842,28357474,Collectieve Intelligentie,W1,B0.201,do,11
+1843,86291592,Collectieve Intelligentie,W1,B0.201,do,11
+1844,58522654,Collectieve Intelligentie,W1,B0.201,do,11
+1845,64296965,Collectieve Intelligentie,W1,B0.201,do,11
+1846,24277163,Moderne Databases,P2,B0.201,vr,11
+1847,51650744,Moderne Databases,P2,B0.201,vr,11
+1848,17222374,Moderne Databases,P2,B0.201,vr,11
+1849,77376714,Moderne Databases,P2,B0.201,vr,11
+1850,27916487,Moderne Databases,P2,B0.201,vr,11
+1851,89180944,Moderne Databases,P2,B0.201,vr,11
+1852,84449005,Moderne Databases,P2,B0.201,vr,11
+1853,99283252,Moderne Databases,P2,B0.201,vr,11
+1854,48198668,Moderne Databases,P2,B0.201,vr,11
+1855,66621166,Moderne Databases,P2,B0.201,vr,11
+1856,18144425,Moderne Databases,P2,B0.201,vr,11
+1857,68315599,Moderne Databases,P2,B0.201,vr,11
+1858,29526540,Moderne Databases,P2,B0.201,vr,11
+1859,58592894,Moderne Databases,P2,B0.201,vr,11
+1860,13218321,Moderne Databases,P2,B0.201,vr,11
+1861,58699305,Moderne Databases,P2,B0.201,vr,11
+1862,42171678,Moderne Databases,P2,B0.201,vr,11
+1863,27241113,Moderne Databases,P2,B0.201,vr,11
+1864,99453514,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1865,20095994,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1866,3685034,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1867,86988337,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1868,33776961,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1869,96554914,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1870,6913074,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1871,51052738,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1872,42406214,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1873,60352393,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1874,92778619,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1875,70844780,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1876,32044893,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1877,24277163,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1878,82390428,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1879,43680781,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1880,51415617,Reflectie op de digitale cultuur,W3,B0.201,ma,13
+1881,96054456,Bioinformatica,W1,B0.201,di,13
+1882,4568018,Bioinformatica,W1,B0.201,di,13
+1883,7308727,Bioinformatica,W1,B0.201,di,13
+1884,28359697,Bioinformatica,W1,B0.201,di,13
+1885,58522654,Bioinformatica,W1,B0.201,di,13
+1886,22826928,Bioinformatica,W1,B0.201,di,13
+1887,53202517,Bioinformatica,W1,B0.201,di,13
+1888,77831658,Bioinformatica,W1,B0.201,di,13
+1889,74131924,Bioinformatica,W1,B0.201,di,13
+1890,43680781,Bioinformatica,W1,B0.201,di,13
+1891,14816774,Bioinformatica,W1,B0.201,di,13
+1892,59544049,Bioinformatica,W1,B0.201,di,13
+1893,56815156,Bioinformatica,W1,B0.201,di,13
+1894,66120270,Bioinformatica,W1,B0.201,di,13
+1895,96453361,Bioinformatica,W1,B0.201,di,13
+1896,88176729,Bioinformatica,W2,B0.201,wo,13
+1897,6913074,Bioinformatica,W2,B0.201,wo,13
+1898,81200278,Bioinformatica,W2,B0.201,wo,13
+1899,29526540,Bioinformatica,W2,B0.201,wo,13
+1900,14591033,Bioinformatica,W2,B0.201,wo,13
+1901,56749879,Bioinformatica,W2,B0.201,wo,13
+1902,64600457,Bioinformatica,W2,B0.201,wo,13
+1903,85335143,Bioinformatica,W2,B0.201,wo,13
+1904,5298748,Bioinformatica,W2,B0.201,wo,13
+1905,33930505,Bioinformatica,W2,B0.201,wo,13
+1906,11068043,Bioinformatica,W2,B0.201,wo,13
+1907,30195935,Bioinformatica,W2,B0.201,wo,13
+1908,21029457,Bioinformatica,W2,B0.201,wo,13
+1909,54026378,Bioinformatica,W2,B0.201,wo,13
+1910,44868097,Bioinformatica,W2,B0.201,wo,13
+1911,84449005,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1912,27805666,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1913,36785409,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1914,22826928,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1915,99975346,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1916,78136904,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1917,27370083,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1918,77960666,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1919,41578612,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1920,87830198,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1921,37399898,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1922,22871048,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1923,54569540,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1924,52715680,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1925,49922855,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1926,4709948,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1927,57086672,Reflectie op de digitale cultuur,W2,B0.201,do,13
+1928,25330192,Data Mining,W3,B0.201,vr,13
+1929,74131924,Data Mining,W3,B0.201,vr,13
+1930,52311353,Data Mining,W3,B0.201,vr,13
+1931,91196968,Data Mining,W3,B0.201,vr,13
+1932,66122625,Data Mining,W3,B0.201,vr,13
+1933,68360259,Data Mining,W3,B0.201,vr,13
+1934,13116738,Data Mining,W3,B0.201,vr,13
+1935,22323043,Data Mining,W3,B0.201,vr,13
+1936,37744525,Data Mining,W3,B0.201,vr,13
+1937,42196732,Bioinformatica,W3,B0.201,ma,15
+1938,70878567,Bioinformatica,W3,B0.201,ma,15
+1939,6723948,Bioinformatica,W3,B0.201,ma,15
+1940,247918,Bioinformatica,W3,B0.201,ma,15
+1941,24613625,Bioinformatica,W3,B0.201,ma,15
+1942,20883994,Bioinformatica,W3,B0.201,ma,15
+1943,15051051,Bioinformatica,W3,B0.201,ma,15
+1944,89985072,Bioinformatica,W3,B0.201,ma,15
+1945,30050930,Bioinformatica,W3,B0.201,ma,15
+1946,3168419,Bioinformatica,W3,B0.201,ma,15
+1947,22731474,Bioinformatica,W3,B0.201,ma,15
+1948,73236988,Bioinformatica,W3,B0.201,ma,15
+1949,79617364,Bioinformatica,W3,B0.201,ma,15
+1950,33877725,Bioinformatica,W3,B0.201,ma,15
+1951,21964491,Bioinformatica,W3,B0.201,ma,15
+1952,28358060,Webprogrammeren en databases,H2,B0.201,di,15
+1953,3474870,Webprogrammeren en databases,H2,B0.201,di,15
+1954,6249823,Webprogrammeren en databases,H2,B0.201,di,15
+1955,1137946,Webprogrammeren en databases,H2,B0.201,di,15
+1956,64228258,Webprogrammeren en databases,H2,B0.201,di,15
+1957,16333449,Webprogrammeren en databases,H2,B0.201,di,15
+1958,24891081,Webprogrammeren en databases,H2,B0.201,di,15
+1959,10698627,Webprogrammeren en databases,H2,B0.201,di,15
+1960,33877725,Webprogrammeren en databases,H2,B0.201,di,15
+1961,66034145,Webprogrammeren en databases,H2,B0.201,di,15
+1962,53512831,Webprogrammeren en databases,H2,B0.201,di,15
+1963,57086672,Webprogrammeren en databases,H2,B0.201,di,15
+1964,89180944,Webprogrammeren en databases,H2,B0.201,di,15
+1965,20618153,Webprogrammeren en databases,H2,B0.201,di,15
+1966,77392404,Webprogrammeren en databases,H2,B0.201,di,15
+1967,76648468,Webprogrammeren en databases,H2,B0.201,di,15
+1968,14847953,Webprogrammeren en databases,H2,B0.201,di,15
+1969,17092717,Webprogrammeren en databases,H2,B0.201,di,15
+1970,78243495,Webprogrammeren en databases,H2,B0.201,di,15
+1971,76903244,Webprogrammeren en databases,H2,B0.201,di,15
+1972,94930277,Webprogrammeren en databases,H2,B0.201,di,15
+1973,76123484,Webprogrammeren en databases,H2,B0.201,di,15
+1974,49908313,Webprogrammeren en databases,H2,B0.201,di,15
+1975,72895450,Webprogrammeren en databases,H2,B0.201,di,15
+1976,41790793,Webprogrammeren en databases,H2,B0.201,di,15
+1977,43902015,Webprogrammeren en databases,H2,B0.201,di,15
+1978,22288615,Webprogrammeren en databases,H2,B0.201,di,15
+1979,2416751,Webprogrammeren en databases,H2,B0.201,di,15
+1980,72577292,Webprogrammeren en databases,H2,B0.201,di,15
+1981,39230359,Webprogrammeren en databases,H2,B0.201,di,15
+1982,53202517,Webprogrammeren en databases,H2,B0.201,di,15
+1983,61443567,Webprogrammeren en databases,H2,B0.201,di,15
+1984,40434933,Webprogrammeren en databases,H2,B0.201,di,15
+1985,69459473,Webprogrammeren en databases,H2,B0.201,di,15
+1986,14303208,Webprogrammeren en databases,H2,B0.201,di,15
+1987,27064249,Webprogrammeren en databases,H2,B0.201,di,15
+1988,43460038,Webprogrammeren en databases,H2,B0.201,di,15
+1989,67073567,Webprogrammeren en databases,H2,B0.201,di,15
+1990,5615125,Webprogrammeren en databases,H2,B0.201,di,15
+1991,4783858,Heuristieken 1,W2,B0.201,wo,15
+1992,48357272,Heuristieken 1,W2,B0.201,wo,15
+1993,4353500,Heuristieken 1,W2,B0.201,wo,15
+1994,13658563,Heuristieken 1,W2,B0.201,wo,15
+1995,97417002,Heuristieken 1,W2,B0.201,wo,15
+1996,76393508,Heuristieken 1,W2,B0.201,wo,15
+1997,59075181,Heuristieken 1,W2,B0.201,wo,15
+1998,14941752,Heuristieken 1,W2,B0.201,wo,15
+1999,20331158,Heuristieken 1,W2,B0.201,wo,15
+2000,58736785,Heuristieken 1,W2,B0.201,wo,15
+2001,92977271,Heuristieken 1,W2,B0.201,wo,15
+2002,98105190,Heuristieken 1,W2,B0.201,wo,15
+2003,71839156,Heuristieken 1,W2,B0.201,wo,15
+2004,97019450,Heuristieken 1,W2,B0.201,wo,15
+2005,20830477,Heuristieken 1,W2,B0.201,wo,15
+2006,53107172,Heuristieken 1,W2,B0.201,wo,15
+2007,22871048,Heuristieken 1,W2,B0.201,wo,15
+2008,87210640,Heuristieken 1,W2,B0.201,wo,15
+2009,45660925,Heuristieken 1,W2,B0.201,wo,15
+2010,56749879,Heuristieken 1,W2,B0.201,wo,15
+2011,53775014,Heuristieken 1,W2,B0.201,wo,15
+2012,1696500,Heuristieken 1,W2,B0.201,wo,15
+2013,37110913,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2014,60661905,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2015,77392404,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2016,59753700,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2017,13658563,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2018,38296757,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2019,13718298,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2020,70193386,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2021,90474003,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2022,5298748,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2023,68286356,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2024,20239127,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2025,36213792,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2026,27950803,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2027,13092455,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2028,61518436,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2029,84524083,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2030,84449005,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2031,27805666,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2032,36785409,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2033,22826928,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2034,99975346,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2035,78136904,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2036,27370083,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2037,77960666,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2038,41578612,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2039,87830198,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2040,37399898,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2041,22871048,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2042,54569540,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2043,52715680,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2044,49922855,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2045,4709948,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2046,57086672,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2047,99453514,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2048,20095994,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2049,3685034,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2050,86988337,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2051,33776961,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2052,96554914,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2053,6913074,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2054,51052738,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2055,42406214,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2056,60352393,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2057,92778619,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2058,70844780,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2059,32044893,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2060,24277163,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2061,82390428,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2062,43680781,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2063,51415617,Reflectie op de digitale cultuur,H2,B0.201,do,15
+2064,77376714,Algoritmen en complexiteit,H1,A1.04,di,9
+2065,3474870,Algoritmen en complexiteit,H1,A1.04,di,9
+2066,27298319,Algoritmen en complexiteit,H1,A1.04,di,9
+2067,46701583,Algoritmen en complexiteit,H1,A1.04,di,9
+2068,26260141,Algoritmen en complexiteit,H1,A1.04,di,9
+2069,96453361,Algoritmen en complexiteit,H1,A1.04,di,9
+2070,66433883,Algoritmen en complexiteit,H1,A1.04,di,9
+2071,19540225,Algoritmen en complexiteit,H1,A1.04,di,9
+2072,88596522,Algoritmen en complexiteit,H1,A1.04,di,9
+2073,3707829,Algoritmen en complexiteit,H1,A1.04,di,9
+2074,23983476,Algoritmen en complexiteit,H1,A1.04,di,9
+2075,8522855,Algoritmen en complexiteit,H1,A1.04,di,9
+2076,51509565,Algoritmen en complexiteit,H1,A1.04,di,9
+2077,53585410,Algoritmen en complexiteit,H1,A1.04,di,9
+2078,21095566,Algoritmen en complexiteit,H1,A1.04,di,9
+2079,64947290,Algoritmen en complexiteit,H1,A1.04,di,9
+2080,91527663,Algoritmen en complexiteit,H1,A1.04,di,9
+2081,41585485,Algoritmen en complexiteit,H1,A1.04,di,9
+2082,82689818,Algoritmen en complexiteit,H1,A1.04,di,9
+2083,40343779,Algoritmen en complexiteit,H1,A1.04,di,9
+2084,81385263,Algoritmen en complexiteit,H1,A1.04,di,9
+2085,14671406,Algoritmen en complexiteit,H1,A1.04,di,9
+2086,41527759,Algoritmen en complexiteit,H1,A1.04,di,9
+2087,57467488,Algoritmen en complexiteit,H1,A1.04,di,9
+2088,72895450,Algoritmen en complexiteit,H1,A1.04,di,9
+2089,52715680,Algoritmen en complexiteit,H1,A1.04,di,9
+2090,44828429,Algoritmen en complexiteit,H1,A1.04,di,9
+2091,36903574,Algoritmen en complexiteit,H1,A1.04,di,9
+2092,15902055,Algoritmen en complexiteit,H1,A1.04,di,9
+2093,86988337,Algoritmen en complexiteit,H1,A1.04,di,9
+2094,34765676,Algoritmen en complexiteit,H1,A1.04,di,9
+2095,5976174,Algoritmen en complexiteit,H1,A1.04,di,9
+2096,43902015,Algoritmen en complexiteit,H1,A1.04,di,9
+2097,51566595,Algoritmen en complexiteit,H1,A1.04,di,9
+2098,67817269,Algoritmen en complexiteit,H1,A1.04,di,9
+2099,12077419,Algoritmen en complexiteit,H1,A1.04,di,9
+2100,78136904,Algoritmen en complexiteit,H1,A1.04,di,9
+2101,58592894,Algoritmen en complexiteit,H1,A1.04,di,9
+2102,23652927,Algoritmen en complexiteit,H1,A1.04,di,9
+2103,21964491,Algoritmen en complexiteit,H1,A1.04,di,9
+2104,64554442,Algoritmen en complexiteit,H1,A1.04,di,9
+2105,1665980,Algoritmen en complexiteit,H1,A1.04,di,9
+2106,50143947,Algoritmen en complexiteit,H1,A1.04,di,9
+2107,58253841,Calculus 2,W1,A1.04,wo,9
+2108,83266686,Calculus 2,W1,A1.04,wo,9
+2109,27925117,Calculus 2,W1,A1.04,wo,9
+2110,34173695,Calculus 2,W1,A1.04,wo,9
+2111,38179241,Calculus 2,W1,A1.04,wo,9
+2112,82412626,Calculus 2,W1,A1.04,wo,9
+2113,44868097,Calculus 2,W1,A1.04,wo,9
+2114,27298319,Calculus 2,W1,A1.04,wo,9
+2115,86807027,Calculus 2,W1,A1.04,wo,9
+2116,58469172,Calculus 2,W1,A1.04,wo,9
+2117,61520025,Calculus 2,W1,A1.04,wo,9
+2118,23628642,Calculus 2,W1,A1.04,wo,9
+2119,63634350,Calculus 2,W1,A1.04,wo,9
+2120,14591033,Calculus 2,W1,A1.04,wo,9
+2121,79167252,Calculus 2,W1,A1.04,wo,9
+2122,75623387,Calculus 2,W1,A1.04,wo,9
+2123,75997788,Calculus 2,W1,A1.04,wo,9
+2124,3678531,Calculus 2,W1,A1.04,wo,9
+2125,78544592,Calculus 2,W1,A1.04,wo,9
+2126,24875739,Calculus 2,W1,A1.04,wo,9
+2127,83415514,Calculus 2,W1,A1.04,wo,9
+2128,4783858,Calculus 2,W1,A1.04,wo,9
+2129,9731271,Calculus 2,W1,A1.04,wo,9
+2130,12091019,Calculus 2,W1,A1.04,wo,9
+2131,56872729,Calculus 2,W1,A1.04,wo,9
+2132,59220392,Calculus 2,W1,A1.04,wo,9
+2133,46701583,Calculus 2,W1,A1.04,wo,9
+2134,77306636,Calculus 2,W1,A1.04,wo,9
+2135,73302736,Calculus 2,W1,A1.04,wo,9
+2136,70939718,Calculus 2,W1,A1.04,wo,9
+2137,16097870,Calculus 2,W1,A1.04,wo,9
+2138,86180471,Calculus 2,W1,A1.04,wo,9
+2139,46570285,Calculus 2,W1,A1.04,wo,9
+2140,78735049,Calculus 2,W1,A1.04,wo,9
+2141,10149535,Calculus 2,W1,A1.04,wo,9
+2142,32705005,Calculus 2,W1,A1.04,wo,9
+2143,58522654,Compilerbouw,H1,A1.04,do,9
+2144,74361881,Compilerbouw,H1,A1.04,do,9
+2145,38499176,Compilerbouw,H1,A1.04,do,9
+2146,94687383,Compilerbouw,H1,A1.04,do,9
+2147,98105190,Compilerbouw,H1,A1.04,do,9
+2148,76661016,Compilerbouw,H1,A1.04,do,9
+2149,81385263,Compilerbouw,H1,A1.04,do,9
+2150,13911001,Compilerbouw,H1,A1.04,do,9
+2151,39459642,Compilerbouw,H1,A1.04,do,9
+2152,75599734,Compilerbouw,H1,A1.04,do,9
+2153,11741347,Compilerbouw,H1,A1.04,do,9
+2154,71839156,Compilerbouw,H1,A1.04,do,9
+2155,53585410,Compilerbouw,H1,A1.04,do,9
+2156,83266686,Compilerbouw,H1,A1.04,do,9
+2157,48308205,Compilerbouw,H1,A1.04,do,9
+2158,44151631,Compilerbouw,H1,A1.04,do,9
+2159,31194811,Compilerbouw,H1,A1.04,do,9
+2160,84524083,Compilerbouw,H1,A1.04,do,9
+2161,65675896,Compilerbouw,H1,A1.04,do,9
+2162,65852230,Compilerbouw,H1,A1.04,do,9
+2163,34110913,Compilerbouw,H1,A1.04,do,9
+2164,5595824,Compilerbouw,H1,A1.04,do,9
+2165,60312776,Compilerbouw,H1,A1.04,do,9
+2166,9067939,Compilerbouw,H1,A1.04,do,9
+2167,42778953,Compilerbouw,H1,A1.04,do,9
+2168,72895450,Compilerbouw,H1,A1.04,do,9
+2169,5085194,Compilerbouw,H1,A1.04,do,9
+2170,75759231,Compilerbouw,H1,A1.04,do,9
+2171,95007221,Compilerbouw,H1,A1.04,do,9
+2172,91250534,Compilerbouw,H1,A1.04,do,9
+2173,34872117,Compilerbouw,H1,A1.04,do,9
+2174,14383795,Compilerbouw,H1,A1.04,do,9
+2175,25994016,Compilerbouw,H1,A1.04,do,9
+2176,27950803,Compilerbouw,H1,A1.04,do,9
+2177,53202517,Compilerbouw,H1,A1.04,do,9
+2178,8464817,Compilerbouw,H1,A1.04,do,9
+2179,40791377,Compilerbouw,H1,A1.04,do,9
+2180,86291592,Compilerbouw,H1,A1.04,do,9
+2181,3407554,Compilerbouw,H1,A1.04,do,9
+2182,23215240,Compilerbouw,H1,A1.04,do,9
+2183,37770881,Compilerbouw,H1,A1.04,do,9
+2184,89985072,Compilerbouw,H1,A1.04,do,9
+2185,5892092,Compilerbouw,H1,A1.04,do,9
+2186,6723948,Compilerbouw,H1,A1.04,do,9
+2187,52715680,Compilerbouw,H1,A1.04,do,9
+2188,66701209,Compilerbouw,H1,A1.04,do,9
+2189,57595888,Compilerbouw,H1,A1.04,do,9
+2190,34243356,Compilerbouw,H1,A1.04,do,9
+2191,64418623,Compilerbouw,H1,A1.04,do,9
+2192,76802764,Compilerbouw,H1,A1.04,do,9
+2193,4568018,Compilerbouw,H1,A1.04,do,9
+2194,11068043,Compilerbouw,H1,A1.04,do,9
+2195,24613625,Compilerbouw,H1,A1.04,do,9
+2196,10792879,Compilerbouw,H1,A1.04,do,9
+2197,14303208,Compilerbouw,H1,A1.04,do,9
+2198,82066165,Compilerbouw,H1,A1.04,do,9
+2199,75664412,Compilerbouw,H1,A1.04,do,9
+2200,88636924,Compilerbouw,H1,A1.04,do,9
+2201,49683101,Compilerbouw,H1,A1.04,do,9
+2202,88855695,Compilerbouw,H1,A1.04,do,9
+2203,73236988,Compilerbouw,H1,A1.04,do,9
+2204,86988337,Compilerbouw,H1,A1.04,do,9
+2205,42297781,Compilerbouw,H1,A1.04,do,9
+2206,50143947,Compilerbouw,H1,A1.04,do,9
+2207,2079771,Compilerbouw,H1,A1.04,do,9
+2208,51673172,Compilerbouw,H1,A1.04,do,9
+2209,30658799,Compilerbouw,H1,A1.04,do,9
+2210,7957843,Compilerbouw,H1,A1.04,do,9
+2211,92665222,Compilerbouw,H1,A1.04,do,9
+2212,54772132,Compilerbouw,H1,A1.04,do,9
+2213,5368702,Compilerbouw,H1,A1.04,do,9
+2214,1695839,Compilerbouw,H1,A1.04,do,9
+2215,1665980,Compilerbouw,H1,A1.04,do,9
+2216,51472074,Compilerbouw,H1,A1.04,do,9
+2217,68315599,Compilerbouw,H1,A1.04,do,9
+2218,48503689,Compilerbouw,H1,A1.04,do,9
+2219,26406342,Compilerbouw,H1,A1.04,do,9
+2220,99272880,Compilerbouw,H1,A1.04,do,9
+2221,12077419,Compilerbouw,H1,A1.04,do,9
+2222,535689,Compilerbouw,H1,A1.04,do,9
+2223,11459236,Compilerbouw,H1,A1.04,do,9
+2224,14138904,Compilerbouw,H1,A1.04,do,9
+2225,72796858,Compilerbouw,H1,A1.04,do,9
+2226,15911353,Compilerbouw,H1,A1.04,do,9
+2227,44391517,Compilerbouw,H1,A1.04,do,9
+2228,27187154,Compilerbouw,H1,A1.04,do,9
+2229,47260040,Compilerbouw,H1,A1.04,do,9
+2230,80135353,Compilerbouw,H1,A1.04,do,9
+2231,13284244,Compilerbouw,H1,A1.04,do,9
+2232,2317551,Compilerbouw,H1,A1.04,do,9
+2233,32204977,Compilerbouw,H1,A1.04,do,9
+2234,14309255,Compilerbouw,H1,A1.04,do,9
+2235,11915563,Compilerbouw,H1,A1.04,do,9
+2236,63634350,Compilerbouw,H1,A1.04,do,9
+2237,79033175,Compilerbouw,H1,A1.04,do,9
+2238,43689934,Compilerbouw,H1,A1.04,do,9
+2239,88596522,Compilerbouw,H1,A1.04,do,9
+2240,79167252,Compilerbouw,H1,A1.04,do,9
+2241,72665524,Compilerbouw,H1,A1.04,do,9
+2242,65960683,Compilerbouw,H1,A1.04,do,9
+2243,46989508,Compilerbouw,H1,A1.04,do,9
+2244,1766560,Compilerbouw,H1,A1.04,do,9
+2245,88752563,Compilerbouw,H1,A1.04,do,9
+2246,55103073,Compilerbouw,H1,A1.04,do,9
+2247,77896638,Compilerbouw,H1,A1.04,do,9
+2248,95631564,Compilerbouw,H1,A1.04,do,9
+2249,41644639,Compilerbouw,H1,A1.04,do,9
+2250,13911001,Compilerbouw practicum,P1,A1.04,vr,9
+2251,47260040,Compilerbouw practicum,P1,A1.04,vr,9
+2252,1695839,Compilerbouw practicum,P1,A1.04,vr,9
+2253,5085194,Compilerbouw practicum,P1,A1.04,vr,9
+2254,88596522,Compilerbouw practicum,P1,A1.04,vr,9
+2255,3407554,Compilerbouw practicum,P1,A1.04,vr,9
+2256,71839156,Compilerbouw practicum,P1,A1.04,vr,9
+2257,89985072,Compilerbouw practicum,P1,A1.04,vr,9
+2258,57595888,Compilerbouw practicum,P1,A1.04,vr,9
+2259,38499176,Compilerbouw practicum,P1,A1.04,vr,9
+2260,74361881,Compilerbouw practicum,P1,A1.04,vr,9
+2261,50143947,Compilerbouw practicum,P1,A1.04,vr,9
+2262,51673172,Compilerbouw practicum,P1,A1.04,vr,9
+2263,5892092,Compilerbouw practicum,P1,A1.04,vr,9
+2264,59544049,Software engineering,P1,A1.04,ma,11
+2265,44671041,Software engineering,P1,A1.04,ma,11
+2266,27582862,Software engineering,P1,A1.04,ma,11
+2267,77376714,Software engineering,P1,A1.04,ma,11
+2268,44868097,Software engineering,P1,A1.04,ma,11
+2269,4783858,Software engineering,P1,A1.04,ma,11
+2270,31103066,Software engineering,P1,A1.04,ma,11
+2271,55474917,Software engineering,P1,A1.04,ma,11
+2272,33877725,Software engineering,P1,A1.04,ma,11
+2273,60312776,Software engineering,P1,A1.04,ma,11
+2274,89338938,Software engineering,P1,A1.04,ma,11
+2275,37744525,Software engineering,P1,A1.04,ma,11
+2276,65408517,Software engineering,P1,A1.04,ma,11
+2277,50143947,Software engineering,P1,A1.04,ma,11
+2278,22871048,Software engineering,P1,A1.04,ma,11
+2279,26260141,Software engineering,P1,A1.04,ma,11
+2280,52715680,Software engineering,P1,A1.04,ma,11
+2281,58565406,Software engineering,P1,A1.04,ma,11
+2282,73236988,Software engineering,P1,A1.04,ma,11
+2283,78243495,Software engineering,P1,A1.04,ma,11
+2284,51593625,Software engineering,P1,A1.04,ma,11
+2285,21095566,Software engineering,P1,A1.04,ma,11
+2286,52311353,Software engineering,P1,A1.04,ma,11
+2287,31247305,Software engineering,P1,A1.04,ma,11
+2288,4546613,Software engineering,P1,A1.04,ma,11
+2289,62356458,Software engineering,P1,A1.04,ma,11
+2290,84110134,Software engineering,P1,A1.04,ma,11
+2291,14309255,Software engineering,P1,A1.04,ma,11
+2292,82872148,Software engineering,P1,A1.04,ma,11
+2293,1048485,Software engineering,P1,A1.04,ma,11
+2294,14671406,Software engineering,P1,A1.04,ma,11
+2295,25106480,Software engineering,P1,A1.04,ma,11
+2296,31633723,Software engineering,P1,A1.04,ma,11
+2297,11068043,Software engineering,P1,A1.04,ma,11
+2298,62105897,Software engineering,P1,A1.04,ma,11
+2299,4568018,Software engineering,P1,A1.04,ma,11
+2300,80709893,Software engineering,P1,A1.04,ma,11
+2301,88176729,Software engineering,P1,A1.04,ma,11
+2302,1696500,Collectieve Intelligentie,H1,A1.04,di,11
+2303,42171678,Collectieve Intelligentie,H1,A1.04,di,11
+2304,42196732,Collectieve Intelligentie,H1,A1.04,di,11
+2305,24277163,Collectieve Intelligentie,H1,A1.04,di,11
+2306,57595888,Collectieve Intelligentie,H1,A1.04,di,11
+2307,3233378,Collectieve Intelligentie,H1,A1.04,di,11
+2308,82689818,Collectieve Intelligentie,H1,A1.04,di,11
+2309,1665980,Collectieve Intelligentie,H1,A1.04,di,11
+2310,13092455,Collectieve Intelligentie,H1,A1.04,di,11
+2311,76123484,Collectieve Intelligentie,H1,A1.04,di,11
+2312,87758823,Collectieve Intelligentie,H1,A1.04,di,11
+2313,37770881,Collectieve Intelligentie,H1,A1.04,di,11
+2314,28357474,Collectieve Intelligentie,H1,A1.04,di,11
+2315,86291592,Collectieve Intelligentie,H1,A1.04,di,11
+2316,58522654,Collectieve Intelligentie,H1,A1.04,di,11
+2317,64296965,Collectieve Intelligentie,H1,A1.04,di,11
+2318,45556081,Collectieve Intelligentie,H1,A1.04,di,11
+2319,17575088,Collectieve Intelligentie,H1,A1.04,di,11
+2320,1075391,Collectieve Intelligentie,H1,A1.04,di,11
+2321,7308727,Collectieve Intelligentie,H1,A1.04,di,11
+2322,72577292,Collectieve Intelligentie,H1,A1.04,di,11
+2323,64393888,Collectieve Intelligentie,H1,A1.04,di,11
+2324,26406342,Collectieve Intelligentie,H1,A1.04,di,11
+2325,50143947,Collectieve Intelligentie,H1,A1.04,di,11
+2326,75521763,Collectieve Intelligentie,H1,A1.04,di,11
+2327,21964491,Collectieve Intelligentie,H1,A1.04,di,11
+2328,65960683,Collectieve Intelligentie,H1,A1.04,di,11
+2329,77896638,Collectieve Intelligentie,H1,A1.04,di,11
+2330,48601268,Collectieve Intelligentie,H1,A1.04,di,11
+2331,5517869,Collectieve Intelligentie,H1,A1.04,di,11
+2332,29474737,Collectieve Intelligentie,H1,A1.04,di,11
+2333,62701040,Collectieve Intelligentie,H1,A1.04,di,11
+2334,60312776,Collectieve Intelligentie,H1,A1.04,di,11
+2335,22699561,Collectieve Intelligentie,H1,A1.04,di,11
+2336,73980360,Collectieve Intelligentie,H1,A1.04,di,11
+2337,13534377,Collectieve Intelligentie,H1,A1.04,di,11
+2338,17222374,Collectieve Intelligentie,H1,A1.04,di,11
+2339,34773179,Collectieve Intelligentie,H1,A1.04,di,11
+2340,15902055,Collectieve Intelligentie,H1,A1.04,di,11
+2341,33760909,Collectieve Intelligentie,H1,A1.04,di,11
+2342,61443567,Collectieve Intelligentie,H1,A1.04,di,11
+2343,9332762,Collectieve Intelligentie,H1,A1.04,di,11
+2344,4783858,Collectieve Intelligentie,H1,A1.04,di,11
+2345,77240949,Collectieve Intelligentie,H1,A1.04,di,11
+2346,50184318,Collectieve Intelligentie,H1,A1.04,di,11
+2347,64228258,Collectieve Intelligentie,H1,A1.04,di,11
+2348,96104167,Collectieve Intelligentie,H1,A1.04,di,11
+2349,97135019,Collectieve Intelligentie,H1,A1.04,di,11
+2350,29640619,Collectieve Intelligentie,H1,A1.04,di,11
+2351,54310617,Collectieve Intelligentie,H1,A1.04,di,11
+2352,43027916,Collectieve Intelligentie,H1,A1.04,di,11
+2353,42778953,Collectieve Intelligentie,H1,A1.04,di,11
+2354,86000192,Collectieve Intelligentie,H1,A1.04,di,11
+2355,53107172,Collectieve Intelligentie,H1,A1.04,di,11
+2356,46052388,Collectieve Intelligentie,H1,A1.04,di,11
+2357,25106480,Collectieve Intelligentie,H1,A1.04,di,11
+2358,35330349,Collectieve Intelligentie,H1,A1.04,di,11
+2359,31416266,Collectieve Intelligentie,H1,A1.04,di,11
+2360,51741554,Collectieve Intelligentie,H1,A1.04,di,11
+2361,68601184,Collectieve Intelligentie,H1,A1.04,di,11
+2362,23547619,Collectieve Intelligentie,H1,A1.04,di,11
+2363,11996292,Heuristieken 1,W1,A1.04,wo,11
+2364,4568018,Heuristieken 1,W1,A1.04,wo,11
+2365,79879876,Heuristieken 1,W1,A1.04,wo,11
+2366,14591033,Heuristieken 1,W1,A1.04,wo,11
+2367,94930277,Heuristieken 1,W1,A1.04,wo,11
+2368,37110913,Heuristieken 1,W1,A1.04,wo,11
+2369,75997788,Heuristieken 1,W1,A1.04,wo,11
+2370,57467488,Heuristieken 1,W1,A1.04,wo,11
+2371,14816774,Heuristieken 1,W1,A1.04,wo,11
+2372,19858730,Heuristieken 1,W1,A1.04,wo,11
+2373,14138904,Heuristieken 1,W1,A1.04,wo,11
+2374,31897288,Heuristieken 1,W1,A1.04,wo,11
+2375,86807027,Heuristieken 1,W1,A1.04,wo,11
+2376,36903574,Heuristieken 1,W1,A1.04,wo,11
+2377,75521763,Heuristieken 1,W1,A1.04,wo,11
+2378,66122625,Heuristieken 1,W1,A1.04,wo,11
+2379,81218347,Heuristieken 1,W1,A1.04,wo,11
+2380,22323043,Heuristieken 1,W1,A1.04,wo,11
+2381,83443653,Heuristieken 1,W1,A1.04,wo,11
+2382,42171678,Heuristieken 1,W1,A1.04,wo,11
+2383,44901052,Heuristieken 1,W1,A1.04,wo,11
+2384,61060652,Heuristieken 1,W1,A1.04,wo,11
+2385,5517869,Moderne Databases,P3,A1.04,do,11
+2386,96082155,Moderne Databases,P3,A1.04,do,11
+2387,1181560,Moderne Databases,P3,A1.04,do,11
+2388,30658799,Moderne Databases,P3,A1.04,do,11
+2389,75521763,Moderne Databases,P3,A1.04,do,11
+2390,41489515,Moderne Databases,P3,A1.04,do,11
+2391,85335143,Moderne Databases,P3,A1.04,do,11
+2392,15051051,Moderne Databases,P3,A1.04,do,11
+2393,36748818,Moderne Databases,P3,A1.04,do,11
+2394,33776961,Moderne Databases,P3,A1.04,do,11
+2395,3883025,Moderne Databases,P3,A1.04,do,11
+2396,47462856,Moderne Databases,P3,A1.04,do,11
+2397,11741347,Moderne Databases,P3,A1.04,do,11
+2398,75997788,Moderne Databases,P3,A1.04,do,11
+2399,58332004,Moderne Databases,P3,A1.04,do,11
+2400,83266686,Moderne Databases,P3,A1.04,do,11
+2401,49631542,Moderne Databases,P3,A1.04,do,11
+2402,70072978,Moderne Databases,P3,A1.04,do,11
+2403,42196732,Bioinformatica,P3,A1.04,vr,11
+2404,70878567,Bioinformatica,P3,A1.04,vr,11
+2405,6723948,Bioinformatica,P3,A1.04,vr,11
+2406,247918,Bioinformatica,P3,A1.04,vr,11
+2407,24613625,Bioinformatica,P3,A1.04,vr,11
+2408,20883994,Bioinformatica,P3,A1.04,vr,11
+2409,15051051,Bioinformatica,P3,A1.04,vr,11
+2410,89985072,Bioinformatica,P3,A1.04,vr,11
+2411,30050930,Bioinformatica,P3,A1.04,vr,11
+2412,3168419,Bioinformatica,P3,A1.04,vr,11
+2413,22731474,Bioinformatica,P3,A1.04,vr,11
+2414,73236988,Bioinformatica,P3,A1.04,vr,11
+2415,79617364,Bioinformatica,P3,A1.04,vr,11
+2416,33877725,Bioinformatica,P3,A1.04,vr,11
+2417,21964491,Bioinformatica,P3,A1.04,vr,11
+2418,81200278,Interactie-ontwerp,H1,A1.04,ma,13
+2419,66034145,Interactie-ontwerp,H1,A1.04,ma,13
+2420,65675896,Interactie-ontwerp,H1,A1.04,ma,13
+2421,3707829,Interactie-ontwerp,H1,A1.04,ma,13
+2422,21677389,Interactie-ontwerp,H1,A1.04,ma,13
+2423,81385263,Interactie-ontwerp,H1,A1.04,ma,13
+2424,23547619,Interactie-ontwerp,H1,A1.04,ma,13
+2425,14847953,Interactie-ontwerp,H1,A1.04,ma,13
+2426,69634191,Interactie-ontwerp,H1,A1.04,ma,13
+2427,5368702,Interactie-ontwerp,H1,A1.04,ma,13
+2428,44828429,Interactie-ontwerp,H1,A1.04,ma,13
+2429,4546613,Interactie-ontwerp,H1,A1.04,ma,13
+2430,76661016,Interactie-ontwerp,H1,A1.04,ma,13
+2431,19214659,Interactie-ontwerp,H1,A1.04,ma,13
+2432,34765676,Interactie-ontwerp,H1,A1.04,ma,13
+2433,64768422,Interactie-ontwerp,H1,A1.04,ma,13
+2434,81155296,Interactie-ontwerp,H1,A1.04,ma,13
+2435,76924297,Interactie-ontwerp,H1,A1.04,ma,13
+2436,37701751,Interactie-ontwerp,H1,A1.04,ma,13
+2437,37399898,Interactie-ontwerp,H1,A1.04,ma,13
+2438,28055464,Interactie-ontwerp,H1,A1.04,ma,13
+2439,2550487,Interactie-ontwerp,H1,A1.04,ma,13
+2440,93566383,Interactie-ontwerp,H1,A1.04,ma,13
+2441,38179241,Interactie-ontwerp,H1,A1.04,ma,13
+2442,20374340,Interactie-ontwerp,H1,A1.04,ma,13
+2443,81022997,Project Numerical Recipes,P1,A1.04,di,13
+2444,40911986,Project Numerical Recipes,P1,A1.04,di,13
+2445,81116418,Project Numerical Recipes,P1,A1.04,di,13
+2446,22731474,Project Numerical Recipes,P1,A1.04,di,13
+2447,90103047,Project Numerical Recipes,P1,A1.04,di,13
+2448,12430748,Project Numerical Recipes,P1,A1.04,di,13
+2449,86807027,Project Numerical Recipes,P1,A1.04,di,13
+2450,75005528,Project Numerical Recipes,P1,A1.04,di,13
+2451,63939720,Project Numerical Recipes,P1,A1.04,di,13
+2452,7957843,Project Numerical Recipes,P1,A1.04,di,13
+2453,13284244,Project Numerical Recipes,P1,A1.04,di,13
+2454,11068043,Project Numerical Recipes,P1,A1.04,di,13
+2455,2550487,Project Numerical Recipes,P1,A1.04,di,13
+2456,77831658,Project Numerical Recipes,P1,A1.04,di,13
+2457,7308727,Project Numerical Recipes,P1,A1.04,di,13
+2458,37110913,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2459,60661905,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2460,77392404,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2461,59753700,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2462,13658563,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2463,38296757,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2464,13718298,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2465,70193386,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2466,90474003,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2467,5298748,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2468,68286356,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2469,20239127,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2470,36213792,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2471,27950803,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2472,13092455,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2473,61518436,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2474,84524083,Reflectie op de digitale cultuur,W1,A1.04,wo,13
+2475,1048485,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2476,4353500,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2477,54772132,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2478,3883025,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2479,60352393,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2480,57467488,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2481,7957843,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2482,8522855,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2483,1696500,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2484,63573738,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2485,48678993,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2486,123355,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2487,62363761,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2488,36903574,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2489,72586808,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2490,535689,Netwerken en systeembeveiliging,P3,A1.04,do,13
+2491,96054456,Bioinformatica,H3,A1.04,vr,13
+2492,4568018,Bioinformatica,H3,A1.04,vr,13
+2493,7308727,Bioinformatica,H3,A1.04,vr,13
+2494,28359697,Bioinformatica,H3,A1.04,vr,13
+2495,58522654,Bioinformatica,H3,A1.04,vr,13
+2496,22826928,Bioinformatica,H3,A1.04,vr,13
+2497,53202517,Bioinformatica,H3,A1.04,vr,13
+2498,77831658,Bioinformatica,H3,A1.04,vr,13
+2499,74131924,Bioinformatica,H3,A1.04,vr,13
+2500,43680781,Bioinformatica,H3,A1.04,vr,13
+2501,14816774,Bioinformatica,H3,A1.04,vr,13
+2502,59544049,Bioinformatica,H3,A1.04,vr,13
+2503,56815156,Bioinformatica,H3,A1.04,vr,13
+2504,66120270,Bioinformatica,H3,A1.04,vr,13
+2505,96453361,Bioinformatica,H3,A1.04,vr,13
+2506,88176729,Bioinformatica,H3,A1.04,vr,13
+2507,6913074,Bioinformatica,H3,A1.04,vr,13
+2508,81200278,Bioinformatica,H3,A1.04,vr,13
+2509,29526540,Bioinformatica,H3,A1.04,vr,13
+2510,14591033,Bioinformatica,H3,A1.04,vr,13
+2511,56749879,Bioinformatica,H3,A1.04,vr,13
+2512,64600457,Bioinformatica,H3,A1.04,vr,13
+2513,85335143,Bioinformatica,H3,A1.04,vr,13
+2514,5298748,Bioinformatica,H3,A1.04,vr,13
+2515,33930505,Bioinformatica,H3,A1.04,vr,13
+2516,11068043,Bioinformatica,H3,A1.04,vr,13
+2517,30195935,Bioinformatica,H3,A1.04,vr,13
+2518,21029457,Bioinformatica,H3,A1.04,vr,13
+2519,54026378,Bioinformatica,H3,A1.04,vr,13
+2520,44868097,Bioinformatica,H3,A1.04,vr,13
+2521,42196732,Bioinformatica,H3,A1.04,vr,13
+2522,70878567,Bioinformatica,H3,A1.04,vr,13
+2523,6723948,Bioinformatica,H3,A1.04,vr,13
+2524,247918,Bioinformatica,H3,A1.04,vr,13
+2525,24613625,Bioinformatica,H3,A1.04,vr,13
+2526,20883994,Bioinformatica,H3,A1.04,vr,13
+2527,15051051,Bioinformatica,H3,A1.04,vr,13
+2528,89985072,Bioinformatica,H3,A1.04,vr,13
+2529,30050930,Bioinformatica,H3,A1.04,vr,13
+2530,3168419,Bioinformatica,H3,A1.04,vr,13
+2531,22731474,Bioinformatica,H3,A1.04,vr,13
+2532,73236988,Bioinformatica,H3,A1.04,vr,13
+2533,79617364,Bioinformatica,H3,A1.04,vr,13
+2534,33877725,Bioinformatica,H3,A1.04,vr,13
+2535,21964491,Bioinformatica,H3,A1.04,vr,13
+2536,90474003,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2537,59220392,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2538,44391517,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2539,33946407,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2540,9067939,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2541,4529208,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2542,53202517,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2543,42171678,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2544,76123484,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2545,28957789,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2546,45915482,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2547,88627897,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2548,87758823,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2549,15051051,Zoeken sturen en bewegen,P3,A1.04,ma,15
+2550,25330192,Data Mining,P3,A1.04,di,15
+2551,74131924,Data Mining,P3,A1.04,di,15
+2552,52311353,Data Mining,P3,A1.04,di,15
+2553,91196968,Data Mining,P3,A1.04,di,15
+2554,66122625,Data Mining,P3,A1.04,di,15
+2555,68360259,Data Mining,P3,A1.04,di,15
+2556,13116738,Data Mining,P3,A1.04,di,15
+2557,22323043,Data Mining,P3,A1.04,di,15
+2558,37744525,Data Mining,P3,A1.04,di,15
+2559,68409833,Autonomous Agents 2,P1,A1.04,wo,15
+2560,39459642,Autonomous Agents 2,P1,A1.04,wo,15
+2561,88627897,Autonomous Agents 2,P1,A1.04,wo,15
+2562,62872965,Autonomous Agents 2,P1,A1.04,wo,15
+2563,74131924,Autonomous Agents 2,P1,A1.04,wo,15
+2564,11915563,Autonomous Agents 2,P1,A1.04,wo,15
+2565,72796858,Autonomous Agents 2,P1,A1.04,wo,15
+2566,16097870,Autonomous Agents 2,P1,A1.04,wo,15
+2567,75521763,Technology for games,H2,A1.04,do,15
+2568,43680781,Technology for games,H2,A1.04,do,15
+2569,36785409,Technology for games,H2,A1.04,do,15
+2570,70336464,Technology for games,H2,A1.04,do,15
+2571,14383795,Technology for games,H2,A1.04,do,15
+2572,58565406,Technology for games,H2,A1.04,do,15
+2573,6249823,Technology for games,H2,A1.04,do,15
+2574,32204977,Technology for games,H2,A1.04,do,15
+2575,48308205,Technology for games,H2,A1.04,do,15
+2576,44901052,Technology for games,H2,A1.04,do,15
+2577,89338938,Technology for games,H2,A1.04,do,15
+2578,21192048,Technology for games,H2,A1.04,do,15
+2579,7106649,Technology for games,H2,A1.04,do,15
+2580,92496780,Technology for games,H2,A1.04,do,15
+2581,77264363,Technology for games,H2,A1.04,do,15
+2582,12077419,Technology for games,H2,A1.04,do,15
+2583,47982619,Technology for games,H2,A1.04,do,15
+2584,9332762,Technology for games,H2,A1.04,do,15
+2585,23547619,Technology for games,H2,A1.04,do,15
+2586,37110913,Technology for games,H2,A1.04,do,15
+2587,97371272,Technology for games,H2,A1.04,do,15
+2588,14309255,Technology for games,H2,A1.04,do,15
+2589,26406342,Technology for games,H2,A1.04,do,15
+2590,4697362,Technology for games,H2,A1.04,do,15
+2591,76487754,Technology for games,H2,A1.04,do,15
+2592,11996292,Technology for games,H2,A1.04,do,15
+2593,75664412,Technology for games,H2,A1.04,do,15
+2594,93041523,Technology for games,H2,A1.04,do,15
+2595,69086548,Technology for games,H2,A1.04,do,15
+2596,40434933,Technology for games,H2,A1.04,do,15
+2597,77636749,Technology for games,H2,A1.04,do,15
+2598,10149535,Technology for games,H2,A1.04,do,15
+2599,22323043,Technology for games,H2,A1.04,do,15
+2600,41578612,Technology for games,H2,A1.04,do,15
+2601,12430748,Technology for games,H2,A1.04,do,15
+2602,31194811,Technology for games,H2,A1.04,do,15
+2603,68315599,Technology for games,H2,A1.04,do,15
+2604,85335143,Technology for games,H2,A1.04,do,15
+2605,44901052,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2606,13116738,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2607,8557857,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2608,18266644,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2609,70878567,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2610,23983476,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2611,17496687,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2612,13658563,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2613,68315599,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2614,19958553,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2615,32204977,Informatie- en organisatieontwerp,W1,A1.04,vr,15
+2616,54026378,Autonomous Agents 2,W3,A1.06,ma,9
+2617,62356458,Autonomous Agents 2,W3,A1.06,ma,9
+2618,37110913,Autonomous Agents 2,W3,A1.06,ma,9
+2619,36508571,Autonomous Agents 2,W3,A1.06,ma,9
+2620,51566595,Autonomous Agents 2,W3,A1.06,ma,9
+2621,44901052,Autonomous Agents 2,W3,A1.06,ma,9
+2622,22871048,Autonomous Agents 2,W3,A1.06,ma,9
+2623,99453514,Data Mining,P2,A1.06,di,9
+2624,13996448,Data Mining,P2,A1.06,di,9
+2625,21964491,Data Mining,P2,A1.06,di,9
+2626,81022997,Data Mining,P2,A1.06,di,9
+2627,51566595,Data Mining,P2,A1.06,di,9
+2628,50143947,Data Mining,P2,A1.06,di,9
+2629,19337738,Data Mining,P2,A1.06,di,9
+2630,93023961,Data Mining,P2,A1.06,di,9
+2631,17823206,Data Mining,P2,A1.06,di,9
+2632,93566383,Lineaire Algebra,H1,A1.06,wo,9
+2633,75005528,Lineaire Algebra,H1,A1.06,wo,9
+2634,32595335,Lineaire Algebra,H1,A1.06,wo,9
+2635,79617364,Lineaire Algebra,H1,A1.06,wo,9
+2636,38499176,Lineaire Algebra,H1,A1.06,wo,9
+2637,5517869,Lineaire Algebra,H1,A1.06,wo,9
+2638,68409833,Lineaire Algebra,H1,A1.06,wo,9
+2639,71839156,Lineaire Algebra,H1,A1.06,wo,9
+2640,14591033,Lineaire Algebra,H1,A1.06,wo,9
+2641,55474917,Lineaire Algebra,H1,A1.06,wo,9
+2642,87758823,Lineaire Algebra,H1,A1.06,wo,9
+2643,96118484,Lineaire Algebra,H1,A1.06,wo,9
+2644,42115591,Lineaire Algebra,H1,A1.06,wo,9
+2645,4921119,Lineaire Algebra,H1,A1.06,wo,9
+2646,81385263,Lineaire Algebra,H1,A1.06,wo,9
+2647,16333449,Lineaire Algebra,H1,A1.06,wo,9
+2648,21311067,Lineaire Algebra,H1,A1.06,wo,9
+2649,81218347,Lineaire Algebra,H1,A1.06,wo,9
+2650,79937969,Lineaire Algebra,H1,A1.06,wo,9
+2651,55412918,Lineaire Algebra,H1,A1.06,wo,9
+2652,34243356,Lineaire Algebra,H1,A1.06,wo,9
+2653,48308205,Lineaire Algebra,H1,A1.06,wo,9
+2654,54074680,Lineaire Algebra,H1,A1.06,wo,9
+2655,62872965,Lineaire Algebra,H1,A1.06,wo,9
+2656,56872729,Lineaire Algebra,H1,A1.06,wo,9
+2657,42196732,Lineaire Algebra,H1,A1.06,wo,9
+2658,83210352,Lineaire Algebra,H1,A1.06,wo,9
+2659,80709893,Lineaire Algebra,H1,A1.06,wo,9
+2660,10149535,Lineaire Algebra,H1,A1.06,wo,9
+2661,36527838,Lineaire Algebra,H1,A1.06,wo,9
+2662,35330349,Lineaire Algebra,H1,A1.06,wo,9
+2663,90743504,Lineaire Algebra,H1,A1.06,wo,9
+2664,37399898,Lineaire Algebra,H1,A1.06,wo,9
+2665,91196968,Lineaire Algebra,H1,A1.06,wo,9
+2666,80998260,Lineaire Algebra,H1,A1.06,wo,9
+2667,66570705,Lineaire Algebra,H1,A1.06,wo,9
+2668,16097870,Lineaire Algebra,H1,A1.06,wo,9
+2669,26172512,Lineaire Algebra,H1,A1.06,wo,9
+2670,94686490,Lineaire Algebra,H1,A1.06,wo,9
+2671,670011,Lineaire Algebra,H1,A1.06,wo,9
+2672,31416266,Lineaire Algebra,H1,A1.06,wo,9
+2673,3474870,Lineaire Algebra,H1,A1.06,wo,9
+2674,23565001,Lineaire Algebra,H1,A1.06,wo,9
+2675,36508571,Lineaire Algebra,H1,A1.06,wo,9
+2676,41578612,Lineaire Algebra,H1,A1.06,wo,9
+2677,74182182,Lineaire Algebra,H1,A1.06,wo,9
+2678,58866007,Lineaire Algebra,H1,A1.06,wo,9
+2679,16011419,Lineaire Algebra,H1,A1.06,wo,9
+2680,52311353,Lineaire Algebra,H1,A1.06,wo,9
+2681,77896638,Lineaire Algebra,H1,A1.06,wo,9
+2682,61060652,Lineaire Algebra,H1,A1.06,wo,9
+2683,42778953,Lineaire Algebra,H1,A1.06,wo,9
+2684,34588570,Lineaire Algebra,H1,A1.06,wo,9
+2685,94955328,Lineaire Algebra,H1,A1.06,wo,9
+2686,62701040,Collectieve Intelligentie,W3,A1.06,do,9
+2687,60312776,Collectieve Intelligentie,W3,A1.06,do,9
+2688,22699561,Collectieve Intelligentie,W3,A1.06,do,9
+2689,73980360,Collectieve Intelligentie,W3,A1.06,do,9
+2690,13534377,Collectieve Intelligentie,W3,A1.06,do,9
+2691,17222374,Collectieve Intelligentie,W3,A1.06,do,9
+2692,34773179,Collectieve Intelligentie,W3,A1.06,do,9
+2693,15902055,Collectieve Intelligentie,W3,A1.06,do,9
+2694,33760909,Collectieve Intelligentie,W3,A1.06,do,9
+2695,61443567,Collectieve Intelligentie,W3,A1.06,do,9
+2696,9332762,Collectieve Intelligentie,W3,A1.06,do,9
+2697,4783858,Collectieve Intelligentie,W3,A1.06,do,9
+2698,77240949,Collectieve Intelligentie,W3,A1.06,do,9
+2699,50184318,Collectieve Intelligentie,W3,A1.06,do,9
+2700,64228258,Collectieve Intelligentie,W3,A1.06,do,9
+2701,68409833,Autonomous Agents 2,H2,A1.06,vr,9
+2702,39459642,Autonomous Agents 2,H2,A1.06,vr,9
+2703,88627897,Autonomous Agents 2,H2,A1.06,vr,9
+2704,62872965,Autonomous Agents 2,H2,A1.06,vr,9
+2705,74131924,Autonomous Agents 2,H2,A1.06,vr,9
+2706,11915563,Autonomous Agents 2,H2,A1.06,vr,9
+2707,72796858,Autonomous Agents 2,H2,A1.06,vr,9
+2708,16097870,Autonomous Agents 2,H2,A1.06,vr,9
+2709,27298319,Autonomous Agents 2,H2,A1.06,vr,9
+2710,61611295,Autonomous Agents 2,H2,A1.06,vr,9
+2711,5517869,Autonomous Agents 2,H2,A1.06,vr,9
+2712,70113753,Autonomous Agents 2,H2,A1.06,vr,9
+2713,34806836,Autonomous Agents 2,H2,A1.06,vr,9
+2714,52552718,Autonomous Agents 2,H2,A1.06,vr,9
+2715,19858730,Autonomous Agents 2,H2,A1.06,vr,9
+2716,54026378,Autonomous Agents 2,H2,A1.06,vr,9
+2717,62356458,Autonomous Agents 2,H2,A1.06,vr,9
+2718,37110913,Autonomous Agents 2,H2,A1.06,vr,9
+2719,36508571,Autonomous Agents 2,H2,A1.06,vr,9
+2720,51566595,Autonomous Agents 2,H2,A1.06,vr,9
+2721,44901052,Autonomous Agents 2,H2,A1.06,vr,9
+2722,22871048,Autonomous Agents 2,H2,A1.06,vr,9
+2723,81200278,Interactie-ontwerp,H2,A1.06,ma,11
+2724,66034145,Interactie-ontwerp,H2,A1.06,ma,11
+2725,65675896,Interactie-ontwerp,H2,A1.06,ma,11
+2726,3707829,Interactie-ontwerp,H2,A1.06,ma,11
+2727,21677389,Interactie-ontwerp,H2,A1.06,ma,11
+2728,81385263,Interactie-ontwerp,H2,A1.06,ma,11
+2729,23547619,Interactie-ontwerp,H2,A1.06,ma,11
+2730,14847953,Interactie-ontwerp,H2,A1.06,ma,11
+2731,69634191,Interactie-ontwerp,H2,A1.06,ma,11
+2732,5368702,Interactie-ontwerp,H2,A1.06,ma,11
+2733,44828429,Interactie-ontwerp,H2,A1.06,ma,11
+2734,4546613,Interactie-ontwerp,H2,A1.06,ma,11
+2735,76661016,Interactie-ontwerp,H2,A1.06,ma,11
+2736,19214659,Interactie-ontwerp,H2,A1.06,ma,11
+2737,34765676,Interactie-ontwerp,H2,A1.06,ma,11
+2738,64768422,Interactie-ontwerp,H2,A1.06,ma,11
+2739,81155296,Interactie-ontwerp,H2,A1.06,ma,11
+2740,76924297,Interactie-ontwerp,H2,A1.06,ma,11
+2741,37701751,Interactie-ontwerp,H2,A1.06,ma,11
+2742,37399898,Interactie-ontwerp,H2,A1.06,ma,11
+2743,28055464,Interactie-ontwerp,H2,A1.06,ma,11
+2744,2550487,Interactie-ontwerp,H2,A1.06,ma,11
+2745,93566383,Interactie-ontwerp,H2,A1.06,ma,11
+2746,38179241,Interactie-ontwerp,H2,A1.06,ma,11
+2747,20374340,Interactie-ontwerp,H2,A1.06,ma,11
+2748,64246605,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2749,72456780,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2750,59075181,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2751,59887191,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2752,85284256,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2753,62736669,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2754,77392404,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2755,31247305,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2756,75664412,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2757,97135019,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2758,86291592,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2759,21677389,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2760,9731271,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2761,29640619,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2762,82689818,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2763,34243356,Netwerken en systeembeveiliging,P1,A1.06,wo,11
+2764,62105897,Programmeren in Java 2,P4,A1.06,do,11
+2765,6913074,Programmeren in Java 2,P4,A1.06,do,11
+2766,60661905,Programmeren in Java 2,P4,A1.06,do,11
+2767,46701583,Programmeren in Java 2,P4,A1.06,do,11
+2768,37399898,Programmeren in Java 2,P4,A1.06,do,11
+2769,20618153,Programmeren in Java 2,P4,A1.06,do,11
+2770,21964491,Programmeren in Java 2,P4,A1.06,do,11
+2771,39905995,Programmeren in Java 2,P4,A1.06,do,11
+2772,85284256,Programmeren in Java 2,P4,A1.06,do,11
+2773,670011,Programmeren in Java 2,P4,A1.06,do,11
+2774,80135353,Programmeren in Java 2,P4,A1.06,do,11
+2775,85236626,Programmeren in Java 2,P4,A1.06,do,11
+2776,41153310,Programmeren in Java 2,P4,A1.06,do,11
+2777,92977271,Programmeren in Java 2,P4,A1.06,do,11
+2778,58332004,Programmeren in Java 2,P4,A1.06,do,11
+2779,79879876,Programmeren in Java 2,P4,A1.06,do,11
+2780,1048485,Programmeren in Java 2,P4,A1.06,do,11
+2781,61443567,Programmeren in Java 2,P4,A1.06,do,11
+2782,27925117,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2783,40434933,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2784,45556081,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2785,10149535,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2786,49683101,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2787,20331158,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2788,70015932,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2789,34872117,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2790,72683344,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2791,82689818,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2792,59289233,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2793,72577292,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2794,23798155,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2795,58866007,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2796,28618400,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2797,14138904,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2798,29718115,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2799,89180944,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2800,83266686,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2801,13798030,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2802,43460038,Architectuur en computerorganisatie,H2,A1.06,vr,11
+2803,96054456,Bioinformatica,H2,A1.06,ma,13
+2804,4568018,Bioinformatica,H2,A1.06,ma,13
+2805,7308727,Bioinformatica,H2,A1.06,ma,13
+2806,28359697,Bioinformatica,H2,A1.06,ma,13
+2807,58522654,Bioinformatica,H2,A1.06,ma,13
+2808,22826928,Bioinformatica,H2,A1.06,ma,13
+2809,53202517,Bioinformatica,H2,A1.06,ma,13
+2810,77831658,Bioinformatica,H2,A1.06,ma,13
+2811,74131924,Bioinformatica,H2,A1.06,ma,13
+2812,43680781,Bioinformatica,H2,A1.06,ma,13
+2813,14816774,Bioinformatica,H2,A1.06,ma,13
+2814,59544049,Bioinformatica,H2,A1.06,ma,13
+2815,56815156,Bioinformatica,H2,A1.06,ma,13
+2816,66120270,Bioinformatica,H2,A1.06,ma,13
+2817,96453361,Bioinformatica,H2,A1.06,ma,13
+2818,88176729,Bioinformatica,H2,A1.06,ma,13
+2819,6913074,Bioinformatica,H2,A1.06,ma,13
+2820,81200278,Bioinformatica,H2,A1.06,ma,13
+2821,29526540,Bioinformatica,H2,A1.06,ma,13
+2822,14591033,Bioinformatica,H2,A1.06,ma,13
+2823,56749879,Bioinformatica,H2,A1.06,ma,13
+2824,64600457,Bioinformatica,H2,A1.06,ma,13
+2825,85335143,Bioinformatica,H2,A1.06,ma,13
+2826,5298748,Bioinformatica,H2,A1.06,ma,13
+2827,33930505,Bioinformatica,H2,A1.06,ma,13
+2828,11068043,Bioinformatica,H2,A1.06,ma,13
+2829,30195935,Bioinformatica,H2,A1.06,ma,13
+2830,21029457,Bioinformatica,H2,A1.06,ma,13
+2831,54026378,Bioinformatica,H2,A1.06,ma,13
+2832,44868097,Bioinformatica,H2,A1.06,ma,13
+2833,42196732,Bioinformatica,H2,A1.06,ma,13
+2834,70878567,Bioinformatica,H2,A1.06,ma,13
+2835,6723948,Bioinformatica,H2,A1.06,ma,13
+2836,247918,Bioinformatica,H2,A1.06,ma,13
+2837,24613625,Bioinformatica,H2,A1.06,ma,13
+2838,20883994,Bioinformatica,H2,A1.06,ma,13
+2839,15051051,Bioinformatica,H2,A1.06,ma,13
+2840,89985072,Bioinformatica,H2,A1.06,ma,13
+2841,30050930,Bioinformatica,H2,A1.06,ma,13
+2842,3168419,Bioinformatica,H2,A1.06,ma,13
+2843,22731474,Bioinformatica,H2,A1.06,ma,13
+2844,73236988,Bioinformatica,H2,A1.06,ma,13
+2845,79617364,Bioinformatica,H2,A1.06,ma,13
+2846,33877725,Bioinformatica,H2,A1.06,ma,13
+2847,21964491,Bioinformatica,H2,A1.06,ma,13
+2848,68409833,Autonomous Agents 2,H1,A1.06,di,13
+2849,39459642,Autonomous Agents 2,H1,A1.06,di,13
+2850,88627897,Autonomous Agents 2,H1,A1.06,di,13
+2851,62872965,Autonomous Agents 2,H1,A1.06,di,13
+2852,74131924,Autonomous Agents 2,H1,A1.06,di,13
+2853,11915563,Autonomous Agents 2,H1,A1.06,di,13
+2854,72796858,Autonomous Agents 2,H1,A1.06,di,13
+2855,16097870,Autonomous Agents 2,H1,A1.06,di,13
+2856,27298319,Autonomous Agents 2,H1,A1.06,di,13
+2857,61611295,Autonomous Agents 2,H1,A1.06,di,13
+2858,5517869,Autonomous Agents 2,H1,A1.06,di,13
+2859,70113753,Autonomous Agents 2,H1,A1.06,di,13
+2860,34806836,Autonomous Agents 2,H1,A1.06,di,13
+2861,52552718,Autonomous Agents 2,H1,A1.06,di,13
+2862,19858730,Autonomous Agents 2,H1,A1.06,di,13
+2863,54026378,Autonomous Agents 2,H1,A1.06,di,13
+2864,62356458,Autonomous Agents 2,H1,A1.06,di,13
+2865,37110913,Autonomous Agents 2,H1,A1.06,di,13
+2866,36508571,Autonomous Agents 2,H1,A1.06,di,13
+2867,51566595,Autonomous Agents 2,H1,A1.06,di,13
+2868,44901052,Autonomous Agents 2,H1,A1.06,di,13
+2869,22871048,Autonomous Agents 2,H1,A1.06,di,13
+2870,60352393,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2871,58253841,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2872,97135019,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2873,41644639,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2874,3707829,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2875,88597745,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2876,68315599,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2877,13658563,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2878,56815156,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2879,13116738,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2880,37804282,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2881,37399898,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2882,96453361,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2883,24167153,Zoeken sturen en bewegen,P1,A1.06,wo,13
+2884,5976174,Heuristieken 2,W2,A1.06,vr,13
+2885,61443567,Heuristieken 2,W2,A1.06,vr,13
+2886,72652638,Heuristieken 2,W2,A1.06,vr,13
+2887,81200278,Heuristieken 2,W2,A1.06,vr,13
+2888,58736785,Heuristieken 2,W2,A1.06,vr,13
+2889,22731474,Heuristieken 2,W2,A1.06,vr,13
+2890,15249775,Heuristieken 2,W2,A1.06,vr,13
+2891,84524083,Heuristieken 2,W2,A1.06,vr,13
+2892,51566595,Heuristieken 2,W2,A1.06,vr,13
+2893,85236626,Heuristieken 2,W2,A1.06,vr,13
+2894,5739011,Heuristieken 2,W2,A1.06,vr,13
+2895,48678993,Heuristieken 2,W2,A1.06,vr,13
+2896,27925117,Heuristieken 2,W2,A1.06,vr,13
+2897,670011,Heuristieken 2,W2,A1.06,vr,13
+2898,31897288,Heuristieken 2,W2,A1.06,vr,13
+2899,81022997,Heuristieken 2,W2,A1.06,vr,13
+2900,54026378,Autonomous Agents 2,P3,A1.06,di,15
+2901,62356458,Autonomous Agents 2,P3,A1.06,di,15
+2902,37110913,Autonomous Agents 2,P3,A1.06,di,15
+2903,36508571,Autonomous Agents 2,P3,A1.06,di,15
+2904,51566595,Autonomous Agents 2,P3,A1.06,di,15
+2905,44901052,Autonomous Agents 2,P3,A1.06,di,15
+2906,22871048,Autonomous Agents 2,P3,A1.06,di,15
+2907,77376714,Algoritmen en complexiteit,P1,A1.06,wo,15
+2908,3474870,Algoritmen en complexiteit,P1,A1.06,wo,15
+2909,27298319,Algoritmen en complexiteit,P1,A1.06,wo,15
+2910,46701583,Algoritmen en complexiteit,P1,A1.06,wo,15
+2911,26260141,Algoritmen en complexiteit,P1,A1.06,wo,15
+2912,96453361,Algoritmen en complexiteit,P1,A1.06,wo,15
+2913,66433883,Algoritmen en complexiteit,P1,A1.06,wo,15
+2914,19540225,Algoritmen en complexiteit,P1,A1.06,wo,15
+2915,88596522,Algoritmen en complexiteit,P1,A1.06,wo,15
+2916,3707829,Algoritmen en complexiteit,P1,A1.06,wo,15
+2917,23983476,Algoritmen en complexiteit,P1,A1.06,wo,15
+2918,8522855,Algoritmen en complexiteit,P1,A1.06,wo,15
+2919,51509565,Algoritmen en complexiteit,P1,A1.06,wo,15
+2920,53585410,Algoritmen en complexiteit,P1,A1.06,wo,15
+2921,21095566,Algoritmen en complexiteit,P1,A1.06,wo,15
+2922,64947290,Algoritmen en complexiteit,P1,A1.06,wo,15
+2923,91527663,Algoritmen en complexiteit,P1,A1.06,wo,15
+2924,41585485,Algoritmen en complexiteit,P1,A1.06,wo,15
+2925,82689818,Algoritmen en complexiteit,P1,A1.06,wo,15
+2926,40343779,Algoritmen en complexiteit,P1,A1.06,wo,15
+2927,81385263,Algoritmen en complexiteit,P1,A1.06,wo,15
+2928,14671406,Algoritmen en complexiteit,P1,A1.06,wo,15
+2929,41527759,Algoritmen en complexiteit,P2,A1.06,do,15
+2930,57467488,Algoritmen en complexiteit,P2,A1.06,do,15
+2931,72895450,Algoritmen en complexiteit,P2,A1.06,do,15
+2932,52715680,Algoritmen en complexiteit,P2,A1.06,do,15
+2933,44828429,Algoritmen en complexiteit,P2,A1.06,do,15
+2934,36903574,Algoritmen en complexiteit,P2,A1.06,do,15
+2935,15902055,Algoritmen en complexiteit,P2,A1.06,do,15
+2936,86988337,Algoritmen en complexiteit,P2,A1.06,do,15
+2937,34765676,Algoritmen en complexiteit,P2,A1.06,do,15
+2938,5976174,Algoritmen en complexiteit,P2,A1.06,do,15
+2939,43902015,Algoritmen en complexiteit,P2,A1.06,do,15
+2940,51566595,Algoritmen en complexiteit,P2,A1.06,do,15
+2941,67817269,Algoritmen en complexiteit,P2,A1.06,do,15
+2942,12077419,Algoritmen en complexiteit,P2,A1.06,do,15
+2943,78136904,Algoritmen en complexiteit,P2,A1.06,do,15
+2944,58592894,Algoritmen en complexiteit,P2,A1.06,do,15
+2945,23652927,Algoritmen en complexiteit,P2,A1.06,do,15
+2946,21964491,Algoritmen en complexiteit,P2,A1.06,do,15
+2947,64554442,Algoritmen en complexiteit,P2,A1.06,do,15
+2948,1665980,Algoritmen en complexiteit,P2,A1.06,do,15
+2949,50143947,Algoritmen en complexiteit,P2,A1.06,do,15
+2950,1665980,Compilerbouw,W3,A1.06,vr,15
+2951,51472074,Compilerbouw,W3,A1.06,vr,15
+2952,68315599,Compilerbouw,W3,A1.06,vr,15
+2953,48503689,Compilerbouw,W3,A1.06,vr,15
+2954,26406342,Compilerbouw,W3,A1.06,vr,15
+2955,99272880,Compilerbouw,W3,A1.06,vr,15
+2956,12077419,Compilerbouw,W3,A1.06,vr,15
+2957,535689,Compilerbouw,W3,A1.06,vr,15
+2958,11459236,Compilerbouw,W3,A1.06,vr,15
+2959,14138904,Compilerbouw,W3,A1.06,vr,15
+2960,72796858,Compilerbouw,W3,A1.06,vr,15
+2961,15911353,Compilerbouw,W3,A1.06,vr,15
+2962,44391517,Compilerbouw,W3,A1.06,vr,15
+2963,27187154,Compilerbouw,W3,A1.06,vr,15
+2964,47260040,Compilerbouw,W3,A1.06,vr,15
+2965,80135353,Compilerbouw,W3,A1.06,vr,15
+2966,13284244,Compilerbouw,W3,A1.06,vr,15
+2967,2317551,Compilerbouw,W3,A1.06,vr,15
+2968,32204977,Compilerbouw,W3,A1.06,vr,15
+2969,14309255,Compilerbouw,W3,A1.06,vr,15
+2970,11915563,Compilerbouw,W3,A1.06,vr,15
+2971,63634350,Compilerbouw,W3,A1.06,vr,15
+2972,79033175,Compilerbouw,W3,A1.06,vr,15
+2973,43689934,Compilerbouw,W3,A1.06,vr,15
+2974,88596522,Compilerbouw,W3,A1.06,vr,15
+2975,79167252,Compilerbouw,W3,A1.06,vr,15
+2976,72665524,Compilerbouw,W3,A1.06,vr,15
+2977,65960683,Compilerbouw,W3,A1.06,vr,15
+2978,46989508,Compilerbouw,W3,A1.06,vr,15
+2979,1766560,Compilerbouw,W3,A1.06,vr,15
+2980,88752563,Compilerbouw,W3,A1.06,vr,15
+2981,55103073,Compilerbouw,W3,A1.06,vr,15
+2982,77896638,Compilerbouw,W3,A1.06,vr,15
+2983,95631564,Compilerbouw,W3,A1.06,vr,15
+2984,41644639,Compilerbouw,W3,A1.06,vr,15
+2985,59544049,Software engineering,W1,A1.08,ma,9
+2986,44671041,Software engineering,W1,A1.08,ma,9
+2987,27582862,Software engineering,W1,A1.08,ma,9
+2988,77376714,Software engineering,W1,A1.08,ma,9
+2989,44868097,Software engineering,W1,A1.08,ma,9
+2990,4783858,Software engineering,W1,A1.08,ma,9
+2991,31103066,Software engineering,W1,A1.08,ma,9
+2992,55474917,Software engineering,W1,A1.08,ma,9
+2993,33877725,Software engineering,W1,A1.08,ma,9
+2994,60312776,Software engineering,W1,A1.08,ma,9
+2995,89338938,Software engineering,W1,A1.08,ma,9
+2996,37744525,Software engineering,W1,A1.08,ma,9
+2997,65408517,Software engineering,W1,A1.08,ma,9
+2998,50143947,Software engineering,W1,A1.08,ma,9
+2999,22871048,Software engineering,W1,A1.08,ma,9
+3000,26260141,Software engineering,W1,A1.08,ma,9
+3001,52715680,Software engineering,W1,A1.08,ma,9
+3002,58565406,Software engineering,W1,A1.08,ma,9
+3003,73236988,Software engineering,W1,A1.08,ma,9
+3004,78243495,Software engineering,W1,A1.08,ma,9
+3005,51593625,Software engineering,W1,A1.08,ma,9
+3006,21095566,Software engineering,W1,A1.08,ma,9
+3007,52311353,Software engineering,W1,A1.08,ma,9
+3008,31247305,Software engineering,W1,A1.08,ma,9
+3009,4546613,Software engineering,W1,A1.08,ma,9
+3010,62356458,Software engineering,W1,A1.08,ma,9
+3011,84110134,Software engineering,W1,A1.08,ma,9
+3012,14309255,Software engineering,W1,A1.08,ma,9
+3013,82872148,Software engineering,W1,A1.08,ma,9
+3014,1048485,Software engineering,W1,A1.08,ma,9
+3015,14671406,Software engineering,W1,A1.08,ma,9
+3016,25106480,Software engineering,W1,A1.08,ma,9
+3017,31633723,Software engineering,W1,A1.08,ma,9
+3018,11068043,Software engineering,W1,A1.08,ma,9
+3019,62105897,Software engineering,W1,A1.08,ma,9
+3020,4568018,Software engineering,W1,A1.08,ma,9
+3021,80709893,Software engineering,W1,A1.08,ma,9
+3022,88176729,Software engineering,W1,A1.08,ma,9
+3023,44940353,Kansrekenen 2,H2,A1.08,di,9
+3024,72547110,Kansrekenen 2,H2,A1.08,di,9
+3025,84524083,Kansrekenen 2,H2,A1.08,di,9
+3026,96054456,Kansrekenen 2,H2,A1.08,di,9
+3027,91196968,Kansrekenen 2,H2,A1.08,di,9
+3028,54310617,Kansrekenen 2,H2,A1.08,di,9
+3029,31247305,Kansrekenen 2,H2,A1.08,di,9
+3030,94955328,Kansrekenen 2,H2,A1.08,di,9
+3031,46570285,Kansrekenen 2,H2,A1.08,di,9
+3032,81218347,Kansrekenen 2,H2,A1.08,di,9
+3033,39230359,Kansrekenen 2,H2,A1.08,di,9
+3034,47605891,Kansrekenen 2,H2,A1.08,di,9
+3035,20239127,Kansrekenen 2,H2,A1.08,di,9
+3036,3685034,Kansrekenen 2,H2,A1.08,di,9
+3037,47462856,Kansrekenen 2,H2,A1.08,di,9
+3038,82688900,Kansrekenen 2,H2,A1.08,di,9
+3039,42115591,Kansrekenen 2,H2,A1.08,di,9
+3040,8522855,Kansrekenen 2,H2,A1.08,di,9
+3041,63408522,Kansrekenen 2,H2,A1.08,di,9
+3042,61518436,Kansrekenen 2,H2,A1.08,di,9
+3043,97019450,Kansrekenen 2,H2,A1.08,di,9
+3044,20331158,Kansrekenen 2,H2,A1.08,di,9
+3045,63634350,Kansrekenen 2,H2,A1.08,di,9
+3046,59075181,Kansrekenen 2,H2,A1.08,di,9
+3047,55474917,Kansrekenen 2,H2,A1.08,di,9
+3048,38499176,Kansrekenen 2,H2,A1.08,di,9
+3049,36903574,Kansrekenen 2,H2,A1.08,di,9
+3050,32705005,Kansrekenen 2,H2,A1.08,di,9
+3051,94467156,Kansrekenen 2,H2,A1.08,di,9
+3052,77240949,Kansrekenen 2,H2,A1.08,di,9
+3053,5368702,Kansrekenen 2,H2,A1.08,di,9
+3054,58469172,Kansrekenen 2,H2,A1.08,di,9
+3055,23798155,Kansrekenen 2,H2,A1.08,di,9
+3056,78735049,Kansrekenen 2,H2,A1.08,di,9
+3057,79858178,Kansrekenen 2,H2,A1.08,di,9
+3058,79366078,Kansrekenen 2,H2,A1.08,di,9
+3059,23391676,Kansrekenen 2,H2,A1.08,di,9
+3060,65003379,Kansrekenen 2,H2,A1.08,di,9
+3061,10792879,Kansrekenen 2,H2,A1.08,di,9
+3062,49631542,Kansrekenen 2,H2,A1.08,di,9
+3063,54569540,Kansrekenen 2,H2,A1.08,di,9
+3064,22731474,Kansrekenen 2,H2,A1.08,di,9
+3065,84110134,Kansrekenen 2,H2,A1.08,di,9
+3066,58332004,Kansrekenen 2,H2,A1.08,di,9
+3067,14398123,Kansrekenen 2,H2,A1.08,di,9
+3068,56749879,Kansrekenen 2,H2,A1.08,di,9
+3069,27187154,Kansrekenen 2,H2,A1.08,di,9
+3070,89338938,Kansrekenen 2,H2,A1.08,di,9
+3071,76924297,Kansrekenen 2,H2,A1.08,di,9
+3072,5615125,Kansrekenen 2,H2,A1.08,di,9
+3073,31633723,Kansrekenen 2,H2,A1.08,di,9
+3074,69086548,Kansrekenen 2,H2,A1.08,di,9
+3075,51186803,Kansrekenen 2,H2,A1.08,di,9
+3076,14671406,Kansrekenen 2,H2,A1.08,di,9
+3077,41585485,Kansrekenen 2,H2,A1.08,di,9
+3078,34243356,Kansrekenen 2,H2,A1.08,di,9
+3079,28957789,Kansrekenen 2,H2,A1.08,di,9
+3080,58522654,Kansrekenen 2,H2,A1.08,di,9
+3081,37498675,Kansrekenen 2,H2,A1.08,di,9
+3082,51542218,Kansrekenen 2,H2,A1.08,di,9
+3083,63955238,Kansrekenen 2,H2,A1.08,di,9
+3084,78136904,Kansrekenen 2,H2,A1.08,di,9
+3085,24875739,Kansrekenen 2,H2,A1.08,di,9
+3086,11915563,Kansrekenen 2,H2,A1.08,di,9
+3087,38329455,Kansrekenen 2,H2,A1.08,di,9
+3088,20883994,Kansrekenen 2,H2,A1.08,di,9
+3089,74182182,Kansrekenen 2,H2,A1.08,di,9
+3090,64296965,Kansrekenen 2,H2,A1.08,di,9
+3091,18266644,Kansrekenen 2,H2,A1.08,di,9
+3092,91139627,Kansrekenen 2,H2,A1.08,di,9
+3093,97371272,Kansrekenen 2,H2,A1.08,di,9
+3094,14591033,Kansrekenen 2,H2,A1.08,di,9
+3095,56988998,Kansrekenen 2,H2,A1.08,di,9
+3096,9731271,Kansrekenen 2,H2,A1.08,di,9
+3097,10872825,Kansrekenen 2,H2,A1.08,di,9
+3098,77636749,Kansrekenen 2,H2,A1.08,di,9
+3099,41527759,Kansrekenen 2,H2,A1.08,di,9
+3100,34262212,Kansrekenen 2,H2,A1.08,di,9
+3101,17823206,Kansrekenen 2,H2,A1.08,di,9
+3102,39919665,Kansrekenen 2,H2,A1.08,di,9
+3103,7492204,Kansrekenen 2,H2,A1.08,di,9
+3104,99272880,Kansrekenen 2,H2,A1.08,di,9
+3105,39659121,Kansrekenen 2,H2,A1.08,di,9
+3106,59544049,Kansrekenen 2,H2,A1.08,di,9
+3107,5517869,Moderne Databases,W3,A1.08,wo,9
+3108,96082155,Moderne Databases,W3,A1.08,wo,9
+3109,1181560,Moderne Databases,W3,A1.08,wo,9
+3110,30658799,Moderne Databases,W3,A1.08,wo,9
+3111,75521763,Moderne Databases,W3,A1.08,wo,9
+3112,41489515,Moderne Databases,W3,A1.08,wo,9
+3113,85335143,Moderne Databases,W3,A1.08,wo,9
+3114,15051051,Moderne Databases,W3,A1.08,wo,9
+3115,36748818,Moderne Databases,W3,A1.08,wo,9
+3116,33776961,Moderne Databases,W3,A1.08,wo,9
+3117,3883025,Moderne Databases,W3,A1.08,wo,9
+3118,47462856,Moderne Databases,W3,A1.08,wo,9
+3119,11741347,Moderne Databases,W3,A1.08,wo,9
+3120,75997788,Moderne Databases,W3,A1.08,wo,9
+3121,58332004,Moderne Databases,W3,A1.08,wo,9
+3122,83266686,Moderne Databases,W3,A1.08,wo,9
+3123,49631542,Moderne Databases,W3,A1.08,wo,9
+3124,70072978,Moderne Databases,W3,A1.08,wo,9
+3125,42778953,Project Numerical Recipes,P3,A1.08,do,9
+3126,14941752,Project Numerical Recipes,P3,A1.08,do,9
+3127,73236988,Project Numerical Recipes,P3,A1.08,do,9
+3128,1766560,Project Numerical Recipes,P3,A1.08,do,9
+3129,13996448,Project Numerical Recipes,P3,A1.08,do,9
+3130,89338938,Project Numerical Recipes,P3,A1.08,do,9
+3131,21070547,Project Numerical Recipes,P3,A1.08,do,9
+3132,19662602,Project Numerical Recipes,P3,A1.08,do,9
+3133,48308205,Project Numerical Recipes,P3,A1.08,do,9
+3134,42406214,Project Numerical Recipes,P3,A1.08,do,9
+3135,63573738,Project Numerical Recipes,P3,A1.08,do,9
+3136,84110134,Project Numerical Recipes,P3,A1.08,do,9
+3137,19214659,Project Numerical Recipes,P3,A1.08,do,9
+3138,48503689,Project Numerical Recipes,P3,A1.08,do,9
+3139,37110913,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3140,60661905,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3141,77392404,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3142,59753700,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3143,13658563,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3144,38296757,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3145,13718298,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3146,70193386,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3147,90474003,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3148,5298748,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3149,68286356,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3150,20239127,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3151,36213792,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3152,27950803,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3153,13092455,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3154,61518436,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3155,84524083,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3156,84449005,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3157,27805666,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3158,36785409,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3159,22826928,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3160,99975346,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3161,78136904,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3162,27370083,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3163,77960666,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3164,41578612,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3165,87830198,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3166,37399898,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3167,22871048,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3168,54569540,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3169,52715680,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3170,49922855,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3171,4709948,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3172,57086672,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3173,99453514,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3174,20095994,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3175,3685034,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3176,86988337,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3177,33776961,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3178,96554914,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3179,6913074,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3180,51052738,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3181,42406214,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3182,60352393,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3183,92778619,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3184,70844780,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3185,32044893,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3186,24277163,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3187,82390428,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3188,43680781,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3189,51415617,Reflectie op de digitale cultuur,H1,A1.08,vr,9
+3190,23547619,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3191,27298319,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3192,13210212,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3193,57419039,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3194,6723948,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3195,59753700,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3196,57701414,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3197,28359697,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3198,59887191,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3199,92778619,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3200,82233873,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3201,63955238,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3202,36527838,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3203,97838175,Zoeken sturen en bewegen,P2,A1.08,ma,11
+3204,28358060,Webprogrammeren en databases,P1,A1.08,di,11
+3205,3474870,Webprogrammeren en databases,P1,A1.08,di,11
+3206,6249823,Webprogrammeren en databases,P1,A1.08,di,11
+3207,1137946,Webprogrammeren en databases,P1,A1.08,di,11
+3208,64228258,Webprogrammeren en databases,P1,A1.08,di,11
+3209,16333449,Webprogrammeren en databases,P1,A1.08,di,11
+3210,24891081,Webprogrammeren en databases,P1,A1.08,di,11
+3211,10698627,Webprogrammeren en databases,P1,A1.08,di,11
+3212,33877725,Webprogrammeren en databases,P1,A1.08,di,11
+3213,66034145,Webprogrammeren en databases,P1,A1.08,di,11
+3214,53512831,Webprogrammeren en databases,P1,A1.08,di,11
+3215,57086672,Webprogrammeren en databases,P1,A1.08,di,11
+3216,89180944,Webprogrammeren en databases,P1,A1.08,di,11
+3217,20618153,Webprogrammeren en databases,P1,A1.08,di,11
+3218,77392404,Webprogrammeren en databases,P1,A1.08,di,11
+3219,76648468,Webprogrammeren en databases,P1,A1.08,di,11
+3220,14847953,Webprogrammeren en databases,P1,A1.08,di,11
+3221,17092717,Webprogrammeren en databases,P1,A1.08,di,11
+3222,78243495,Webprogrammeren en databases,P1,A1.08,di,11
+3223,76903244,Webprogrammeren en databases,P1,A1.08,di,11
+3224,40791377,Compilerbouw,P2,A1.08,wo,11
+3225,86291592,Compilerbouw,P2,A1.08,wo,11
+3226,3407554,Compilerbouw,P2,A1.08,wo,11
+3227,23215240,Compilerbouw,P2,A1.08,wo,11
+3228,37770881,Compilerbouw,P2,A1.08,wo,11
+3229,89985072,Compilerbouw,P2,A1.08,wo,11
+3230,5892092,Compilerbouw,P2,A1.08,wo,11
+3231,6723948,Compilerbouw,P2,A1.08,wo,11
+3232,52715680,Compilerbouw,P2,A1.08,wo,11
+3233,66701209,Compilerbouw,P2,A1.08,wo,11
+3234,57595888,Compilerbouw,P2,A1.08,wo,11
+3235,34243356,Compilerbouw,P2,A1.08,wo,11
+3236,64418623,Compilerbouw,P2,A1.08,wo,11
+3237,76802764,Compilerbouw,P2,A1.08,wo,11
+3238,4568018,Compilerbouw,P2,A1.08,wo,11
+3239,11068043,Compilerbouw,P2,A1.08,wo,11
+3240,24613625,Compilerbouw,P2,A1.08,wo,11
+3241,10792879,Compilerbouw,P2,A1.08,wo,11
+3242,14303208,Compilerbouw,P2,A1.08,wo,11
+3243,82066165,Compilerbouw,P2,A1.08,wo,11
+3244,75664412,Compilerbouw,P2,A1.08,wo,11
+3245,88636924,Compilerbouw,P2,A1.08,wo,11
+3246,49683101,Compilerbouw,P2,A1.08,wo,11
+3247,88855695,Compilerbouw,P2,A1.08,wo,11
+3248,73236988,Compilerbouw,P2,A1.08,wo,11
+3249,86988337,Compilerbouw,P2,A1.08,wo,11
+3250,42297781,Compilerbouw,P2,A1.08,wo,11
+3251,50143947,Compilerbouw,P2,A1.08,wo,11
+3252,2079771,Compilerbouw,P2,A1.08,wo,11
+3253,51673172,Compilerbouw,P2,A1.08,wo,11
+3254,30658799,Compilerbouw,P2,A1.08,wo,11
+3255,7957843,Compilerbouw,P2,A1.08,wo,11
+3256,92665222,Compilerbouw,P2,A1.08,wo,11
+3257,54772132,Compilerbouw,P2,A1.08,wo,11
+3258,5368702,Compilerbouw,P2,A1.08,wo,11
+3259,1695839,Compilerbouw,P2,A1.08,wo,11
+3260,34765676,Heuristieken 2,H1,A1.08,do,11
+3261,82968410,Heuristieken 2,H1,A1.08,do,11
+3262,7106649,Heuristieken 2,H1,A1.08,do,11
+3263,83869542,Heuristieken 2,H1,A1.08,do,11
+3264,43027916,Heuristieken 2,H1,A1.08,do,11
+3265,58040377,Heuristieken 2,H1,A1.08,do,11
+3266,16097870,Heuristieken 2,H1,A1.08,do,11
+3267,52304977,Heuristieken 2,H1,A1.08,do,11
+3268,63634350,Heuristieken 2,H1,A1.08,do,11
+3269,87602030,Heuristieken 2,H1,A1.08,do,11
+3270,57086672,Heuristieken 2,H1,A1.08,do,11
+3271,99975346,Heuristieken 2,H1,A1.08,do,11
+3272,78243495,Heuristieken 2,H1,A1.08,do,11
+3273,33760909,Heuristieken 2,H1,A1.08,do,11
+3274,35315956,Heuristieken 2,H1,A1.08,do,11
+3275,1886996,Heuristieken 2,H1,A1.08,do,11
+3276,5976174,Heuristieken 2,H1,A1.08,do,11
+3277,61443567,Heuristieken 2,H1,A1.08,do,11
+3278,72652638,Heuristieken 2,H1,A1.08,do,11
+3279,81200278,Heuristieken 2,H1,A1.08,do,11
+3280,58736785,Heuristieken 2,H1,A1.08,do,11
+3281,22731474,Heuristieken 2,H1,A1.08,do,11
+3282,15249775,Heuristieken 2,H1,A1.08,do,11
+3283,84524083,Heuristieken 2,H1,A1.08,do,11
+3284,51566595,Heuristieken 2,H1,A1.08,do,11
+3285,85236626,Heuristieken 2,H1,A1.08,do,11
+3286,5739011,Heuristieken 2,H1,A1.08,do,11
+3287,48678993,Heuristieken 2,H1,A1.08,do,11
+3288,27925117,Heuristieken 2,H1,A1.08,do,11
+3289,670011,Heuristieken 2,H1,A1.08,do,11
+3290,31897288,Heuristieken 2,H1,A1.08,do,11
+3291,81022997,Heuristieken 2,H1,A1.08,do,11
+3292,44901052,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3293,13116738,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3294,8557857,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3295,18266644,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3296,70878567,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3297,23983476,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3298,17496687,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3299,13658563,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3300,68315599,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3301,19958553,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3302,32204977,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3303,29718115,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3304,58332004,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3305,11459236,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3306,62701040,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3307,36748818,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3308,92977271,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3309,77636749,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3310,23257088,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3311,75521763,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3312,75585647,Informatie- en organisatieontwerp,H1,A1.08,vr,11
+3313,59753700,Data Mining,H2,A1.08,ma,13
+3314,45414528,Data Mining,H2,A1.08,ma,13
+3315,70878567,Data Mining,H2,A1.08,ma,13
+3316,98780382,Data Mining,H2,A1.08,ma,13
+3317,87900893,Data Mining,H2,A1.08,ma,13
+3318,87314964,Data Mining,H2,A1.08,ma,13
+3319,37110913,Data Mining,H2,A1.08,ma,13
+3320,81200278,Data Mining,H2,A1.08,ma,13
+3321,97136582,Data Mining,H2,A1.08,ma,13
+3322,99453514,Data Mining,H2,A1.08,ma,13
+3323,13996448,Data Mining,H2,A1.08,ma,13
+3324,21964491,Data Mining,H2,A1.08,ma,13
+3325,81022997,Data Mining,H2,A1.08,ma,13
+3326,51566595,Data Mining,H2,A1.08,ma,13
+3327,50143947,Data Mining,H2,A1.08,ma,13
+3328,19337738,Data Mining,H2,A1.08,ma,13
+3329,93023961,Data Mining,H2,A1.08,ma,13
+3330,17823206,Data Mining,H2,A1.08,ma,13
+3331,25330192,Data Mining,H2,A1.08,ma,13
+3332,74131924,Data Mining,H2,A1.08,ma,13
+3333,52311353,Data Mining,H2,A1.08,ma,13
+3334,91196968,Data Mining,H2,A1.08,ma,13
+3335,66122625,Data Mining,H2,A1.08,ma,13
+3336,68360259,Data Mining,H2,A1.08,ma,13
+3337,13116738,Data Mining,H2,A1.08,ma,13
+3338,22323043,Data Mining,H2,A1.08,ma,13
+3339,37744525,Data Mining,H2,A1.08,ma,13
+3340,51673172,Project Genetic Algorithms,P2,A1.08,di,13
+3341,40633534,Project Genetic Algorithms,P2,A1.08,di,13
+3342,27925117,Project Genetic Algorithms,P2,A1.08,di,13
+3343,14179347,Project Genetic Algorithms,P2,A1.08,di,13
+3344,76924297,Project Genetic Algorithms,P2,A1.08,di,13
+3345,84449005,Project Genetic Algorithms,P2,A1.08,di,13
+3346,25994016,Project Genetic Algorithms,P2,A1.08,di,13
+3347,55480737,Project Genetic Algorithms,P2,A1.08,di,13
+3348,75680261,Project Genetic Algorithms,P2,A1.08,di,13
+3349,87602030,Project Genetic Algorithms,P2,A1.08,di,13
+3350,82066165,Project Genetic Algorithms,P2,A1.08,di,13
+3351,87830198,Project Genetic Algorithms,P2,A1.08,di,13
+3352,94930277,Webprogrammeren en databases,W2,A1.08,wo,13
+3353,76123484,Webprogrammeren en databases,W2,A1.08,wo,13
+3354,49908313,Webprogrammeren en databases,W2,A1.08,wo,13
+3355,72895450,Webprogrammeren en databases,W2,A1.08,wo,13
+3356,41790793,Webprogrammeren en databases,W2,A1.08,wo,13
+3357,43902015,Webprogrammeren en databases,W2,A1.08,wo,13
+3358,22288615,Webprogrammeren en databases,W2,A1.08,wo,13
+3359,2416751,Webprogrammeren en databases,W2,A1.08,wo,13
+3360,72577292,Webprogrammeren en databases,W2,A1.08,wo,13
+3361,39230359,Webprogrammeren en databases,W2,A1.08,wo,13
+3362,53202517,Webprogrammeren en databases,W2,A1.08,wo,13
+3363,61443567,Webprogrammeren en databases,W2,A1.08,wo,13
+3364,40434933,Webprogrammeren en databases,W2,A1.08,wo,13
+3365,69459473,Webprogrammeren en databases,W2,A1.08,wo,13
+3366,14303208,Webprogrammeren en databases,W2,A1.08,wo,13
+3367,27064249,Webprogrammeren en databases,W2,A1.08,wo,13
+3368,43460038,Webprogrammeren en databases,W2,A1.08,wo,13
+3369,67073567,Webprogrammeren en databases,W2,A1.08,wo,13
+3370,5615125,Webprogrammeren en databases,W2,A1.08,wo,13
+3371,42115591,Analysemethoden en -technieken,H1,A1.08,do,13
+3372,18477924,Analysemethoden en -technieken,H1,A1.08,do,13
+3373,52311353,Analysemethoden en -technieken,H1,A1.08,do,13
+3374,77831658,Analysemethoden en -technieken,H1,A1.08,do,13
+3375,56544130,Analysemethoden en -technieken,H1,A1.08,do,13
+3376,33672995,Analysemethoden en -technieken,H1,A1.08,do,13
+3377,88737765,Analysemethoden en -technieken,H1,A1.08,do,13
+3378,85335143,Analysemethoden en -technieken,H1,A1.08,do,13
+3379,22871048,Analysemethoden en -technieken,H1,A1.08,do,13
+3380,41578612,Analysemethoden en -technieken,H1,A1.08,do,13
+3381,80188025,Analysemethoden en -technieken,H1,A1.08,do,13
+3382,73350019,Analysemethoden en -technieken,H1,A1.08,do,13
+3383,16097870,Analysemethoden en -technieken,H1,A1.08,do,13
+3384,94955328,Analysemethoden en -technieken,H1,A1.08,do,13
+3385,57086672,Analysemethoden en -technieken,H1,A1.08,do,13
+3386,97838175,Analysemethoden en -technieken,H1,A1.08,do,13
+3387,5085194,Analysemethoden en -technieken,H1,A1.08,do,13
+3388,51542218,Analysemethoden en -technieken,H1,A1.08,do,13
+3389,82854435,Analysemethoden en -technieken,H1,A1.08,do,13
+3390,43027916,Analysemethoden en -technieken,H1,A1.08,do,13
+3391,5595824,Analysemethoden en -technieken,H1,A1.08,do,13
+3392,62613937,Analysemethoden en -technieken,H1,A1.08,do,13
+3393,72456780,Analysemethoden en -technieken,H1,A1.08,do,13
+3394,36785409,Analysemethoden en -technieken,H1,A1.08,do,13
+3395,83443653,Analysemethoden en -technieken,H1,A1.08,do,13
+3396,78822885,Analysemethoden en -technieken,H1,A1.08,do,13
+3397,23798155,Analysemethoden en -technieken,H1,A1.08,do,13
+3398,72586808,Analysemethoden en -technieken,H1,A1.08,do,13
+3399,4921119,Analysemethoden en -technieken,H1,A1.08,do,13
+3400,34243356,Analysemethoden en -technieken,H1,A1.08,do,13
+3401,75997788,Analysemethoden en -technieken,H1,A1.08,do,13
+3402,48678993,Analysemethoden en -technieken,H1,A1.08,do,13
+3403,70193386,Analysemethoden en -technieken,H1,A1.08,do,13
+3404,65318664,Analysemethoden en -technieken,H1,A1.08,do,13
+3405,97019450,Analysemethoden en -technieken,H1,A1.08,do,13
+3406,73302736,Analysemethoden en -technieken,H1,A1.08,do,13
+3407,64296965,Analysemethoden en -technieken,H1,A1.08,do,13
+3408,14637758,Analysemethoden en -technieken,H1,A1.08,do,13
+3409,78821918,Analysemethoden en -technieken,H1,A1.08,do,13
+3410,34900967,Analysemethoden en -technieken,H1,A1.08,do,13
+3411,13718298,Analysemethoden en -technieken,H1,A1.08,do,13
+3412,23658570,Analysemethoden en -technieken,H1,A1.08,do,13
+3413,87830198,Analysemethoden en -technieken,H1,A1.08,do,13
+3414,18266644,Analysemethoden en -technieken,H1,A1.08,do,13
+3415,58480929,Analysemethoden en -technieken,H1,A1.08,do,13
+3416,60661905,Analysemethoden en -technieken,H1,A1.08,do,13
+3417,48357272,Analysemethoden en -technieken,H1,A1.08,do,13
+3418,56815156,Analysemethoden en -technieken,H1,A1.08,do,13
+3419,23565001,Analysemethoden en -technieken,H1,A1.08,do,13
+3420,99453514,Data Mining,W2,A1.08,vr,13
+3421,13996448,Data Mining,W2,A1.08,vr,13
+3422,21964491,Data Mining,W2,A1.08,vr,13
+3423,81022997,Data Mining,W2,A1.08,vr,13
+3424,51566595,Data Mining,W2,A1.08,vr,13
+3425,50143947,Data Mining,W2,A1.08,vr,13
+3426,19337738,Data Mining,W2,A1.08,vr,13
+3427,93023961,Data Mining,W2,A1.08,vr,13
+3428,17823206,Data Mining,W2,A1.08,vr,13
+3429,27298319,Autonomous Agents 2,W2,A1.08,ma,15
+3430,61611295,Autonomous Agents 2,W2,A1.08,ma,15
+3431,5517869,Autonomous Agents 2,W2,A1.08,ma,15
+3432,70113753,Autonomous Agents 2,W2,A1.08,ma,15
+3433,34806836,Autonomous Agents 2,W2,A1.08,ma,15
+3434,52552718,Autonomous Agents 2,W2,A1.08,ma,15
+3435,19858730,Autonomous Agents 2,W2,A1.08,ma,15
+3436,6723948,Calculus 2,W2,A1.08,di,15
+3437,23658570,Calculus 2,W2,A1.08,di,15
+3438,22168693,Calculus 2,W2,A1.08,di,15
+3439,47477884,Calculus 2,W2,A1.08,di,15
+3440,56348773,Calculus 2,W2,A1.08,di,15
+3441,21029457,Calculus 2,W2,A1.08,di,15
+3442,14303208,Calculus 2,W2,A1.08,di,15
+3443,19717077,Calculus 2,W2,A1.08,di,15
+3444,58040377,Calculus 2,W2,A1.08,di,15
+3445,33672995,Calculus 2,W2,A1.08,di,15
+3446,55412918,Calculus 2,W2,A1.08,di,15
+3447,37279234,Calculus 2,W2,A1.08,di,15
+3448,31306819,Calculus 2,W2,A1.08,di,15
+3449,87602030,Calculus 2,W2,A1.08,di,15
+3450,78443067,Calculus 2,W2,A1.08,di,15
+3451,28957789,Calculus 2,W2,A1.08,di,15
+3452,4546613,Calculus 2,W2,A1.08,di,15
+3453,65978354,Calculus 2,W2,A1.08,di,15
+3454,45915482,Calculus 2,W2,A1.08,di,15
+3455,27064249,Calculus 2,W2,A1.08,di,15
+3456,79617364,Calculus 2,W2,A1.08,di,15
+3457,23565001,Calculus 2,W2,A1.08,di,15
+3458,51741554,Calculus 2,W2,A1.08,di,15
+3459,6913074,Calculus 2,W2,A1.08,di,15
+3460,14179347,Calculus 2,W2,A1.08,di,15
+3461,94686490,Calculus 2,W2,A1.08,di,15
+3462,26260141,Calculus 2,W2,A1.08,di,15
+3463,62363761,Calculus 2,W2,A1.08,di,15
+3464,88752563,Calculus 2,W2,A1.08,di,15
+3465,75446434,Calculus 2,W2,A1.08,di,15
+3466,6939933,Calculus 2,W2,A1.08,di,15
+3467,75585647,Calculus 2,W2,A1.08,di,15
+3468,58699305,Calculus 2,W2,A1.08,di,15
+3469,5615125,Calculus 2,W2,A1.08,di,15
+3470,53139134,Calculus 2,W2,A1.08,di,15
+3471,56988998,Machine Learning,H2,A1.08,wo,15
+3472,67625383,Machine Learning,H2,A1.08,wo,15
+3473,46701583,Machine Learning,H2,A1.08,wo,15
+3474,77240949,Machine Learning,H2,A1.08,wo,15
+3475,39459642,Machine Learning,H2,A1.08,wo,15
+3476,2079771,Machine Learning,H2,A1.08,wo,15
+3477,33252501,Machine Learning,H2,A1.08,wo,15
+3478,27187154,Machine Learning,H2,A1.08,wo,15
+3479,5976174,Machine Learning,H2,A1.08,wo,15
+3480,94467156,Machine Learning,H2,A1.08,wo,15
+3481,37744525,Machine Learning,H2,A1.08,wo,15
+3482,26857113,Machine Learning,H2,A1.08,wo,15
+3483,3685034,Machine Learning,H2,A1.08,wo,15
+3484,49683101,Machine Learning,H2,A1.08,wo,15
+3485,15051051,Machine Learning,H2,A1.08,wo,15
+3486,85236626,Machine Learning,H2,A1.08,wo,15
+3487,63111000,Machine Learning,H2,A1.08,wo,15
+3488,40791377,Machine Learning,H2,A1.08,wo,15
+3489,90067329,Machine Learning,H2,A1.08,wo,15
+3490,61518436,Machine Learning,H2,A1.08,wo,15
+3491,38296757,Machine Learning,H2,A1.08,wo,15
+3492,23798155,Machine Learning,H2,A1.08,wo,15
+3493,60352393,Advanced Heuristics,P1,A1.08,do,15
+3494,1886996,Advanced Heuristics,P1,A1.08,do,15
+3495,28618400,Advanced Heuristics,P1,A1.08,do,15
+3496,62613937,Advanced Heuristics,P1,A1.08,do,15
+3497,72683344,Advanced Heuristics,P1,A1.08,do,15
+3498,47477884,Advanced Heuristics,P1,A1.08,do,15
+3499,23547619,Advanced Heuristics,P1,A1.08,do,15
+3500,40633534,Advanced Heuristics,P1,A1.08,do,15
+3501,70844780,Advanced Heuristics,P1,A1.08,do,15
+3502,14847953,Advanced Heuristics,P1,A1.08,do,15
+3503,37110913,Technology for games,W2,A1.08,vr,15
+3504,97371272,Technology for games,W2,A1.08,vr,15
+3505,14309255,Technology for games,W2,A1.08,vr,15
+3506,26406342,Technology for games,W2,A1.08,vr,15
+3507,4697362,Technology for games,W2,A1.08,vr,15
+3508,76487754,Technology for games,W2,A1.08,vr,15
+3509,11996292,Technology for games,W2,A1.08,vr,15
+3510,75664412,Technology for games,W2,A1.08,vr,15
+3511,93041523,Technology for games,W2,A1.08,vr,15
+3512,69086548,Technology for games,W2,A1.08,vr,15
+3513,40434933,Technology for games,W2,A1.08,vr,15
+3514,77636749,Technology for games,W2,A1.08,vr,15
+3515,10149535,Technology for games,W2,A1.08,vr,15
+3516,22323043,Technology for games,W2,A1.08,vr,15
+3517,41578612,Technology for games,W2,A1.08,vr,15
+3518,12430748,Technology for games,W2,A1.08,vr,15
+3519,31194811,Technology for games,W2,A1.08,vr,15
+3520,68315599,Technology for games,W2,A1.08,vr,15
+3521,85335143,Technology for games,W2,A1.08,vr,15

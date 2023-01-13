@@ -36,14 +36,11 @@ class Course():
         min_stud = self.size // rooms
         extra_stud = self.size % rooms
 
-        groups = []
-        for nr, room in enumerate(range(rooms)):
-            groups.append(min_stud)
-            if nr < extra_stud:
-                groups[nr] += 1
-
         slices = [0]
-        for nr, group in enumerate(groups):
-            slices.append(group + slices[nr])
+        for nr in range(rooms):
+            if nr < extra_stud:
+                slices.append(min_stud + slices[nr] + 1)
+            else:
+                slices.append(min_stud + slices[nr])
 
         return slices
