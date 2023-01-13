@@ -17,16 +17,12 @@ print(expected)
 #---------------------------------------------------------------------------------------------------------
 # Room class
 class Room():
-    def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity, day, timeslot, course):
+    def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity):
         self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
         self.nr_days = nr_days
         self.room = room
         self.evening = evening # boolean
         self.capacity = room_capacity
-
-        self.day = day
-        self.timeslot = timeslot
-        self.course = course
 
         # Create first version of rooster and availability
         if self.evening:
@@ -44,18 +40,18 @@ class Room():
         or not (False).
         """
         # Check availability for the room; switch True and False (occupied = 1; not occupied = 0)
-        self.availability = np.invert(self.rooster[self.room] == self.availability)
+        self.availability = np.invert(self.rooster == self.availability)
 
-    def remove_course(self):
-        self.rooster[self.day, self.timeslot] = 0
+    def remove_course(self, timeslot, day):
+        self.rooster[day, timeslot] = 0
 
-    def add_course(self):
-        self.rooster[self.day, self.timeslot] = self.course
+    def add_course(self, course, timeslot, day):
+        self.rooster[day, timeslot] = course
 
-room_obj = Room(4, 5, 1, True, 120, 2, 3, 38)
+room_obj = Room(4, 5, 1, True, 120)
 room_obj.check_availability()
 print(room_obj.availability)
-room_obj.add_course()
+room_obj.add_course(38, 2, 3)
 print(room_obj.rooster)
 room_obj.check_availability() # Werkt niet
 print(room_obj.availability)
