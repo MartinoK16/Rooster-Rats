@@ -181,9 +181,9 @@ class Rooster():
 
 
 # Returns a list with Name, #Hoorcolleges, Max Stud Werkcollege, Max Stud Practicum
-courses_df = pd.read_csv('LecturesLesroosters/vakken.csv')
-student_df = pd.read_csv('LecturesLesroosters/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('LecturesLesroosters/zalen.csv')
+courses_df = pd.read_csv('data/vakken.csv')
+student_df = pd.read_csv('data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('data/zalen.csv')
 
 # Make a Rooster object with the courses and students DataFrame
 my_rooster = Rooster(courses_df, student_df, rooms_df)
@@ -191,7 +191,7 @@ my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)
 my_rooster.make_output()
 print(my_rooster.output)
-my_rooster.output.to_csv('LecturesLesroosters/test.csv')
+my_rooster.output.to_csv('data/test.csv')
 my_rooster.malus_count()
 print(my_rooster.malus)
 
@@ -234,7 +234,7 @@ class Room():
 
 
 
-output_df = pd.read_csv('LecturesLesroosters/test.csv')
+output_df = pd.read_csv('data/test.csv')
 # Loop over the different rooms
 count = 0
 for student in output_df['student'].unique():
