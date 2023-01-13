@@ -13,6 +13,7 @@ class Rooster():
         self.day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
         self.room_dict = self.make_room_dict(rooms_df)
 
+    # Only neccisarry for make_output_array
     def make_room_dict(self, rooms_df):
         room_dict = {}
         for nr, row in rooms_df.iterrows():
@@ -119,42 +120,44 @@ class Rooster():
 
     def malus_count(self):
         malus = 0
-        # Loop over all the students
-        for student in self.output['student'].unique():
-            # Get the dagen and tijdsloten of the student
-            rooster = self.output[self.output['student'] == student].sort_values(by=['dag', 'tijdslot']).loc[:,('dag', 'tijdslot')]
-            # Check if there are more than 1 lecture at the same time for this student
+
+        grouped_df = self.output.groupby('student')
+        for nr, rooster in grouped_df:
             malus += sum(rooster.groupby(['dag', 'tijdslot']).size() - 1)
 
+            grouped_rooster = rooster.groupby('dag')
             # Loop over the days in the students rooster
-            for day in rooster['dag'].unique():
+            for _, day in grouped_rooster:
                 # Get the times of this day
-                dag = rooster[rooster['dag'] == day]
-                time = dag['tijdslot'].unique()
+                slots = sorted(day['tijdslot'].unique())
 
                 # Check if the student has tussenuren
                 tussenuur = 0
-                if len(time) > 1:
-                    for timeslot in range(len(time) - 1):
-                        # The rooster is not possible if a student has 3 tussenuren
-                        if time[timeslot + 1] - time[timeslot] >= 8:
-                            print('Not possible')
-                        elif time[timeslot + 1] - time[timeslot] == 6:
-                            tussenuur += 2
-                        elif time[timeslot + 1] - time[timeslot] == 4:
+                if len(slots) > 1:
+                    for slot in range(len(slots) - 1):
+                        dif = slots[slot + 1] - slots[slot]
+                        if dif == 2:
+                            pass
+                        elif dif == 4:
                             tussenuur += 1
-                # If the student has 2 tussenuren it is 3 maluspoints and with 1 tussenuur its 1 maluspoint
-                if tussenuur == 2:
-                    malus += 3
-                elif tussenuur == 1:
-                    malus += 1
+                        elif dif == 6:
+                            tussenuur += 2
+                        elif dif == 8:
+                            # The rooster is not possible if a student has 3 tussenuren
+                            print('Not possible')
+
+                    # If the student has 2 tussenuren it is 3 maluspoints and with 1 tussenuur its 1 maluspoint
+                    if tussenuur == 1:
+                        malus += 1
+                    elif tussenuur == 2:
+                        malus += 3
 
         # Loop over the different rooms
         for room in self.rooms:
-            # Get expected people of the rooms
-            expected = self.output[self.output['zaal'] == room.room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
-            for row in expected - room.capacity:
-                if row > 0:
-                    malus += row
+            for slot in np.ndindex(room.rooster.shape):
+                if room.rooster[slot] != 0:
+                    malus += max(room.rooster[slot].size - room.capacity, 0)
+                    if slot[0] == 4:
+                        malus += 5
 
         self.malus = malus
