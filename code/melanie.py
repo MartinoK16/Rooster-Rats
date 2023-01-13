@@ -6,7 +6,7 @@ import numpy as np
 # Melanie
 
 # Output csv naar rooster per student
-output_df = pd.read_csv('data/test.csv')
+output_df = pd.read_csv('data/random_rooster.csv')
 
 # Loop over the different students
 for student in output_df['student'].unique():
@@ -20,6 +20,8 @@ for student in output_df['student'].unique():
     # Studentnummer
     print("")
     print(student)
+
+    print(rooster_data)
 
     # Create rooster voor deze student
     for _, row in rooster_data.iterrows():
