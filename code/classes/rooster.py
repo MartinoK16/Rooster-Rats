@@ -82,6 +82,7 @@ class Rooster():
                             room.add_course(lecture, slot)
                             break
                     break
+            # Make else statement if lecture is not possible to be put in
 
     def make_output(self):
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
