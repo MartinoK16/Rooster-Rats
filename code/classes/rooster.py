@@ -2,6 +2,7 @@ import pandas as pd
 import math
 import random
 import numpy as np
+from .course import Course
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df):

@@ -1,12 +1,14 @@
-import random
-import math
 import pandas as pd
-import numpy as np
 
-from classes import Rooster, Course, Lecture
+from classes.rooster import Rooster
 
 # Martijn
 
+courses_df = pd.read_csv('data/vakken.csv')
+student_df = pd.read_csv('data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('data/zalen.csv')
+
+# my_course = Course('Hey', [1], 5)
 my_rooster = Rooster(courses_df, student_df, rooms_df)
 my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)

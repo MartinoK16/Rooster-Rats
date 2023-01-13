@@ -1,5 +1,6 @@
-from random import sample
-from math import ceil
+import random
+import math
+from .lecture import Lecture
 
 class Course():
     def __init__(self, course, student_list, class_nr):
