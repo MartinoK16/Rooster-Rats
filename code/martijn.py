@@ -29,6 +29,7 @@ class Rooster():
         self.rooms = []
         for _, row in rooms_df.iterrows():
             self.rooms.append(Room(4, 5, row['Zaalnummber'], row['Zaalnummber'] == 'C0.110', row['Max. capaciteit']))
+        self.rooms.sort(key=lambda x: x.capacity, reverse=True)
 
     def make_courses(self, courses_df, student_df):
         self.courses = []
@@ -47,16 +48,22 @@ class Rooster():
             self.courses.append(Course(course, student_list, nr))
 
     def make_lecture_list(self):
-        self.lectures_list = []
+        hoor_list = []
         for course in self.courses:
             for hoor in course.H:
-                self.lectures_list.append(hoor)
+                hoor_list.append(hoor)
+        hoor_list.sort(key=lambda x: x.size, reverse=True)
+
+        wp_list = []
         for course in self.courses:
             for werk in course.W:
-                self.lectures_list.append(werk)
+                wp_list.append(werk)
         for course in self.courses:
             for prac in course.P:
-                self.lectures_list.append(prac)
+                wp_list.append(prac)
+        wp_list.sort(key=lambda x: x.size, reverse=True)
+
+        self.lectures_list = hoor_list + wp_list
 
     def make_rooster_random(self, hours, days, rooms):
         # Make a zeros array with the correct length
@@ -68,6 +75,17 @@ class Rooster():
             rooster[slot] = self.lectures_list[nr]
         # Reshape the 1D array to a 3D array for clarity
         self.rooster = rooster.reshape((rooms, hours, days))
+
+    def make_rooster_greedy(self):
+        # This can be optimized
+        for lecture in self.lectures_list:
+            for room in self.rooms:
+                if room.capacity > lecture.size and room.availability.any():
+                    for slot in np.ndindex(room.rooster.shape):
+                        if room.availability[slot]:
+                            room.add_course(lecture, slot)
+                            break
+                    break
 
     def make_output(self):
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
@@ -131,10 +149,11 @@ courses_df = pd.read_csv('data/vakken.csv')
 student_df = pd.read_csv('data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('data/zalen.csv')
 
-# my_course = Course('Hey', [1], 5)
 my_rooster = Rooster(courses_df, student_df, rooms_df)
 for room in my_rooster.rooms:
-    print(room.rooster)
+    print(room.capacity)
+for lec in my_rooster.lectures_list:
+    print(lec.size, lec.type)
 my_rooster.make_rooster_random(4, 5, 7)
 print(my_rooster.rooster)
 my_rooster.make_output()
@@ -142,3 +161,9 @@ print(my_rooster.output)
 my_rooster.output.to_csv('data/test.csv')
 my_rooster.malus_count()
 print(my_rooster.malus)
+
+
+my_rooster.make_rooster_greedy()
+for room in my_rooster.rooms:
+    print(room.rooster)
+    print(room.availability)
