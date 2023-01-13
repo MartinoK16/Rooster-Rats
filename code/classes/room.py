@@ -1,3 +1,5 @@
+import numpy as np
+
 class Room():
     def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity):
         self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
