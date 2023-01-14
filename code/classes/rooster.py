@@ -1,6 +1,7 @@
 import pandas as pd
 import math
 import random
+import copy
 import numpy as np
 from .course import Course
 from .room import Room
