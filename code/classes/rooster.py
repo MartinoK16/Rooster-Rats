@@ -99,11 +99,11 @@ class Rooster():
         # Check for each lecture the first possible slot to put it in, only places a lecture once
         for lecture in self.lectures_list:
             for room in self.rooms:
-                if room.capacity > lecture.size and room.availability.any():
-                    for slot in np.ndindex(room.rooster.shape):
-                        if room.availability[slot]:
-                            room.add_course(lecture, slot)
-                            break
+                if room.capacity > lecture.size and np.any(room.rooster==0):
+                    # Loop over the indices where the room rooster is 0
+                    for slot in list(zip(*np.nonzero(room.rooster==0))):
+                        room.add_course(lecture, slot)
+                        break
                     break
 
     def make_output(self):
