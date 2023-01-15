@@ -111,6 +111,32 @@ class Rooster():
         Makes a DataFrame with the required columns for the malus_count function
         '''
         # Empty dictionary to store all the information
+        d = {'student': [], 'dag': [], 'tijdslot': []}
+
+        for room in self.rooms:
+            # Go over every timeslot for this room
+            for slot in np.ndindex(room.rooster.shape):
+                # Check if there is a lecture
+                if room.rooster[slot] != 0:
+                    lecture = room.rooster[slot]
+                    # Add all the students for this lecture into the dictionary
+                    for stud in lecture.studs:
+                        d['student'].append(stud)
+                        d['dag'].append(slot[1])
+                        d['tijdslot'].append(slot[0])
+
+        # Make a DataFrame from the dictionary
+        self.output = pd.DataFrame(data=d)
+
+    def make_csv(self, filename):
+        '''
+        Makes a DataFrame with the required columns for the output and saves it to a csv-file
+        '''
+        # Mapping dictionaries
+        day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
+        time_dict = {0: 9, 1: 11, 2: 13, 3: 15, 4: 17}
+
+        # Empty dictionary to store all the information
         d = {'student': [], 'vak': [], 'activiteit': [], 'zaal': [], 'dag': [], 'tijdslot': []}
 
         for room in self.rooms:
@@ -125,27 +151,11 @@ class Rooster():
                         d['vak'].append(lecture.name)
                         d['activiteit'].append(lecture.type)
                         d['zaal'].append(room.room)
-                        d['dag'].append(slot[1])
-                        d['tijdslot'].append(slot[0])
-
-        # Make a DataFrame from the dictionary
-        self.output = pd.DataFrame(data=d)
-
-    def make_csv(self, filename):
-        '''
-        Changes the format of the dag and tijdslot columns before making a csv-file from the output DataFrame
-        '''
-        # Mapping dictionaries
-        day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
-        time_dict = {0: 9, 1: 11, 2: 13, 3: 15, 4: 17}
-
-        # Make a copy of the output DataFrame and change the dag and tijdslot columns
-        file = copy.copy(self.output)
-        file['dag'] = file['dag'].map(day_dict)
-        file['tijdslot'] = file['tijdslot'].map(time_dict)
+                        d['dag'].append(day_dict[slot[1]])
+                        d['tijdslot'].append(time_dict[slot[0]])
 
         # Save the DataFrame as csv with the given filename/path
-        file.to_csv(filename)
+        pd.DataFrame(data=d).to_csv(filename)
 
     def malus_count(self):
         '''
@@ -156,9 +166,12 @@ class Rooster():
         tussenuren = 0
         avondsloten = 0
         small_room = 0
-        
+
+        # Removes the groups with only 1 row to go even faster
+        groups = self.output.loc[self.output.groupby(['student', 'dag'])['tijdslot'].transform('count') > 1, :]
+
         # Get the lectures for each student per day
-        for _, day in self.output.groupby(['student', 'dag'])['tijdslot']:
+        for _, day in groups.groupby(['student', 'dag'])['tijdslot']:
             # Count how often a timeslot occurs for a student per day
             count = {}
             for slot in day:
