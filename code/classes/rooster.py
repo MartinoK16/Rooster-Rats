@@ -158,41 +158,40 @@ class Rooster():
         small_room = 0
 
         # Get the lectures for each student
-        for _, student in self.output.groupby('student')[['dag', 'tijdslot']]:
-            # Check if a student has more than one lecture at the same time
-            double_hours += sum(student.groupby(['dag', 'tijdslot']).size() - 1)
+        for _, day in self.output.groupby(['student', 'dag'])['tijdslot']:
+            # Count how often a timeslot occurs for a student per day
+            count = dict(Counter(day))
+            # Get the correct amount of malus points from the dictionary
+            double_hours += sum(count.values()) - len(count)
+            # Get the time slots from the dictionary
+            slots = list(count.keys())
 
-            # Loop over the days in the students rooster
-            for _, day in student.groupby('dag'):
-                # Get the times of this day
-                slots = day['tijdslot'].unique()
+            # Check if the student more than 1 lecture this day
+            if len(slots) > 1:
+                tussenuur = 0
+                slots.sort()
 
-                # Check if the student more than 1 lecture this day
-                if len(slots) > 1:
-                    tussenuur = 0
-                    slots.sort()
+                # Loop over the 2 consecutive lectures
+                for slot in range(len(slots) - 1):
+                    # See how many timeslots were skipped and do the correct thing
+                    dif = slots[slot + 1] - slots[slot]
 
-                    # Loop over the 2 consecutive lectures
-                    for slot in range(len(slots) - 1):
-                        # See how many timeslots were skipped and do the correct thing
-                        dif = slots[slot + 1] - slots[slot]
+                    if dif == 1:
+                        pass
+                    elif dif == 2:
+                        tussenuur += 1
+                    elif dif == 3:
+                        tussenuur += 2
+                    elif dif == 4:
+                        # The rooster is not possible if a student has 3 tussenuren
+                        print('Not possible')
+                        tussenuren += 10000
 
-                        if dif == 1:
-                            pass
-                        elif dif == 2:
-                            tussenuur += 1
-                        elif dif == 3:
-                            tussenuur += 2
-                        elif dif == 4:
-                            # The rooster is not possible if a student has 3 tussenuren
-                            print('Not possible')
-                            tussenuren += 10000
-
-                    # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
-                    if tussenuur == 1:
-                        tussenuren += 1
-                    elif tussenuur == 2:
-                        tussenuren += 3
+                # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
+                if tussenuur == 1:
+                    tussenuren += 1
+                elif tussenuur == 2:
+                    tussenuren += 3
 
         # Check if any evening slots are used and give 5 point for each use
         for room in self.rooms:

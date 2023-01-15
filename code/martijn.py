@@ -10,6 +10,7 @@ from classes.course import Course
 from classes.room import Room
 import copy
 import time
+from collections import Counter
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -156,7 +157,6 @@ class Rooster():
         '''
         Counts the amount of malus points from the output DataFrame
         '''
-        st = time.time()
         # Different maluspoint counters
         double_hours = 0
         tussenuren = 0
@@ -164,41 +164,40 @@ class Rooster():
         small_room = 0
 
         # Get the lectures for each student
-        for _, student in self.output.groupby('student')[['dag', 'tijdslot']]:
-            # Check if a student has more than one lecture at the same time
-            double_hours += sum(student.groupby(['dag', 'tijdslot']).size() - 1)
+        for _, day in self.output.groupby(['student', 'dag'])['tijdslot']:
+            # Count how often a timeslot occurs for a student per day
+            count = dict(Counter(day))
+            # Get the correct amount of malus points from the dictionary
+            double_hours += sum(count.values()) - len(count)
+            # Get the time slots from the dictionary
+            slots = list(count.keys())
 
-            # Loop over the days in the students rooster
-            for _, day in student.groupby('dag'):
-                # Get the times of this day
-                slots = day['tijdslot'].unique()
+            # Check if the student more than 1 lecture this day
+            if len(slots) > 1:
+                tussenuur = 0
+                slots.sort()
 
-                # Check if the student more than 1 lecture this day
-                if len(slots) > 1:
-                    tussenuur = 0
-                    slots.sort()
+                # Loop over the 2 consecutive lectures
+                for slot in range(len(slots) - 1):
+                    # See how many timeslots were skipped and do the correct thing
+                    dif = slots[slot + 1] - slots[slot]
 
-                    # Loop over the 2 consecutive lectures
-                    for slot in range(len(slots) - 1):
-                        # See how many timeslots were skipped and do the correct thing
-                        dif = slots[slot + 1] - slots[slot]
+                    if dif == 1:
+                        pass
+                    elif dif == 2:
+                        tussenuur += 1
+                    elif dif == 3:
+                        tussenuur += 2
+                    elif dif == 4:
+                        # The rooster is not possible if a student has 3 tussenuren
+                        print('Not possible')
+                        tussenuren += 10000
 
-                        if dif == 1:
-                            pass
-                        elif dif == 2:
-                            tussenuur += 1
-                        elif dif == 3:
-                            tussenuur += 2
-                        elif dif == 4:
-                            # The rooster is not possible if a student has 3 tussenuren
-                            print('Not possible')
-                            tussenuren += 10000
-
-                    # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
-                    if tussenuur == 1:
-                        tussenuren += 1
-                    elif tussenuur == 2:
-                        tussenuren += 3
+                # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
+                if tussenuur == 1:
+                    tussenuren += 1
+                elif tussenuur == 2:
+                    tussenuren += 3
 
         # Check if any evening slots are used and give 5 point for each use
         for room in self.rooms:
@@ -217,30 +216,60 @@ class Rooster():
         # Add up all the malus points for the total
         self.malus = double_hours + tussenuren + avondsloten + small_room
 
-        et = time.time()
-
-        # get the execution time
-        elapsed_time = et - st
-        print('Execution time:', elapsed_time, 'seconds')
-
 
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110REMOVE'}
 
+st = time.time()
 my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster.make_rooster_random(4, 5, 7)
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time make random rooster:', elapsed_time, 'seconds')
+
+st = time.time()
 my_rooster.make_output()
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time output:', elapsed_time, 'seconds')
+
+st = time.time()
 my_rooster.malus_count()
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time malus:', elapsed_time, 'seconds')
+
 print(my_rooster.malus)
 # my_rooster.malus_count_old()
 # print(my_rooster.malus)
 
+st = time.time()
 my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster2.make_rooster_greedy()
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time make greedy rooster:', elapsed_time, 'seconds')
+
+st = time.time()
 my_rooster2.make_output()
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time output:', elapsed_time, 'seconds')
+
+st = time.time()
 my_rooster2.malus_count()
+et = time.time()
+# get the execution time
+elapsed_time = et - st
+print('Execution time malus:', elapsed_time, 'seconds')
+
 print(my_rooster2.malus)
 # my_rooster2.malus_count_old()
 # print(my_rooster2.malus)
