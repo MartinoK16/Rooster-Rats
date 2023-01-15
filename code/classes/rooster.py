@@ -3,7 +3,6 @@ import math
 import random
 import copy
 import numpy as np
-from collections import Counter
 from .course import Course
 from .room import Room
 
@@ -157,26 +156,28 @@ class Rooster():
         tussenuren = 0
         avondsloten = 0
         small_room = 0
-
-        # Get the lectures for each student
+        
+        # Get the lectures for each student per day
         for _, day in self.output.groupby(['student', 'dag'])['tijdslot']:
             # Count how often a timeslot occurs for a student per day
-            count = dict(Counter(day))
+            count = {}
+            for slot in day:
+                if slot in count:
+                    count[slot] += 1
+                else:
+                    count[slot] = 1
             # Get the correct amount of malus points from the dictionary
             double_hours += sum(count.values()) - len(count)
             # Get the time slots from the dictionary
             slots = list(count.keys())
-
             # Check if the student more than 1 lecture this day
             if len(slots) > 1:
                 tussenuur = 0
                 slots.sort()
-
                 # Loop over the 2 consecutive lectures
-                for slot in range(len(slots) - 1):
+                for slot in range(1, len(slots)):
                     # See how many timeslots were skipped and do the correct thing
-                    dif = slots[slot + 1] - slots[slot]
-
+                    dif = slots[slot] - slots[slot - 1]
                     if dif == 1:
                         pass
                     elif dif == 2:

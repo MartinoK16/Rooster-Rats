@@ -10,7 +10,6 @@ from classes.course import Course
 from classes.room import Room
 import copy
 import time
-from collections import Counter
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -163,25 +162,27 @@ class Rooster():
         avondsloten = 0
         small_room = 0
 
-        # Get the lectures for each student
+        # Get the lectures for each student per day
         for _, day in self.output.groupby(['student', 'dag'])['tijdslot']:
             # Count how often a timeslot occurs for a student per day
-            count = dict(Counter(day))
+            count = {}
+            for slot in day:
+                if slot in count:
+                    count[slot] += 1
+                else:
+                    count[slot] = 1
             # Get the correct amount of malus points from the dictionary
             double_hours += sum(count.values()) - len(count)
             # Get the time slots from the dictionary
             slots = list(count.keys())
-
             # Check if the student more than 1 lecture this day
             if len(slots) > 1:
                 tussenuur = 0
                 slots.sort()
-
                 # Loop over the 2 consecutive lectures
-                for slot in range(len(slots) - 1):
+                for slot in range(1, len(slots)):
                     # See how many timeslots were skipped and do the correct thing
-                    dif = slots[slot + 1] - slots[slot]
-
+                    dif = slots[slot] - slots[slot - 1]
                     if dif == 1:
                         pass
                     elif dif == 2:
@@ -216,60 +217,40 @@ class Rooster():
         # Add up all the malus points for the total
         self.malus = double_hours + tussenuren + avondsloten + small_room
 
-
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110REMOVE'}
 
-st = time.time()
+# st = time.time()
 my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster.make_rooster_random(4, 5, 7)
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time make random rooster:', elapsed_time, 'seconds')
+# print('Execution time make random rooster:', time.time() - st, 'seconds')
 
-st = time.time()
+# st = time.time()
 my_rooster.make_output()
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time output:', elapsed_time, 'seconds')
+# print('Execution time output:', time.time() - st, 'seconds')
 
 st = time.time()
 my_rooster.malus_count()
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time malus:', elapsed_time, 'seconds')
-
+print('Execution time malus:', time.time() - st, 'seconds')
 print(my_rooster.malus)
 # my_rooster.malus_count_old()
 # print(my_rooster.malus)
 
-st = time.time()
+
+# st = time.time()
 my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster2.make_rooster_greedy()
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time make greedy rooster:', elapsed_time, 'seconds')
+# print('Execution time make rooster greedy:', time.time() - st, 'seconds')
 
-st = time.time()
+# st = time.time()
 my_rooster2.make_output()
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time output:', elapsed_time, 'seconds')
+# print('Execution time output:', time.time() - st, 'seconds')
 
 st = time.time()
 my_rooster2.malus_count()
-et = time.time()
-# get the execution time
-elapsed_time = et - st
-print('Execution time malus:', elapsed_time, 'seconds')
-
+print('Execution time malus:', time.time() - st, 'seconds')
 print(my_rooster2.malus)
 # my_rooster2.malus_count_old()
 # print(my_rooster2.malus)
