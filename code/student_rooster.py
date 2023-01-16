@@ -18,10 +18,10 @@ def rooster_per_student(output_df):
         nr_vakken = 0
 
         # Studentnummer
-        print("")
+        print()
         print(student)
 
-        print(rooster_data)
+        # print(rooster_data)
 
         # Create rooster voor deze student
         for _, row in rooster_data.iterrows():
