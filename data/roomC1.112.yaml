@@ -1,4 +1,5 @@
 - days: Mon
+<<<<<<< HEAD
   name: 'Lineaire Algebra, type: H2, size: 54'
   time: 9 - 11
 - days: Tue
@@ -15,17 +16,40 @@
   time: 9 - 11
 - days: Mon
   name: 'Kansrekenen 2, type: H2, size: 84'
+=======
+  name: 'Compilerbouw, type: H1, size: 107'
+  time: 9 - 11
+- days: Tue
+  name: 'Compilerbouw, type: H2, size: 107'
+  time: 9 - 11
+- days: Wed
+  name: 'Calculus 2, type: H1, size: 106'
+  time: 9 - 11
+- days: Thu
+  name: 'Kansrekenen 2, type: H1, size: 84'
+  time: 9 - 11
+- days: Fri
+  name: 'Kansrekenen 2, type: H2, size: 84'
+  time: 9 - 11
+- days: Mon
+  name: 'Software engineering, type: H1, size: 75'
+>>>>>>> 190dc6712a84fe79ad23fa87855a3616c4a801a1
   time: 11 - 13
 - days: Tue
   name: 'Databases 2, type: H1, size: 72'
   time: 11 - 13
 - days: Wed
+<<<<<<< HEAD
   name: 'Collectieve Intelligentie, type: H3, size: 61'
+=======
+  name: 'Collectieve Intelligentie, type: H1, size: 61'
+>>>>>>> 190dc6712a84fe79ad23fa87855a3616c4a801a1
   time: 11 - 13
 - days: Thu
   name: 'Collectieve Intelligentie, type: H2, size: 61'
   time: 11 - 13
 - days: Fri
+<<<<<<< HEAD
   name: 'Calculus 2, type: H1, size: 106'
   time: 11 - 13
 - days: Mon
@@ -96,8 +120,24 @@
   time: 13 - 15
 - days: Thu
   name: 'Interactie-ontwerp, type: H2, size: 25'
+=======
+  name: 'Collectieve Intelligentie, type: H3, size: 61'
+  time: 11 - 13
+- days: Mon
+  name: 'Lineaire Algebra, type: H1, size: 54'
+>>>>>>> 190dc6712a84fe79ad23fa87855a3616c4a801a1
+  time: 13 - 15
+- days: Tue
+  name: 'Lineaire Algebra, type: H2, size: 54'
+  time: 13 - 15
+- days: Wed
+  name: 'Moderne Databases, type: H1, size: 54'
+  time: 13 - 15
+- days: Thu
+  name: 'Reflectie op de digitale cultuur, type: H1, size: 51'
   time: 13 - 15
 - days: Fri
+<<<<<<< HEAD
   name: 'Moderne Databases, type: W1, size: 18'
   time: 13 - 15
 - days: Mon
@@ -114,4 +154,82 @@
   time: 15 - 17
 - days: Fri
   name: 'Moderne Databases, type: P1, size: 18'
+=======
+  name: 'Reflectie op de digitale cultuur, type: H2, size: 51'
+  time: 13 - 15
+- days: Mon
+  name: 'Analysemethoden en -technieken, type: H1, size: 49'
+  time: 15 - 17
+- days: Tue
+  name: 'Bioinformatica, type: H1, size: 45'
+  time: 15 - 17
+- days: Wed
+  name: 'Bioinformatica, type: H2, size: 45'
+  time: 15 - 17
+- days: Thu
+  name: 'Bioinformatica, type: H3, size: 45'
+  time: 15 - 17
+- days: Fri
+  name: 'Heuristieken 1, type: H1, size: 44'
+  time: 15 - 17
+- days: Mon
+  name: 'Algoritmen en complexiteit, type: H1, size: 43'
+  time: 9 - 11
+- days: Tue
+  name: 'Webprogrammeren en databases, type: H1, size: 39'
+  time: 9 - 11
+- days: Wed
+  name: 'Webprogrammeren en databases, type: H2, size: 39'
+  time: 9 - 11
+- days: Thu
+  name: 'Technology for games, type: H1, size: 38'
+  time: 9 - 11
+- days: Fri
+  name: 'Technology for games, type: H2, size: 38'
+  time: 9 - 11
+- days: Mon
+  name: 'Heuristieken 2, type: H1, size: 32'
+  time: 11 - 13
+- days: Tue
+  name: 'Data Mining, type: H1, size: 27'
+  time: 11 - 13
+- days: Wed
+  name: 'Data Mining, type: H2, size: 27'
+  time: 11 - 13
+- days: Thu
+  name: 'Interactie-ontwerp, type: H1, size: 25'
+  time: 11 - 13
+- days: Fri
+  name: 'Interactie-ontwerp, type: H2, size: 25'
+  time: 11 - 13
+- days: Mon
+  name: 'Autonomous Agents 2, type: H1, size: 22'
+  time: 13 - 15
+- days: Tue
+  name: 'Autonomous Agents 2, type: H2, size: 22'
+  time: 13 - 15
+- days: Wed
+  name: 'Machine Learning, type: H1, size: 22'
+  time: 13 - 15
+- days: Thu
+  name: 'Machine Learning, type: H2, size: 22'
+  time: 13 - 15
+- days: Fri
+  name: 'Architectuur en computerorganisatie, type: H1, size: 21'
+  time: 13 - 15
+- days: Mon
+  name: 'Architectuur en computerorganisatie, type: H2, size: 21'
+  time: 15 - 17
+- days: Tue
+  name: 'Informatie- en organisatieontwerp, type: H1, size: 21'
+  time: 15 - 17
+- days: Wed
+  name: 'Informatie- en organisatieontwerp, type: H2, size: 21'
+  time: 15 - 17
+- days: Thu
+  name: 'Advanced Heuristics, type: H1, size: 20'
+  time: 15 - 17
+- days: Fri
+  name: 'Software engineering, type: W1, size: 38'
+>>>>>>> 190dc6712a84fe79ad23fa87855a3616c4a801a1
   time: 15 - 17
