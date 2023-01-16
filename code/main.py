@@ -6,9 +6,9 @@ from classes.course import Course
 from classes.room import Room
 from student_rooster import rooster_per_student
 
-courses_df = pd.read_csv('data/vakken.csv')
-student_df = pd.read_csv('data/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('data/zalen.csv')
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
 
 # Rooms with evening timeslot
 evenings = {'C0.110REMOVE'}
