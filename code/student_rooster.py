@@ -1,3 +1,5 @@
+import numpy as np
+
 # # Output csv naar rooster per student
 # output_df = pd.read_csv('../data/rooster_v3.csv')
 
