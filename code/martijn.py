@@ -8,7 +8,6 @@ import random
 import numpy as np
 from classes.course import Course
 from classes.room import Room
-import copy
 import time
 
 class Rooster():
@@ -172,6 +171,8 @@ class Rooster():
         avondsloten = 0
         small_room = 0
 
+        self.make_output()
+
         # Removes the groups with only 1 row to go even faster
         groups = self.output.loc[self.output.groupby(['student', 'dag'])['tijdslot'].transform('count') > 1, :]
 
@@ -216,7 +217,7 @@ class Rooster():
         # Check if any evening slots are used and give 5 point for each use
         for room in self.rooms:
             if room.evening:
-                for avondslot in room.rooster[4, :]:
+                for avondslot in room.rooster[-1, :]:
                     if avondslot != 0:
                         avondsloten += 5
 
@@ -229,6 +230,7 @@ class Rooster():
 
         # Add up all the malus points for the total
         self.malus = double_hours + tussenuren + avondsloten + small_room
+
 
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
@@ -257,10 +259,6 @@ my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster2.make_rooster_greedy()
 # print('Execution time make rooster greedy:', time.time() - st, 'seconds')
 
-# st = time.time()
-my_rooster2.make_output()
-# print('Execution time output:', time.time() - st, 'seconds')
-
 st = time.time()
 my_rooster2.malus_count()
 print('Execution time malus:', time.time() - st, 'seconds')
@@ -268,3 +266,19 @@ print(my_rooster2.malus)
 # my_rooster2.malus_count_old()
 # print(my_rooster2.malus)
 # my_rooster2.make_csv('../data/test123.csv')
+
+# # How to run the program
+# courses_df = pd.read_csv('../data/vakken.csv')
+# student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+# rooms_df = pd.read_csv('../data/zalen.csv')
+# evenings = {'C0.110REMOVE'}
+#
+# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster.make_rooster_random(4, 5, 7)
+# my_rooster.malus_count()
+# print(my_rooster.malus)
+#
+# my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster2.make_rooster_greedy()
+# my_rooster2.malus_count()
+# print(my_rooster2.malus)
