@@ -109,13 +109,24 @@ class Rooster():
                     break
 
     def make_rooster_minmalus(self):
+        start_lectures = random.sample(self.lectures_list[:10], 10)
+        for nr, slot in enumerate(np.ndindex(2, 5)):
+            self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
+
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list:
-            for room in self.rooms:
-                if room.capacity > lecture.size and np.any(room.rooster==0):
+        for lecture in self.lectures_list[10:]:
+            tries = {}
+            for nr, room in enumerate(self.rooms):
+                if room.capacity >= lecture.size and np.any(room.rooster==0): #
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
                         room.add_course(lecture, slot)
+                        self.malus_count()
+                        tries[nr, slot[0], slot[1]] = self.malus
+                        room.remove_course(slot)
+
+            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+            self.rooms[slot[0]].add_course(lecture, slot[1:])
 
     def make_output(self):
         '''
@@ -207,7 +218,6 @@ class Rooster():
                 tussenuren += 3
             elif tussen == 3:
                 # The rooster is not possible if a student has 3 tussenuren
-                print('Not possible')
                 tussenuren += 10000
 
         # Check if any evening slots are used and give 5 point for each use
