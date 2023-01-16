@@ -1,7 +1,6 @@
 import pandas as pd
 import math
 import random
-import copy
 import numpy as np
 from .course import Course
 from .room import Room
@@ -161,6 +160,9 @@ class Rooster():
         '''
         Counts the amount of malus points from the output DataFrame
         '''
+        # Make output DataFrame
+        self.make_output()
+
         # Different maluspoint counters
         double_hours = 0
         tussenuren = 0
@@ -211,7 +213,7 @@ class Rooster():
         # Check if any evening slots are used and give 5 point for each use
         for room in self.rooms:
             if room.evening:
-                for avondslot in room.rooster[4, :]:
+                for avondslot in room.rooster[-1, :]:
                     if avondslot != 0:
                         avondsloten += 5
 

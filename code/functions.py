@@ -24,7 +24,7 @@ def lecture_count(file):
             dict(sorted(werk_dict.items(), key=lambda item: item[1][1], reverse=True)), \
             dict(sorted(prac_dict.items(), key=lambda item: item[1][1], reverse=True))
 
-hoor_dict, werk_dict, prac_dict = lecture_count('LecturesLesroosters/vakken.csv')
+hoor_dict, werk_dict, prac_dict = lecture_count('../data/vakken.csv')
 courses_dict = {**hoor_dict,**werk_dict,**prac_dict}
 courses_list = list(courses_dict.keys())
 
@@ -47,7 +47,7 @@ def rooms_dict(file):
         cap_dict[row['Zaalnummber']] = row['Max. capaciteit']
     return room_dict, cap_dict
 
-room_dict, cap_dict = rooms_dict('LecturesLesroosters/zalen.csv')
+room_dict, cap_dict = rooms_dict('../data/zalen.csv')
 day_dict = {0: 'ma', 1: 'di', 2: 'wo', 3: 'do', 4: 'vr'}
 
 def get_output(room_rooster, file, courses_dict, room_dict, day_dict):
@@ -67,7 +67,7 @@ def get_output(room_rooster, file, courses_dict, room_dict, day_dict):
     output = pd.DataFrame(data=d)
     return output
 
-student_rooster = get_output(room_rooster, 'LecturesLesroosters/studenten_en_vakken2.csv', courses_dict, room_dict, day_dict)
+student_rooster = get_output(room_rooster, '../data/studenten_en_vakken2.csv', courses_dict, room_dict, day_dict)
 #student_rooster.to_csv('LecturesLesroosters/test.csv')
 
 def malus_count(df, cap_dict):
