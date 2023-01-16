@@ -2,9 +2,9 @@ import pandas as pd
 import math
 import random
 import numpy as np
-from code.classes.course import Course
-from code.classes.room import Room
-from code.student_rooster import rooster_per_student
+from .code.classes.course import Course
+from .code.classes.room import Room
+from .code.student_rooster import rooster_per_student
 
 courses_df = pd.read_csv('data/vakken.csv')
 student_df = pd.read_csv('data/studenten_en_vakken2.csv')
