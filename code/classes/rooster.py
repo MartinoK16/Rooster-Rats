@@ -95,6 +95,20 @@ class Rooster():
         '''
         Makes a rooster bases on the first spot that a lecture can fit in by comparing lecture size and room capacity
         '''
+        # Clear all rooms
+        for room in self.rooms:
+            for slot in np.ndindex(room.rooster.shape):
+                room.remove_course(slot)
+
+        # Check for each lecture the first possible slot to put it in, only places a lecture once
+        for lecture in self.lectures_list:
+            for room in self.rooms:
+                if room.capacity >= lecture.size and np.any(room.rooster==0):
+                    # Loop over the indices where the room rooster is 0
+                    room.add_course(lecture, list(zip(*np.nonzero(room.rooster==0)))[0])
+                    break
+
+    def make_rooster_minmalus(self):
         # Check for each lecture the first possible slot to put it in, only places a lecture once
         for lecture in self.lectures_list:
             for room in self.rooms:
@@ -102,8 +116,6 @@ class Rooster():
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
                         room.add_course(lecture, slot)
-                        break
-                    break
 
     def make_output(self):
         '''
@@ -160,14 +172,13 @@ class Rooster():
         '''
         Counts the amount of malus points from the output DataFrame
         '''
-        # Make output DataFrame
-        self.make_output()
-
         # Different maluspoint counters
         double_hours = 0
         tussenuren = 0
         avondsloten = 0
         small_room = 0
+
+        self.make_output()
 
         # Removes the groups with only 1 row to go even faster
         groups = self.output.loc[self.output.groupby(['student', 'dag'])['tijdslot'].transform('count') > 1, :]
@@ -184,31 +195,20 @@ class Rooster():
             # Get the correct amount of malus points from the dictionary
             double_hours += sum(count.values()) - len(count)
             # Get the time slots from the dictionary
-            slots = list(count.keys())
+            slots = sorted(list(count.keys()))
             # Check if the student more than 1 lecture this day
-            if len(slots) > 1:
-                tussenuur = 0
-                slots.sort()
-                # Loop over the 2 consecutive lectures
-                for slot in range(1, len(slots)):
-                    # See how many timeslots were skipped and do the correct thing
-                    dif = slots[slot] - slots[slot - 1]
-                    if dif == 1:
-                        pass
-                    elif dif == 2:
-                        tussenuur += 1
-                    elif dif == 3:
-                        tussenuur += 2
-                    elif dif == 4:
-                        # The rooster is not possible if a student has 3 tussenuren
-                        print('Not possible')
-                        tussenuren += 10000
+            tussen = slots[-1] - slots[0] - len(slots) + 1
 
-                # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
-                if tussenuur == 1:
-                    tussenuren += 1
-                elif tussenuur == 2:
-                    tussenuren += 3
+            if tussen == 0:
+                pass
+            elif tussen == 1:
+                tussenuren += 1
+            elif tussen == 2:
+                tussenuren += 3
+            elif tussen == 3:
+                # The rooster is not possible if a student has 3 tussenuren
+                print('Not possible')
+                tussenuren += 10000
 
         # Check if any evening slots are used and give 5 point for each use
         for room in self.rooms:
