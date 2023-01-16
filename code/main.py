@@ -4,6 +4,8 @@ import math
 import random
 import numpy as np
 import time
+import yaml
+import pdfschedule
 from classes.rooster import Rooster
 from student_rooster import rooster_per_student
 
@@ -62,28 +64,37 @@ print(my_rooster3.malus) # malus points
 # Create output csv
 my_rooster3.make_csv('../data/rooster_v3.csv')
 
-"""
-Versie 4: ~200-220 maluspunten
+# """
+# Versie 4: ~200-220 maluspunten
+#
+# *Indeling van lesuren over tijdsloten – van groot naar klein (lectures & rooms) & kijkt welke optie de minste minpunten geeft.
+# *10 grootste vakken in tijdsloten midden op de dag & in grootste lokaal ingepland.
+# *Avondtijdsloten wel geïmplementeerd en ook gebruikt.
+# *Het benodigde aantal groepen voor de werkcolleges en practica is gemaakt en de groepen worden nog steeds random ingedeeld op basis van de maximum groepsgrootte.
+# *Maluspunten allemaal toegekend: twee lessen op hetzelfde moment, tussenuren, mensen die niet in een lokaal passen, avondsloten.
+# *We zorgen ervoor dat iedere student een plekje heeft.
+# """
+# st = time.time()
+# my_rooster4 = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster4.make_rooster_minmalus()
+# my_rooster4.malus_count()
+# print(my_rooster4.malus) # malus points
+# print(f'Version 4 took {time.time() - st} seconds to run')
+#
+# # Create output csv
+# my_rooster4.make_csv('../data/rooster_v4.csv')
 
-*Indeling van lesuren over tijdsloten – van groot naar klein (lectures & rooms) & kijkt welke optie de minste minpunten geeft.
-*10 grootste vakken in tijdsloten midden op de dag & in grootste lokaal ingepland.
-*Avondtijdsloten wel geïmplementeerd en ook gebruikt.
-*Het benodigde aantal groepen voor de werkcolleges en practica is gemaakt en de groepen worden nog steeds random ingedeeld op basis van de maximum groepsgrootte.
-*Maluspunten allemaal toegekend: twee lessen op hetzelfde moment, tussenuren, mensen die niet in een lokaal passen, avondsloten.
-*We zorgen ervoor dat iedere student een plekje heeft.
 """
-st = time.time()
-my_rooster4 = Rooster(courses_df, student_df, rooms_df, evenings)
-my_rooster4.make_rooster_minmalus()
-my_rooster4.malus_count()
-print(my_rooster4.malus) # malus points
-print(f'Version 4 took {time.time() - st} seconds to run')
-
-# Create output csv
-my_rooster4.make_csv('../data/rooster_v4.csv')
-
-"""
-Create rooster per student (as a 5x5 array)
+Create rooster per student (as a 5x5 array).
 """
 output_df_v3 = pd.read_csv('../data/rooster_v3.csv')
 rooster_per_student_v3 = rooster_per_student(output_df_v3)
+
+"""
+Create rooster visualisation of all 7 rooms.
+1) python -m pip install pdfschedule
+2) pip install pyyaml
+3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
+in terminal for each different room.
+"""
+my_rooster3.make_scheme()
