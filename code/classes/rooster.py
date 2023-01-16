@@ -2,6 +2,8 @@ import pandas as pd
 import math
 import random
 import numpy as np
+import yaml
+import pdfschedule
 from .course import Course
 from .room import Room
 
