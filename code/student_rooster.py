@@ -51,8 +51,8 @@ def rooster_per_student(output_df):
             nr_vakken += 1
 
             # Informatie van het ingeplande vak
-            print(rooster_data_string)
+            # print(rooster_data_string)
 
         # Aantal vakken en gemaakte rooster voor deze student
-        print(nr_vakken)
+        # print(nr_vakken)
         print(stud_rooster)
