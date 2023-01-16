@@ -38,7 +38,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/algorithms**: bevat de code voor algoritmes
   - **/code/classes**: bevat de drie benodigde classes voor deze case
   - **/code/visualisation**: bevat de bokeh code voor de visualisatie
-- **/data**: bevat de verschillende databestanden die nodig zijn om de graaf te vullen en te visualiseren
+- **/data**: bevat de verschillende databestanden die nodig zijn om de roosters te vullen en te visualiseren
 
 ## Auteurs
 - Martijn Kievit
