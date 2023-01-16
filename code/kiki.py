@@ -168,14 +168,14 @@ class Rooster():
             for slot in np.ndindex(room.rooster.shape):
                 if room.rooster[slot] != 0:
                     lecture = room.rooster[slot]
-                    dict['name'].append(lecture.name)
+                    dict['name'].append(f'{lecture.name}, {lecture.type}, {lecture.code}')
                     dict['days'].append(day_dict_scheme[slot[1]])
                     dict['time'].append(f'{9 + 2 * slot[0]} - {+ 11 + 2 * slot[0]}')
 
                     df = pd.DataFrame(data=dict)
 
                     with open(f'../data/room{room.room}.yaml', 'w') as file:
-                        documents = yaml.dump({'result': df.to_dict(orient='records')}, file, default_flow_style=False)
+                        documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
     def malus_count(self):
         '''
@@ -248,27 +248,10 @@ class Rooster():
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
+
 evenings = {}
 my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-for room in my_rooster.rooms:
-    print(room.rooster)
-
 my_rooster.make_rooster_random(4, 5, 7)
-print(my_rooster.rooster)
 my_rooster.make_output()
 my_rooster.make_scheme()
 my_rooster.malus_count()
-print(my_rooster.malus)
-
-
-# with open('result.yml', 'w') as yaml_file:
-#     yaml.dump(list, yaml_file, default_flow_style=False)
-#     print(yaml.dump(list))
-
-
-
-
-
-
-# with open('test_df_to_yaml.yaml', mode="rt", encoding="utf-8") as test_df_to_yaml:
-#     df_merged = pd.DataFrame(yaml.full_load(test_df_to_yaml)['result'])
