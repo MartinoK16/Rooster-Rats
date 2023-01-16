@@ -37,7 +37,7 @@ my_rooster2.malus_count()
 print(my_rooster2.malus) # malus points
 
 # Create output csv
-my_rooster2.make_csv('data/rooster_v2.csv')
+my_rooster2.make_csv('../data/rooster_v2.csv')
 
 """
 Versie 3: ~900-1000 maluspunten (10000 runs: min = ... / max = ...)
@@ -52,10 +52,10 @@ my_rooster3.malus_count()
 print(my_rooster3.malus) # malus points
 
 # Create output csv
-my_rooster3.make_csv('data/rooster_v3.csv')
+my_rooster3.make_csv('../data/rooster_v3.csv')
 
 """
 Create rooster per student (as a 5x5 array)
 """
-output_df_v3 = pd.read_csv('data/rooster_v3.csv')
+output_df_v3 = pd.read_csv('../data/rooster_v3.csv')
 rooster_per_student_v3 = rooster_per_student(output_df_v3)
