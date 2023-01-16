@@ -40,7 +40,6 @@ print(my_rooster2.malus) # malus points
 # Create output csv
 my_rooster2.make_csv('data/rooster_v2.csv')
 
-
 """
 Versie 3: ~900-1000 maluspunten (10000 runs: min = ... / max = ...)
 *Indeling van lesuren over tijdsloten – van groot naar klein (lectures & rooms)
