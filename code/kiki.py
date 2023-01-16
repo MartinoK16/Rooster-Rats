@@ -174,7 +174,7 @@ class Rooster():
 
                     df = pd.DataFrame(data=dict)
 
-                    with open(f'room{room.room}.yaml', 'w') as file:
+                    with open(f'../data/room{room.room}.yaml', 'w') as file:
                         documents = yaml.dump({'result': df.to_dict(orient='records')}, file, default_flow_style=False)
 
     def malus_count(self):
