@@ -168,7 +168,7 @@ class Rooster():
             for slot in np.ndindex(room.rooster.shape):
                 if room.rooster[slot] != 0:
                     lecture = room.rooster[slot]
-                    dict['name'].append(f'{lecture.name}, {lecture.type}, {lecture.code}')
+                    dict['name'].append(f'{lecture.name}, type: {lecture.type}, size: {lecture.size}')
                     dict['days'].append(day_dict_scheme[slot[1]])
                     dict['time'].append(f'{9 + 2 * slot[0]} - {+ 11 + 2 * slot[0]}')
 
