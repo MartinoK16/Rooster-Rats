@@ -1,0 +1,394 @@
+result:
+- days: Mon
+  name: Webprogrammeren en databases
+  time: 9 - 11
+- days: Tue
+  name: Autonomous Agents 2
+  time: 9 - 11
+- days: Wed
+  name: Bioinformatica
+  time: 9 - 11
+- days: Thu
+  name: Moderne Databases
+  time: 9 - 11
+- days: Fri
+  name: Autonomous Agents 2
+  time: 9 - 11
+- days: Mon
+  name: Heuristieken 2
+  time: 11 - 13
+- days: Tue
+  name: Programmeren in Java 2
+  time: 11 - 13
+- days: Wed
+  name: Bioinformatica
+  time: 11 - 13
+- days: Thu
+  name: Heuristieken 1
+  time: 11 - 13
+- days: Fri
+  name: Algoritmen en complexiteit
+  time: 11 - 13
+- days: Mon
+  name: Databases 2
+  time: 13 - 15
+- days: Tue
+  name: Collectieve Intelligentie
+  time: 13 - 15
+- days: Wed
+  name: Autonomous Agents 2
+  time: 13 - 15
+- days: Thu
+  name: Technology for games
+  time: 13 - 15
+- days: Fri
+  name: Data Mining
+  time: 13 - 15
+- days: Mon
+  name: Kansrekenen 2
+  time: 15 - 17
+- days: Tue
+  name: Collectieve Intelligentie
+  time: 15 - 17
+- days: Wed
+  name: Lineaire Algebra
+  time: 15 - 17
+- days: Thu
+  name: Webprogrammeren en databases
+  time: 15 - 17
+- days: Fri
+  name: Data Mining
+  time: 15 - 17
+- days: Mon
+  name: Collectieve Intelligentie
+  time: 9 - 11
+- days: Tue
+  name: Project Genetic Algorithms
+  time: 9 - 11
+- days: Wed
+  name: Bioinformatica
+  time: 9 - 11
+- days: Thu
+  name: Informatie- en organisatieontwerp
+  time: 9 - 11
+- days: Fri
+  name: Architectuur en computerorganisatie
+  time: 9 - 11
+- days: Mon
+  name: Webprogrammeren en databases
+  time: 11 - 13
+- days: Tue
+  name: Project Genetic Algorithms
+  time: 11 - 13
+- days: Wed
+  name: Software engineering
+  time: 11 - 13
+- days: Thu
+  name: Autonomous Agents 2
+  time: 11 - 13
+- days: Fri
+  name: Moderne Databases
+  time: 11 - 13
+- days: Mon
+  name: Calculus 2
+  time: 13 - 15
+- days: Tue
+  name: Compilerbouw
+  time: 13 - 15
+- days: Wed
+  name: Collectieve Intelligentie
+  time: 13 - 15
+- days: Fri
+  name: Programmeren in Java 2
+  time: 13 - 15
+- days: Mon
+  name: Kansrekenen 2
+  time: 15 - 17
+- days: Tue
+  name: Programmeren in Java 2
+  time: 15 - 17
+- days: Wed
+  name: Interactie-ontwerp
+  time: 15 - 17
+- days: Fri
+  name: Compilerbouw practicum
+  time: 15 - 17
+- days: Mon
+  name: Collectieve Intelligentie
+  time: 9 - 11
+- days: Tue
+  name: Technology for games
+  time: 9 - 11
+- days: Thu
+  name: Heuristieken 1
+  time: 9 - 11
+- days: Fri
+  name: Compilerbouw
+  time: 9 - 11
+- days: Mon
+  name: Netwerken en systeembeveiliging
+  time: 11 - 13
+- days: Wed
+  name: Programmeren in Java 2
+  time: 11 - 13
+- days: Thu
+  name: Advanced Heuristics
+  time: 11 - 13
+- days: Fri
+  name: Collectieve Intelligentie
+  time: 11 - 13
+- days: Mon
+  name: Reflectie op de digitale cultuur
+  time: 13 - 15
+- days: Tue
+  name: Software engineering
+  time: 13 - 15
+- days: Wed
+  name: Zoeken sturen en bewegen
+  time: 13 - 15
+- days: Thu
+  name: Compilerbouw practicum
+  time: 13 - 15
+- days: Fri
+  name: Reflectie op de digitale cultuur
+  time: 13 - 15
+- days: Mon
+  name: Programmeren in Java 2
+  time: 15 - 17
+- days: Tue
+  name: Algoritmen en complexiteit
+  time: 15 - 17
+- days: Wed
+  name: Compilerbouw
+  time: 15 - 17
+- days: Fri
+  name: Collectieve Intelligentie
+  time: 15 - 17
+- days: Mon
+  name: Webprogrammeren en databases
+  time: 9 - 11
+- days: Tue
+  name: Collectieve Intelligentie
+  time: 9 - 11
+- days: Wed
+  name: Data Mining
+  time: 9 - 11
+- days: Thu
+  name: Advanced Heuristics
+  time: 9 - 11
+- days: Fri
+  name: Moderne Databases
+  time: 9 - 11
+- days: Mon
+  name: Advanced Heuristics
+  time: 11 - 13
+- days: Tue
+  name: Autonomous Agents 2
+  time: 11 - 13
+- days: Wed
+  name: Analysemethoden en -technieken
+  time: 11 - 13
+- days: Thu
+  name: Interactie-ontwerp
+  time: 11 - 13
+- days: Fri
+  name: Reflectie op de digitale cultuur
+  time: 11 - 13
+- days: Mon
+  name: Databases 2
+  time: 13 - 15
+- days: Tue
+  name: Netwerken en systeembeveiliging
+  time: 13 - 15
+- days: Wed
+  name: Project Numerical Recipes
+  time: 13 - 15
+- days: Thu
+  name: Calculus 2
+  time: 13 - 15
+- days: Fri
+  name: Data Mining
+  time: 13 - 15
+- days: Mon
+  name: Programmeren in Java 2
+  time: 15 - 17
+- days: Tue
+  name: Heuristieken 2
+  time: 15 - 17
+- days: Wed
+  name: Moderne Databases
+  time: 15 - 17
+- days: Fri
+  name: Project Numerical Recipes
+  time: 15 - 17
+- days: Mon
+  name: Data Mining
+  time: 9 - 11
+- days: Tue
+  name: Compilerbouw
+  time: 9 - 11
+- days: Wed
+  name: Technology for games
+  time: 9 - 11
+- days: Fri
+  name: Compilerbouw
+  time: 9 - 11
+- days: Mon
+  name: Bioinformatica
+  time: 11 - 13
+- days: Tue
+  name: Informatie- en organisatieontwerp
+  time: 11 - 13
+- days: Wed
+  name: Autonomous Agents 2
+  time: 11 - 13
+- days: Thu
+  name: Algoritmen en complexiteit
+  time: 11 - 13
+- days: Fri
+  name: Calculus 2
+  time: 11 - 13
+- days: Mon
+  name: Netwerken en systeembeveiliging
+  time: 13 - 15
+- days: Tue
+  name: Machine Learning
+  time: 13 - 15
+- days: Wed
+  name: Reflectie op de digitale cultuur
+  time: 13 - 15
+- days: Thu
+  name: Informatie- en organisatieontwerp
+  time: 13 - 15
+- days: Fri
+  name: Informatie- en organisatieontwerp
+  time: 13 - 15
+- days: Mon
+  name: Moderne Databases
+  time: 15 - 17
+- days: Tue
+  name: Informatie- en organisatieontwerp
+  time: 15 - 17
+- days: Wed
+  name: Machine Learning
+  time: 15 - 17
+- days: Thu
+  name: Webprogrammeren en databases
+  time: 15 - 17
+- days: Fri
+  name: Heuristieken 2
+  time: 15 - 17
+- days: Mon
+  name: Databases 2
+  time: 9 - 11
+- days: Tue
+  name: Bioinformatica
+  time: 9 - 11
+- days: Wed
+  name: Technology for games
+  time: 9 - 11
+- days: Thu
+  name: Bioinformatica
+  time: 9 - 11
+- days: Fri
+  name: Algoritmen en complexiteit
+  time: 9 - 11
+- days: Mon
+  name: Autonomous Agents 2
+  time: 11 - 13
+- days: Tue
+  name: Bioinformatica
+  time: 11 - 13
+- days: Wed
+  name: Zoeken sturen en bewegen
+  time: 11 - 13
+- days: Thu
+  name: Moderne Databases
+  time: 11 - 13
+- days: Fri
+  name: Software engineering
+  time: 11 - 13
+- days: Mon
+  name: Bioinformatica
+  time: 13 - 15
+- days: Tue
+  name: Bioinformatica
+  time: 13 - 15
+- days: Wed
+  name: Project Numerical Recipes
+  time: 13 - 15
+- days: Thu
+  name: Collectieve Intelligentie
+  time: 13 - 15
+- days: Fri
+  name: Netwerken en systeembeveiliging
+  time: 13 - 15
+- days: Mon
+  name: Zoeken sturen en bewegen
+  time: 15 - 17
+- days: Tue
+  name: Compilerbouw practicum
+  time: 15 - 17
+- days: Wed
+  name: Heuristieken 1
+  time: 15 - 17
+- days: Thu
+  name: Collectieve Intelligentie
+  time: 15 - 17
+- days: Fri
+  name: Compilerbouw
+  time: 15 - 17
+- days: Mon
+  name: Project Genetic Algorithms
+  time: 9 - 11
+- days: Tue
+  name: Architectuur en computerorganisatie
+  time: 9 - 11
+- days: Wed
+  name: Data Mining
+  time: 9 - 11
+- days: Thu
+  name: Data Mining
+  time: 9 - 11
+- days: Fri
+  name: Autonomous Agents 2
+  time: 9 - 11
+- days: Mon
+  name: Informatie- en organisatieontwerp
+  time: 11 - 13
+- days: Tue
+  name: Lineaire Algebra
+  time: 11 - 13
+- days: Wed
+  name: Algoritmen en complexiteit
+  time: 11 - 13
+- days: Thu
+  name: Moderne Databases
+  time: 11 - 13
+- days: Mon
+  name: Compilerbouw
+  time: 13 - 15
+- days: Tue
+  name: Webprogrammeren en databases
+  time: 13 - 15
+- days: Thu
+  name: Collectieve Intelligentie
+  time: 13 - 15
+- days: Fri
+  name: Calculus 2
+  time: 13 - 15
+- days: Mon
+  name: Software engineering
+  time: 15 - 17
+- days: Tue
+  name: Data Mining
+  time: 15 - 17
+- days: Wed
+  name: Compilerbouw
+  time: 15 - 17
+- days: Thu
+  name: Software engineering
+  time: 15 - 17
+- days: Fri
+  name: Reflectie op de digitale cultuur
+  time: 15 - 17
