@@ -24,7 +24,7 @@ Versie 1: ~4500 maluspunten
 """
 
 """
-Versie 2: ~1300-1800 maluspunten
+Versie 2: ~1300-1800 maluspunten (10000 runs: min = 1194 / max = 2115) 
 
 *Random indeling van lesuren over tijdsloten.
 *Avondtijdsloten niet geïmplementeerd.
@@ -43,7 +43,7 @@ my_rooster2.make_csv('data/rooster_v2.csv')
 
 
 """
-Versie 3: ~900-1000 maluspunten
+Versie 3: ~900-1000 maluspunten (10000 runs: min = ... / max = ...)
 *Indeling van lesuren over tijdsloten – van groot naar klein (lectures & rooms)
 *Avondtijdsloten wel geïmplementeerd, maar nog niet gebruikt
 *Het benodigde aantal groepen voor de werkcolleges en practica is gemaakt en de groepen worden nog steeds random ingedeeld op basis van de maximum groepsgrootte. 
