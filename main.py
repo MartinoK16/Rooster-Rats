@@ -4,6 +4,7 @@ import random
 import numpy as np
 from code.classes.course import Course
 from code.classes.room import Room
+from code.student_rooster import rooster_per_student
 
 courses_df = pd.read_csv('data/vakken.csv')
 student_df = pd.read_csv('data/studenten_en_vakken2.csv')
@@ -60,3 +61,5 @@ my_rooster3.make_csv('data/rooster_v3.csv')
 """
 Create rooster per student (as a 5x5 array)
 """
+output_df_v3 = pd.read_csv('data/rooster_v3.csv')
+rooster_per_student_v3 = rooster_per_student(output_df_v3)
