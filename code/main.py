@@ -3,6 +3,7 @@ import numpy as np
 import math
 import random
 import numpy as np
+import time
 from classes.rooster import Rooster
 from student_rooster import rooster_per_student
 
@@ -12,6 +13,8 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 
 # Rooms with evening timeslot
 evenings = {'C0.110REMOVE'}
+
+print('Malus points for version 2, 3 and 4:')
 
 """
 Versie 1: ~4500 maluspunten
@@ -69,10 +72,12 @@ Versie 4: ~200-220 maluspunten
 *Maluspunten allemaal toegekend: twee lessen op hetzelfde moment, tussenuren, mensen die niet in een lokaal passen, avondsloten.
 *We zorgen ervoor dat iedere student een plekje heeft.
 """
+st = time.time()
 my_rooster4 = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster4.make_rooster_minmalus()
 my_rooster4.malus_count()
 print(my_rooster4.malus) # malus points
+print(f'Version 4 took {time.time() - st} seconds to run')
 
 # Create output csv
 my_rooster4.make_csv('../data/rooster_v4.csv')

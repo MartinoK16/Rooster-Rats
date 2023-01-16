@@ -18,8 +18,8 @@ def rooster_per_student(output_df):
         nr_vakken = 0
 
         # Studentnummer
-        print()
-        print(student)
+        # print()
+        # print(student)
 
         # print(rooster_data)
 
@@ -55,4 +55,6 @@ def rooster_per_student(output_df):
 
         # Aantal vakken en gemaakte rooster voor deze student
         # print(nr_vakken)
-        print(stud_rooster)
+        # print(stud_rooster)
+    print()
+    print(f'Rooster of last student ({student}):\n{stud_rooster}')
