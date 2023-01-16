@@ -1,0 +1,105 @@
+- days: Mon
+  name: 'Webprogrammeren en databases, type: W2, size: 19'
+  time: 9 - 11
+- days: Tue
+  name: 'Bioinformatica, type: H1, size: 45'
+  time: 9 - 11
+- days: Wed
+  name: 'Reflectie op de digitale cultuur, type: W2, size: 17'
+  time: 9 - 11
+- days: Thu
+  name: 'Moderne Databases, type: W2, size: 18'
+  time: 9 - 11
+- days: Fri
+  name: 'Data Mining, type: P1, size: 9'
+  time: 9 - 11
+- days: Mon
+  name: 'Collectieve Intelligentie, type: W3, size: 15'
+  time: 11 - 13
+- days: Tue
+  name: 'Data Mining, type: H2, size: 27'
+  time: 11 - 13
+- days: Wed
+  name: 'Bioinformatica, type: P1, size: 15'
+  time: 11 - 13
+- days: Thu
+  name: 'Netwerken en systeembeveiliging, type: P3, size: 16'
+  time: 11 - 13
+- days: Fri
+  name: 'Moderne Databases, type: P3, size: 18'
+  time: 11 - 13
+- days: Tue
+  name: 'Compilerbouw, type: W3, size: 35'
+  time: 13 - 15
+- days: Thu
+  name: 'Algoritmen en complexiteit, type: W2, size: 21'
+  time: 13 - 15
+- days: Fri
+  name: 'Advanced Heuristics, type: P2, size: 10'
+  time: 13 - 15
+- days: Mon
+  name: 'Algoritmen en complexiteit, type: W1, size: 22'
+  time: 15 - 17
+- days: Tue
+  name: 'Moderne Databases, type: W3, size: 18'
+  time: 15 - 17
+- days: Wed
+  name: 'Netwerken en systeembeveiliging, type: P4, size: 16'
+  time: 15 - 17
+- days: Fri
+  name: 'Data Mining, type: H1, size: 27'
+  time: 15 - 17
+- days: Mon
+  name: 'Netwerken en systeembeveiliging, type: P2, size: 16'
+  time: 9 - 11
+- days: Tue
+  name: 'Project Numerical Recipes, type: P2, size: 15'
+  time: 9 - 11
+- days: Wed
+  name: 'Data Mining, type: P3, size: 9'
+  time: 9 - 11
+- days: Fri
+  name: 'Reflectie op de digitale cultuur, type: W1, size: 17'
+  time: 9 - 11
+- days: Mon
+  name: 'Collectieve Intelligentie, type: W4, size: 15'
+  time: 11 - 13
+- days: Tue
+  name: 'Algoritmen en complexiteit, type: H1, size: 43'
+  time: 11 - 13
+- days: Wed
+  name: 'Architectuur en computerorganisatie, type: H2, size: 21'
+  time: 11 - 13
+- days: Thu
+  name: 'Analysemethoden en -technieken, type: H1, size: 49'
+  time: 11 - 13
+- days: Fri
+  name: 'Project Genetic Algorithms, type: P3, size: 12'
+  time: 11 - 13
+- days: Mon
+  name: 'Project Numerical Recipes, type: P1, size: 15'
+  time: 13 - 15
+- days: Tue
+  name: 'Advanced Heuristics, type: H1, size: 20'
+  time: 13 - 15
+- days: Wed
+  name: 'Webprogrammeren en databases, type: P2, size: 19'
+  time: 13 - 15
+- days: Thu
+  name: 'Lineaire Algebra, type: H1, size: 54'
+  time: 13 - 15
+- days: Fri
+  name: 'Databases 2, type: W1, size: 36'
+  time: 13 - 15
+- days: Mon
+  name: 'Compilerbouw, type: P2, size: 36'
+  time: 15 - 17
+- days: Wed
+  name: 'Informatie- en organisatieontwerp, type: W2, size: 10'
+  time: 15 - 17
+- days: Thu
+  name: 'Informatie- en organisatieontwerp, type: P1, size: 11'
+  time: 15 - 17
+- days: Fri
+  name: 'Heuristieken 1, type: W1, size: 22'
+  time: 15 - 17
