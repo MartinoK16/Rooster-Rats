@@ -13,9 +13,19 @@ import time
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
         # Make the required classes and list
+        self.make_student_dict(courses_df, student_df)
         self.make_rooms(rooms_df, evenings)
-        self.make_courses(courses_df, student_df)
+        self.make_courses(courses_df)
         self.make_lecture_list()
+
+    def make_student_dict(self, courses_df, student_df):
+        self.student_dict = {}
+        for _, course in courses_df.iterrows():
+            self.student_dict[course['Vak']] = set()
+
+            for _, student in student_df.iterrows():
+                if course['Vak'] in student['Vakken']:
+                    self.student_dict[course['Vak']].add(student['Stud.Nr.'])
 
     def make_rooms(self, rooms_df, evenings):
         '''
@@ -29,7 +39,7 @@ class Rooster():
         # Sort the rooms based on capacity
         self.rooms.sort(key=lambda x: x.capacity, reverse=True)
 
-    def make_courses(self, courses_df, student_df):
+    def make_courses(self, courses_df):
         '''
         Makes a list of course objects based on a DataFrame and the students which have that course
         '''
@@ -40,15 +50,8 @@ class Rooster():
             course = [row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']]
             # Replace NaNs with 0
             course[1:] = [0 if math.isnan(i) else i for i in course[1:]]
-
-            # Go over all the students to see who have this course
-            student_list = []
-            for _, student in student_df.iterrows():
-                if course[0] in student['Vakken']:
-                    student_list.append(student['Stud.Nr.'])
-
             # Make the course class with the students
-            self.courses.append(Course(course, student_list, nr))
+            self.courses.append(Course(course, self.student_dict[course[0]], nr))
 
     def make_lecture_list(self):
         '''
@@ -75,6 +78,7 @@ class Rooster():
 
         # Add the 2 sorted lists together
         self.lectures_list = hoor_list + wp_list
+        # self.lectures_list.sort(key=lambda x: x.size, reverse=True)
 
     def make_rooster_random(self, hours, days, rooms):
         '''
@@ -122,16 +126,18 @@ class Rooster():
         for lecture in self.lectures_list[10:]:
             tries = {}
             for nr, room in enumerate(self.rooms):
-                if room.capacity >= lecture.size and np.any(room.rooster==0): # 
+                if room.capacity >= lecture.size and np.any(room.rooster==0):
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
                         room.add_course(lecture, slot)
                         self.malus_count()
-                        tries[nr, slot[0], slot[1]] = self.malus
+                        tries[nr, slot[0], slot[1]] = sum(self.malus)
                         room.remove_course(slot)
 
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             self.rooms[slot[0]].add_course(lecture, slot[1:])
+            self.malus_count()
+            print(self.malus, lecture.code, lecture.size)
 
     def make_output(self):
         '''
@@ -240,7 +246,7 @@ class Rooster():
                     small_room += max(room.rooster[slot].size - room.capacity, 0)
 
         # Add up all the malus points for the total
-        self.malus = double_hours + tussenuren + avondsloten + small_room
+        self.malus = double_hours, tussenuren, avondsloten, small_room
 
 
 courses_df = pd.read_csv('../data/vakken.csv')
