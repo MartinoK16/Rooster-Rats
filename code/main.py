@@ -98,4 +98,10 @@ Create rooster visualisation of all 7 rooms.
 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
 in terminal for each different room.
 """
+<<<<<<< HEAD
 my_rooster4.make_scheme()
+=======
+my_rooster3.make_scheme()
+
+my_rooster3.make_rooster_minmalus()
+>>>>>>> 043f324 (added comments)

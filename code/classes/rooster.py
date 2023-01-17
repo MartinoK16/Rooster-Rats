@@ -115,8 +115,11 @@ class Rooster():
                     break
 
     def make_rooster_minmalus(self):
+        # Randomly samples the first 10 lectures
         start_lectures = random.sample(self.lectures_list[:10], 10)
         for nr, slot in enumerate(np.ndindex(2, 5)):
+
+            # Add lecture class to first and biggest room class
             self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
 
         # Check for each lecture the first possible slot to put it in, only places a lecture once
@@ -131,6 +134,7 @@ class Rooster():
                         tries[nr, slot[0], slot[1]] = sum(self.malus)
                         room.remove_course(slot)
 
+            # Randomly chooses between options with (equal) min malus points
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             self.rooms[slot[0]].add_course(lecture, slot[1:])
             self.malus_count()
