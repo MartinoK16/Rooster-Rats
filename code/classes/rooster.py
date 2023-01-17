@@ -2,6 +2,8 @@ import pandas as pd
 import math
 import random
 import numpy as np
+import yaml
+import pdfschedule
 from .course import Course
 from .room import Room
 
@@ -184,6 +186,22 @@ class Rooster():
 
         # Save the DataFrame as csv with the given filename/path
         pd.DataFrame(data=d).to_csv(filename)
+
+    def make_scheme(self):
+        dict = {'name': [], 'days': [], 'time': []}
+        day_dict_scheme = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri'}
+        for room in self.rooms:
+            for slot in np.ndindex(room.rooster.shape):
+                if room.rooster[slot] != 0:
+                    lecture = room.rooster[slot]
+                    dict['name'].append(f'{lecture.name}, type: {lecture.type}, size: {lecture.size}')
+                    dict['days'].append(day_dict_scheme[slot[1]])
+                    dict['time'].append(f'{9 + 2 * slot[0]} - {+ 11 + 2 * slot[0]}')
+
+                    df = pd.DataFrame(data=dict)
+
+                    with open(f'../data/room{room.room}.yaml', 'w') as file:
+                        documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
     def malus_count(self):
         '''
