@@ -9,6 +9,9 @@ import numpy as np
 from classes.course import Course
 from classes.room import Room
 import time
+import pickle
+import yaml
+import pdfschedule
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -139,6 +142,28 @@ class Rooster():
             self.malus_count()
             print(self.malus, lecture.code, lecture.size)
 
+    def hillclimber(self):
+        for nr3, lecture1 in enumerate(self.lectures_list):
+            for nr1, room1 in enumerate(self.rooms):
+                for slot1 in np.ndindex(room1.rooster.shape):
+                    if lecture1 == room1.rooster[slot1]:
+                        tries = {}
+                        self.malus_count()
+                        print(lecture1.code, self.malus, sum(self.malus), nr3)
+                        for nr2, room2 in enumerate(self.rooms):
+                            for slot2 in np.ndindex(room2.rooster.shape):
+                                lecture2 = room2.rooster[slot2]
+                                room1.add_course(lecture2, slot1)
+                                room2.add_course(lecture1, slot2)
+                                self.malus_count()
+                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                room1.add_course(lecture1, slot1)
+                                room2.add_course(lecture2, slot2)
+
+                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
+                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
+                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+
     def make_output(self):
         '''
         Makes a DataFrame with the required columns for the malus_count function
@@ -189,6 +214,22 @@ class Rooster():
 
         # Save the DataFrame as csv with the given filename/path
         pd.DataFrame(data=d).to_csv(filename)
+
+    def make_scheme(self):
+        day_dict_scheme = {0: 'M', 1: 'T', 2: 'W', 3: 'R', 4: 'F'}
+        for room in self.rooms:
+            dict = {'name': [], 'days': [], 'time': []}
+            for slot in np.ndindex(room.rooster.shape):
+                if room.rooster[slot] != 0:
+                    lecture = room.rooster[slot]
+                    dict['name'].append(f'{lecture.name}, type: {lecture.type}, size: {lecture.size}')
+                    dict['days'].append(day_dict_scheme[slot[1]])
+                    dict['time'].append(f'{9 + 2 * slot[0]} - {+ 11 + 2 * slot[0]}')
+
+                    df = pd.DataFrame(data=dict)
+
+                    with open(f'../data/room{room.room}.yaml', 'w') as file:
+                        documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
     def malus_count(self):
         '''
@@ -252,67 +293,32 @@ class Rooster():
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
-evenings = {}
-
-# st = time.time()
-my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# counts = []
-# for i in range(5):
-#     my_rooster.make_rooster_greedy()
-#     # my_rooster.make_rooster_random(4, 5, 7)
-#     my_rooster.malus_count()
-#     counts.append(my_rooster.malus)
-# print(counts)
-# print(sorted(counts))
-# print(min(counts))
-# print(max(counts))
-# print('Execution time make random rooster:', time.time() - st, 'seconds')
-my_rooster.make_rooster_random(4, 5, 7)
-
-st = time.time()
-my_rooster.malus_count()
-print('Execution time malus:', time.time() - st, 'seconds')
-print(my_rooster.malus)
-# my_rooster.malus_count_old()
-# print(my_rooster.malus)
-
-
-# st = time.time()
-my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
-my_rooster2.make_rooster_greedy()
-# print('Execution time make rooster greedy:', time.time() - st, 'seconds')
-
-st = time.time()
-my_rooster2.malus_count()
-print('Execution time malus:', time.time() - st, 'seconds')
-print(my_rooster2.malus)
-# my_rooster2.malus_count_old()
-# print(my_rooster2.malus)
-# my_rooster2.make_csv('../data/test123.csv')
-
 evenings = {'C0.110'}
 
-my_rooster3 = Rooster(courses_df, student_df, rooms_df, evenings)
-st = time.time()
-my_rooster3.make_rooster_minmalus()
 
-my_rooster3.malus_count()
-print('Execution time malus:', time.time() - st, 'seconds')
-print(my_rooster3.malus)
-
-
-# # How to run the program
-# courses_df = pd.read_csv('../data/vakken.csv')
-# student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-# rooms_df = pd.read_csv('../data/zalen.csv')
-# evenings = {'C0.110REMOVE'}
+# prev_malus = 2000
+# for i in range(1):
+#     st = time.time()
+#     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+#     # my_rooster.make_rooster_random(4, 5, 7)
+#     my_rooster.make_rooster_minmalus()
+#     my_rooster.malus_count()
+#     print(my_rooster.malus)
+#     my_rooster.hillclimber()
+#     print('Execution time malus:', time.time() - st, 'seconds')
+#     my_rooster.malus_count()
+#     malus = sum(my_rooster.malus)
+#     print(my_rooster.malus)
 #
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster.make_rooster_random(4, 5, 7)
-# my_rooster.malus_count()
-# print(my_rooster.malus)
-#
-# my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster2.make_rooster_greedy()
-# my_rooster2.malus_count()
-# print(my_rooster2.malus)
+#     if malus < prev_malus:
+#         with open(f'RoosterWith{malus}Points', 'wb') as outp:
+#             pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+#         prev_malus = malus
+
+with open('RoosterWith172Points', 'rb') as inp:
+    my_rooster = pickle.load(inp)
+    my_rooster.make_scheme() = my_rooster.make_scheme()
+    for room in my_rooster.rooms:
+        print(room.rooster)
+
+    my_rooster.make_csv('../data/rooster_v5_172')

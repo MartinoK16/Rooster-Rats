@@ -137,8 +137,27 @@ class Rooster():
             # Randomly chooses between options with (equal) min malus points
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             self.rooms[slot[0]].add_course(lecture, slot[1:])
-            self.malus_count()
-            print(self.malus, lecture.code, lecture.size)
+
+    def hillclimber(self):
+        for nr3, lecture1 in enumerate(self.lectures_list):
+            for nr1, room1 in enumerate(self.rooms):
+                for slot1 in np.ndindex(room1.rooster.shape):
+                    if lecture1 == room1.rooster[slot1]:
+                        tries = {}
+                        self.malus_count()
+                        for nr2, room2 in enumerate(self.rooms):
+                            for slot2 in np.ndindex(room2.rooster.shape):
+                                lecture2 = room2.rooster[slot2]
+                                room1.add_course(lecture2, slot1)
+                                room2.add_course(lecture1, slot2)
+                                self.malus_count()
+                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                room1.add_course(lecture1, slot1)
+                                room2.add_course(lecture2, slot2)
+
+                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
+                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
+                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
     def make_output(self):
         '''
@@ -192,9 +211,9 @@ class Rooster():
         pd.DataFrame(data=d).to_csv(filename)
 
     def make_scheme(self):
-        dict = {'name': [], 'days': [], 'time': []}
-        day_dict_scheme = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri'}
+        day_dict_scheme = {0: 'M', 1: 'T', 2: 'W', 3: 'R', 4: 'F'}
         for room in self.rooms:
+            dict = {'name': [], 'days': [], 'time': []}
             for slot in np.ndindex(room.rooster.shape):
                 if room.rooster[slot] != 0:
                     lecture = room.rooster[slot]
