@@ -13,16 +13,18 @@ class Room():
         else:
             self.rooster = np.zeros((nr_timeslots, nr_days), dtype=object)
 
-    def remove_course(self, lecture, slot):
+    def rem_course(self, lecture, slot):
         self.rooster[slot] = 0
-        for stud in lecture.studs:
-            stud.rem_lecture(lecture, slot)
+        if lecture != 0:
+            for stud in lecture.studs:
+                stud.rem_lecture(lecture, slot)
         self.update_malus()
 
     def add_course(self, lecture, slot):
         self.rooster[slot] = lecture
-        for stud in lecture.studs:
-            stud.add_lecture(lecture, slot)
+        if lecture != 0:
+            for stud in lecture.studs:
+                stud.add_lecture(lecture, slot)
         self.update_malus()
 
     def update_malus(self):

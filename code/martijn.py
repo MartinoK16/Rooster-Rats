@@ -155,22 +155,38 @@ class Rooster():
                         if lecture1.code == room1.rooster[slot1].code:
                             tries = {}
                             self.malus_count()
+                            tries[(nr1, slot1), (nr1, slot1)] = sum(self.malus)
                             print(lecture1.code, self.malus, sum(self.malus), nr3)
                             for nr2, room2 in enumerate(self.rooms):
                                 for slot2 in np.ndindex(room2.rooster.shape):
                                     lecture2 = room2.rooster[slot2]
-                                    room1.add_course(lecture2, slot1)
-                                    room2.add_course(lecture1, slot2)
-                                    self.malus_count()
-                                    tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-                                    room1.add_course(lecture1, slot1)
-                                    room2.add_course(lecture2, slot2)
+                                    if lecture1 != lecture2:
+                                        # if lecture2 != 0:
+                                        #     print(lecture1.code, lecture2.code)
+                                        # else:
+                                        #     print('Lecture 2 is 0')
+                                        room1.rem_course(lecture1, slot1)
+                                        room2.rem_course(lecture2, slot2)
+                                        room1.add_course(lecture2, slot1)
+                                        room2.add_course(lecture1, slot2)
+                                        self.malus_count()
+                                        tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                        room1.rem_course(lecture2, slot1)
+                                        room2.rem_course(lecture1, slot2)
+                                        room1.add_course(lecture1, slot1)
+                                        room2.add_course(lecture2, slot2)
 
                             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
                             # slot = [k for k, v in tries.items() if v==min(tries.values())][-1]
-                            lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
-                            self.rooms[slot[0][0]].add_course(lecture2, slot[0][1])
-                            self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+                            # print((nr1, slot1), (nr1, slot1))
+                            # print(slot)
+                            if slot != ((nr1, slot1), (nr1, slot1)):
+                                lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
+                                room1.rem_course(lecture1, slot[0][1])
+                                self.rooms[slot[1][0]].rem_course(lecture2, slot[1][1])
+
+                                room1.add_course(lecture2, slot[0][1])
+                                self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
     def make_output(self):
         '''
@@ -187,7 +203,7 @@ class Rooster():
                     lecture = room.rooster[slot]
                     # Add all the students for this lecture into the dictionary
                     for stud in lecture.studs:
-                        d['student'].append(stud)
+                        d['student'].append(stud.nr)
                         d['dag'].append(slot[1])
                         d['tijdslot'].append(slot[0])
 
@@ -239,7 +255,7 @@ class Rooster():
                     with open(f'../data/room{room.room}.yaml', 'w') as file:
                         documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
-    def malus_count(self):
+    def malus_count_old(self):
         '''
         Counts the amount of malus points from the output DataFrame
         '''
@@ -250,6 +266,7 @@ class Rooster():
         small_room = 0
 
         self.make_output()
+        # print(self.output)
 
         # Removes the groups with only 1 row to go even faster
         groups = self.output.loc[self.output.groupby(['student', 'dag'])['tijdslot'].transform('count') > 1, :]
@@ -298,43 +315,60 @@ class Rooster():
         self.malus = double_hours, tussenuren, avondsloten, small_room
 
 
+    def malus_count(self):
+        self.malus = [0, 0, 0, 0]
+        for student in self.student_list:
+            self.malus[0] += student.malus[0]
+            self.malus[1] += student.malus[1]
+        for room in self.rooms:
+            self.malus[2] += room.malus[0]
+            self.malus[3] += room.malus[1]
+
+
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 
-my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-my_rooster.make_rooster_random(4, 5, 7)
+# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster.make_rooster_random(4, 5, 7)
+# my_rooster.malus_count()
+# print(my_rooster.malus)
+# my_rooster.malus_count()
+# print(my_rooster.malus)
 
 
-# prev_malus = 161
-# maluses = []
-# for i in range(1):
-#     st = time.time()
-#     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-#     my_rooster.make_rooster_random(4, 5, 7)
-#     # my_rooster.make_rooster_minmalus()
-#     # my_rooster.make_rooster_greedy()
-#     my_rooster.malus_count()
-#     print(my_rooster.malus)
-#     malus = sum(my_rooster.malus)
-#     new_malus = malus - 1
-#
-#     while new_malus < malus:
-#         malus = sum(my_rooster.malus)
-#         my_rooster.hillclimber()
-#         my_rooster.malus_count()
-#         new_malus = sum(my_rooster.malus)
-#
-#     print('Execution time malus:', time.time() - st, 'seconds')
-#     malus = sum(my_rooster.malus)
-#     maluses.append(my_rooster.malus)
-#     print(maluses)
-#
-#     if malus < prev_malus:
-#         with open(f'RoosterWith{malus}Points', 'wb') as outp:
-#             pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-#         prev_malus = malus
+prev_malus = 161
+maluses = []
+for i in range(1):
+    st = time.time()
+    my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+    my_rooster.make_rooster_random(4, 5, 7)
+    # my_rooster.make_rooster_minmalus()
+    # my_rooster.make_rooster_greedy()
+    my_rooster.malus_count()
+    print(my_rooster.malus)
+    malus = sum(my_rooster.malus)
+    new_malus = malus - 1
+
+    for stud in my_rooster.student_list:
+        print(stud.malus)
+
+    while new_malus < malus:
+        malus = sum(my_rooster.malus)
+        my_rooster.hillclimber()
+        my_rooster.malus_count()
+        new_malus = sum(my_rooster.malus)
+
+    print('Execution time malus:', time.time() - st, 'seconds')
+    malus = sum(my_rooster.malus)
+    maluses.append(my_rooster.malus)
+    print(maluses)
+
+    if malus < prev_malus:
+        with open(f'RoosterWith{malus}Points', 'wb') as outp:
+            pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+        prev_malus = malus
 
 # with open('RoosterHoorWith21Points', 'rb') as inp:
 #     my_rooster_hoor = pickle.load(inp)

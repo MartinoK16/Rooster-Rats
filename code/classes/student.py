@@ -15,17 +15,22 @@ class Student():
         self.update_malus()
 
     def rem_lecture(self, lecture, slot):
-        if len(self.rooster[slot]) < 2:
+        if self.rooster[slot] == 0: #or self.rooster[slot] == []:
+            pass
+        elif len(self.rooster[slot]) < 2:
             self.rooster[slot] = 0
         else:
+            # for lec in self.rooster[slot]:
+            #     print('Hallo', lec.code)
+            # print('To Remove', lecture.code)
+            # print()
             self.rooster[slot].remove(lecture)
         self.update_malus()
 
     def update_malus(self):
         self.malus = [0, 0]
         for slot in list(zip(*np.nonzero(self.rooster!=0))):
-            if len(self.rooster[slot]) > 1:
-                self.malus[0] += 1
+            self.malus[0] += len(self.rooster[slot]) - 1
 
         for col in self.rooster.T:
             slots = np.nonzero(col)[0]
