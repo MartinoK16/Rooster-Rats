@@ -21,14 +21,14 @@ class Room():
             lec1.room = None
             lec1.slot = None
             for stud in lec1.studs:
-                stud.swap_lecture(lec1, 0, slot)
+                stud.swap_lecture(lec1, slot, 0, slot)
 
         # Add the new lecture
         if lec2 != 0:
             lec2.room = self
             lec2.slot = slot
             for stud in lec2.studs:
-                stud.swap_lecture(0, lec2, slot)
+                stud.swap_lecture(0, slot, lec2, slot)
 
         self.update_malus()
 

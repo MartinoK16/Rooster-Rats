@@ -158,19 +158,35 @@ class Rooster():
                 for slot2 in np.ndindex(room2.rooster.shape):
                     lecture2 = room2.rooster[slot2]
 
-                    room1.swap_course(lecture1, lecture2, slot1)
-                    room2.swap_course(lecture2, lecture1, slot2)
+                    self.swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
                     self.malus_count()
                     tries[nr2, slot2] = sum(self.malus)
-                    room1.swap_course(lecture2, lecture1, slot1)
-                    room2.swap_course(lecture1, lecture2, slot2)
+                    self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
 
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
 
             room2 = self.rooms[slot[0]]
             lecture2 = room2.rooster[slot[1]]
-            room1.swap_course(lecture1, lecture2, slot1)
-            room2.swap_course(lecture2, lecture1, slot[1])
+            self.swap_course(room1, lecture1, slot1, room2, lecture2, slot[1])
+
+    def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
+        room1.rooster[slot1] = lec2
+        room2.rooster[slot2] = lec1
+
+        if lec1 != 0:
+            lec1.room = room2
+            lec1.slot = slot2
+            for stud in lec1.studs:
+                stud.swap_lecture(lec1, slot1, lec1, slot2)
+
+        if lec2 != 0:
+            lec2.room = room1
+            lec2.slot = slot1
+            for stud in lec2.studs:
+                stud.swap_lecture(lec2, slot2, lec2, slot1)
+
+        room1.update_malus()
+        room2.update_malus()
 
     def hillclimber_werk(self):
           """
