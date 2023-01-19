@@ -161,10 +161,6 @@ class Rooster():
                                 for slot2 in np.ndindex(room2.rooster.shape):
                                     lecture2 = room2.rooster[slot2]
                                     if lecture1 != lecture2:
-                                        # if lecture2 != 0:
-                                        #     print(lecture1.code, lecture2.code)
-                                        # else:
-                                        #     print('Lecture 2 is 0')
                                         room1.rem_course(lecture1, slot1)
                                         room2.rem_course(lecture2, slot2)
                                         room1.add_course(lecture2, slot1)
@@ -177,9 +173,6 @@ class Rooster():
                                         room2.add_course(lecture2, slot2)
 
                             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-                            # slot = [k for k, v in tries.items() if v==min(tries.values())][-1]
-                            # print((nr1, slot1), (nr1, slot1))
-                            # print(slot)
                             if slot != ((nr1, slot1), (nr1, slot1)):
                                 lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
                                 room1.rem_course(lecture1, slot[0][1])

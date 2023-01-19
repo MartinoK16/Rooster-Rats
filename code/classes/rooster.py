@@ -6,6 +6,7 @@ import yaml
 import pdfschedule
 from .course import Course
 from .room import Room
+from .student import Student
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -124,41 +125,180 @@ class Rooster():
             self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
 
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list[10:]:
+        for lecture in self.lectures_list: # [10:]
             tries = {}
             for nr, room in enumerate(self.rooms):
-                if room.capacity >= lecture.size and np.any(room.rooster==0):
+                if np.any(room.rooster==0): # room.capacity >= lecture.size and
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
                         room.add_course(lecture, slot)
                         self.malus_count()
                         tries[nr, slot[0], slot[1]] = sum(self.malus)
-                        room.remove_course(slot)
+                        room.remove_course(lecture, slot)
 
-            # Randomly chooses between options with (equal) min malus points
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             self.rooms[slot[0]].add_course(lecture, slot[1:])
+            self.malus_count()
 
     def hillclimber(self):
-        for nr3, lecture1 in enumerate(self.lectures_list):
+        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
             for nr1, room1 in enumerate(self.rooms):
                 for slot1 in np.ndindex(room1.rooster.shape):
-                    if lecture1 == room1.rooster[slot1]:
-                        tries = {}
-                        self.malus_count()
-                        for nr2, room2 in enumerate(self.rooms):
-                            for slot2 in np.ndindex(room2.rooster.shape):
-                                lecture2 = room2.rooster[slot2]
-                                room1.add_course(lecture2, slot1)
-                                room2.add_course(lecture1, slot2)
-                                self.malus_count()
-                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-                                room1.add_course(lecture1, slot1)
-                                room2.add_course(lecture2, slot2)
+                    if room1.rooster[slot1] != 0:
+                        if lecture1.code == room1.rooster[slot1].code:
+                            tries = {}
+                            self.malus_count()
+                            tries[(nr1, slot1), (nr1, slot1)] = sum(self.malus)
+                            print(lecture1.code, self.malus, sum(self.malus), nr3)
+                            for nr2, room2 in enumerate(self.rooms):
+                                for slot2 in np.ndindex(room2.rooster.shape):
+                                    lecture2 = room2.rooster[slot2]
+                                    if lecture1 != lecture2:
+                                        room1.rem_course(lecture1, slot1)
+                                        room2.rem_course(lecture2, slot2)
+                                        room1.add_course(lecture2, slot1)
+                                        room2.add_course(lecture1, slot2)
+                                        self.malus_count()
+                                        tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                        room1.rem_course(lecture2, slot1)
+                                        room2.rem_course(lecture1, slot2)
+                                        room1.add_course(lecture1, slot1)
+                                        room2.add_course(lecture2, slot2)
 
-                        slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
-                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+                            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+                            if slot != ((nr1, slot1), (nr1, slot1)):
+                                lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
+                                room1.rem_course(lecture1, slot[0][1])
+                                self.rooms[slot[1][0]].rem_course(lecture2, slot[1][1])
+
+                                room1.add_course(lecture2, slot[0][1])
+                                self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+
+
+    def hillclimber_werk(self):
+          """
+          Moves students in werkgroep, based on a decreasing number of malus points.
+          Nog niet toegepast op practica.
+          """
+          for nr, course in enumerate(self.courses): # Ga alle vakken langs
+              groups_dict = {} # dict (key: group (1, 2, ...); value: set/list of students)
+              nr_werk_groups = len(course.W)
+              # print(f'len is {len(course.W)}')
+
+              # Fill dict with groups and student lists
+              for i in range(nr_werk_groups):
+                  groups_dict[i+1] = course.W[i].studs
+
+              # print(groups_dict)
+
+              for nr1, werkcollege in enumerate(course.W):
+                  group = int(werkcollege.type[1])
+                  # groups_dict[group] = werkcollege.studs # set/list of student
+
+                  for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
+                      tries = {} # keys: ...; values: malus points
+
+                      self.malus_count() # Tel minpunten
+                      tries[group] = sum(self.malus)
+
+                      # print(groups_dict[group])
+                      # print(student)
+
+                      groups_dict[group].remove(student) # In case of set: .discard(student)
+                      werkcollege.studs = groups_dict[group] # Dit lecture object updaten
+
+                      for i in range(nr_werk_groups):
+                          other_group = i + 1
+                          if other_group != group:
+                              groups_dict[other_group].append(student)
+                              course.W[i].studs = groups_dict[other_group] # Andere lecture object updaten
+
+                              self.malus_count() # Tel minpunten
+                              tries[other_group] = sum(self.malus)
+
+                              groups_dict[i+1].remove(student)
+                              course.W[i].studs = groups_dict[other_group] # Terug naar eerdere staat
+
+                      # groups_dict[group].append(student)
+                      groups_dict[group].append(student)
+                      werkcollege.studs = groups_dict[group] # Terug naar originele staat
+
+
+                      best_option = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                      # print(f'Best option to move student to is {best_option}')
+
+                      if best_option != group: # Move student
+                          groups_dict[group].remove(student)
+                          werkcollege.studs = groups_dict[group] # Dit lecture object updaten (student verwijderen)
+
+                          groups_dict[best_option].append(student)
+                          course.W[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
+
+                  self.malus_count()
+                  print(self.malus, sum(self.malus), nr)
+
+    def hillclimber_prac(self):
+          """
+          Moves students in werkgroep, based on a decreasing number of malus points.
+          Nog niet toegepast op practica.
+          """
+          for nr, course in enumerate(self.courses): # Ga alle vakken langs
+              groups_dict = {} # dict (key: group (1, 2, ...); value: set/list of students)
+              nr_werk_groups = len(course.P)
+              # print(f'len is {len(course.W)}')
+
+              # Fill dict with groups and student lists
+              for i in range(nr_werk_groups):
+                  groups_dict[i+1] = course.P[i].studs
+
+              # print(groups_dict)
+
+              for nr1, werkcollege in enumerate(course.P):
+                  group = int(werkcollege.type[1])
+                  # groups_dict[group] = werkcollege.studs # set/list of student
+
+                  for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
+                      tries = {} # keys: ...; values: malus points
+
+                      self.malus_count() # Tel minpunten
+                      tries[group] = sum(self.malus)
+
+                      # print(groups_dict[group])
+                      # print(student)
+
+                      groups_dict[group].remove(student) # In case of set: .discard(student)
+                      werkcollege.studs = groups_dict[group] # Dit lecture object updaten
+
+                      for i in range(nr_werk_groups):
+                          other_group = i + 1
+                          if other_group != group:
+                              groups_dict[other_group].append(student)
+                              course.P[i].studs = groups_dict[other_group] # Andere lecture object updaten
+
+                              self.malus_count() # Tel minpunten
+                              tries[other_group] = sum(self.malus)
+
+                              groups_dict[i+1].remove(student)
+                              course.P[i].studs = groups_dict[other_group] # Terug naar eerdere staat
+
+                      # groups_dict[group].append(student)
+                      groups_dict[group].append(student)
+                      werkcollege.studs = groups_dict[group] # Terug naar originele staat
+
+
+                      best_option = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                      # print(f'Best option to move student to is {best_option}')
+
+                      if best_option != group: # Move student
+                          groups_dict[group].remove(student)
+                          werkcollege.studs = groups_dict[group] # Dit lecture object updaten (student verwijderen)
+
+                          groups_dict[best_option].append(student)
+                          course.P[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
+
+                  self.malus_count()
+                  print(self.malus, sum(self.malus), nr)
+
 
     def make_output(self):
         '''
@@ -175,7 +315,7 @@ class Rooster():
                     lecture = room.rooster[slot]
                     # Add all the students for this lecture into the dictionary
                     for stud in lecture.studs:
-                        d['student'].append(stud)
+                        d['student'].append(stud.nr)
                         d['dag'].append(slot[1])
                         d['tijdslot'].append(slot[0])
 
@@ -227,7 +367,7 @@ class Rooster():
                     with open(f'../data/room{room.room}.yaml', 'w') as file:
                         documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
-    def malus_count(self):
+    def malus_count_old(self):
         '''
         Counts the amount of malus points from the output DataFrame
         '''
@@ -284,3 +424,12 @@ class Rooster():
 
         # Add up all the malus points for the total
         self.malus = double_hours, tussenuren, avondsloten, small_room
+
+    def malus_count(self):
+        self.malus = [0, 0, 0, 0]
+        for student in self.student_list:
+            self.malus[0] += student.malus[0]
+            self.malus[1] += student.malus[1]
+        for room in self.rooms:
+            self.malus[2] += room.malus[0]
+            self.malus[3] += room.malus[1]

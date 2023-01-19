@@ -1,60 +1,57 @@
 - days: M
-  name: 'Advanced Heuristics, type: P2, size: 10'
+  name: 'Project Genetic Algorithms, type: P3, size: 12'
   time: 9 - 11
 - days: T
-  name: 'Databases 2, type: W1, size: 36'
+  name: 'Software engineering, type: H1, size: 75'
   time: 9 - 11
 - days: W
-  name: 'Algoritmen en complexiteit, type: P1, size: 22'
-  time: 9 - 11
-- days: R
-  name: 'Interactie-ontwerp, type: H2, size: 25'
+  name: 'Webprogrammeren en databases, type: H2, size: 39'
   time: 9 - 11
 - days: F
-  name: 'Autonomous Agents 2, type: W2, size: 7'
-  time: 9 - 11
-- days: M
-  name: 'Programmeren in Java 2, type: P3, size: 18'
-  time: 11 - 13
-- days: T
-  name: 'Technology for games, type: H2, size: 38'
-  time: 11 - 13
-- days: W
   name: 'Reflectie op de digitale cultuur, type: W2, size: 17'
+  time: 9 - 11
+- days: M
+  name: 'Compilerbouw practicum, type: P3, size: 13'
+  time: 11 - 13
+- days: T
+  name: 'Collectieve Intelligentie, type: H3, size: 61'
+  time: 11 - 13
+- days: W
+  name: 'Moderne Databases, type: H1, size: 54'
   time: 11 - 13
 - days: R
-  name: 'Bioinformatica, type: W2, size: 15'
+  name: 'Technology for games, type: W1, size: 19'
   time: 11 - 13
 - days: F
-  name: 'Compilerbouw, type: W1, size: 36'
+  name: 'Collectieve Intelligentie, type: P4, size: 15'
   time: 11 - 13
 - days: M
-  name: 'Autonomous Agents 2, type: H1, size: 22'
+  name: 'Algoritmen en complexiteit, type: W1, size: 22'
   time: 13 - 15
 - days: T
-  name: 'Programmeren in Java 2, type: P5, size: 18'
+  name: 'Reflectie op de digitale cultuur, type: H1, size: 51'
   time: 13 - 15
 - days: W
-  name: 'Compilerbouw, type: P2, size: 36'
+  name: 'Bioinformatica, type: W3, size: 15'
   time: 13 - 15
 - days: R
-  name: 'Heuristieken 2, type: W2, size: 16'
+  name: 'Bioinformatica, type: P3, size: 15'
   time: 13 - 15
 - days: F
-  name: 'Webprogrammeren en databases, type: H1, size: 39'
+  name: 'Webprogrammeren en databases, type: W1, size: 20'
   time: 13 - 15
 - days: M
-  name: 'Autonomous Agents 2, type: H2, size: 22'
+  name: 'Algoritmen en complexiteit, type: H1, size: 43'
   time: 15 - 17
 - days: T
-  name: 'Compilerbouw practicum, type: P2, size: 13'
+  name: 'Collectieve Intelligentie, type: P2, size: 15'
   time: 15 - 17
 - days: W
-  name: 'Algoritmen en complexiteit, type: W2, size: 21'
+  name: 'Webprogrammeren en databases, type: P2, size: 19'
   time: 15 - 17
 - days: R
-  name: 'Informatie- en organisatieontwerp, type: H2, size: 21'
+  name: 'Webprogrammeren en databases, type: P1, size: 20'
   time: 15 - 17
 - days: F
-  name: 'Compilerbouw, type: W3, size: 35'
+  name: 'Project Genetic Algorithms, type: P2, size: 12'
   time: 15 - 17
