@@ -198,7 +198,7 @@ class Rooster():
                   for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
                       tries = {} # keys: ...; values: malus points
 
-                      self.malus_count() # Tel minpunten
+                      self.malus_count_old() # Tel minpunten
                       tries[group] = sum(self.malus)
 
                       # print(groups_dict[group])
@@ -213,7 +213,7 @@ class Rooster():
                               groups_dict[other_group].append(student)
                               course.W[i].studs = groups_dict[other_group] # Andere lecture object updaten
 
-                              self.malus_count() # Tel minpunten
+                              self.malus_count_old() # Tel minpunten
                               tries[other_group] = sum(self.malus)
 
                               groups_dict[i+1].remove(student)
@@ -234,7 +234,7 @@ class Rooster():
                           groups_dict[best_option].append(student)
                           course.W[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
 
-                  self.malus_count()
+                  self.malus_count_old()
                   print(self.malus, sum(self.malus), nr)
 
     def hillclimber_prac(self):
@@ -260,7 +260,7 @@ class Rooster():
                   for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
                       tries = {} # keys: ...; values: malus points
 
-                      self.malus_count() # Tel minpunten
+                      self.malus_count_old() # Tel minpunten
                       tries[group] = sum(self.malus)
 
                       # print(groups_dict[group])
@@ -275,7 +275,7 @@ class Rooster():
                               groups_dict[other_group].append(student)
                               course.P[i].studs = groups_dict[other_group] # Andere lecture object updaten
 
-                              self.malus_count() # Tel minpunten
+                              self.malus_count_old() # Tel minpunten
                               tries[other_group] = sum(self.malus)
 
                               groups_dict[i+1].remove(student)
@@ -296,7 +296,7 @@ class Rooster():
                           groups_dict[best_option].append(student)
                           course.P[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
 
-                  self.malus_count()
+                  self.malus_count_old()
                   print(self.malus, sum(self.malus), nr)
 
 
