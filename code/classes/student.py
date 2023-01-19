@@ -3,6 +3,7 @@ import numpy as np
 class Student():
     def __init__(self, stud_nr, nr_t, nr_d, courses):
         self.nr = stud_nr
+        self.malus = [0, 0]
         self.courses = courses
         self.rooster = np.zeros((nr_t, nr_d), dtype=object)
 
@@ -37,7 +38,3 @@ class Student():
                 # The rooster is not possible if a student has 3 tussenuren
                 elif tus == 3:
                     self.malus[1] += 10000
-
-stud = Student(111, 5, 5)
-stud.update_malus()
-print(self.rooster)

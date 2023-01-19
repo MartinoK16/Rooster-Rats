@@ -17,12 +17,17 @@ class Rooster():
 
     def make_student_dict(self, courses_df, student_df):
         self.student_dict = {}
-        for _, course in courses_df.iterrows():
-            self.student_dict[course['Vak']] = set()
+        self.student_list = []
 
-            for _, student in student_df.iterrows():
-                if course['Vak'] in student['Vakken']:
-                    self.student_dict[course['Vak']].add(student['Stud.Nr.'])
+        for _, student in student_df.iterrows():
+            self.student_list.append(Student(student['Stud.Nr.'], 5, 5, student['Vakken']))
+
+        for _, course in courses_df.iterrows():
+            self.student_dict[course['Vak']] = []
+
+            for student in self.student_list:
+                if course['Vak'] in student.courses:
+                    self.student_dict[course['Vak']].append(student)
 
     def make_rooms(self, rooms_df, evenings):
         '''
@@ -95,17 +100,13 @@ class Rooster():
 
         # Add the arrays into the rooms classes roosters
         for slot in np.ndindex(self.rooster.shape):
-            self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
+            if self.rooster[slot] != 0:
+                self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
 
     def make_rooster_greedy(self):
         '''
         Makes a rooster bases on the first spot that a lecture can fit in by comparing lecture size and room capacity
         '''
-        # Clear all rooms
-        for room in self.rooms:
-            for slot in np.ndindex(room.rooster.shape):
-                room.remove_course(slot)
-
         # Check for each lecture the first possible slot to put it in, only places a lecture once
         for lecture in self.lectures_list:
             for room in self.rooms:

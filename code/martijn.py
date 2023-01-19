@@ -8,6 +8,7 @@ import random
 import numpy as np
 from classes.course import Course
 from classes.room import Room
+from classes.student import Student
 import time
 import pickle
 import yaml
@@ -25,12 +26,17 @@ class Rooster():
 
     def make_student_dict(self, courses_df, student_df):
         self.student_dict = {}
-        for _, course in courses_df.iterrows():
-            self.student_dict[course['Vak']] = set()
+        self.student_list = []
 
-            for _, student in student_df.iterrows():
-                if course['Vak'] in student['Vakken']:
-                    self.student_dict[course['Vak']].add(student['Stud.Nr.'])
+        for _, student in student_df.iterrows():
+            self.student_list.append(Student(student['Stud.Nr.'], 5, 5, student['Vakken']))
+
+        for _, course in courses_df.iterrows():
+            self.student_dict[course['Vak']] = []
+
+            for student in self.student_list:
+                if course['Vak'] in student.courses:
+                    self.student_dict[course['Vak']].append(student)
 
     def make_rooms(self, rooms_df, evenings):
         '''
@@ -103,17 +109,13 @@ class Rooster():
 
         # Add the arrays into the rooms classes roosters
         for slot in np.ndindex(self.rooster.shape):
-            self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
+            if self.rooster[slot] != 0:
+                self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
 
     def make_rooster_greedy(self):
         '''
         Makes a rooster bases on the first spot that a lecture can fit in by comparing lecture size and room capacity
         '''
-        # Clear all rooms
-        for room in self.rooms:
-            for slot in np.ndindex(room.rooster.shape):
-                room.remove_course(slot)
-
         # Check for each lecture the first possible slot to put it in, only places a lecture once
         for lecture in self.lectures_list:
             for room in self.rooms:
@@ -137,7 +139,7 @@ class Rooster():
                         room.add_course(lecture, slot)
                         self.malus_count()
                         tries[nr, slot[0], slot[1]] = sum(self.malus)
-                        room.remove_course(slot)
+                        room.remove_course(lecture, slot)
 
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             # slot = [k for k, v in tries.items() if v==min(tries.values())][0]
@@ -301,35 +303,38 @@ student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 
+my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+my_rooster.make_rooster_random(4, 5, 7)
 
-prev_malus = 161
-maluses = []
-for i in range(1):
-    st = time.time()
-    my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-    my_rooster.make_rooster_random(4, 5, 7)
-    # my_rooster.make_rooster_minmalus()
-    # my_rooster.make_rooster_greedy()
-    my_rooster.malus_count()
-    print(my_rooster.malus)
-    malus = sum(my_rooster.malus)
-    new_malus = malus - 1
 
-    while new_malus < malus:
-        malus = sum(my_rooster.malus)
-        my_rooster.hillclimber()
-        my_rooster.malus_count()
-        new_malus = sum(my_rooster.malus)
-
-    print('Execution time malus:', time.time() - st, 'seconds')
-    malus = sum(my_rooster.malus)
-    maluses.append(my_rooster.malus)
-    print(maluses)
-
-    if malus < prev_malus:
-        with open(f'RoosterWith{malus}Points', 'wb') as outp:
-            pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-        prev_malus = malus
+# prev_malus = 161
+# maluses = []
+# for i in range(1):
+#     st = time.time()
+#     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+#     my_rooster.make_rooster_random(4, 5, 7)
+#     # my_rooster.make_rooster_minmalus()
+#     # my_rooster.make_rooster_greedy()
+#     my_rooster.malus_count()
+#     print(my_rooster.malus)
+#     malus = sum(my_rooster.malus)
+#     new_malus = malus - 1
+#
+#     while new_malus < malus:
+#         malus = sum(my_rooster.malus)
+#         my_rooster.hillclimber()
+#         my_rooster.malus_count()
+#         new_malus = sum(my_rooster.malus)
+#
+#     print('Execution time malus:', time.time() - st, 'seconds')
+#     malus = sum(my_rooster.malus)
+#     maluses.append(my_rooster.malus)
+#     print(maluses)
+#
+#     if malus < prev_malus:
+#         with open(f'RoosterWith{malus}Points', 'wb') as outp:
+#             pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+#         prev_malus = malus
 
 # with open('RoosterHoorWith21Points', 'rb') as inp:
 #     my_rooster_hoor = pickle.load(inp)
