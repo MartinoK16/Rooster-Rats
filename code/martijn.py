@@ -145,52 +145,30 @@ class Rooster():
             self.malus_count()
             print(self.malus, lecture.code, lecture.size)
 
-    # def hillclimber(self):
-    #     for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
-    #         for nr1, room1 in enumerate(self.rooms):
-    #             for slot1 in np.ndindex(room1.rooster.shape):
-    #                 if room1.rooster[slot1] != 0:
-    #                     if lecture1.code == room1.rooster[slot1].code:
-    #                         tries = {}
-    #                         self.malus_count()
-    #                         print(lecture1.code, self.malus, sum(self.malus), nr3)
-    #                         for nr2, room2 in enumerate(self.rooms):
-    #                             for slot2 in np.ndindex(room2.rooster.shape):
-    #                                 lecture2 = room2.rooster[slot2]
-    #                                 room1.add_course(lecture2, slot1)
-    #                                 room2.add_course(lecture1, slot2)
-    #                                 self.malus_count()
-    #                                 tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-    #                                 room1.add_course(lecture1, slot1)
-    #                                 room2.add_course(lecture2, slot2)
-    #
-    #                         slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-    #                         # slot = [k for k, v in tries.items() if v==min(tries.values())][-1]
-    #                         lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
-    #                         self.rooms[slot[0][0]].add_course(lecture2, slot[0][1])
-    #                         self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
-
     def hillclimber(self):
-        for nr3, lecture1 in enumerate(self.lectures_list):
+        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
             for nr1, room1 in enumerate(self.rooms):
                 for slot1 in np.ndindex(room1.rooster.shape):
-                    if lecture1 == room1.rooster[slot1]:
-                        tries = {}
-                        self.malus_count()
-                        print(lecture1.code, self.malus, sum(self.malus), nr3)
-                        for nr2, room2 in enumerate(self.rooms):
-                            for slot2 in np.ndindex(room2.rooster.shape):
-                                lecture2 = room2.rooster[slot2]
-                                room1.add_course(lecture2, slot1)
-                                room2.add_course(lecture1, slot2)
-                                self.malus_count()
-                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-                                room1.add_course(lecture1, slot1)
-                                room2.add_course(lecture2, slot2)
+                    if room1.rooster[slot1] != 0:
+                        if lecture1.code == room1.rooster[slot1].code:
+                            tries = {}
+                            self.malus_count()
+                            print(lecture1.code, self.malus, sum(self.malus), nr3)
+                            for nr2, room2 in enumerate(self.rooms):
+                                for slot2 in np.ndindex(room2.rooster.shape):
+                                    lecture2 = room2.rooster[slot2]
+                                    room1.add_course(lecture2, slot1)
+                                    room2.add_course(lecture1, slot2)
+                                    self.malus_count()
+                                    tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                    room1.add_course(lecture1, slot1)
+                                    room2.add_course(lecture2, slot2)
 
-                        slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
-                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+                            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+                            # slot = [k for k, v in tries.items() if v==min(tries.values())][-1]
+                            lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
+                            self.rooms[slot[0][0]].add_course(lecture2, slot[0][1])
+                            self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
     def make_output(self):
         '''

@@ -2,8 +2,6 @@ import numpy as np
 
 class Room():
     def __init__(self, nr_timeslots, nr_days, room, evening, room_capacity):
-        self.nr_timeslots = nr_timeslots # Standard; without evening timeslot
-        self.nr_days = nr_days
         self.room = room # object or integer
         self.evening = evening # boolean
         self.capacity = room_capacity
