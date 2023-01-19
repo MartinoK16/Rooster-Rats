@@ -108,6 +108,59 @@ class Rooster():
                         room.add_course(lecture, slot)
                         break
                     break
+                    
+    def hillclimber(self):
+        for nr3, lecture1 in enumerate(self.lectures_list):
+            for nr1, room1 in enumerate(self.rooms):
+                for slot1 in np.ndindex(room1.rooster.shape):
+                    if lecture1 == room1.rooster[slot1]:
+                        tries = {}
+                        self.malus_count()
+                        for nr2, room2 in enumerate(self.rooms):
+                            for slot2 in np.ndindex(room2.rooster.shape):
+                                lecture2 = room2.rooster[slot2]
+                                room1.add_course(lecture2, slot1)
+                                room2.add_course(lecture1, slot2)
+                                self.malus_count()
+                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+                                room1.add_course(lecture1, slot1)
+                                room2.add_course(lecture2, slot2)
+
+                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
+                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
+                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+
+    def simulated_annealing(self, alpha=0.01):
+        temperature = 20
+        for nr3, lecture1 in enumerate(self.lectures_list):
+            for nr1, room1 in enumerate(self.rooms):
+                for slot1 in np.ndindex(room1.rooster.shape):
+                    if lecture1 == room1.rooster[slot1]:
+                        acceptance_count = 0
+
+                        for nr2, room2 in enumerate(self.rooms):
+                            for slot2 in np.ndindex(room2.rooster.shape):
+                                self.malus_count()
+                                old = sum(self.malus)
+                                lecture2 = room2.rooster[slot2]
+                                room1.add_course(lecture2, slot1)
+                                room2.add_course(lecture1, slot2)
+                                self.malus_count()
+                                new = sum(self.malus)
+                                acceptance = 2 ** ((old - new) / temperature)
+                                # print(acceptance)
+                                temperature -= alpha
+
+                                if acceptance < 0.5:
+                                    room1.add_course(lecture1, slot1)
+                                    room2.add_course(lecture2, slot2)
+
+                                elif acceptance == 1:
+                                    acceptance_count += 1
+                                    print(acceptance_count)
+
+                            if acceptance_count == 10:
+                                break
 
     def make_output(self):
         '''
