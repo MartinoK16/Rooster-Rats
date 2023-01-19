@@ -1,54 +1,60 @@
 - days: M
-  name: 'Heuristieken 2, type: W1, size: 16'
+  name: 'Programmeren in Java 2, type: P2, size: 19'
   time: 9 - 11
 - days: T
-  name: 'Project Numerical Recipes, type: P2, size: 15'
+  name: 'Data Mining, type: W1, size: 9'
+  time: 9 - 11
+- days: W
+  name: 'Heuristieken 1, type: W1, size: 22'
   time: 9 - 11
 - days: R
-  name: 'Collectieve Intelligentie, type: W2, size: 15'
+  name: 'Collectieve Intelligentie, type: P1, size: 16'
   time: 9 - 11
 - days: F
-  name: 'Architectuur en computerorganisatie, type: H2, size: 21'
+  name: 'Project Numerical Recipes, type: P1, size: 15'
   time: 9 - 11
 - days: M
+  name: 'Informatie- en organisatieontwerp, type: H1, size: 21'
+  time: 11 - 13
+- days: T
+  name: 'Zoeken sturen en bewegen, type: P3, size: 14'
+  time: 11 - 13
+- days: W
+  name: 'Webprogrammeren en databases, type: W2, size: 19'
+  time: 11 - 13
+- days: R
+  name: 'Netwerken en systeembeveiliging, type: P4, size: 16'
+  time: 11 - 13
+- days: F
+  name: 'Netwerken en systeembeveiliging, type: P1, size: 16'
+  time: 11 - 13
+- days: M
+  name: 'Reflectie op de digitale cultuur, type: W1, size: 17'
+  time: 13 - 15
+- days: T
+  name: 'Technology for games, type: W1, size: 19'
+  time: 13 - 15
+- days: W
+  name: 'Informatie- en organisatieontwerp, type: W2, size: 10'
+  time: 13 - 15
+- days: R
+  name: 'Webprogrammeren en databases, type: W1, size: 20'
+  time: 13 - 15
+- days: F
   name: 'Moderne Databases, type: W2, size: 18'
-  time: 11 - 13
-- days: T
-  name: 'Algoritmen en complexiteit, type: P1, size: 22'
-  time: 11 - 13
-- days: W
-  name: 'Bioinformatica, type: W2, size: 15'
-  time: 11 - 13
-- days: R
-  name: 'Autonomous Agents 2, type: H1, size: 22'
-  time: 11 - 13
-- days: F
-  name: 'Zoeken sturen en bewegen, type: P1, size: 14'
-  time: 11 - 13
-- days: M
-  name: 'Netwerken en systeembeveiliging, type: P3, size: 16'
-  time: 13 - 15
-- days: T
-  name: 'Algoritmen en complexiteit, type: W1, size: 22'
-  time: 13 - 15
-- days: W
-  name: 'Algoritmen en complexiteit, type: W2, size: 21'
-  time: 13 - 15
-- days: R
-  name: 'Data Mining, type: W2, size: 9'
-  time: 13 - 15
-- days: F
-  name: 'Collectieve Intelligentie, type: W3, size: 15'
   time: 13 - 15
 - days: M
-  name: 'Informatie- en organisatieontwerp, type: W1, size: 11'
+  name: 'Moderne Databases, type: P1, size: 18'
   time: 15 - 17
 - days: T
-  name: 'Data Mining, type: P3, size: 9'
+  name: 'Architectuur en computerorganisatie, type: H2, size: 21'
   time: 15 - 17
 - days: W
-  name: 'Heuristieken 1, type: W2, size: 22'
+  name: 'Informatie- en organisatieontwerp, type: P2, size: 10'
   time: 15 - 17
 - days: R
-  name: 'Bioinformatica, type: W1, size: 15'
+  name: 'Compilerbouw practicum, type: P3, size: 13'
+  time: 15 - 17
+- days: F
+  name: 'Autonomous Agents 2, type: W3, size: 7'
   time: 15 - 17

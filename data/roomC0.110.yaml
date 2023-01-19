@@ -1,63 +1,57 @@
 - days: M
-  name: 'Advanced Heuristics, type: P2, size: 10'
+  name: 'Algoritmen en complexiteit, type: H1, size: 43'
   time: 9 - 11
 - days: T
-  name: 'Moderne Databases, type: H1, size: 54'
+  name: 'Databases 2, type: W2, size: 36'
   time: 9 - 11
 - days: W
-  name: 'Collectieve Intelligentie, type: P2, size: 15'
-  time: 9 - 11
-- days: R
-  name: 'Collectieve Intelligentie, type: P4, size: 15'
+  name: 'Reflectie op de digitale cultuur, type: H2, size: 51'
   time: 9 - 11
 - days: F
-  name: 'Analysemethoden en -technieken, type: H1, size: 49'
+  name: 'Netwerken en systeembeveiliging, type: P2, size: 16'
   time: 9 - 11
 - days: M
   name: 'Software engineering, type: H1, size: 75'
   time: 11 - 13
 - days: T
-  name: 'Kansrekenen 2, type: H2, size: 84'
-  time: 11 - 13
-- days: W
-  name: 'Collectieve Intelligentie, type: H3, size: 61'
-  time: 11 - 13
-- days: R
-  name: 'Collectieve Intelligentie, type: H1, size: 61'
-  time: 11 - 13
-- days: F
   name: 'Databases 2, type: H1, size: 72'
   time: 11 - 13
+- days: W
+  name: 'Compilerbouw, type: H1, size: 107'
+  time: 11 - 13
+- days: R
+  name: 'Collectieve Intelligentie, type: H2, size: 61'
+  time: 11 - 13
+- days: F
+  name: 'Kansrekenen 2, type: H2, size: 84'
+  time: 11 - 13
 - days: M
-  name: 'Compilerbouw, type: H2, size: 107'
+  name: 'Collectieve Intelligentie, type: H1, size: 61'
   time: 13 - 15
 - days: T
-  name: 'Kansrekenen 2, type: H1, size: 84'
-  time: 13 - 15
-- days: W
-  name: 'Collectieve Intelligentie, type: H2, size: 61'
-  time: 13 - 15
-- days: R
   name: 'Calculus 2, type: H1, size: 106'
   time: 13 - 15
+- days: W
+  name: 'Collectieve Intelligentie, type: H3, size: 61'
+  time: 13 - 15
+- days: R
+  name: 'Kansrekenen 2, type: H1, size: 84'
+  time: 13 - 15
 - days: F
-  name: 'Compilerbouw, type: H1, size: 107'
+  name: 'Compilerbouw, type: H2, size: 107'
   time: 13 - 15
 - days: M
-  name: 'Data Mining, type: P2, size: 9'
+  name: 'Collectieve Intelligentie, type: W1, size: 16'
   time: 15 - 17
 - days: T
-  name: 'Autonomous Agents 2, type: P2, size: 7'
+  name: 'Calculus 2, type: W2, size: 35'
   time: 15 - 17
 - days: W
-  name: 'Project Genetic Algorithms, type: P1, size: 12'
+  name: 'Collectieve Intelligentie, type: P3, size: 15'
   time: 15 - 17
 - days: R
-  name: 'Calculus 2, type: W3, size: 35'
+  name: 'Data Mining, type: P1, size: 9'
   time: 15 - 17
 - days: F
-  name: 'Compilerbouw, type: P1, size: 36'
+  name: 'Compilerbouw, type: W2, size: 36'
   time: 15 - 17
-- days: W
-  name: 'Lineaire Algebra, type: H1, size: 54'
-  time: 17 - 19
