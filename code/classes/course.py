@@ -44,3 +44,21 @@ class Course():
                 slices.append(min_stud + slices[nr])
 
         return slices
+
+# ---------------------------------------------------------------------------------
+# def move_werk_students(self): # Same course & lecture_type[0]; different lecture_type[1]
+#     groups_dict = {} # dict of lists
+#     for werkcollege in self.W:
+#         group = werkcollege.type[1]
+#         groups_dict[group] = werkcollege.studs # list of students
+#
+#     return groups_dict
+#
+#     for group in groups_dict:
+#         for student in groups_dict[group]:
+#             # Move student
+#
+#
+# def move_prac_students():
+#     for practical in self.P:
+#         group = practical.type[1]

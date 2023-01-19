@@ -4,6 +4,6 @@ class Lecture():
         d = {'H': 1, 'W': 2, 'P': 3}
         self.name = lecture_name
         self.type = lecture_type
-        self.studs = lecture_studs
+        self.studs = lecture_studs # List of student numbers
         self.code = int(f'{class_nr + 11}{d[lecture_type[0]]}{lecture_type[1]}')
         self.size = len(lecture_studs)
