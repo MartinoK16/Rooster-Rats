@@ -12,6 +12,8 @@ import time
 import pickle
 import yaml
 import pdfschedule
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -121,15 +123,15 @@ class Rooster():
                     break
 
     def make_rooster_minmalus(self):
-        start_lectures = random.sample(self.lectures_list[:10], 10)
-        for nr, slot in enumerate(np.ndindex(2, 5)):
-            self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
+        # start_lectures = random.sample(self.lectures_list[:10], 10)
+        # for nr, slot in enumerate(np.ndindex(2, 5)):
+        #     self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
 
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list[10:]:
+        for lecture in self.lectures_list: # [10:]
             tries = {}
             for nr, room in enumerate(self.rooms):
-                if room.capacity >= lecture.size and np.any(room.rooster==0):
+                if np.any(room.rooster==0): # room.capacity >= lecture.size and
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
                         room.add_course(lecture, slot)
@@ -138,9 +140,35 @@ class Rooster():
                         room.remove_course(slot)
 
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+            # slot = [k for k, v in tries.items() if v==min(tries.values())][0]
             self.rooms[slot[0]].add_course(lecture, slot[1:])
             self.malus_count()
             print(self.malus, lecture.code, lecture.size)
+
+    # def hillclimber(self):
+    #     for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+    #         for nr1, room1 in enumerate(self.rooms):
+    #             for slot1 in np.ndindex(room1.rooster.shape):
+    #                 if room1.rooster[slot1] != 0:
+    #                     if lecture1.code == room1.rooster[slot1].code:
+    #                         tries = {}
+    #                         self.malus_count()
+    #                         print(lecture1.code, self.malus, sum(self.malus), nr3)
+    #                         for nr2, room2 in enumerate(self.rooms):
+    #                             for slot2 in np.ndindex(room2.rooster.shape):
+    #                                 lecture2 = room2.rooster[slot2]
+    #                                 room1.add_course(lecture2, slot1)
+    #                                 room2.add_course(lecture1, slot2)
+    #                                 self.malus_count()
+    #                                 tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
+    #                                 room1.add_course(lecture1, slot1)
+    #                                 room2.add_course(lecture2, slot2)
+    #
+    #                         slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+    #                         # slot = [k for k, v in tries.items() if v==min(tries.values())][-1]
+    #                         lecture2 = self.rooms[slot[1][0]].rooster[slot[1][1]]
+    #                         self.rooms[slot[0][0]].add_course(lecture2, slot[0][1])
+    #                         self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
     def hillclimber(self):
         for nr3, lecture1 in enumerate(self.lectures_list):
@@ -160,7 +188,7 @@ class Rooster():
                                 room1.add_course(lecture1, slot1)
                                 room2.add_course(lecture2, slot2)
 
-                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
+                        slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
                         self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
                         self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
@@ -296,29 +324,48 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 
 
-# prev_malus = 2000
-# for i in range(1):
-#     st = time.time()
-#     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-#     # my_rooster.make_rooster_random(4, 5, 7)
-#     my_rooster.make_rooster_minmalus()
+prev_malus = 161
+maluses = []
+for i in range(1):
+    st = time.time()
+    my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+    my_rooster.make_rooster_random(4, 5, 7)
+    # my_rooster.make_rooster_minmalus()
+    # my_rooster.make_rooster_greedy()
+    my_rooster.malus_count()
+    print(my_rooster.malus)
+    malus = sum(my_rooster.malus)
+    new_malus = malus - 1
+
+    while new_malus < malus:
+        malus = sum(my_rooster.malus)
+        my_rooster.hillclimber()
+        my_rooster.malus_count()
+        new_malus = sum(my_rooster.malus)
+
+    print('Execution time malus:', time.time() - st, 'seconds')
+    malus = sum(my_rooster.malus)
+    maluses.append(my_rooster.malus)
+    print(maluses)
+
+    if malus < prev_malus:
+        with open(f'RoosterWith{malus}Points', 'wb') as outp:
+            pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+        prev_malus = malus
+
+# with open('RoosterHoorWith21Points', 'rb') as inp:
+#     my_rooster_hoor = pickle.load(inp)
+#     for nr, room in enumerate(my_rooster_hoor.rooms):
+#         my_rooster.rooms[nr] = room
+
+    # my_rooster.make_csv('../data/rooster_v5_172')
+
+# maluses = []
+# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+# for i in range(5000):
+#     my_rooster.make_rooster_random(4, 5, 7)
 #     my_rooster.malus_count()
-#     print(my_rooster.malus)
-#     my_rooster.hillclimber()
-#     print('Execution time malus:', time.time() - st, 'seconds')
-#     my_rooster.malus_count()
-#     malus = sum(my_rooster.malus)
-#     print(my_rooster.malus)
+#     maluses.append(sum(my_rooster.malus))
 #
-#     if malus < prev_malus:
-#         with open(f'RoosterWith{malus}Points', 'wb') as outp:
-#             pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-#         prev_malus = malus
-
-with open('RoosterWith172Points', 'rb') as inp:
-    my_rooster = pickle.load(inp)
-    my_rooster.make_scheme() = my_rooster.make_scheme()
-    for room in my_rooster.rooms:
-        print(room.rooster)
-
-    my_rooster.make_csv('../data/rooster_v5_172')
+# sns.histplot(x=maluses, binwidth=20, kde=True)
+# plt.show()

@@ -7,7 +7,7 @@ class Course():
         # Give for every course its name, #hoor, max studs werk, max studs prac and the student list for this course
         self.name = course[0]
         self.nr = class_nr
-        self.students = random.sample(student_list, len(student_list))
+        self.students = list(student_list) # random.sample(, len(student_list))
         self.size = len(self.students)
         self.H = []
         self.W = []

@@ -155,7 +155,7 @@ class Rooster():
                                 room1.add_course(lecture1, slot1)
                                 room2.add_course(lecture2, slot2)
 
-                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
+                        slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
                         self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
                         self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
 
