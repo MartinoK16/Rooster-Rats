@@ -1,54 +1,57 @@
 - days: M
-  name: 'Informatie- en organisatieontwerp, type: W1, size: 11'
+  name: 'Programmeren in Java 2, type: P3, size: 18'
   time: 9 - 11
 - days: T
-  name: 'Technology for games, type: H1, size: 38'
+  name: 'Interactie-ontwerp, type: H2, size: 25'
   time: 9 - 11
 - days: W
-  name: 'Data Mining, type: P2, size: 9'
+  name: 'Project Genetic Algorithms, type: P3, size: 12'
   time: 9 - 11
 - days: R
-  name: 'Collectieve Intelligentie, type: P2, size: 15'
+  name: 'Data Mining, type: H1, size: 27'
   time: 9 - 11
 - days: F
-  name: 'Lineaire Algebra, type: H1, size: 54'
+  name: 'Bioinformatica, type: P3, size: 15'
   time: 9 - 11
 - days: M
-  name: 'Heuristieken 2, type: H1, size: 32'
-  time: 11 - 13
-- days: T
-  name: 'Netwerken en systeembeveiliging, type: P3, size: 16'
-  time: 11 - 13
-- days: W
-  name: 'Heuristieken 1, type: H1, size: 44'
-  time: 11 - 13
-- days: R
   name: 'Calculus 2, type: W1, size: 36'
   time: 11 - 13
-- days: F
-  name: 'Moderne Databases, type: P3, size: 18'
-  time: 11 - 13
-- days: M
-  name: 'Programmeren in Java 2, type: P4, size: 18'
-  time: 13 - 15
 - days: T
-  name: 'Algoritmen en complexiteit, type: P2, size: 21'
+  name: 'Software engineering, type: P1, size: 38'
+  time: 11 - 13
+- days: W
+  name: 'Webprogrammeren en databases, type: P1, size: 20'
+  time: 11 - 13
+- days: R
+  name: 'Data Mining, type: W2, size: 9'
+  time: 11 - 13
+- days: F
+  name: 'Collectieve Intelligentie, type: P4, size: 15'
+  time: 11 - 13
+- days: T
+  name: 'Moderne Databases, type: P1, size: 18'
   time: 13 - 15
 - days: W
-  name: 'Webprogrammeren en databases, type: P2, size: 19'
+  name: 'Autonomous Agents 2, type: H2, size: 22'
   time: 13 - 15
 - days: R
-  name: 'Moderne Databases, type: H1, size: 54'
+  name: 'Software engineering, type: W2, size: 37'
   time: 13 - 15
 - days: F
-  name: 'Project Genetic Algorithms, type: P1, size: 12'
+  name: 'Heuristieken 1, type: W2, size: 22'
   time: 13 - 15
 - days: M
-  name: 'Collectieve Intelligentie, type: W2, size: 15'
+  name: 'Advanced Heuristics, type: H1, size: 20'
+  time: 15 - 17
+- days: T
+  name: 'Bioinformatica, type: P1, size: 15'
+  time: 15 - 17
+- days: W
+  name: 'Compilerbouw, type: P3, size: 35'
   time: 15 - 17
 - days: R
-  name: 'Autonomous Agents 2, type: P1, size: 8'
+  name: 'Reflectie op de digitale cultuur, type: W3, size: 17'
   time: 15 - 17
 - days: F
-  name: 'Data Mining, type: H2, size: 27'
+  name: 'Project Numerical Recipes, type: P2, size: 15'
   time: 15 - 17
