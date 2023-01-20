@@ -14,7 +14,7 @@ class Course():
         self.P = []
 
         for nr in range(course[1]):
-            self.H.append(Lecture(self.name, f'H{nr + 1}', self.students, self.nr))
+            self.H.append(Lecture(self.name, f'H{nr + 1}', self.students, self.nr, self.size))
 
         if course[2] > 0:
             self.add_werk(course[2])
@@ -24,12 +24,12 @@ class Course():
     def add_werk(self, max_studs):
         slices = self.make_slices(max_studs)
         for nr in range(len(slices) - 1):
-            self.W.append(Lecture(self.name, f'W{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
+            self.W.append(Lecture(self.name, f'W{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
 
     def add_prac(self, max_studs):
         slices = self.make_slices(max_studs)
         for nr in range(len(slices) - 1):
-            self.P.append(Lecture(self.name, f'P{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr))
+            self.P.append(Lecture(self.name, f'P{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
 
     def make_slices(self, max_studs):
         rooms = math.ceil(self.size / max_studs)

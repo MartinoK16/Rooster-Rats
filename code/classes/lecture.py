@@ -1,5 +1,5 @@
 class Lecture():
-    def __init__(self, lecture_name, lecture_type, lecture_studs, class_nr):
+    def __init__(self, lecture_name, lecture_type, lecture_studs, class_nr, max_studs):
         # Give the lecture its name, type, lecture code and student objects
         d = {'H': 1, 'W': 2, 'P': 3}
         self.name = lecture_name
@@ -9,3 +9,4 @@ class Lecture():
         self.size = len(lecture_studs)
         self.room = None
         self.slot = None
+        self.max_studs = max_studs
