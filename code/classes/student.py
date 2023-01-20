@@ -7,25 +7,25 @@ class Student():
         self.courses = courses
         self.rooster = np.zeros((nr_t, nr_d), dtype=object)
 
-    def add_lecture(self, lecture, slot):
-        if self.rooster[slot] == 0:
-            self.rooster[slot] = [lecture]
-        else:
-            self.rooster[slot].append(lecture)
-        self.update_malus()
+    def swap_lecture(self, lec1, slot1, lec2, slot2):
+        if lec1 != 0:
+            if len(self.rooster[slot1]) == 1:
+                self.rooster[slot1] = 0
+            else:
+                self.rooster[slot1].remove(lec1)
 
-    def rem_lecture(self, lecture, slot):
-        if len(self.rooster[slot]) < 2:
-            self.rooster[slot] = 0
-        else:
-            self.rooster[slot].remove(lecture)
+        if lec2 != 0:
+            if self.rooster[slot2] == 0:
+                self.rooster[slot2] = [lec2]
+            else:
+                self.rooster[slot2].append(lec2)
+
         self.update_malus()
 
     def update_malus(self):
         self.malus = [0, 0]
         for slot in list(zip(*np.nonzero(self.rooster!=0))):
-            if len(self.rooster[slot]) > 1:
-                self.malus[0] += 1
+            self.malus[0] += len(self.rooster[slot]) - 1
 
         for col in self.rooster.T:
             slots = np.nonzero(col)[0]

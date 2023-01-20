@@ -14,7 +14,7 @@ student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 
 # Rooms with evening timeslot
-evenings = {'C0.110REMOVE'}
+evenings = {'C0.110'}
 
 print('Malus points for version 2, 3 and 4:')
 
@@ -41,11 +41,12 @@ Versie 2: ~1300-1800 maluspunten (10000 runs: min = 1194 / max = 2115)
 """
 my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster2.make_rooster_random(4, 5, 7) # timeslots, # days, # rooms
+# my_rooster2.make_rooster_minmalus()
 my_rooster2.malus_count()
 print(my_rooster2.malus) # malus points
 
 # Create output csv
-my_rooster2.make_csv('../data/rooster_v2.csv')
+# my_rooster2.make_csv('../data/rooster_v2.csv')
 
 """
 Versie 3: ~900-1000 maluspunten (10000 runs: min = ... / max = ...)
@@ -98,16 +99,8 @@ Create rooster visualisation of all 7 rooms.
 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
 in terminal for each different room.
 """
-student_df.groupby('Achternaam')
-print(student_df.size)
-
-my_rooster2.make_scheme()
-my_rooster2.hillclimber()
-my_rooster2.hillclimber_werk()
-my_rooster2.hillclimber_prac()
-
-my_rooster2.hillclimber_werk()
-my_rooster2.hillclimber_prac()
-
-my_rooster2.hillclimber_werk()
-my_rooster2.hillclimber_prac()
+# my_rooster2.make_scheme()
+for i in range(3):
+    my_rooster2.hillclimber()
+    my_rooster2.hillclimber_werk()
+    my_rooster2.hillclimber_prac()

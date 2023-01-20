@@ -102,7 +102,7 @@ class Rooster():
         # Add the arrays into the rooms classes roosters
         for slot in np.ndindex(self.rooster.shape):
             if self.rooster[slot] != 0:
-                self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
+                self.rooms[slot[0]].swap_course(0, self.rooster[slot], slot[1:])
 
     def make_rooster_greedy(self):
         '''
@@ -113,7 +113,7 @@ class Rooster():
             for room in self.rooms:
                 if room.capacity >= lecture.size and np.any(room.rooster==0):
                     # Loop over the indices where the room rooster is 0
-                    room.add_course(lecture, list(zip(*np.nonzero(room.rooster==0)))[0])
+                    room.swap_course(0, lecture, list(zip(*np.nonzero(room.rooster==0)))[0])
                     break
 
     def make_rooster_minmalus(self):
@@ -122,46 +122,64 @@ class Rooster():
         for nr, slot in enumerate(np.ndindex(2, 5)):
 
             # Add lecture class to first and biggest room class
-            self.rooms[0].add_course(start_lectures[nr], (slot[0] + 1, slot[1]))
+            self.rooms[0].swap_course(0, start_lectures[nr], (slot[0] + 1, slot[1]))
 
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list[10:]:
+        for lecture in self.lectures_list: # [10:]
             tries = {}
             for nr, room in enumerate(self.rooms):
-                if room.capacity >= lecture.size and np.any(room.rooster==0):
+                if np.any(room.rooster==0): # room.capacity >= lecture.size and
                     # Loop over the indices where the room rooster is 0
                     for slot in list(zip(*np.nonzero(room.rooster==0))):
-                        room.add_course(lecture, slot)
+                        room.swap_course(0, lecture, slot)
                         self.malus_count()
                         tries[nr, slot[0], slot[1]] = sum(self.malus)
-                        room.remove_course(slot)
+                        room.swap_course(lecture, 0, slot)
 
-            # Randomly chooses between options with (equal) min malus points
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-            self.rooms[slot[0]].add_course(lecture, slot[1:])
+            self.rooms[slot[0]].swap_course(0, lecture, slot[1:])
+            self.malus_count()
 
     def hillclimber(self):
-        for nr3, lecture1 in enumerate(self.lectures_list):
-            for nr1, room1 in enumerate(self.rooms):
-                for slot1 in np.ndindex(room1.rooster.shape):
-                    if lecture1 == room1.rooster[slot1]:
-                        tries = {}
-                        self.malus_count()
-                        print(self.malus, sum(self.malus), nr3)
-                        for nr2, room2 in enumerate(self.rooms):
-                            for slot2 in np.ndindex(room2.rooster.shape):
-                                if room2.rooster[slot2] != 0:
-                                    lecture2 = room2.rooster[slot2]
-                                    room1.add_course(lecture2, slot1)
-                                    room2.add_course(lecture1, slot2)
-                                    self.malus_count()
-                                    tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-                                    room1.add_course(lecture1, slot1)
-                                    room2.add_course(lecture2, slot2)
+        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+            room1 = lecture1.room
+            slot1 = lecture1.slot
+            tries = {}
+            self.malus_count()
+            print(lecture1.code, self.malus, sum(self.malus), nr3)
+            for nr2, room2 in enumerate(self.rooms):
+                for slot2 in np.ndindex(room2.rooster.shape):
+                    lecture2 = room2.rooster[slot2]
 
-                        slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
-                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
-                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+                    self.swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
+                    self.malus_count()
+                    tries[nr2, slot2] = sum(self.malus)
+                    self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
+
+            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+
+            room2 = self.rooms[slot[0]]
+            lecture2 = room2.rooster[slot[1]]
+            self.swap_course(room1, lecture1, slot1, room2, lecture2, slot[1])
+
+    def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
+        room1.rooster[slot1] = lec2
+        room2.rooster[slot2] = lec1
+
+        if lec1 != 0:
+            lec1.room = room2
+            lec1.slot = slot2
+            for stud in lec1.studs:
+                stud.swap_lecture(lec1, slot1, lec1, slot2)
+
+        if lec2 != 0:
+            lec2.room = room1
+            lec2.slot = slot1
+            for stud in lec2.studs:
+                stud.swap_lecture(lec2, slot2, lec2, slot1)
+
+        room1.update_malus()
+        room2.update_malus()
 
 
     def hillclimber_werk(self):
@@ -187,7 +205,7 @@ class Rooster():
                   for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
                       tries = {} # keys: ...; values: malus points
 
-                      self.malus_count() # Tel minpunten
+                      self.malus_count_old() # Tel minpunten
                       tries[group] = sum(self.malus)
 
                       # print(groups_dict[group])
@@ -202,7 +220,7 @@ class Rooster():
                               groups_dict[other_group].append(student)
                               course.W[i].studs = groups_dict[other_group] # Andere lecture object updaten
 
-                              self.malus_count() # Tel minpunten
+                              self.malus_count_old() # Tel minpunten
                               tries[other_group] = sum(self.malus)
 
                               groups_dict[i+1].remove(student)
@@ -223,7 +241,7 @@ class Rooster():
                           groups_dict[best_option].append(student)
                           course.W[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
 
-                  self.malus_count()
+                  self.malus_count_old()
                   print(self.malus, sum(self.malus), nr)
 
     def hillclimber_prac(self):
@@ -249,7 +267,7 @@ class Rooster():
                   for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
                       tries = {} # keys: ...; values: malus points
 
-                      self.malus_count() # Tel minpunten
+                      self.malus_count_old() # Tel minpunten
                       tries[group] = sum(self.malus)
 
                       # print(groups_dict[group])
@@ -264,7 +282,7 @@ class Rooster():
                               groups_dict[other_group].append(student)
                               course.P[i].studs = groups_dict[other_group] # Andere lecture object updaten
 
-                              self.malus_count() # Tel minpunten
+                              self.malus_count_old() # Tel minpunten
                               tries[other_group] = sum(self.malus)
 
                               groups_dict[i+1].remove(student)
@@ -285,7 +303,7 @@ class Rooster():
                           groups_dict[best_option].append(student)
                           course.P[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
 
-                  self.malus_count()
+                  self.malus_count_old()
                   print(self.malus, sum(self.malus), nr)
 
 
@@ -356,7 +374,7 @@ class Rooster():
                     with open(f'../data/room{room.room}.yaml', 'w') as file:
                         documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
-    def malus_count(self):
+    def malus_count_old(self):
         '''
         Counts the amount of malus points from the output DataFrame
         '''
@@ -413,3 +431,12 @@ class Rooster():
 
         # Add up all the malus points for the total
         self.malus = double_hours, tussenuren, avondsloten, small_room
+
+    def malus_count(self):
+        self.malus = [0, 0, 0, 0]
+        for student in self.student_list:
+            self.malus[0] += student.malus[0]
+            self.malus[1] += student.malus[1]
+        for room in self.rooms:
+            self.malus[2] += room.malus[0]
+            self.malus[3] += room.malus[1]
