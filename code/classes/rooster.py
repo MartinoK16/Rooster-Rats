@@ -159,7 +159,7 @@ class Rooster():
             self.malus_count()
             print(lecture.code, self.malus, sum(self.malus), lecture.size)
 
-    def hillclimber(self):
+    def hillclimber_activities(self):
         '''
         Does one loop over all the lectures and finds the best fit for each of them
         by swapping with all other possibilities (lectures or empty slots)
@@ -236,14 +236,15 @@ class Rooster():
         # Remove lec1 and add lec2 to student rooster
         student.swap_lecture(lec1, slot1, lec2, slot2)
 
-    def hillclimber_werk(self):
+    def hillclimber_students(self, werk_or_prac):
         """
         Moves students in werkgroep, based on a decreasing number of malus points.
         """
         for nr, course in enumerate(self.courses): # Ga alle vakken langs
-            nr_werk_groups = len(course.W)
+            nr_werk_groups = len(getattr(course, werk_or_prac))
+            # print(nr_werk_groups)
 
-            for group in course.W:
+            for group in getattr(course, werk_or_prac):
                 group_nr = int(group.type[1])
 
                 for student in group.studs:
@@ -253,7 +254,7 @@ class Rooster():
 
                     for i in range(nr_werk_groups):
                         new_group_nr = i + 1
-                        new_group = course.W[i]
+                        new_group = getattr(course, werk_or_prac)[i]
 
                         if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
                             self.move_student(student, group, group.slot, new_group, new_group.slot)
@@ -262,47 +263,14 @@ class Rooster():
                             self.move_student(student, new_group, new_group.slot, group, group.slot)
 
                     best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                    best_group = course.W[best_group_nr - 1]
+                    best_group = getattr(course, werk_or_prac)[best_group_nr - 1]
 
                     if best_group_nr != group_nr: # Move student
                         self.move_student(student, group, group.slot, best_group, best_group.slot)
 
                 self.malus_count()
-                print(self.malus, sum(self.malus), nr)
+                print(self.malus, sum(self.malus), nr, werk_or_prac)
 
-    def hillclimber_prac(self):
-        """
-        Moves students in practicumgroep, based on a decreasing number of malus points.
-        """
-        for nr, course in enumerate(self.courses): # Ga alle vakken langs
-            nr_prac_groups = len(course.P)
-
-            for group in course.P:
-                group_nr = int(group.type[1])
-
-                for student in group.studs:
-                    tries = {}
-                    self.malus_count() # Maluspunten voor huidige groep
-                    tries[group_nr] = sum(self.malus)
-
-                    for i in range(nr_prac_groups):
-                        new_group_nr = i + 1
-                        new_group = course.P[i]
-
-                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
-                            self.move_student(student, group, group.slot, new_group, new_group.slot)
-                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
-                            tries[new_group_nr] = sum(self.malus)
-                            self.move_student(student, new_group, new_group.slot, group, group.slot)
-
-                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                    best_group = course.P[best_group_nr - 1]
-
-                    if best_group_nr != group_nr: # Move student
-                        self.move_student(student, group, group.slot, best_group, best_group.slot)
-
-                self.malus_count()
-                print(self.malus, sum(self.malus), nr)
 
     def make_csv(self, filename):
         '''
