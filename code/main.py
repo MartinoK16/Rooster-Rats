@@ -100,7 +100,7 @@ Create rooster visualisation of all 7 rooms.
 in terminal for each different room.
 """
 
-my_rooster2.hillclimber_activities()
+# my_rooster2.hillclimber_activities()
 my_rooster2.hillclimber_students('W')
 my_rooster2.hillclimber_students('P')
 

@@ -236,21 +236,37 @@ class Rooster():
         # Remove lec1 and add lec2 to student rooster
         student.swap_lecture(lec1, slot1, lec2, slot2)
 
+    def swap_student(self, student1, lec1, slot1, student2, lec2, slot2):
+        '''
+        Removes a student from a lecture and adds it to another one.
+        Also updates the student rooster and malus points
+        '''
+        lec1.studs.remove(student1)
+        lec2.studs.append(student1)
+        lec2.studs.remove(student2)
+        lec1.studs.append(student2)
+
+        # Remove lec1 and add lec2 to student rooster
+        student1.swap_lecture(lec1, slot1, lec2, slot2)
+        student2.swap_lecture(lec2, slot2, lec1, slot1)
+
     def hillclimber_students(self, werk_or_prac):
         """
-        Moves students in werkgroep, based on a decreasing number of malus points.
+        Moves students in werkgroep or practicumgroep, based on a decreasing
+        number of malus points.
         """
         for nr, course in enumerate(self.courses): # Ga alle vakken langs
             nr_werk_groups = len(getattr(course, werk_or_prac))
-            # print(nr_werk_groups)
 
             for group in getattr(course, werk_or_prac):
                 group_nr = int(group.type[1])
 
                 for student in group.studs:
-                    tries = {}
+                    tries = {} # key = group nr, value = malus
+                    tries2 = {} # key = list of group nr and student index; value = malus
                     self.malus_count() # Maluspunten voor huidige groep
                     tries[group_nr] = sum(self.malus)
+                    tries2[student] = sum(self.malus)
 
                     for i in range(nr_werk_groups):
                         new_group_nr = i + 1
@@ -262,14 +278,36 @@ class Rooster():
                             tries[new_group_nr] = sum(self.malus)
                             self.move_student(student, new_group, new_group.slot, group, group.slot)
 
-                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                    best_group = getattr(course, werk_or_prac)[best_group_nr - 1]
+                        if new_group_nr != group_nr:
+                            for nr1, other_student in enumerate(new_group.studs):
+                                self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
+                                self.malus_count()
+                                tries2[(new_group_nr, nr1)] = sum(self.malus)
+                                self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
 
-                    if best_group_nr != group_nr: # Move student
-                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+                    best_move_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    move_malus = tries[best_move_nr]
+                    best_move = getattr(course, werk_or_prac)[best_move_nr - 1]
 
-                self.malus_count()
-                print(self.malus, sum(self.malus), nr, werk_or_prac)
+                    best_swap_try = [k for k, v in tries2.items() if v==min(tries2.values())] # Select group in which the student can best be placed
+
+                    if best_swap_try[0] != student:
+                        best_swap_list = best_swap_try[0]
+                        best_swap_nr = best_swap_list[0]
+                        best_swap_stud_idx = best_swap_list[1]
+                        swap_malus = tries2[best_swap_list]
+                        best_swap = getattr(course, werk_or_prac)[best_swap_nr - 1]
+
+                        if best_move_nr != group_nr and move_malus <= swap_malus:
+                            self.move_student(student, group, group.slot, best_move, best_move.slot)
+                        elif best_swap_nr != group_nr:
+                            self.swap_student(student, group, group.slot, best_swap.studs[best_swap_stud_idx], best_swap, best_swap.slot)
+                    else:
+                        if best_move_nr != group_nr and move_malus <= tries2[student]:
+                            self.move_student(student, group, group.slot, best_move, best_move.slot)
+
+            self.malus_count()
+            print(self.malus, sum(self.malus), nr, werk_or_prac)
 
 
     def make_csv(self, filename):

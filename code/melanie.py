@@ -17,6 +17,41 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110REMOVE'}
 
 
+def hillclimber_students(self, werk_or_prac):
+        """
+        Moves students in werkgroep, based on a decreasing number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_werk_groups = len(getattr(course, werk_or_prac))
+            # print(nr_werk_groups)
+
+            for group in getattr(course, werk_or_prac):
+                group_nr = int(group.type[1])
+
+                for student in group.studs:
+                    tries = {}
+                    self.malus_count() # Maluspunten voor huidige groep
+                    tries[group_nr] = sum(self.malus)
+
+                    for i in range(nr_werk_groups):
+                        new_group_nr = i + 1
+                        new_group = getattr(course, werk_or_prac)[i]
+
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+
+                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_group = getattr(course, werk_or_prac)[best_group_nr - 1]
+
+                    if best_group_nr != group_nr: # Move student
+                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+
+                self.malus_count()
+                print(self.malus, sum(self.malus), nr, werk_or_prac)
+
 
 
 
@@ -37,21 +72,10 @@ import random
 # print("You won", getattr(this_prize, choice))
 #
 
-def trying(choice):
-    Prize = namedtuple("Prize", ["W", "P" ])
-    this_prize = Prize("werkcollege", "practicum")
 
-    print(this_prize) # Prize(left='FirstPrize', right='SecondPrize') #
-    print(choice)
-    # retrieve the value of "left" or "right" depending on the choice
-    print("You won", getattr(this_prize, choice))
-
-    optie = getattr(this_prize, choice)
-    print(type(optie))
-
-print(trying("W"))
-
-
+dict = {}
+dict[(1, 2, 'Hallo')] = 123
+print(dict[(1, 2, 'Hallo')])
 
 
 
