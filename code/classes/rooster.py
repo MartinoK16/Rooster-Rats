@@ -264,7 +264,7 @@ class Rooster():
                 for student in group.studs:
                     tries = {} # key = group nr, value = malus
                     tries2 = {} # key = list of group nr and student index; value = malus
-                    self.malus_count() # Maluspunten voor huidige groep
+                    self.malus_count()
                     tries[group_nr] = sum(self.malus)
                     tries2[student] = sum(self.malus)
 
@@ -291,17 +291,22 @@ class Rooster():
 
                     best_swap_try = [k for k, v in tries2.items() if v==min(tries2.values())] # Select group in which the student can best be placed
 
+                    # Als de originele maluscount (met key = studentnummer) niet de laagste is bij swappen
                     if best_swap_try[0] != student:
                         best_swap_list = best_swap_try[0]
-                        best_swap_nr = best_swap_list[0]
-                        best_swap_stud_idx = best_swap_list[1]
+                        best_swap_nr = best_swap_list[0] # Correct group to swap the student to
+                        best_swap_stud_idx = best_swap_list[1] # Index to search the right student
                         swap_malus = tries2[best_swap_list]
                         best_swap = getattr(course, werk_or_prac)[best_swap_nr - 1]
 
+                        # Als moven tot het laagste aantal maluspoints leidt
                         if best_move_nr != group_nr and move_malus <= swap_malus:
                             self.move_student(student, group, group.slot, best_move, best_move.slot)
+                        # Als swappen tot het laagste aantal maluspoints leidt
                         elif best_swap_nr != group_nr:
                             self.swap_student(student, group, group.slot, best_swap.studs[best_swap_stud_idx], best_swap, best_swap.slot)
+
+                    # Als de originele maluscount (met key = studentnummer) de laagste is bij swappen
                     else:
                         if best_move_nr != group_nr and move_malus <= tries2[student]:
                             self.move_student(student, group, group.slot, best_move, best_move.slot)
