@@ -23,7 +23,6 @@ def hillclimber_students(self, werk_or_prac):
         """
         for nr, course in enumerate(self.courses): # Ga alle vakken langs
             nr_werk_groups = len(getattr(course, werk_or_prac))
-            # print(nr_werk_groups)
 
             for group in getattr(course, werk_or_prac):
                 group_nr = int(group.type[1])
