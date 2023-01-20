@@ -1,6 +1,6 @@
 class Lecture():
     def __init__(self, lecture_name, lecture_type, lecture_studs, class_nr, max_studs):
-        # Give the lecture its name, type, lecture code and student objects
+        # Initialize all the required variables
         d = {'H': 1, 'W': 2, 'P': 3}
         self.name = lecture_name
         self.type = lecture_type
