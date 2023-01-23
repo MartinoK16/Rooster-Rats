@@ -282,21 +282,20 @@ class Rooster():
                             for nr1, other_student in enumerate(new_group.studs):
                                 self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
                                 self.malus_count()
-                                tries2[(new_group_nr, nr1)] = sum(self.malus)
+                                tries2[(new_group_nr, other_student)] = sum(self.malus)
                                 self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
 
-                    best_move_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_move_nr = random.choice([k for k, v in tries.items() if v==min(tries.values())]) # Select group in which the student can best be placed
                     move_malus = tries[best_move_nr]
                     best_move = getattr(course, werk_or_prac)[best_move_nr - 1]
 
-                    best_swap_try = [k for k, v in tries2.items() if v==min(tries2.values())] # Select group in which the student can best be placed
+                    best_swap_try = random.choice([k for k, v in tries2.items() if v==min(tries2.values())]) # Select group in which the student can best be placed
 
                     # Als de originele maluscount (met key = studentnummer) niet de laagste is bij swappen
-                    if best_swap_try[0] != student:
-                        best_swap_list = best_swap_try[0]
-                        best_swap_nr = best_swap_list[0] # Correct group to swap the student to
-                        best_swap_stud_idx = best_swap_list[1] # Index to search the right student
-                        swap_malus = tries2[best_swap_list]
+                    if best_swap_try != student:
+                        best_swap_nr = best_swap_try[0] # Correct group to swap the student to
+                        best_swap_stud = best_swap_try[1] # Index to search the right student
+                        swap_malus = tries2[best_swap_try]
                         best_swap = getattr(course, werk_or_prac)[best_swap_nr - 1]
 
                         # Als moven tot het laagste aantal maluspoints leidt
@@ -304,7 +303,7 @@ class Rooster():
                             self.move_student(student, group, group.slot, best_move, best_move.slot)
                         # Als swappen tot het laagste aantal maluspoints leidt
                         elif best_swap_nr != group_nr:
-                            self.swap_student(student, group, group.slot, best_swap.studs[best_swap_stud_idx], best_swap, best_swap.slot)
+                            self.swap_student(student, group, group.slot, best_swap_stud, best_swap, best_swap.slot)
 
                     # Als de originele maluscount (met key = studentnummer) de laagste is bij swappen
                     else:
