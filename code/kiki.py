@@ -1,20 +1,40 @@
-# Kiki
 import pandas as pd
 import math
 import random
 import numpy as np
-from classes.course import Course
-from classes.room import Room
-from classes.lecture import Lecture
 import yaml
 import pdfschedule
+from classes.course import Course
+from classes.room import Room
+from classes.student import Student
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
-        # Make the required classes and list
+        # Initialize all the required variables
+        self.make_student_dict(courses_df, student_df)
         self.make_rooms(rooms_df, evenings)
-        self.make_courses(courses_df, student_df)
+        self.make_courses(courses_df)
         self.make_lecture_list()
+
+    def make_student_dict(self, courses_df, student_df):
+        '''
+        Makes a list of students and a dictionary of students per course
+        '''
+        # Initialize a list for all the student objects
+        self.student_list = []
+        # Fill the student_list with student objects
+        for _, student in student_df.iterrows():
+            self.student_list.append(Student(student['Stud.Nr.'], 5, 5, student['Vakken']))
+
+        # Initialize a dictionary for lists of student objects per course
+        self.student_dict = {}
+        # Loop over every course
+        for _, course in courses_df.iterrows():
+            self.student_dict[course['Vak']] = []
+            # Check for every student if they are in this course
+            for student in self.student_list:
+                if course['Vak'] in student.courses:
+                    self.student_dict[course['Vak']].append(student)
 
     def make_rooms(self, rooms_df, evenings):
         '''
@@ -28,7 +48,7 @@ class Rooster():
         # Sort the rooms based on capacity
         self.rooms.sort(key=lambda x: x.capacity, reverse=True)
 
-    def make_courses(self, courses_df, student_df):
+    def make_courses(self, courses_df):
         '''
         Makes a list of course objects based on a DataFrame and the students which have that course
         '''
@@ -39,29 +59,23 @@ class Rooster():
             course = [row['Vak'], row['#Hoorcolleges'], row['Max. stud. Werkcollege'], row['Max. stud. Practicum']]
             # Replace NaNs with 0
             course[1:] = [0 if math.isnan(i) else i for i in course[1:]]
-
-            # Go over all the students to see who have this course
-            student_list = []
-            for _, student in student_df.iterrows():
-                if course[0] in student['Vakken']:
-                    student_list.append(student['Stud.Nr.'])
-
-            # Make the course class with the students
-            self.courses.append(Course(course, student_list, nr))
+            # Make the course class with the students for the course
+            self.courses.append(Course(course, self.student_dict[course[0]], nr))
 
     def make_lecture_list(self):
         '''
-        Makes a list of lecture objects based on the course objects and sorts is based on lecture type and size
+        Makes a list of lecture objects with first all the hoorcolleges sorted on size
+        and then the tutorials and practicals sorted on size
         '''
         hoor_list = []
         wp_list = []
 
-        # Put all the Hoorcolleges in a list
+        # Put all the hoorcolleges in a list
         for course in self.courses:
             for hoor in course.H:
                 hoor_list.append(hoor)
 
-        # Put all the Werkcolleges and Practica in a list
+        # Put all the tutorials and practicals in a list
         for course in self.courses:
             for werk in course.W:
                 wp_list.append(werk)
@@ -77,7 +91,8 @@ class Rooster():
 
     def make_rooster_random(self, hours, days, rooms):
         '''
-        Makes a random rooster (without any eveningslots) by placing each lecture in a random room, day and time
+        Makes a random rooster (without any eveningslots) by
+        placing each lecture in a random room, day and timeslot
         '''
         # Make a zeros array with the correct length
         self.rooster = np.zeros(hours * days * rooms, dtype=object)
@@ -93,96 +108,247 @@ class Rooster():
 
         # Add the arrays into the rooms classes roosters
         for slot in np.ndindex(self.rooster.shape):
-            self.rooms[slot[0]].add_course(self.rooster[slot], slot[1:])
+            if self.rooster[slot] != 0:
+                self.rooms[slot[0]].swap_course(0, self.rooster[slot], slot[1:])
 
     def make_rooster_greedy(self):
         '''
-        Makes a rooster bases on the first spot that a lecture can fit in by comparing lecture size and room capacity
+        Makes a rooster bases on the first spot that a lecture can fit in by
+        comparing lecture size and room capacity
         '''
         # Check for each lecture the first possible slot to put it in, only places a lecture once
         for lecture in self.lectures_list:
             for room in self.rooms:
-                if room.capacity > lecture.size and np.any(room.rooster==0):
-                    # Loop over the indices where the room rooster is 0
-                    for slot in list(zip(*np.nonzero(room.rooster==0))):
-                        room.add_course(lecture, slot)
-                        break
+                # Check if the lecture fits and if there is a slot without a lecture
+                if room.capacity >= lecture.size and np.any(room.rooster==0):
+                    # Get the first slot where the room is still empty and put the lecture there
+                    room.swap_course(0, lecture, list(zip(*np.nonzero(room.rooster==0)))[0])
                     break
-                    
+
+    def make_rooster_minmalus(self):
+        '''
+        Puts the biggest 10 lectures randomly in the biggest room for 11 till 15,
+        this causes no malus points. After that it loops over the remaining lectures
+        and puts them randomly in one of the slots which causes the least amount
+        of malus points, without thinking about the remaining lectures.
+        '''
+        # Put the biggest 10 lectures randomly in the biggest room for 11 till 15
+        start_lectures = random.sample(self.lectures_list[:10], 10)
+        for nr, slot in enumerate(np.ndindex(2, 5)):
+            self.rooms[0].swap_course(0, start_lectures[nr], (slot[0] + 1, slot[1]))
+
+        # Loop over the remaining lectures
+        for lecture in self.lectures_list[10:]:
+            # Make a dictionary to track the malus points for each slot
+            tries = {}
+            # Loop over all the empty slots in each room
+            for nr, room in enumerate(self.rooms):
+                for slot in list(zip(*np.nonzero(room.rooster==0))):
+                    # Add lecture in this slot, get the new malus and put it in the dict and remove lecture again
+                    room.swap_course(0, lecture, slot)
+                    self.malus_count()
+                    tries[nr, (slot)] = sum(self.malus)
+                    room.swap_course(lecture, 0, slot)
+
+            # Randomly get one of the slots with the least malus points
+            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+            # Add the lecture to this room and slot
+            self.rooms[slot[0]].swap_course(0, lecture, slot[1])
+
+            # Get the updated malus count and print useful info
+            self.malus_count()
+            print(lecture.code, self.malus, sum(self.malus), lecture.size)
+
     def hillclimber(self):
-        for nr3, lecture1 in enumerate(self.lectures_list):
-            for nr1, room1 in enumerate(self.rooms):
-                for slot1 in np.ndindex(room1.rooster.shape):
-                    if lecture1 == room1.rooster[slot1]:
-                        tries = {}
+        '''
+        Does one loop over all the lectures and finds the best fit for each of them
+        by swapping with all other possibilities (lectures or empty slots)
+        '''
+        # Loop over all the lectures randomly
+        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+            # Get the room and slot where this lecture is place now
+            room1 = lecture1.room
+            slot1 = lecture1.slot
+            # Make a dictionary to track the malus points for each slot
+            tries = {}
+            # Loop over all the slots in each room
+            for nr2, room2 in enumerate(self.rooms):
+                for slot2 in np.ndindex(room2.rooster.shape):
+                    # Get which lecture is placed in this room and slot
+                    lecture2 = room2.rooster[slot2]
+                    # Swap these 2 lectures, get the new malus and put it in the dict and swap them back
+                    self.swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
+                    self.malus_count()
+                    tries[nr2, slot2] = sum(self.malus)
+                    self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
+
+            # Randomly get one of the slots with the least malus points
+            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+
+            # Get which room and lecture need to be switched and swap them
+            room2 = self.rooms[slot[0]]
+            lecture2 = room2.rooster[slot[1]]
+            self.swap_course(room1, lecture1, slot1, room2, lecture2, slot[1])
+
+            # Get the updated malus count and print useful info
+            self.malus_count()
+            print(lecture1.code, self.malus, sum(self.malus), nr3)
+
+    def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
+        '''
+        Swaps 2 lectures from room and slot and updates the corresponding student roosters
+        '''
+        # Swap the 2 lectures in the room roosters
+        room1.rooster[slot1] = lec2
+        room2.rooster[slot2] = lec1
+
+        # Check if it is a lecture and not an empty slot
+        if lec1 != 0:
+            # Update the lecture attributes
+            lec1.room = room2
+            lec1.slot = slot2
+            # Update all the roosters for the students with this lecture
+            for stud in lec1.studs:
+                stud.swap_lecture(lec1, slot1, lec1, slot2)
+
+        # Check if it is a lecture and not an empty slot
+        if lec2 != 0:
+            # Update the lecture attributes
+            lec2.room = room1
+            lec2.slot = slot1
+            # Update all the roosters for the students with this lecture
+            for stud in lec2.studs:
+                stud.swap_lecture(lec2, slot2, lec2, slot1)
+
+        # Update the malus counts for both rooms
+        room1.update_malus()
+        room2.update_malus()
+
+    def move_student(self, student, lec1, slot1, lec2, slot2):
+        '''
+        Removes a student from a lecture and adds it to another one.
+        Also updates the student rooster and malus points
+        '''
+        lec1.studs.remove(student)
+        lec1.size -= 1
+        lec2.studs.append(student)
+        lec2.size += 1
+        # Remove lec1 and add lec2 to student rooster
+        student.swap_lecture(lec1, slot1, lec2, slot2)
+
+    def simulated_annealing(self, alpha=0.05, initial_T=65):
+        final_T = 10
+        current_T = initial_T
+        i = 0
+        while current_T > final_T:
+            i += 1
+
+            # Loop over all the lectures randomly
+            for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+                # Get the room and slot where this lecture is place now
+
+                room1 = lecture1.room
+                slot1 = lecture1.slot
+
+                # Loop over all the slots in each room
+                for nr2, room2 in enumerate(self.rooms):
+                    for slot2 in np.ndindex(room2.rooster.shape):
+
+                        # Get which lecture is placed in this room and slot
+                        # Swap these 2 lectures, get the new malus and put it in the dict and swap them back
+
                         self.malus_count()
-                        for nr2, room2 in enumerate(self.rooms):
-                            for slot2 in np.ndindex(room2.rooster.shape):
-                                lecture2 = room2.rooster[slot2]
-                                room1.add_course(lecture2, slot1)
-                                room2.add_course(lecture1, slot2)
-                                self.malus_count()
-                                tries[(nr1, slot1), (nr2, slot2)] = sum(self.malus)
-                                room1.add_course(lecture1, slot1)
-                                room2.add_course(lecture2, slot2)
+                        old = sum(self.malus)
+                        lecture2 = room2.rooster[slot2]
+                        self.swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
+                        self.malus_count()
+                        new = sum(self.malus)
 
-                        slot = [k for k, v in tries.items() if v==min(tries.values())][0]
-                        self.rooms[slot[0][0]].add_course(self.rooms[slot[1][0]].rooster[slot[1][1]], slot[0][1])
-                        self.rooms[slot[1][0]].add_course(lecture1, slot[1][1])
+                        if new > old + 100:
+                            self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
 
-    def simulated_annealing(self, alpha=0.01):
-        temperature = 20
-        for nr3, lecture1 in enumerate(self.lectures_list):
-            for nr1, room1 in enumerate(self.rooms):
-                for slot1 in np.ndindex(room1.rooster.shape):
-                    if lecture1 == room1.rooster[slot1]:
-                        acceptance_count = 0
+                        elif random.uniform(0, 1) < round(math.exp((new - old) / current_T), 10):
+                            self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
 
-                        for nr2, room2 in enumerate(self.rooms):
-                            for slot2 in np.ndindex(room2.rooster.shape):
-                                self.malus_count()
-                                old = sum(self.malus)
-                                lecture2 = room2.rooster[slot2]
-                                room1.add_course(lecture2, slot1)
-                                room2.add_course(lecture1, slot2)
-                                self.malus_count()
-                                new = sum(self.malus)
-                                acceptance = 2 ** ((old - new) / temperature)
-                                # print(acceptance)
-                                temperature -= alpha
+                        else:
+                            room1 = room2
+                            slot1 = slot2
+                            current_T *= 0.998 ** i
+                            print(i, current_T)
 
-                                if acceptance < 0.5:
-                                    room1.add_course(lecture1, slot1)
-                                    room2.add_course(lecture2, slot2)
+        # Get the updated malus count and print useful info
+                self.malus_count()
+                print(sum(self.malus))
 
-                                elif acceptance == 1:
-                                    acceptance_count += 1
-                                    print(acceptance_count)
 
-                            if acceptance_count == 10:
-                                break
 
-    def make_output(self):
-        '''
-        Makes a DataFrame with the required columns for the malus_count function
-        '''
-        # Empty dictionary to store all the information
-        d = {'student': [], 'dag': [], 'tijdslot': []}
+    def hillclimber_werk(self):
+        """
+        Moves students in werkgroep, based on a decreasing number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_werk_groups = len(course.W)
 
-        for room in self.rooms:
-            # Go over every timeslot for this room
-            for slot in np.ndindex(room.rooster.shape):
-                # Check if there is a lecture
-                if room.rooster[slot] != 0:
-                    lecture = room.rooster[slot]
-                    # Add all the students for this lecture into the dictionary
-                    for stud in lecture.studs:
-                        d['student'].append(stud)
-                        d['dag'].append(slot[1])
-                        d['tijdslot'].append(slot[0])
+            for group in course.W:
+                group_nr = int(group.type[1])
 
-        # Make a DataFrame from the dictionary
-        self.output = pd.DataFrame(data=d)
+                for student in group.studs:
+                    tries = {}
+                    self.malus_count() # Maluspunten voor huidige groep
+                    tries[group_nr] = sum(self.malus)
+
+                    for i in range(nr_werk_groups):
+                        new_group_nr = i + 1
+                        new_group = course.W[i]
+
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+
+                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_group = course.W[best_group_nr - 1]
+
+                    if best_group_nr != group_nr: # Move student
+                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+
+                self.malus_count()
+                print(self.malus, sum(self.malus), nr)
+
+    def hillclimber_prac(self):
+        """
+        Moves students in practicumgroep, based on a decreasing number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_prac_groups = len(course.P)
+
+            for group in course.P:
+                group_nr = int(group.type[1])
+
+                for student in group.studs:
+                    tries = {}
+                    self.malus_count() # Maluspunten voor huidige groep
+                    tries[group_nr] = sum(self.malus)
+
+                    for i in range(nr_prac_groups):
+                        new_group_nr = i + 1
+                        new_group = course.P[i]
+
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+
+                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_group = course.P[best_group_nr - 1]
+
+                    if best_group_nr != group_nr: # Move student
+                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+
+                self.malus_count()
+                print(self.malus, sum(self.malus), nr)
 
     def make_csv(self, filename):
         '''
@@ -213,11 +379,10 @@ class Rooster():
         # Save the DataFrame as csv with the given filename/path
         pd.DataFrame(data=d).to_csv(filename)
 
-
     def make_scheme(self):
-        dict = {'name': [], 'days': [], 'time': []}
-        day_dict_scheme = {0: 'Mon', 1: 'Tue', 2: 'Wed', 3: 'Thu', 4: 'Fri'}
+        day_dict_scheme = {0: 'M', 1: 'T', 2: 'W', 3: 'R', 4: 'F'}
         for room in self.rooms:
+            dict = {'name': [], 'days': [], 'time': []}
             for slot in np.ndindex(room.rooster.shape):
                 if room.rooster[slot] != 0:
                     lecture = room.rooster[slot]
@@ -232,79 +397,29 @@ class Rooster():
 
     def malus_count(self):
         '''
-        Counts the amount of malus points from the output DataFrame
+        Calculates the total malus points for the rooster by summing over all the
+        students and rooms
         '''
-        # Different maluspoint counters
-        double_hours = 0
-        tussenuren = 0
-        avondsloten = 0
-        small_room = 0
-
-        # Removes the groups with only 1 row to go even faster
-        groups = self.output.loc[self.output.groupby(['student', 'dag'])['tijdslot'].transform('count') > 1, :]
-
-        # Get the lectures for each student per day
-        for _, day in groups.groupby(['student', 'dag'])['tijdslot']:
-            # Count how often a timeslot occurs for a student per day
-            count = {}
-            for slot in day:
-                if slot in count:
-                    count[slot] += 1
-                else:
-                    count[slot] = 1
-            # Get the correct amount of malus points from the dictionary
-            double_hours += sum(count.values()) - len(count)
-            # Get the time slots from the dictionary
-            slots = list(count.keys())
-            # Check if the student more than 1 lecture this day
-            if len(slots) > 1:
-                tussenuur = 0
-                slots.sort()
-                # Loop over the 2 consecutive lectures
-                for slot in range(1, len(slots)):
-                    # See how many timeslots were skipped and do the correct thing
-                    dif = slots[slot] - slots[slot - 1]
-                    if dif == 1:
-                        pass
-                    elif dif == 2:
-                        tussenuur += 1
-                    elif dif == 3:
-                        tussenuur += 2
-                    elif dif == 4:
-                        # The rooster is not possible if a student has 3 tussenuren
-                        print('Not possible')
-                        tussenuren += 10000
-
-                # If the student has 1 tussenuur it's 1 maluspoint and with 3 tussenuren it's 3 maluspoints
-                if tussenuur == 1:
-                    tussenuren += 1
-                elif tussenuur == 2:
-                    tussenuren += 3
-
-        # Check if any evening slots are used and give 5 point for each use
+        # Start counting from 0
+        self.malus = [0, 0, 0, 0]
+        # Add all the malus points from students
+        for student in self.student_list:
+            self.malus[0] += student.malus[0]
+            self.malus[1] += student.malus[1]
+        # Add all the malus points from rooms
         for room in self.rooms:
-            if room.evening:
-                for avondslot in room.rooster[4, :]:
-                    if avondslot != 0:
-                        avondsloten += 5
+            self.malus[2] += room.malus[0]
+            self.malus[3] += room.malus[1]
 
-        # Check if rooms are overfull
-        # Shouldn't be neccisarry if the rooster is made to only put lectures in rooms where they fit
-        for room in self.rooms:
-            for slot in np.ndindex(room.rooster.shape):
-                if room.rooster[slot] != 0:
-                    small_room += max(room.rooster[slot].size - room.capacity, 0)
 
-        # Add up all the malus points for the total
-        self.malus = double_hours + tussenuren + avondsloten + small_room
+
 
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 
-evenings = {}
+evenings = {'C0.110'}
 my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
 my_rooster.make_rooster_random(4, 5, 7)
-my_rooster.make_output()
-my_rooster.make_scheme()
 my_rooster.malus_count()
+my_rooster.simulated_annealing()

@@ -154,12 +154,21 @@ class Rooster():
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
             # Add the lecture to this room and slot
             self.rooms[slot[0]].swap_course(0, lecture, slot[1])
+<<<<<<< HEAD
 
             # Get the updated malus count and print useful info
             self.malus_count()
             print(lecture.code, self.malus, sum(self.malus), lecture.size)
 
     def hillclimber_activities(self):
+=======
+
+            # Get the updated malus count and print useful info
+            self.malus_count()
+            print(lecture.code, self.malus, sum(self.malus), lecture.size)
+
+    def hillclimber(self):
+>>>>>>> 997f0d3 (simulated annealing)
         '''
         Does one loop over all the lectures and finds the best fit for each of them
         by swapping with all other possibilities (lectures or empty slots)
@@ -181,6 +190,7 @@ class Rooster():
                     self.malus_count()
                     tries[nr2, slot2] = sum(self.malus)
                     self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
+<<<<<<< HEAD
 
             # Randomly get one of the slots with the least malus points
             slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
@@ -313,6 +323,130 @@ class Rooster():
             self.malus_count()
             print(self.malus, sum(self.malus), nr, werk_or_prac)
 
+=======
+
+            # Randomly get one of the slots with the least malus points
+            slot = random.choice([k for k, v in tries.items() if v==min(tries.values())])
+
+            # Get which room and lecture need to be switched and swap them
+            room2 = self.rooms[slot[0]]
+            lecture2 = room2.rooster[slot[1]]
+            self.swap_course(room1, lecture1, slot1, room2, lecture2, slot[1])
+
+            # Get the updated malus count and print useful info
+            self.malus_count()
+            print(lecture1.code, self.malus, sum(self.malus), nr3)
+
+    def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
+        '''
+        Swaps 2 lectures from room and slot and updates the corresponding student roosters
+        '''
+        # Swap the 2 lectures in the room roosters
+        room1.rooster[slot1] = lec2
+        room2.rooster[slot2] = lec1
+
+        # Check if it is a lecture and not an empty slot
+        if lec1 != 0:
+            # Update the lecture attributes
+            lec1.room = room2
+            lec1.slot = slot2
+            # Update all the roosters for the students with this lecture
+            for stud in lec1.studs:
+                stud.swap_lecture(lec1, slot1, lec1, slot2)
+
+        # Check if it is a lecture and not an empty slot
+        if lec2 != 0:
+            # Update the lecture attributes
+            lec2.room = room1
+            lec2.slot = slot1
+            # Update all the roosters for the students with this lecture
+            for stud in lec2.studs:
+                stud.swap_lecture(lec2, slot2, lec2, slot1)
+
+        # Update the malus counts for both rooms
+        room1.update_malus()
+        room2.update_malus()
+
+    def move_student(self, student, lec1, slot1, lec2, slot2):
+        '''
+        Removes a student from a lecture and adds it to another one.
+        Also updates the student rooster and malus points
+        '''
+        lec1.studs.remove(student)
+        lec1.size -= 1
+        lec2.studs.append(student)
+        lec2.size += 1
+        # Remove lec1 and add lec2 to student rooster
+        student.swap_lecture(lec1, slot1, lec2, slot2)
+
+    def hillclimber_werk(self):
+        """
+        Moves students in werkgroep, based on a decreasing number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_werk_groups = len(course.W)
+
+            for group in course.W:
+                group_nr = int(group.type[1])
+
+                for student in group.studs:
+                    tries = {}
+                    self.malus_count() # Maluspunten voor huidige groep
+                    tries[group_nr] = sum(self.malus)
+
+                    for i in range(nr_werk_groups):
+                        new_group_nr = i + 1
+                        new_group = course.W[i]
+
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+
+                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_group = course.W[best_group_nr - 1]
+
+                    if best_group_nr != group_nr: # Move student
+                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+
+                self.malus_count()
+                print(self.malus, sum(self.malus), nr)
+
+    def hillclimber_prac(self):
+        """
+        Moves students in practicumgroep, based on a decreasing number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_prac_groups = len(course.P)
+
+            for group in course.P:
+                group_nr = int(group.type[1])
+
+                for student in group.studs:
+                    tries = {}
+                    self.malus_count() # Maluspunten voor huidige groep
+                    tries[group_nr] = sum(self.malus)
+
+                    for i in range(nr_prac_groups):
+                        new_group_nr = i + 1
+                        new_group = course.P[i]
+
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+
+                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
+                    best_group = course.P[best_group_nr - 1]
+
+                    if best_group_nr != group_nr: # Move student
+                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+
+                self.malus_count()
+                print(self.malus, sum(self.malus), nr)
+>>>>>>> 997f0d3 (simulated annealing)
 
     def make_csv(self, filename):
         '''
