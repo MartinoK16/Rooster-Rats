@@ -19,12 +19,12 @@ class Course():
 
         # Add the tutorials if there are any
         if course[2] > 0:
-            self.add_werk(course[2])
+            self.add_small_lectures(course[2], 'W')
         # Add the practicals if there are any
         if course[3] > 0:
-            self.add_prac(course[3])
+            self.add_small_lectures(course[3], 'P')
 
-    def add_werk(self, max_studs):
+    def add_small_lectures(self, max_studs, WorP):
         '''
         Get the correct groups to make tutorials
         '''
@@ -32,17 +32,7 @@ class Course():
         slices = self.make_slices(max_studs)
         # Add the tutorials with the correct number of people
         for nr in range(len(slices) - 1):
-            self.W.append(Lecture(self.name, f'W{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
-
-    def add_prac(self, max_studs):
-        '''
-        Get the correct groups to make practicals
-        '''
-        # Get the groups
-        slices = self.make_slices(max_studs)
-        # Add the practicals with the correct number of people
-        for nr in range(len(slices) - 1):
-            self.P.append(Lecture(self.name, f'P{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
+            getattr(self, WorP).append(Lecture(self.name, f'{WorP}{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
 
     def make_slices(self, max_studs):
         '''

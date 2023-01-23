@@ -13,6 +13,7 @@ from classes.room import Room
 from classes.student import Student
 import time
 import pickle
+import sys
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -165,7 +166,7 @@ class Rooster():
             self.malus_count()
             print(lecture.code, self.malus, sum(self.malus), lecture.size)
 
-    def hillclimber(self):
+    def hillclimber_activities(self):
         '''
         Does one loop over all the lectures and finds the best fit for each of them
         by swapping with all other possibilities (lectures or empty slots)
@@ -242,129 +243,82 @@ class Rooster():
         # Remove lec1 and add lec2 to student rooster
         student.swap_lecture(lec1, slot1, lec2, slot2)
 
-    def hillclimber_werk(self):
-          """
-          Moves students in werkgroep, based on a decreasing number of malus points.
-          Nog niet toegepast op practica.
-          """
-          for nr, course in enumerate(self.courses): # Ga alle vakken langs
-              groups_dict = {} # dict (key: group (1, 2, ...); value: set/list of students)
-              nr_werk_groups = len(course.W)
-              # print(f'len is {len(course.W)}')
+    def swap_student(self, student1, lec1, slot1, student2, lec2, slot2):
+        '''
+        Removes a student from a lecture and adds it to another one.
+        Also updates the student rooster and malus points
+        '''
+        lec1.studs.remove(student1)
+        lec2.studs.append(student1)
+        lec2.studs.remove(student2)
+        lec1.studs.append(student2)
 
-              # Fill dict with groups and student lists
-              for i in range(nr_werk_groups):
-                  groups_dict[i+1] = course.W[i].studs
+        # Remove lec1 and add lec2 to student rooster
+        student1.swap_lecture(lec1, slot1, lec2, slot2)
+        student2.swap_lecture(lec2, slot2, lec1, slot1)
 
-              # print(groups_dict)
+    def hillclimber_students(self, werk_or_prac):
+        """
+        Moves students in werkgroep or practicumgroep, based on a decreasing
+        number of malus points.
+        """
+        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+            nr_werk_groups = len(getattr(course, werk_or_prac))
 
-              for nr1, werkcollege in enumerate(course.W):
-                  group = int(werkcollege.type[1])
-                  # groups_dict[group] = werkcollege.studs # set/list of student
+            for group in getattr(course, werk_or_prac):
+                group_nr = int(group.type[1])
 
-                  for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
-                      tries = {} # keys: ...; values: malus points
+                for student in group.studs:
+                    tries = {} # key = group nr, value = malus
+                    tries2 = {} # key = list of group nr and student index; value = malus
+                    self.malus_count()
+                    tries[group_nr] = sum(self.malus)
+                    tries2[student] = sum(self.malus)
 
-                      self.malus_count_old() # Tel minpunten
-                      tries[group] = sum(self.malus)
+                    for i in range(nr_werk_groups):
+                        new_group_nr = i + 1
+                        new_group = getattr(course, werk_or_prac)[i]
 
-                      # print(groups_dict[group])
-                      # print(student)
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                            self.move_student(student, group, group.slot, new_group, new_group.slot)
+                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
+                            tries[new_group_nr] = sum(self.malus)
+                            self.move_student(student, new_group, new_group.slot, group, group.slot)
 
-                      groups_dict[group].remove(student) # In case of set: .discard(student)
-                      werkcollege.studs = groups_dict[group] # Dit lecture object updaten
+                        if new_group_nr != group_nr:
+                            for nr1, other_student in enumerate(new_group.studs):
+                                self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
+                                self.malus_count()
+                                tries2[(new_group_nr, other_student)] = sum(self.malus)
+                                self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
 
-                      for i in range(nr_werk_groups):
-                          other_group = i + 1
-                          if other_group != group:
-                              groups_dict[other_group].append(student)
-                              course.W[i].studs = groups_dict[other_group] # Andere lecture object updaten
+                    best_move_nr = random.choice([k for k, v in tries.items() if v==min(tries.values())]) # Select group in which the student can best be placed
+                    move_malus = tries[best_move_nr]
+                    best_move = getattr(course, werk_or_prac)[best_move_nr - 1]
 
-                              self.malus_count_old() # Tel minpunten
-                              tries[other_group] = sum(self.malus)
+                    best_swap_try = random.choice([k for k, v in tries2.items() if v==min(tries2.values())]) # Select group in which the student can best be placed
 
-                              groups_dict[i+1].remove(student)
-                              course.W[i].studs = groups_dict[other_group] # Terug naar eerdere staat
+                    # Als de originele maluscount (met key = studentnummer) niet de laagste is bij swappen
+                    if best_swap_try != student:
+                        best_swap_nr = best_swap_try[0] # Correct group to swap the student to
+                        best_swap_stud = best_swap_try[1] # Index to search the right student
+                        swap_malus = tries2[best_swap_try]
+                        best_swap = getattr(course, werk_or_prac)[best_swap_nr - 1]
 
-                      # groups_dict[group].append(student)
-                      groups_dict[group].append(student)
-                      werkcollege.studs = groups_dict[group] # Terug naar originele staat
+                        # Als moven tot het laagste aantal maluspoints leidt
+                        if best_move_nr != group_nr and move_malus <= swap_malus:
+                            self.move_student(student, group, group.slot, best_move, best_move.slot)
+                        # Als swappen tot het laagste aantal maluspoints leidt
+                        elif best_swap_nr != group_nr:
+                            self.swap_student(student, group, group.slot, best_swap_stud, best_swap, best_swap.slot)
 
+                    # Als de originele maluscount (met key = studentnummer) de laagste is bij swappen
+                    else:
+                        if best_move_nr != group_nr and move_malus <= tries2[student]:
+                            self.move_student(student, group, group.slot, best_move, best_move.slot)
 
-                      best_option = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                      # print(f'Best option to move student to is {best_option}')
-
-                      if best_option != group: # Move student
-                          groups_dict[group].remove(student)
-                          werkcollege.studs = groups_dict[group] # Dit lecture object updaten (student verwijderen)
-
-                          groups_dict[best_option].append(student)
-                          course.W[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
-
-                  self.malus_count_old()
-                  print(self.malus, sum(self.malus), nr)
-
-    def hillclimber_prac(self):
-          """
-          Moves students in werkgroep, based on a decreasing number of malus points.
-          Nog niet toegepast op practica.
-          """
-          for nr, course in enumerate(self.courses): # Ga alle vakken langs
-              groups_dict = {} # dict (key: group (1, 2, ...); value: set/list of students)
-              nr_werk_groups = len(course.P)
-              # print(f'len is {len(course.W)}')
-
-              # Fill dict with groups and student lists
-              for i in range(nr_werk_groups):
-                  groups_dict[i+1] = course.P[i].studs
-
-              # print(groups_dict)
-
-              for nr1, werkcollege in enumerate(course.P):
-                  group = int(werkcollege.type[1])
-                  # groups_dict[group] = werkcollege.studs # set/list of student
-
-                  for student in groups_dict[group]: # WELLICHT LOOP NAAR BUITEN VERPLAATSEN EN OVER STUDENTEN IN DICT HEEN LOOPEN
-                      tries = {} # keys: ...; values: malus points
-
-                      self.malus_count_old() # Tel minpunten
-                      tries[group] = sum(self.malus)
-
-                      # print(groups_dict[group])
-                      # print(student)
-
-                      groups_dict[group].remove(student) # In case of set: .discard(student)
-                      werkcollege.studs = groups_dict[group] # Dit lecture object updaten
-
-                      for i in range(nr_werk_groups):
-                          other_group = i + 1
-                          if other_group != group:
-                              groups_dict[other_group].append(student)
-                              course.P[i].studs = groups_dict[other_group] # Andere lecture object updaten
-
-                              self.malus_count_old() # Tel minpunten
-                              tries[other_group] = sum(self.malus)
-
-                              groups_dict[i+1].remove(student)
-                              course.P[i].studs = groups_dict[other_group] # Terug naar eerdere staat
-
-                      # groups_dict[group].append(student)
-                      groups_dict[group].append(student)
-                      werkcollege.studs = groups_dict[group] # Terug naar originele staat
-
-
-                      best_option = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                      # print(f'Best option to move student to is {best_option}')
-
-                      if best_option != group: # Move student
-                          groups_dict[group].remove(student)
-                          werkcollege.studs = groups_dict[group] # Dit lecture object updaten (student verwijderen)
-
-                          groups_dict[best_option].append(student)
-                          course.P[best_option - 1].studs = groups_dict[best_option] # Andere lecture object updaten (student toevoegen)
-
-                  self.malus_count_old()
-                  print(self.malus, sum(self.malus), nr)
+            self.malus_count()
+            print(self.malus, sum(self.malus), nr, werk_or_prac)
 
     def make_csv(self, filename):
         '''
@@ -434,14 +388,15 @@ evenings = {'C0.110'}
 # print(my_rooster.malus)
 
 
-prev_malus = 156
+prev_malus = 72
 maluses = []
 for i in range(1):
+    sys.setrecursionlimit(5000)
     st = time.time()
     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-    my_rooster.make_rooster_random(4, 5, 7)
+    # my_rooster.make_rooster_random(4, 5, 7)
     # my_rooster.make_rooster_greedy()
-    # my_rooster.make_rooster_minmalus()
+    my_rooster.make_rooster_minmalus()
     my_rooster.malus_count()
     print(my_rooster.malus)
     malus = sum(my_rooster.malus)
@@ -455,7 +410,9 @@ for i in range(1):
 
     while new_malus < malus:
         malus = sum(my_rooster.malus)
-        my_rooster.hillclimber()
+        my_rooster.hillclimber_activities()
+        my_rooster.hillclimber_students('W')
+        my_rooster.hillclimber_students('P')
         my_rooster.malus_count()
         new_malus = sum(my_rooster.malus)
 
@@ -463,6 +420,10 @@ for i in range(1):
     malus = sum(my_rooster.malus)
     maluses.append(my_rooster.malus)
     print(maluses)
+
+    # for lec in my_rooster.lectures_list:
+    #     room = lec.room.room
+    #     lec.room = room
 
     if malus < prev_malus:
         with open(f'RoosterWith{malus}Points', 'wb') as outp:
