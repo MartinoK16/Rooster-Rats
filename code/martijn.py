@@ -238,8 +238,10 @@ class Rooster():
         '''
         lec1.studs.remove(student)
         lec1.size -= 1
+        lec1.room.update_malus()
         lec2.studs.append(student)
         lec2.size += 1
+        lec2.room.update_malus()
         # Remove lec1 and add lec2 to student rooster
         student.swap_lecture(lec1, slot1, lec2, slot2)
 
@@ -388,9 +390,9 @@ evenings = {'C0.110'}
 # print(my_rooster.malus)
 
 
-prev_malus = 72
+prev_malus = 66
 maluses = []
-for i in range(1):
+for i in range(10):
     sys.setrecursionlimit(5000)
     st = time.time()
     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)

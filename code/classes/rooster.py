@@ -231,8 +231,10 @@ class Rooster():
         '''
         lec1.studs.remove(student)
         lec1.size -= 1
+        lec1.room.update_malus()
         lec2.studs.append(student)
         lec2.size += 1
+        lec2.room.update_malus()
         # Remove lec1 and add lec2 to student rooster
         student.swap_lecture(lec1, slot1, lec2, slot2)
 
