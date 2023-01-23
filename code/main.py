@@ -99,7 +99,6 @@ Create rooster visualisation of all 7 rooms.
 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
 in terminal for each different room.
 """
-<<<<<<< HEAD
 for i in range(2):
     my_rooster2.hillclimber_activities()
     my_rooster2.hillclimber_students('W')
@@ -120,13 +119,3 @@ for i in range(2):
 # for i in range(5):
 #     my_rooster2.hillclimber_students()
 #     my_rooster2.hillclimber_students()
-=======
-my_rooster2.hillclimber_werk()
-my_rooster2.hillclimber_prac()
-
-# my_rooster2.make_scheme()
-# for i in range(3):
-#     my_rooster2.hillclimber()
-#     my_rooster2.hillclimber_werk()
-#     my_rooster2.hillclimber_prac()
->>>>>>> 997f0d3 (simulated annealing)
