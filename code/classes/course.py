@@ -1,38 +1,38 @@
 import random
 import math
-from .lecture import Lecture
+from .activity import Activity
 
 class Course():
-    def __init__(self, course, student_list, class_nr):
+    def __init__(self, course, student, nr):
         # Initialize all the required variables
         self.name = course[0]
-        self.nr = class_nr
-        self.students = random.sample(student_list, len(student_list))
+        self.nr = nr
+        self.students = random.sample(students, len(students))
         self.size = len(self.students)
-        self.H = []
-        self.W = []
+        self.L = []
+        self.T = []
         self.P = []
 
-        # Add the hoorcolleges
+        # Add the lectures
         for nr in range(course[1]):
-            self.H.append(Lecture(self.name, f'H{nr + 1}', self.students, self.nr, self.size))
+            self.L.append(Lecture(self.name, f'L{nr + 1}', self.students, self.nr, self.size))
 
         # Add the tutorials if there are any
         if course[2] > 0:
-            self.add_small_lectures(course[2], 'W')
+            self.add_small_activity(course[2], 'T')
         # Add the practicals if there are any
         if course[3] > 0:
-            self.add_small_lectures(course[3], 'P')
+            self.add_small_activity(course[3], 'P')
 
-    def add_small_lectures(self, max_studs, WorP):
+    def add_small_activity(self, max_studs, TorP):
         '''
         Get the correct groups to make tutorials
         '''
         # Get the groups
         slices = self.make_slices(max_studs)
-        # Add the tutorials with the correct number of people
+        # Add the activities with the correct number of people
         for nr in range(len(slices) - 1):
-            getattr(self, WorP).append(Lecture(self.name, f'{WorP}{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
+            getattr(self, TorP).append(Lecture(self.name, f'{TorP}{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
 
     def make_slices(self, max_studs):
         '''

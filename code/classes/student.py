@@ -1,30 +1,30 @@
 import numpy as np
 
 class Student():
-    def __init__(self, stud_nr, nr_t, nr_d, courses):
+    def __init__(self, nr, timeslots, days, courses):
         # Initialize all the required variables
-        self.nr = stud_nr
+        self.nr = nr
         self.malus = [0, 0]
         self.courses = courses
-        self.rooster = np.zeros((nr_t, nr_d), dtype=object)
+        self.rooster = np.zeros((timeslots, days), dtype=object)
 
-    def swap_lecture(self, lec1, slot1, lec2, slot2):
+    def swap_lecture(self, act1, slot1, act2, slot2):
         '''
-        Swaps lec1 from slot1 to lec2 in slot2 in the rooster
+        Swaps act1 from slot1 to act2 in slot2 in the rooster
         '''
         # Remove the old lecture from the rooster
-        if lec1 != 0:
+        if act1 != 0:
             if len(self.rooster[slot1]) == 1:
                 self.rooster[slot1] = 0
             else:
-                self.rooster[slot1].remove(lec1)
+                self.rooster[slot1].remove(act1)
 
         # Add the new lecture to the rooster
-        if lec2 != 0:
+        if act2 != 0:
             if self.rooster[slot2] == 0:
-                self.rooster[slot2] = [lec2]
+                self.rooster[slot2] = [act2]
             else:
-                self.rooster[slot2].append(lec2)
+                self.rooster[slot2].append(act2)
 
         # Recalculate the malus points for this student
         self.update_malus()
