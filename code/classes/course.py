@@ -3,7 +3,7 @@ import math
 from .activity import Activity
 
 class Course():
-    def __init__(self, course, student, nr):
+    def __init__(self, course, students, nr):
         # Initialize all the required variables
         self.name = course[0]
         self.nr = nr
@@ -15,7 +15,7 @@ class Course():
 
         # Add the lectures
         for nr in range(course[1]):
-            self.L.append(Lecture(self.name, f'L{nr + 1}', self.students, self.nr, self.size))
+            self.L.append(Activity(self.name, f'L{nr + 1}', self.students, self.nr, self.size))
 
         # Add the tutorials if there are any
         if course[2] > 0:
@@ -32,7 +32,7 @@ class Course():
         slices = self.make_slices(max_studs)
         # Add the activities with the correct number of people
         for nr in range(len(slices) - 1):
-            getattr(self, TorP).append(Lecture(self.name, f'{TorP}{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
+            getattr(self, TorP).append(Activity(self.name, f'{TorP}{nr + 1}', self.students[slices[nr]:slices[nr + 1]], self.nr, max_studs))
 
     def make_slices(self, max_studs):
         '''

@@ -29,9 +29,9 @@ for i in range(1000):
     my_rooster = Hillclimber(my_rooster)
     while new_malus < malus:
         malus = sum(Evaluation(my_rooster).malus_count())
-        my_rooster.lectures()
-        my_rooster.students('W')
-        my_rooster.students('P')
+        my_rooster.hc_activities()
+        my_rooster.hc_students('T')
+        my_rooster.hc_students('P')
         new_malus = sum(Evaluation(my_rooster).malus_count())
         print(Evaluation(my_rooster).malus_count())
 

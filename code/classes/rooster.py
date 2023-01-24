@@ -16,7 +16,7 @@ class Rooster():
         self.make_courses(courses_df)
         self.make_activities()
 
-    def make_student_dict(self, courses_df, student_df):
+    def make_students(self, courses_df, student_df):
         '''
         Makes a list of students and a dictionary of students per course
         '''

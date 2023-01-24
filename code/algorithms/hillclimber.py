@@ -6,10 +6,10 @@ class Hillclimber():
     def __init__(self, rooster):
         self.rooms = rooster.rooms
         self.courses = rooster.courses
-        self.students= rooster.students
-        self.activities= rooster.activities
+        self.students = rooster.students
+        self.activities = rooster.activities
 
-    def activities(self):
+    def hc_activities(self):
         '''
         Does one loop over all the activities and finds the best fit for each of them
         by swapping with all other possibilities (activities or empty slots)
@@ -43,7 +43,7 @@ class Hillclimber():
             malus = Evaluation(self).malus_count()
             print(lecture1.code, malus, sum(malus), nr3)
 
-    def students(self, werk_or_prac):
+    def hc_students(self, werk_or_prac):
         """
         Moves students in werkgroep or practicumgroep, based on a decreasing
         number of malus points.
