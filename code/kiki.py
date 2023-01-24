@@ -3,10 +3,9 @@ import math
 import random
 import numpy as np
 import yaml
-import pdfschedule
-from classes.course import Course
-from classes.room import Room
-from classes.student import Student
+from classes.course import *
+from classes.room import *
+from classes.student import *
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
@@ -14,7 +13,7 @@ class Rooster():
         self.make_student_dict(courses_df, student_df)
         self.make_rooms(rooms_df, evenings)
         self.make_courses(courses_df)
-        self.make_lecture_list()
+        self.make_activities()
 
     def make_student_dict(self, courses_df, student_df):
         '''
@@ -62,7 +61,7 @@ class Rooster():
             # Make the course class with the students for the course
             self.courses.append(Course(course, self.student_dict[course[0]], nr))
 
-    def make_lecture_list(self):
+    def make_activities(self):
         '''
         Makes a list of lecture objects with first all the hoorcolleges sorted on size
         and then the tutorials and practicals sorted on size
@@ -270,7 +269,7 @@ class Rooster():
             lec1.slot = slot2
             # Update all the roosters for the students with this lecture
             for stud in lec1.studs:
-                stud.swap_lecture(lec1, slot1, lec1, slot2)
+                stud.hc_activities(lec1, slot1, lec1, slot2)
 
         # Check if it is a lecture and not an empty slot
         if lec2 != 0:
@@ -279,7 +278,7 @@ class Rooster():
             lec2.slot = slot1
             # Update all the roosters for the students with this lecture
             for stud in lec2.studs:
-                stud.swap_lecture(lec2, slot2, lec2, slot1)
+                stud.hc_activities(lec2, slot2, lec2, slot1)
 
         # Update the malus counts for both rooms
         room1.update_malus()
@@ -295,7 +294,7 @@ class Rooster():
         lec2.studs.append(student)
         lec2.size += 1
         # Remove lec1 and add lec2 to student rooster
-        student.swap_lecture(lec1, slot1, lec2, slot2)
+        student.hc_activities(lec1, slot1, lec2, slot2)
 
     def swap_student(self, student1, lec1, slot1, student2, lec2, slot2):
         '''
@@ -308,8 +307,8 @@ class Rooster():
         lec1.studs.append(student2)
 
         # Remove lec1 and add lec2 to student rooster
-        student1.swap_lecture(lec1, slot1, lec2, slot2)
-        student2.swap_lecture(lec2, slot2, lec1, slot1)
+        student1.hc_activities(lec1, slot1, lec2, slot2)
+        student2.hc_activities(lec2, slot2, lec1, slot1)
 
     def hillclimber_students(self, werk_or_prac):
         """
