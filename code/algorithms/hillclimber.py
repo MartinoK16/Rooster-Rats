@@ -6,16 +6,16 @@ class Hillclimber():
     def __init__(self, rooster):
         self.rooms = rooster.rooms
         self.courses = rooster.courses
-        self.student_list = rooster.student_list
-        self.lectures_list = rooster.lectures_list
+        self.students= rooster.students
+        self.activities= rooster.activities
 
-    def lectures(self):
+    def activities(self):
         '''
-        Does one loop over all the lectures and finds the best fit for each of them
-        by swapping with all other possibilities (lectures or empty slots)
+        Does one loop over all the activities and finds the best fit for each of them
+        by swapping with all other possibilities (activities or empty slots)
         '''
-        # Loop over all the lectures randomly
-        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+        # Loop over all the activities randomly
+        for nr3, lecture1 in enumerate(random.sample(self.activities, len(self.activities))):
             # Get the room and slot where this lecture is place now
             room1 = lecture1.room
             slot1 = lecture1.slot
@@ -26,7 +26,7 @@ class Hillclimber():
                 for slot2 in np.ndindex(room2.rooster.shape):
                     # Get which lecture is placed in this room and slot
                     lecture2 = room2.rooster[slot2]
-                    # Swap these 2 lectures, get the new malus and put it in the dict and swap them back
+                    # Swap these 2 activities, get the new malus and put it in the dict and swap them back
                     self.swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
                     tries[nr2, slot2] = sum(Evaluation(self).malus_count())
                     self.swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
@@ -106,9 +106,9 @@ class Hillclimber():
 
     def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
         '''
-        Swaps 2 lectures from room and slot and updates the corresponding student roosters
+        Swaps 2 activities from room and slot and updates the corresponding student roosters
         '''
-        # Swap the 2 lectures in the room roosters
+        # Swap the 2 activities in the room roosters
         room1.rooster[slot1] = lec2
         room2.rooster[slot2] = lec1
 

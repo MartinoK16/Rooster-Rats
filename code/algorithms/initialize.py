@@ -6,8 +6,8 @@ class Initialize():
     def __init__(self, rooster):
         self.rooms = rooster.rooms
         self.courses = rooster.courses
-        self.student_list = rooster.student_list
-        self.lectures_list = rooster.lectures_list
+        self.students = rooster.students
+        self.activities = rooster.activities
 
     def make_rooster_random(self, hours, days, rooms):
         '''
@@ -16,12 +16,12 @@ class Initialize():
         '''
         # Make a zeros array with the correct length
         self.rooster = np.zeros(hours * days * rooms, dtype=object)
-        # Get the indices where the lectures will be planned randomly
-        slots = random.sample(range(hours * days * rooms), len(self.lectures_list))
+        # Get the indices where the activities will be planned randomly
+        slots = random.sample(range(hours * days * rooms), len(self.activities))
 
         # Put the lecture in the deterimined spot
         for nr, slot in enumerate(slots):
-            self.rooster[slot] = self.lectures_list[nr]
+            self.rooster[slot] = self.activities[nr]
 
         # Reshape the 1D array to a 3D array for easy use
         self.rooster = self.rooster.reshape((rooms, hours, days))
@@ -37,7 +37,7 @@ class Initialize():
         comparing lecture size and room capacity
         '''
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list:
+        for lecture in self.activities:
             for room in self.rooms:
                 # Check if the lecture fits and if there is a slot without a lecture
                 if room.capacity >= lecture.size and np.any(room.rooster==0):
@@ -47,18 +47,18 @@ class Initialize():
 
     def make_rooster_greedy(self):
         '''
-        Puts the biggest 10 lectures randomly in the biggest room for 11 till 15,
-        this causes no malus points. After that it loops over the remaining lectures
+        Puts the biggest 10 activities randomly in the biggest room for 11 till 15,
+        this causes no malus points. After that it loops over the remaining activities
         and puts them randomly in one of the slots which causes the least amount
-        of malus points, without thinking about the remaining lectures.
+        of malus points, without thinking about the remaining activities.
         '''
-        # Put the biggest 10 lectures randomly in the biggest room for 11 till 15
-        start_lectures = random.sample(self.lectures_list[:10], 10)
+        # Put the biggest 10 activities randomly in the biggest room for 11 till 15
+        start_activities = random.sample(self.activities[:10], 10)
         for nr, slot in enumerate(np.ndindex(2, 5)):
-            self.rooms[0].swap_course(0, start_lectures[nr], (slot[0] + 1, slot[1]))
+            self.rooms[0].swap_course(0, start_activities[nr], (slot[0] + 1, slot[1]))
 
-        # Loop over the remaining lectures
-        for lecture in self.lectures_list[10:]:
+        # Loop over the remaining activities
+        for lecture in self.activities[10:]:
             # Make a dictionary to track the malus points for each slot
             tries = {}
             # Loop over all the empty slots in each room
