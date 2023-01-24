@@ -1,6 +1,6 @@
 import random
 import math
-from .activity import Activity
+from .activity import *
 
 class Course():
     def __init__(self, course, students, nr):

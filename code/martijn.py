@@ -2,7 +2,7 @@ import time
 import pickle
 import sys
 import pandas as pd
-from classes.rooster import Rooster
+from classes.rooster import *
 from algorithms.evaluation import *
 from algorithms.hillclimber import *
 from algorithms.initialize import *

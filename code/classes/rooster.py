@@ -1,12 +1,6 @@
-import pandas as pd
-import math
-import random
-import numpy as np
-import yaml
-import pdfschedule
-from .course import Course
-from .room import Room
-from .student import Student
+from .course import *
+from .room import *
+from .student import *
 
 class Rooster():
     def __init__(self, courses_df, student_df, rooms_df, evenings):
