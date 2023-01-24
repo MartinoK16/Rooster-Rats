@@ -313,7 +313,7 @@ class Rooster():
                             self.move_student(student, group, group.slot, best_move, best_move.slot)
 
             self.malus_count()
-            print(self.malus, sum(self.malus), nr, werk_or_prac)
+            #print(self.malus, sum(self.malus), nr, werk_or_prac)
 
 
     def make_csv(self, filename):
