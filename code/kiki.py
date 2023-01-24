@@ -21,10 +21,10 @@ class Rooster():
         Makes a list of students and a dictionary of students per course
         '''
         # Initialize a list for all the student objects
-        self.student_list = []
-        # Fill the student_list with student objects
+        self.students = []
+        # Fill the students with student objects
         for _, student in student_df.iterrows():
-            self.student_list.append(Student(student['Stud.Nr.'], 5, 5, student['Vakken']))
+            self.students.append(Student(student['Stud.Nr.'], 5, 5, student['Vakken']))
 
         # Initialize a dictionary for lists of student objects per course
         self.student_dict = {}
@@ -32,7 +32,7 @@ class Rooster():
         for _, course in courses_df.iterrows():
             self.student_dict[course['Vak']] = []
             # Check for every student if they are in this course
-            for student in self.student_list:
+            for student in self.students:
                 if course['Vak'] in student.courses:
                     self.student_dict[course['Vak']].append(student)
 
@@ -87,7 +87,7 @@ class Rooster():
         wp_list.sort(key=lambda x: x.size, reverse=True)
 
         # Add the 2 sorted lists together
-        self.lectures_list = hoor_list + wp_list
+        self.activities = hoor_list + wp_list
 
     def make_rooster_random(self, hours, days, rooms):
         '''
@@ -97,11 +97,11 @@ class Rooster():
         # Make a zeros array with the correct length
         self.rooster = np.zeros(hours * days * rooms, dtype=object)
         # Get the indices where the lectures will be planned randomly
-        slots = random.sample(range(hours * days * rooms), len(self.lectures_list))
+        slots = random.sample(range(hours * days * rooms), len(self.activities))
 
         # Put the lecture in the deterimined spot
         for nr, slot in enumerate(slots):
-            self.rooster[slot] = self.lectures_list[nr]
+            self.rooster[slot] = self.activities[nr]
 
         # Reshape the 1D array to a 3D array for easy use
         self.rooster = self.rooster.reshape((rooms, hours, days))
@@ -117,7 +117,7 @@ class Rooster():
         comparing lecture size and room capacity
         '''
         # Check for each lecture the first possible slot to put it in, only places a lecture once
-        for lecture in self.lectures_list:
+        for lecture in self.activities:
             for room in self.rooms:
                 # Check if the lecture fits and if there is a slot without a lecture
                 if room.capacity >= lecture.size and np.any(room.rooster==0):
@@ -133,12 +133,12 @@ class Rooster():
         of malus points, without thinking about the remaining lectures.
         '''
         # Put the biggest 10 lectures randomly in the biggest room for 11 till 15
-        start_lectures = random.sample(self.lectures_list[:10], 10)
+        start_lectures = random.sample(self.activities[:10], 10)
         for nr, slot in enumerate(np.ndindex(2, 5)):
             self.rooms[0].swap_course(0, start_lectures[nr], (slot[0] + 1, slot[1]))
 
         # Loop over the remaining lectures
-        for lecture in self.lectures_list[10:]:
+        for lecture in self.activities[10:]:
             # Make a dictionary to track the malus points for each slot
             tries = {}
             # Loop over all the empty slots in each room
@@ -165,7 +165,7 @@ class Rooster():
         by swapping with all other possibilities (lectures or empty slots)
         '''
         # Loop over all the lectures randomly
-        for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+        for nr3, lecture1 in enumerate(random.sample(self.activities, len(self.activities))):
             # Get the room and slot where this lecture is place now
             room1 = lecture1.room
             slot1 = lecture1.slot
@@ -204,7 +204,7 @@ class Rooster():
             i += 1
 
             # Loop over all the lectures randomly
-            for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+            for nr3, lecture1 in enumerate(random.sample(self.activities, len(self.activities))):
                 # Get the room and slot where this lecture is place now
 
                 room1 = lecture1.room
@@ -428,7 +428,7 @@ class Rooster():
         # Start counting from 0
         self.malus = [0, 0, 0, 0]
         # Add all the malus points from students
-        for student in self.student_list:
+        for student in self.students:
             self.malus[0] += student.malus[0]
             self.malus[1] += student.malus[1]
         # Add all the malus points from rooms
@@ -443,7 +443,7 @@ class Rooster():
 #         self.final_T = final_T
 #         self.i = 0
 #         self.rooms = my_rooster.rooms
-#         self.lectures_list = my_rooster.lectures_list
+#         self.activities = my_rooster.activities
 #         self.malus = my_rooster.malus
 #     def geometric(self):
 #         self.current_T *= (self.g) ** self.i
@@ -456,7 +456,7 @@ class Rooster():
 #         while self.cont():
 #             self.i += 1
 #             # Loop over all the lectures randomly
-#             for nr3, lecture1 in enumerate(random.sample(self.lectures_list, len(self.lectures_list))):
+#             for nr3, lecture1 in enumerate(random.sample(self.activities, len(self.activities))):
 #                 # Get the room and slot where this lecture is place now
 #
 #                 room1 = lecture1.room
