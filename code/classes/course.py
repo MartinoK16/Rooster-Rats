@@ -7,7 +7,7 @@ class Course():
         # Initialize all the required variables
         self.name = course[0]
         self.nr = class_nr
-        self.students = student_list
+        self.students = random.sample(student_list, len(student_list))
         self.size = len(self.students)
         self.H = []
         self.W = []
