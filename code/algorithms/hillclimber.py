@@ -48,7 +48,7 @@ class Hillclimber():
         Moves students in werkgroep or practicumgroep, based on a decreasing
         number of malus points.
         """
-        for nr, course in enumerate(self.courses): # Ga alle vakken langs
+        for nr, course in enumerate(random.sample(self.courses, len(self.courses))): # Ga alle vakken langs
             nr_werk_groups = len(getattr(course, werk_or_prac))
 
             for group in getattr(course, werk_or_prac):
