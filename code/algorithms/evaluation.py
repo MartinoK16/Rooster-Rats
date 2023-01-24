@@ -27,7 +27,7 @@ class Evaluation():
                     # Add all the students for this lecture into the dictionary
                     lecture = room.rooster[slot]
                     for stud in lecture.studs:
-                        d['student'].append(stud)
+                        d['student'].append(stud.nr)
                         d['vak'].append(lecture.name)
                         d['activiteit'].append(lecture.type)
                         d['zaal'].append(room.room)
