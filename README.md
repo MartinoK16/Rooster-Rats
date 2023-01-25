@@ -8,7 +8,7 @@ Lesroosters, of roosters in het algemeen, zijn buitengewoon lastig goed in te ri
 
 ### Vereisten
 
-Deze codebase is volledig geschreven in Python 3.9.13. In requirements.txt staan alle benodigde packages om de code succesvol te draaien. Deze zijn gemakkelijk te installeren via pip dmv. de volgende instructie:
+Deze codebase is volledig geschreven in Python 3.9.13 en we gaan ervan uit dat er een Proglab environment aanwezig is. Hieronder staan alle benodigde packages om de code succesvol te draaien. Deze zijn gemakkelijk te installeren via pip d.m.v. de volgende instructies:
 
 ```
 python3 -m pip install pdfschedule
