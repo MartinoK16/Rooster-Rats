@@ -5,6 +5,7 @@ import numpy as np
 from classes.rooster import Rooster
 from classes.room import Room
 from student_rooster import rooster_per_student
+from algorithms.initialize import *
 
 # # Create output csv
 # my_rooster4.make_csv('../data/rooster_v4.csv')
@@ -17,78 +18,83 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110REMOVE'}
 
 
-def hillclimber_students(self, werk_or_prac):
-        """
-        Moves students in werkgroep, based on a decreasing number of malus points.
-        """
-        for nr, course in enumerate(self.courses): # Ga alle vakken langs
-            nr_werk_groups = len(getattr(course, werk_or_prac))
+def hc_students(self, tut_or_prac):
+    """
+    Accepts a string, 'T' for tutorial or 'P' for practical, and moves or
+    swaps students to another tutorial group or practical group, based on a
+    decreasing number of malus points.
+    """
+    for nr, course in enumerate(random.sample(self.courses, len(self.courses))): # Ga alle vakken langs         # ENUMERATE WEGHALEN
+        nr_werk_groups = len(getattr(course, tut_or_prac))
 
-            for group in getattr(course, werk_or_prac):
-                group_nr = int(group.type[1])
+        for group in getattr(course, tut_or_prac):
+            group_nr = int(group.type[1])
 
-                for student in group.studs:
-                    tries = {}
-                    self.malus_count() # Maluspunten voor huidige groep
-                    tries[group_nr] = sum(self.malus)
+            for student in group.studs:
+                tries = {} # key = group nr, value = malus
+                tries2 = {} # key = list of group nr and student index; value = malus
+                malus = sum(Evaluation(self).malus_count())
+                tries[group_nr] = malus
+                tries2[student] = malus
 
-                    for i in range(nr_werk_groups):
-                        new_group_nr = i + 1
-                        new_group = getattr(course, werk_or_prac)[i]
+                for i in range(nr_werk_groups):
+                    new_group_nr = i + 1
+                    new_group = getattr(course, tut_or_prac)[i]
 
-                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
-                            self.move_student(student, group, group.slot, new_group, new_group.slot)
-                            self.malus_count() # Maluspunten voor eventuele nieuwe groep
-                            tries[new_group_nr] = sum(self.malus)
-                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+                    if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
+                        self.move_student(student, group, group.slot, new_group, new_group.slot)
+                        tries[new_group_nr] = sum(Evaluation(self).malus_count()) # Maluspunten voor eventuele nieuwe groep
+                        self.move_student(student, new_group, new_group.slot, group, group.slot)
 
-                    best_group_nr = [k for k, v in tries.items() if v==min(tries.values())][0] # Select group in which the student can best be placed
-                    best_group = getattr(course, werk_or_prac)[best_group_nr - 1]
+                    if new_group_nr != group_nr:
+                        for nr1, other_student in enumerate(new_group.studs):
+                            self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
+                            tries2[(new_group_nr, other_student)] = sum(Evaluation(self).malus_count())
+                            self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
 
-                    if best_group_nr != group_nr: # Move student
-                        self.move_student(student, group, group.slot, best_group, best_group.slot)
+                best_move_nr = random.choice([k for k, v in tries.items() if v==min(tries.values())]) # Select group in which the student can best be placed
+                move_malus = tries[best_move_nr]
+                best_move = getattr(course, tut_or_prac)[best_move_nr - 1]
 
-                self.malus_count()
-                print(self.malus, sum(self.malus), nr, werk_or_prac)
+                best_swap_try = random.choice([k for k, v in tries2.items() if v==min(tries2.values())]) # Select group in which the student can best be placed
 
+                # Als de originele maluscount (met key = studentnummer) niet de laagste is bij swappen
+                if best_swap_try != student:
+                    best_swap_nr = best_swap_try[0] # Correct group to swap the student to
+                    best_swap_stud = best_swap_try[1] # Index to search the right student
+                    swap_malus = tries2[best_swap_try]
+                    best_swap = getattr(course, tut_or_prac)[best_swap_nr - 1]
 
+                    # Als moven tot het laagste aantal maluspoints leidt
+                    if best_move_nr != group_nr and move_malus <= swap_malus:
+                        self.move_student(student, group, group.slot, best_move, best_move.slot)
+                    # Als swappen tot het laagste aantal maluspoints leidt
+                    elif best_swap_nr != group_nr:
+                        self.swap_student(student, group, group.slot, best_swap_stud, best_swap, best_swap.slot)
 
+                # Als de originele maluscount (met key = studentnummer) de laagste is bij swappen
+                else:
+                    if best_move_nr != group_nr and move_malus <= tries2[student]:
+                        self.move_student(student, group, group.slot, best_move, best_move.slot)
 
-from collections import namedtuple
-import random
-
-# Prize = namedtuple("Prize", ["left", "right" ])
-# this_prize = Prize("FirstPrize", "SecondPrize")
-#
-# if random.random() > .5:
-#     choice = "left"
-# else:
-#     choice = "right"
-#
-# print(this_prize) # Prize(left='FirstPrize', right='SecondPrize') #
-# print(choice)
-# # retrieve the value of "left" or "right" depending on the choice
-# print("You won", getattr(this_prize, choice))
-#
-
-
-dict = {}
-dict[(1, 2, 'Hallo')] = 123
-print(dict[(1, 2, 'Hallo')])
-
+        # malus = Evaluation(self).malus_count()
+        # print(malus, malus, nr, tut_or_prac)
 
 
-# class Test():
-#     __init__(self, attr):
-#     self.{attr} = 5
-#     self.P = 4
-#     self.attr = attr
-#
-#     print(self.attr)
-#
-# my_test = Test()
-#
-# getattr(my_test, "W")
+# def move_student(self, student, lec1, slot1, lec2, slot2):
+#     '''
+#     Removes a student from a lecture and adds it to another one.
+#     Also updates the student rooster and malus points
+#     '''
+#     lec1.studs.remove(student)
+#     lec1.size -= 1
+#     lec1.room.update_malus()
+#     lec2.studs.append(student)
+#     lec2.size += 1
+#     lec2.room.update_malus()
+#     # Remove lec1 and add lec2 to student rooster
+#     student.swap_lecture(lec1, slot1, lec2, slot2)
+
 
 # Melanie
 
