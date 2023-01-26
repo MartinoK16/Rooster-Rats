@@ -28,7 +28,7 @@ class Room():
             act1.slot = None
             # Update the rooster of the students in the lecture
             for stud in act1.studs:
-                stud.swap_lecture(act1, slot, 0, slot)
+                stud.swap_activity(act1, slot, 0, slot)
 
         # Add the new lecture
         if act2 != 0:
@@ -37,7 +37,7 @@ class Room():
             act2.slot = slot
             # Update the rooster of the students in the lecture
             for stud in act2.studs:
-                stud.swap_lecture(0, slot, act2, slot)
+                stud.swap_activity(0, slot, act2, slot)
 
         # Recalculate the malus points for this room
         self.update_malus()

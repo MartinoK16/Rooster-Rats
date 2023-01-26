@@ -7,7 +7,12 @@ import time
 import yaml
 import pdfschedule
 from classes.rooster import Rooster
+
 from student_rooster import rooster_per_student
+from classes.rooster import *
+from algorithms.evaluation import *
+from algorithms.hillclimber import *
+from algorithms.initialize import *
 
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
@@ -39,14 +44,14 @@ Versie 2: ~1300-1800 maluspunten (10000 runs: min = 1194 / max = 2115)
 *Gelijke groepen voor de werkgroepen en practicagroepen.
 *Maluspunten allemaal toegekend: twee lessen op hetzelfde moment, tussenuren, mensen die niet in een lokaal passen, avondsloten.
 """
-my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
-my_rooster2.make_rooster_random(4, 5, 7) # timeslots, # days, # rooms
-# my_rooster2.make_rooster_minmalus()
-my_rooster2.malus_count()
-print(my_rooster2.malus) # malus points
-
-# Create output csv
-# my_rooster2.make_csv('../data/rooster_v2.csv')
+# my_rooster2 = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster2.make_rooster_random(4, 5, 7) # timeslots, # days, # rooms
+# # my_rooster2.make_rooster_minmalus()
+# my_rooster2.malus_count()
+# print(my_rooster2.malus) # malus points
+#
+# # Create output csv
+# # my_rooster2.make_csv('../data/rooster_v2.csv')
 
 """
 Versie 3: ~900-1000 maluspunten (10000 runs: min = ... / max = ...)
@@ -99,12 +104,36 @@ Create rooster visualisation of all 7 rooms.
 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
 in terminal for each different room.
 """
-for i in range(2):
-    my_rooster2.hillclimber_activities()
-    my_rooster2.hillclimber_students('W')
-    my_rooster2.hillclimber_students('P')
-    my_rooster2.hillclimber_students('W')
-    my_rooster2.hillclimber_students('P')
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
+
+evenings = {'C0.110'}
+my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+my_rooster = Initialize(my_rooster)
+my_rooster.make_rooster_random(4, 5, 7)
+malus = sum(Evaluation(my_rooster).malus_count())
+# new_malus = malus - 1
+
+my_rooster = Hillclimber(my_rooster)
+# while new_malus < malus:
+
+for j in range(2):
+    my_rooster.hc_activities()
+
+    for i in range(3):
+        my_rooster.hc_students('T')
+        my_rooster.hc_students('P')
+# new_malus = sum(Evaluation(my_rooster).malus_count())
+# print(Evaluation(my_rooster).malus_count())
+
+
+# for i in range(2):
+#     my_rooster2.hillclimber_activities()
+#     my_rooster2.hillclimber_students('W')
+#     my_rooster2.hillclimber_students('P')
+#     my_rooster2.hillclimber_students('W')
+#     my_rooster2.hillclimber_students('P')
 
 # my_rooster2.make_scheme()
 # my_rooster2.hillclimber_activities()

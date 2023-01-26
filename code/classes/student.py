@@ -8,7 +8,7 @@ class Student():
         self.courses = courses
         self.rooster = np.zeros((timeslots, days), dtype=object)
 
-    def swap_lecture(self, act1, slot1, act2, slot2):
+    def swap_activity(self, act1, slot1, act2, slot2):
         '''
         Swaps act1 from slot1 to act2 in slot2 in the rooster
         '''
