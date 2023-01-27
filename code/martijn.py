@@ -14,14 +14,19 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 sys.setrecursionlimit(5000)
 
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster = Initialize(my_rooster)
+my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+my_rooster = Initialize(my_rooster)
 # my_rooster.make_rooster_random(4, 5, 7)
+my_rooster.make_rooster_greedy()
 # print(Evaluation(my_rooster).malus_count())
-# my_rooster = Tabu(my_rooster)
-# my_rooster = my_rooster.tabu_search(10)
+my_rooster = Hillclimber(my_rooster)
+my_rooster.hc_activities()
+# my_rooster.hc_students('T')
+# my_rooster.hc_students('P')
+my_rooster = Tabu(my_rooster)
+my_rooster = my_rooster.tabu_search(100)
 
-# # prev_malus = 65
+# prev_malus = 65
 # maluses = []
 # for i in range(186, 1000):
 #     st = time.time()
@@ -48,34 +53,45 @@ sys.setrecursionlimit(5000)
 #     print(maluses)
 #
 #     # if sum(malus) < prev_malus:
-#     with open(f'RoosterWith{sum(malus)}Points_run{i+1}', 'wb') as outp:
+#     with open(f'RoosterWith{sum(malus)}Points_run{i+1}Test', 'wb') as outp:
 #         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-#         # prev_malus = sum(malus)
+#         prev_malus = sum(malus)
+#
+# for i in range(10, 1000):
+#     with open(r'RoosterWith56Points_run82', 'rb') as input_file:
+#         my_rooster = pickle.load(input_file)
+#         malus = sum(Evaluation(my_rooster).malus_count())
+#         malus_loop = [56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+#         while sum(malus_loop) < (len(malus_loop) * max(malus_loop)):
+#         # for i in range(100):
+#             my_rooster.hc_activities()
+#             my_rooster.hc_students('T')
+#             my_rooster.hc_students('P')
+#             malus = sum(Evaluation(my_rooster).malus_count())
+#             malus_loop.pop(0)
+#             malus_loop.append(malus)
+#             print(malus_loop, sum(malus_loop), len(malus_loop)*max(malus_loop))
+#
+#         # if malus < prev_malus:
+#     with open(f'RoosterWith{malus}Points_refined56_run{i+1}', 'wb') as outp:
+#         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+#             # prev_malus = malus
+#
+# with open(r'RoosterWith44Points_refined56_run0', 'rb') as input_file:
+#     my_rooster = pickle.load(input_file)
+    # Evaluation(my_rooster).make_csv('TESTCSV.csv')
 
-for i in range(10, 1000):
-    with open(r'RoosterWith56Points_run82', 'rb') as input_file:
-        my_rooster = pickle.load(input_file)
-        malus = sum(Evaluation(my_rooster).malus_count())
-        malus_loop = [56, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        while sum(malus_loop) < (len(malus_loop) * max(malus_loop)):
-        # for i in range(100):
-            my_rooster.hc_activities()
-            my_rooster.hc_students('T')
-            my_rooster.hc_students('P')
-            malus = sum(Evaluation(my_rooster).malus_count())
-            malus_loop.pop(0)
-            malus_loop.append(malus)
-            print(malus_loop, sum(malus_loop), len(malus_loop)*max(malus_loop))
-
-        # if malus < prev_malus:
-    with open(f'RoosterWith{malus}Points_refined56_run{i+1}', 'wb') as outp:
-        pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-            # prev_malus = malus
-
+    # my_rooster3 = Rooster(courses_df, student_df, rooms_df, evenings)
+    # my_rooster2 = Evaluation(my_rooster3).rooster_object(rooster)
+    # rooster2 = Evaluation(my_rooster2).rooster_dict()
+    # print(rooster, rooster2)
+    # if rooster == rooster2:
+    #     print('Bueno')
+#
 # my_rooster = Evaluation(my_rooster)
 # my_rooster.make_csv('../data/Rooster60Points.csv')
 # my_rooster.make_scheme()
-
+#
 # my_rooster = Hillclimber(my_rooster)
 # malus = sum(Evaluation(my_rooster).malus_count())
 # my_rooster.lectures()
