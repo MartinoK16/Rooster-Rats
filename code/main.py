@@ -108,24 +108,26 @@ courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 
-# evenings = {'C0.110'}
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster = Initialize(my_rooster)
-# my_rooster.make_rooster_greedy()
-# malus = sum(Evaluation(my_rooster).malus_count())
-# # new_malus = malus - 1
-#
-# my_rooster = Hillclimber(my_rooster)
-# # while new_malus < malus:
-#
-# for j in range(1):
-#     # my_rooster.hc_activities()
-#
-#     for i in range(1):
-#         my_rooster.hc_students('T')
-        # my_rooster.hc_students('P')
-# new_malus = sum(Evaluation(my_rooster).malus_count())
-# print(Evaluation(my_rooster).malus_count())
+evenings = {'C0.110'}
+my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+my_rooster = Initialize(my_rooster)
+my_rooster.make_rooster_greedy()
+malus = sum(Evaluation(my_rooster).malus_count())
+st = time.time()
+# new_malus = malus - 1
+
+my_rooster = Hillclimber(my_rooster)
+# while new_malus < malus:
+
+for j in range(1):
+    # my_rooster.hc_activities()
+
+    for i in range(1):
+        my_rooster.hc_students('T')
+        my_rooster.hc_students('P')
+print('Execution time:', time.time() - st, 'seconds')
+new_malus = sum(Evaluation(my_rooster).malus_count())
+print(Evaluation(my_rooster).malus_count())
 
 
 # for i in range(2):
