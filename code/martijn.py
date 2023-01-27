@@ -65,12 +65,12 @@ for i in range(1000):
 #         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
 #     prev_malus = sum(malus)
 
-# maluses = []
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# for i in range(5000):
-#     my_rooster.make_rooster_random(4, 5, 7)
-#     my_rooster.malus_count()
-#     maluses.append(sum(my_rooster.malus))
-#
-# sns.histplot(x=maluses, binwidth=20, kde=True)
-# plt.show()
+maluses = []
+my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+for i in range(5000):
+    my_rooster.make_rooster_random(4, 5, 7)
+    my_rooster.malus_count()
+    maluses.append(sum(my_rooster.malus))
+
+sns.histplot(x=maluses, binwidth=20, kde=True)
+plt.show()
