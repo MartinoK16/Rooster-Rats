@@ -76,4 +76,4 @@ class Initialize():
 
             # Get the updated malus count and print useful info
             malus = Evaluation(self).malus_count()
-            print(lecture.code, malus, sum(malus), lecture.size)
+            # print(lecture.code, malus, sum(malus), lecture.size)

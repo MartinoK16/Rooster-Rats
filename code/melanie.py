@@ -2,10 +2,13 @@ import random
 import math
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 from classes.rooster import Rooster
 from classes.room import Room
 from student_rooster import rooster_per_student
 from algorithms.initialize import *
+
 
 # # Create output csv
 # my_rooster4.make_csv('../data/rooster_v4.csv')
@@ -80,6 +83,39 @@ def hc_students(self, tut_or_prac):
         # malus = Evaluation(self).malus_count()
         # print(malus, malus, nr, tut_or_prac)
 
+
+
+
+def make_histogram(nr_runs=500, type_rooster='random'):
+    '''
+    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
+    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
+    corresponding maluspoints in a histogram.
+    '''
+
+    maluses = []
+    for i in range(nr_runs):
+        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+        my_rooster = Initialize(my_rooster)
+
+        if type_rooster == 'random':
+            my_rooster.make_rooster_random(4, 5, 7)
+            # binwidth = 20
+        else:
+            my_rooster.make_rooster_greedy()
+            # binwidth = 3
+        print(i)
+        malus = sum(Evaluation(my_rooster).malus_count())
+        maluses.append(malus)
+
+    print(maluses, min(maluses), max(maluses), np.mean(maluses), np.std(maluses))
+    sns.histplot(x=maluses, kde=True)
+    plt.title(f'Verdeling minpunten van {nr_runs} {type_rooster} roosters')
+    plt.xlabel('Minpunten')
+    plt.ylabel('Aantal')
+    plt.show()
+
+make_histogram(1000, 'greedy')
 
 # def move_student(self, student, lec1, slot1, lec2, slot2):
 #     '''

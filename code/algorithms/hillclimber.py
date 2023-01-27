@@ -65,14 +65,13 @@ class Hillclimber():
                     tries[group_nr] = malus
                     tries2[student] = malus
 
-                    for i in range(nr_werk_groups):
-                        new_group_nr = i + 1
-                        new_group = getattr(course, tut_or_prac)[i]
-
-                        if new_group_nr != group_nr and new_group.max_studs > new_group.size: # Houd rekening met maximale aantal studenten per werkgroep
-                            self.move_student(student, group, group.slot, new_group, new_group.slot)
-                            tries[new_group_nr] = sum(Evaluation(self).malus_count()) # Maluspunten voor eventuele nieuwe groep
-                            self.move_student(student, new_group, new_group.slot, group, group.slot)
+                    # Consider each swapping option with other groups
+                    for new_group_nr, new_group in enumerate(getattr(course, tut_or_prac)):
+                        # Check if capacity is not already reached before swapping or moving the student
+                        if new_group_nr != group_nr and new_group.max_studs > new_group.size:
+                            self.try_swap(student, group, new_group, new_group_nr, tries)
+                        elif new_group_nr != group_nr and new_group.max_studs == new_group.size:
+                            self.try_swap(student, group, new_group, new_group_nr, tries, False)
 
                         if new_group_nr != group_nr:
                             for nr1, other_student in enumerate(new_group.studs):
@@ -164,6 +163,26 @@ class Hillclimber():
         act2.studs.remove(student2)
         act1.studs.append(student2)
 
-        # Remove lec1 and add lec2 to student rooster
-        student1.swap_activity(act1, slot1, act2, slot2)
-        student2.swap_activity(act2, slot2, act1, slot1)
+    def create_stud_set(self, stud_list, add_zero=True):
+        '''
+        Accepts a list and an optional boolean argument. Transforms list into
+        set, either with or without adding 0 (True vs. False, respectively).
+        '''
+        stud_set = set(stud_list)
+        if add_zero:
+            stud_set.add(0)
+        return stud_set
+
+
+    def try_swap(self, student, group, new_group, new_group_nr, tries, add_zero=True):
+        '''
+        Accepts student to be swapped, current group of the student, new group,
+        number of the new group, a tries dictionary and an optional boolean
+        argument. Transforms student list of new group into set, swaps students,
+        gets the new malus, puts it in the dictionary and swaps them back.
+        '''
+        for other_student in self.create_stud_set(new_group.studs, add_zero):
+            self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
+            tries[(new_group_nr, other_student)] = sum(Evaluation(self).malus_count())
+            self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
+        return tries
