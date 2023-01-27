@@ -195,20 +195,20 @@ class Hillclimber():
         act2.room.update_malus()
         # Remove lec1 and add lec2 to student rooster
         student.swap_activity(act1, slot1, act2, slot2)
-    #
-    def swap_student(self, student1, act1, slot1, student2, act2, slot2): # OLD VERSION
-        '''
-        Removes a student from a lecture and adds it to another one.
-        Also updates the student rooster and malus points
-        '''
-        act1.studs.remove(student1)
-        act2.studs.append(student1)
-        act2.studs.remove(student2)
-        act1.studs.append(student2)
 
-        # Remove lec1 and add lec2 to student rooster
-        student1.swap_activity(act1, slot1, act2, slot2)
-        student2.swap_activity(act2, slot2, act1, slot1)
+    # def swap_student(self, student1, act1, slot1, student2, act2, slot2): # OLD VERSION
+    #     '''
+    #     Removes a student from a lecture and adds it to another one.
+    #     Also updates the student rooster and malus points
+    #     '''
+    #     act1.studs.remove(student1)
+    #     act2.studs.append(student1)
+    #     act2.studs.remove(student2)
+    #     act1.studs.append(student2)
+    #
+    #     # Remove lec1 and add lec2 to student rooster
+    #     student1.swap_activity(act1, slot1, act2, slot2)
+    #     student2.swap_activity(act2, slot2, act1, slot1)
 
 
     # def swap_student(self, student1, act1, slot1, student2, act2, slot2): # NEW VERSION
