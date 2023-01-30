@@ -59,6 +59,9 @@ class Evaluation():
                         documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
     def malus_count(self):
+        '''
+        Calculate the total malus points from every student and room
+        '''
         self.malus = [0, 0, 0, 0]
         for student in self.students:
             self.malus[0] += student.malus[0]
@@ -69,6 +72,11 @@ class Evaluation():
         return self.malus
 
     def rooster_dict(self):
+        '''
+        Makes a tuple from an rooster object in the form of:
+        (room.name, slot) = (activity.code, (student1.nr, student2.nr, ...))
+        Also sorts it, so small changes still return the same tuple
+        '''
         rooster = {}
         for room in self.rooms:
             for slot in np.ndindex(room.rooster.shape):
@@ -77,12 +85,17 @@ class Evaluation():
                     studs = []
                     for stud in act.studs:
                         studs.append(stud.nr)
+                        studs.sort()
                     rooster[room.name, slot] = (act.code, tuple(studs))
                 else:
                     rooster[room.name, slot] = 0
-        return rooster
+        return tuple(sorted(rooster.items()))
 
     def rooster_object(self, rooster_dict):
+        '''
+        Updates all the students, rooms and activities to get the rooster from
+        the given dictionary
+        '''
         for stud in self.students:
             stud.clear_rooster()
 
@@ -106,5 +119,5 @@ class Evaluation():
             else:
                 room.rooster[slot[0][1]] = 0
                 room.update_malus()
-                
-        return self
+
+        return self.students, self.rooms, self.activities, self.activities
