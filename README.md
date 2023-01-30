@@ -13,6 +13,9 @@ Deze codebase is volledig geschreven in Python 3.9.13 en we gaan ervan uit dat e
 ```
 python3 -m pip install pdfschedule
 ```
+```
+pip install pyyaml
+```
 
 ### Gebruik
 
