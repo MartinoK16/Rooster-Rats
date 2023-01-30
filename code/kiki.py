@@ -75,6 +75,7 @@ class Simulated_Annealing():
         self.activities = lowest_rooster.activities
         self.courses = lowest_rooster.courses
         self.students = lowest_rooster.students
+        self.lowest_rooster = lowest_rooster
         self.value_count = 0
         self.malus_list = []
 
@@ -92,8 +93,9 @@ class Simulated_Annealing():
 
 
     def run(self):
+        dict = {}
 
-        while self.i < 200000:
+        while self.i < 500000:
 
             # Random room and slot from activities
             lecture1 = random.choice(self.activities)
@@ -118,14 +120,18 @@ class Simulated_Annealing():
             self.exponential()
 
             print(sum(Evaluation(self).malus_count()), "\t", self.current_T)
+
+            dict[self.lowest_rooster] = sum(Evaluation(self).malus_count())
             self.i += 1
             #self.malus_list.append(sum(Evaluation(self).malus_count()))
 
-            if self.i % 20000 == 0:
+            if self.i % 50000 == 0:
                 self.current_T += 5
 
+            best_rooster = min(dict, key=dict.get)
 
-        return self.malus_list
+
+        return best_rooster
 
 # my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
 # my_rooster = Initialize(my_rooster)
@@ -146,7 +152,7 @@ class Simulated_Annealing():
 
 #experiment = experiment(my_rooster, 50)
 
-def experiment(initial_T, nr_runs=10, type_rooster='random'):
+def experiment(initial_T, nr_runs=100, type_rooster='random'):
     '''
     Accepts an integer (nr_runs) and a string (type), which can be 'random' or
     'greedy'. Creates nr_runs times a greedy or random rooster and plots the
@@ -154,22 +160,19 @@ def experiment(initial_T, nr_runs=10, type_rooster='random'):
     '''
 
     #maluses = []
-    greedy_dict = {}
+    random_dict = {}
     for i in range(nr_runs):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
         my_rooster.make_rooster_greedy()
         malus = sum(Evaluation(my_rooster).malus_count())
-        greedy_dict[my_rooster] = malus
-        #maluses.append(malus)
-        print(greedy_dict)
+        random_dict[my_rooster] = malus
 
-    lowest_rooster = min(greedy_dict, key=greedy_dict.get)
+    lowest_rooster = min(random_dict, key=random_dict.get)
     result = Simulated_Annealing(lowest_rooster, initial_T).run()
-    Hillclimber(result).hillclimber_students('W')
-    Hillclimber(result).hillclimber_students('P')
-
-    return lowest_rooster
+    lowest_rooster = Hillclimber(result[1])
+    lowest_rooster.hc_students('T')
+    lowest_rooster.hc_students('P')
 
 experiment(50)
 
