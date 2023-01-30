@@ -8,7 +8,7 @@ class Hillclimber():
         self.courses = rooster.courses
         self.students = rooster.students
         self.activities = rooster.activities
-
+        self.maluses = []
 
     def hc_activities(self):
         '''
@@ -18,6 +18,7 @@ class Hillclimber():
         '''
         # Loop over all the activities randomly
         for nr3, activity1 in enumerate(random.sample(self.activities, len(self.activities))):
+
             # Get the room and slot where this activity is place now
             room1 = activity1.room
             slot1 = activity1.slot
@@ -44,7 +45,7 @@ class Hillclimber():
             # Get the updated malus count and print useful info
             malus = Evaluation(self).malus_count()
             print(activity1.code, malus, sum(malus), nr3)
-
+            self.maluses.append(sum(malus))
 
     def hc_students(self, tut_or_prac):
         '''
