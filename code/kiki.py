@@ -57,10 +57,6 @@ evenings = {'C0.110'}
 #                         #current_T = current_T / (1 + i * current_T)
 #                         print(current_T)
 #
-#
-#
-#
-#
 #             # Get the updated malus count and print useful info
 #             self.hillclimber_students('W')
 #             self.hillclimber_students('P')
@@ -69,16 +65,17 @@ evenings = {'C0.110'}
 
 
 class Simulated_Annealing():
-    def __init__(self, my_rooster, initial_T, g = 0.998, final_T=0.00001):
+    def __init__(self, lowest_rooster, initial_T, g = 0.998, final_T=0.0001):
         self.g = g
         self.initial_T = initial_T
         self.current_T = initial_T
         self.final_T = final_T
         self.i = 0
-        self.rooms = my_rooster.rooms
-        self.activities = my_rooster.activities
-        self.courses = my_rooster.courses
-        self.students = my_rooster.students
+        self.rooms = lowest_rooster.rooms
+        self.activities = lowest_rooster.activities
+        self.courses = lowest_rooster.courses
+        self.students = lowest_rooster.students
+        self.lowest_rooster = lowest_rooster
         self.value_count = 0
         self.malus_list = []
 
@@ -94,12 +91,11 @@ class Simulated_Annealing():
     def exponential(self):
         self.current_T = max(0.05, self.current_T * self.g)
 
-    def cont(self):
-        return self.current_T > self.final_T
 
     def run(self):
+        dict = {}
 
-        while self.cont():
+        while self.i < 500000:
 
             # Random room and slot from activities
             lecture1 = random.choice(self.activities)
@@ -118,31 +114,33 @@ class Simulated_Annealing():
             Hillclimber(self).swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
             new = sum(Evaluation(self).malus_count())
 
-            if random.uniform(0, 1) > round(math.exp(-(new - old) / self.current_T),10):
-                Hillclimber(self).swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
+            if new > old + 50 or random.uniform(0, 1) > round(math.exp((old-new) / self.current_T),10):
+                Hillclimber(self).swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
 
-            if new < old + 10:
-                Hillclimber(self).hc_students('T')
-                Hillclimber(self).hc_students('P')
+            self.exponential()
 
-            room1 = room2
-            slot1 = slot2
-            self.geometric()
+            print(sum(Evaluation(self).malus_count()), "\t", self.current_T)
 
-            new = sum(Evaluation(self).malus_count())
-            print(new, "\t", self.current_T)
+            dict[self.lowest_rooster] = sum(Evaluation(self).malus_count())
             self.i += 1
-            self.malus_list.append(new)
+            #self.malus_list.append(sum(Evaluation(self).malus_count()))
 
-        return self.malus_list, self.counter_list
+            if self.i % 50000 == 0:
+                self.current_T += 5
 
-my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-my_rooster = Initialize(my_rooster)
+            best_rooster = min(dict, key=dict.get)
 
 
-def experiment(my_rooster, initial_T):
-    my_rooster.make_rooster_greedy()
-    results = Simulated_Annealing(my_rooster, initial_T).run()
+        return best_rooster
+
+# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+# my_rooster = Initialize(my_rooster)
+
+# def experiment(my_rooster, initial_T):
+#     maluses = []
+#     for i in range(2):
+#         my_rooster.make_rooster_greedy()
+#         results = Simulated_Annealing(my_rooster, initial_T).run()
     # my_rooster = Hillclimber(my_rooster)
 
     # for i in range(2):
@@ -152,7 +150,33 @@ def experiment(my_rooster, initial_T):
     #     plt.scatter(results[1], results[0])
     #     plt.show()
 
-experiment = experiment(my_rooster, 50)
+#experiment = experiment(my_rooster, 50)
+
+def experiment(initial_T, nr_runs=100, type_rooster='random'):
+    '''
+    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
+    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
+    corresponding maluspoints in a histogram.
+    '''
+
+    #maluses = []
+    random_dict = {}
+    for i in range(nr_runs):
+        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+        my_rooster = Initialize(my_rooster)
+        my_rooster.make_rooster_greedy()
+        malus = sum(Evaluation(my_rooster).malus_count())
+        random_dict[my_rooster] = malus
+
+    lowest_rooster = min(random_dict, key=random_dict.get)
+    result = Simulated_Annealing(lowest_rooster, initial_T).run()
+    lowest_rooster = Hillclimber(result[1])
+    lowest_rooster.hc_students('T')
+    lowest_rooster.hc_students('P')
+
+experiment(50)
+
+
 
 # maluses = []
 # for i in range(5000):
