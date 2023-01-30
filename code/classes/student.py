@@ -8,15 +8,19 @@ class Student():
         self.courses = courses
         self.rooster = np.zeros((timeslots, days), dtype=object)
 
+    def clear_rooster(self):
+        self.rooster = np.zeros(self.rooster.shape, dtype=object)
+
     def swap_activity(self, act1, slot1, act2, slot2):
         '''
         Swaps act1 from slot1 to act2 in slot2 in the rooster
         '''
         # Remove the old lecture from the rooster
         if act1 != 0:
-            if len(self.rooster[slot1]) == 1:
+            if self.rooster[slot1] == [act1]:
                 self.rooster[slot1] = 0
             else:
+                # print(act1.code, self.rooster)
                 self.rooster[slot1].remove(act1)
 
         # Add the new lecture to the rooster

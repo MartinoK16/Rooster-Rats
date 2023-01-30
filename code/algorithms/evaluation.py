@@ -32,7 +32,7 @@ class Evaluation():
                         d['student'].append(stud.nr)
                         d['course'].append(lecture.name)
                         d['activity'].append(lecture.type)
-                        d['room'].append(room.room)
+                        d['room'].append(room.name)
                         d['day'].append(day_dict[slot[1]])
                         d['timeslot'].append(time_dict[slot[0]])
 
@@ -67,3 +67,44 @@ class Evaluation():
             self.malus[2] += room.malus[0]
             self.malus[3] += room.malus[1]
         return self.malus
+
+    def rooster_dict(self):
+        rooster = {}
+        for room in self.rooms:
+            for slot in np.ndindex(room.rooster.shape):
+                act = room.rooster[slot]
+                if act != 0:
+                    studs = []
+                    for stud in act.studs:
+                        studs.append(stud.nr)
+                    rooster[room.name, slot] = (act.code, tuple(studs))
+                else:
+                    rooster[room.name, slot] = 0
+        return rooster
+
+    def rooster_object(self, rooster_dict):
+        for stud in self.students:
+            stud.clear_rooster()
+
+        for slot in list(rooster_dict.items()):
+            for room in self.rooms:
+                if room.name == slot[0][0]:
+                    break
+
+            if slot[1] != 0:
+                for act in self.activities:
+                    if act.code == slot[1][0]:
+                        break
+
+                studs = []
+                for stud in self.students:
+                    if stud.nr in slot[1][1]:
+                        studs.append(stud)
+
+                act.studs = studs
+                room.swap_course(0, act, slot[0][1])
+            else:
+                room.rooster[slot[0][1]] = 0
+                room.update_malus()
+                
+        return self
