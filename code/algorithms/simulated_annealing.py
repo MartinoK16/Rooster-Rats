@@ -97,7 +97,7 @@ class Simulated_Annealing():
             # Save rooster with corresponding malus
             dict[self.lowest_rooster] = sum(Evaluation(self).malus_count())
             self.i += 1
-            #self.malus_list.append(sum(Evaluation(self).malus_count()))
+            self.malus_list.append(sum(Evaluation(self).malus_count()))
 
             if self.i % self.reheat_point == 0:
                 self.current_T += 5
@@ -110,4 +110,4 @@ class Simulated_Annealing():
         with open(f'SA_RoosterWith{min(dict.values())}Points_{self.nr_runs/self.reheat_point}reheats', 'wb') as outp:
             pickle.dump(best_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
-        return best_rooster, best_malus
+        return best_rooster, best_malus, self.malus_list, (self.malus_list.index(min(self.malus_list)), min(self.malus_list))

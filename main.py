@@ -143,9 +143,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'Run different versions of Rooster')
 
     # Adding arguments
+<<<<<<< HEAD
     parser.add_argument('-algo', '--algorithm', type=int, default=5, help='desired algorithm')
     parser.add_argument('-csv', '--csv', type=int, default=0, help='make csv false[0] or true[1]')
     parser.add_argument('-plot', '--plot', type=int, default=0, help='make plot false[0] or true[1]')
+=======
+
+
+    parser.add_argument('-algo', '--algorithm', type=int, default=5, help='desired algorithm')
+    parser.add_argument('-csv', '--csv', type=int, default=0, help='make csv false[0] or true[1]')
+    parser.add_argument('-plot', '--plot', type=int, default=0, help='make plot false[0] or true[1]')
+
+>>>>>>> 069a4011efb4b340c63f7c7e51064f672a024228
 
     # Read arguments from command line
     args = parser.parse_args()

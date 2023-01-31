@@ -10,6 +10,7 @@ class Hillclimber():
         self.activities = rooster.activities
         # List to store malus count for each iteration
         self.maluses = []
+        self.separated_maluses = []
 
     def hc_activities(self):
         '''
@@ -47,6 +48,7 @@ class Hillclimber():
             malus = Evaluation(self).malus_count()
             print(activity1.code, malus, sum(malus), nr3)
             self.maluses.append(sum(malus))
+            self.separated_maluses.append(malus)
 
     def hc_students(self, tut_or_prac):
         '''
@@ -84,6 +86,8 @@ class Hillclimber():
                 # Get the updated malus count and print useful info
                 malus = Evaluation(self).malus_count()
                 print((malus, nr, tut_or_prac), sum(malus))
+                self.maluses.append(sum(malus))
+                self.separated_maluses.append(malus)
 
     def swap_course(self, room1, act1, slot1, room2, act2, slot2):
         '''
@@ -118,7 +122,7 @@ class Hillclimber():
 
     def swap_student(self, student1, act1, slot1, student2, act2, slot2):
         '''
-        Accepts two students with two activities and two timeslots. Removes 
+        Accepts two students with two activities and two timeslots. Removes
         both students from their lecture and adds them to the other one.
         Also updates the student rooster and malus points.
         '''
@@ -129,7 +133,7 @@ class Hillclimber():
             act2.studs.append(student1)
             act2.size += 1
             student1.swap_activity(act1, slot1, act2, slot2)
-        
+
         # Move student 2 and update the occupation of the activity group
         if student2 != 0:
             act2.studs.remove(student2)
@@ -137,7 +141,7 @@ class Hillclimber():
             act1.studs.append(student2)
             act1.size += 1
             student2.swap_activity(act2, slot2, act1, slot1)
-        
+
         # Update the malus counts for both rooms
         act1.room.update_malus()
         act2.room.update_malus()
