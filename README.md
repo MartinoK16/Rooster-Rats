@@ -1,6 +1,6 @@
-# Rooster-Rats
+### Rooster-Rats
 
-## Lectures & Lesroosters
+# Lectures & Lesroosters
 
 Het inroosteren van lessen is een ingewikkeld probleem. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park. 
 
@@ -36,11 +36,13 @@ Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
 
 ### Doel
+
 De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective function, die geminimaliseerd moet worden:
 
 - f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
 
-## State space
+### State space
+
 Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
 
 - n! / (n - r)! 
