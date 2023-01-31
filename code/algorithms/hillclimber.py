@@ -8,6 +8,7 @@ class Hillclimber():
         self.courses = rooster.courses
         self.students = rooster.students
         self.activities = rooster.activities
+        # List to store malus count for each iteration
         self.maluses = []
 
     def hc_activities(self):
