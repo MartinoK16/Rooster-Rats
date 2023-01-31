@@ -12,7 +12,7 @@ class Hillclimber():
 
     def hc_activities(self):
         '''
-        Does one loop over all the activities in a random order and finds the
+        Loops over all the activities once in a random order and finds the
         best fit for each of them by swapping with all other possibilities
         (activities or empty slots).
         '''
@@ -56,9 +56,8 @@ class Hillclimber():
         '''
         # Loop over all courses randomly
         for nr, course in enumerate(random.sample(self.courses, len(self.courses))): # ENUMERATE WEGHALEN
-            # Loop over all tutorial / practical groups
+            # Loop over all students in each tutorial / practical group
             for group_nr, group in enumerate(getattr(course, tut_or_prac)):
-                # Loop over students in the group
                 for student in group.studs:
                     # Dictionary to track the malus points for each student swap
                     tries = {}
@@ -78,7 +77,6 @@ class Hillclimber():
 
                     # Select correct group and student and perform best swap
                     best_swap_group = getattr(course, tut_or_prac)[best_swap[0]]
-                    # print(best_swap_group)
                     best_swap_stud = best_swap[1]
                     self.swap_student(student, group, group.slot, best_swap_stud, best_swap_group, best_swap_group.slot)
 
@@ -119,23 +117,27 @@ class Hillclimber():
 
     def swap_student(self, student1, act1, slot1, student2, act2, slot2):
         '''
-        Removes a student from a lecture and adds it to another one.
-        Also updates the student rooster and malus points
+        Accepts two students with two activities and two timeslots. Removes 
+        both students from their lecture and adds them to the other one.
+        Also updates the student rooster and malus points.
         '''
+        # Move student 1 and update the occupation of the activity group
         if student1 != 0:
             act1.studs.remove(student1)
             act1.size -= 1
             act2.studs.append(student1)
             act2.size += 1
             student1.swap_activity(act1, slot1, act2, slot2)
-
+        
+        # Move student 2 and update the occupation of the activity group
         if student2 != 0:
             act2.studs.remove(student2)
             act2.size -= 1
             act1.studs.append(student2)
             act1.size += 1
             student2.swap_activity(act2, slot2, act1, slot1)
-
+        
+        # Update the malus counts for both rooms
         act1.room.update_malus()
         act2.room.update_malus()
 
@@ -144,6 +146,7 @@ class Hillclimber():
         Accepts a list and an optional boolean argument. Transforms list into
         set, either with or without adding 0 (True vs. False, respectively).
         '''
+        # Transform list into set, either with or without adding zero
         stud_set = set(stud_list)
         if add_zero:
             stud_set.add(0)
@@ -157,7 +160,10 @@ class Hillclimber():
         gets the new malus, puts it in the dictionary and swaps them back.
         '''
         for other_student in self.create_stud_set(new_group.studs, add_zero):
+            # Swap two students with each other or move student to another lecture
             self.swap_student(student, group, group.slot, other_student, new_group, new_group.slot)
+            # Store malus count resulting from this swap
             tries[(new_group_nr, other_student)] = sum(Evaluation(self).malus_count())
+            # Swap students or move student back to their original lecture
             self.swap_student(other_student, group, group.slot, student, new_group, new_group.slot)
         return tries
