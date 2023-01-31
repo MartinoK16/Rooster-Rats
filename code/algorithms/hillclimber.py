@@ -71,7 +71,7 @@ class Hillclimber():
                         if new_group_nr != group_nr and new_group.max_studs > new_group.size:
                             self.try_swap(student, group, new_group, new_group_nr, tries)
                         elif new_group_nr != group_nr and new_group.max_studs == new_group.size:
-                            self.try_swap(student, group, new_group, new_group_nr, tries, False)
+                            self.try_swap(student, group, new_group, new_group_nr, tries, add_zero=False)
 
                     # Randomly get one of the swaps with the least malus points
                     best_swap = random.choice([k for k, v in tries.items() if v==min(tries.values())])
@@ -139,7 +139,7 @@ class Hillclimber():
         act1.room.update_malus()
         act2.room.update_malus()
 
-    def create_stud_set(self, stud_list, add_zero=True):
+    def create_stud_set(self, stud_list, add_zero):
         '''
         Accepts a list and an optional boolean argument. Transforms list into
         set, either with or without adding 0 (True vs. False, respectively).

@@ -74,21 +74,26 @@ class Evaluation():
     def rooster_dict(self):
         '''
         Makes a tuple from an rooster object in the form of:
-        (room.name, slot) = (activity.code, (student1.nr, student2.nr, ...))
+        ((room.name, slot), (activity.code, (student1.nr, student2.nr, ...)))
         Also sorts it, so small changes still return the same tuple
         '''
         rooster = {}
+        # Check all the rooms and timeslots
         for room in self.rooms:
             for slot in np.ndindex(room.rooster.shape):
                 act = room.rooster[slot]
+                # If the slot is occupied add the activity and its students
                 if act != 0:
                     studs = []
                     for stud in act.studs:
                         studs.append(stud.nr)
+                        # Sort the students, so the order does not matter
                         studs.sort()
                     rooster[room.name, slot] = (act.code, tuple(studs))
+                # If the slot is not occupied put a zero
                 else:
                     rooster[room.name, slot] = 0
+        # Make a aorted tuple from the dictionary
         return tuple(sorted(rooster.items()))
 
     def rooster_object(self, rooster_dict):
@@ -96,28 +101,37 @@ class Evaluation():
         Updates all the students, rooms and activities to get the rooster from
         the given dictionary
         '''
+        # Clear the roosters for each student
         for stud in self.students:
             stud.clear_rooster()
 
+        # Loop over all the timeslots in the dictionary
         for slot in list(rooster_dict.items()):
+            # Find which room this slot is
             for room in self.rooms:
                 if room.name == slot[0][0]:
                     break
 
+            # Check if there is an activity in this slot and room
             if slot[1] != 0:
+                # Find the activity this is
                 for act in self.activities:
                     if act.code == slot[1][0]:
                         break
-
+                # Make a list of the students in this activity
                 studs = []
                 for stud in self.students:
                     if stud.nr in slot[1][1]:
                         studs.append(stud)
-
+                # Set the students in this activity to the updated ones
                 act.studs = studs
+                # Set the activity in the correct slot and room
                 room.swap_course(0, act, slot[0][1])
+                room.update_malus()
             else:
+                # Set the room and slot to 0
                 room.rooster[slot[0][1]] = 0
                 room.update_malus()
 
-        return self.students, self.rooms, self.activities, self.activities
+        # Return the students, rooms, activities and
+        return self.students, self.rooms, self.activities
