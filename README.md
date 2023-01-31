@@ -17,33 +17,23 @@ Elk van de vakken kan worden ingedeeld in een van de 145 tijdsloten. Dit zijn pe
 - Grootste zaal heeft ook een avondslot (17-19u)
 
 We hebben te maken met 609 Studenten.
-
-  · Elke student volgt maximaal 5 vakken
+- Elke student volgt maximaal 5 vakken
 
 
 ## Constraints
 
 De hard constraints van onze case zijn als volgt:
-
-  · Alle activiteiten moeten worden ingeroosterd
-
-  · Maximaal één activiteit per tijdslot per zaal
-
-  · Student mag maximaal twee tussenuren na elkaar hebben
-
-  · Maximumgrootte van werkcolleges en practica
-
-  · Zo min mogelijk werkcolleges en practica
+- Alle activiteiten moeten worden ingeroosterd
+- Maximaal één activiteit per tijdslot per zaal
+- Student mag maximaal twee tussenuren na elkaar hebben
+- Maximumgrootte van werkcolleges en practica
+- Zo min mogelijk werkcolleges en practica
 
 Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit van het rooster. Er wordt een aantal maluspunten toegekend bij het overtreden van de volgende soft constraints:
-
-  · Studenten met tussenuren (α = een tussenuur per dag per student, β = twee tussenuren per dag per student)
-
-  · Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
-
-  · Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
-
-  · Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
+- Studenten met tussenuren (α = een tussenuur per dag per student, β = twee tussenuren per dag per student)
+- Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
+- Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
+- Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
 
 ## Doel:
 De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective function, die geminimaliseerd moet worden:
