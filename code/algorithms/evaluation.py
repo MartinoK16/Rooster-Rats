@@ -55,7 +55,7 @@ class Evaluation():
 
                     df = pd.DataFrame(data=dict)
 
-                    with open(f'../data/room{room.room}.yaml', 'w') as file:
+                    with open(f'../data/room{room.name}.yaml', 'w') as file:
                         documents = yaml.dump(df.to_dict(orient='records'), file, default_flow_style=False)
 
     def malus_count(self):

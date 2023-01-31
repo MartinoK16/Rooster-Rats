@@ -37,8 +37,6 @@ sys.setrecursionlimit(5000)
 # plt.grid(which='both')
 # plt.show()
 
-<<<<<<< HEAD
-
 
 # prev_malus = 65
 # maluses = []
@@ -65,11 +63,11 @@ sys.setrecursionlimit(5000)
 #     malus = Evaluation(my_rooster).malus_count()
 #     maluses.append(malus)
 #     print(i, maluses)
-
-    # if sum(malus) < prev_malus:
-    # with open(f'RoosterWith{sum(malus)}Points_run{i+1}', 'wb') as outp:
-    #     pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-    #     prev_malus = sum(malus)
+#
+#     if sum(malus) < prev_malus:
+#     with open(f'RoosterWith{sum(malus)}Points_run{i+1}', 'wb') as outp:
+#         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+#         prev_malus = sum(malus)
 #
 # for i in range(10, 1000):
 #     with open(r'RoosterWith56Points_run82', 'rb') as input_file:
@@ -264,6 +262,7 @@ sys.setrecursionlimit(5000)
 #
 # with open(r'RoosterWith44Points_refined56_run0', 'rb') as input_file:
 #     my_rooster = pickle.load(input_file)
+#     # Evaluation(my_rooster).make_scheme()
 #     # for stud in my_rooster.students:
 #     #     if sum(stud.malus) > 0:
 #     #         print(stud.nr, stud.malus, len(stud.courses))

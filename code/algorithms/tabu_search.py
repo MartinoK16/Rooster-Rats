@@ -1,7 +1,5 @@
-import random
 import copy
 from .evaluation import *
-from .hillclimber import *
 
 class Tabu():
     def __init__(self, rooster):

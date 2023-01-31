@@ -1,8 +1,7 @@
 import pandas as pd
-from classes.rooster import *
-from algorithms.evaluation import *
-from algorithms.hillclimber import *
-from algorithms.initialize import *
+from .evaluation import *
+from .hillclimber import *
+from .initialize import *
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -10,12 +9,6 @@ import math
 import time
 import pickle
 import sys
-
-courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('../data/zalen.csv')
-evenings = {'C0.110'}
-sys.setrecursionlimit(5000)
 
 class Simulated_Annealing():
     def __init__(self, lowest_rooster, initial_T, reheat_point,
@@ -118,69 +111,3 @@ class Simulated_Annealing():
             pickle.dump(best_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
         return best_rooster, best_malus
-
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster = Initialize(my_rooster)
-
-# def experiment(my_rooster, initial_T):
-#     maluses = []
-#     for i in range(2):
-#         my_rooster.make_rooster_greedy()
-#         results = Simulated_Annealing(my_rooster, initial_T).run()
-    # my_rooster = Hillclimber(my_rooster)
-
-    # for i in range(2):
-    #     my_rooster.hc_activities()
-    #     initial_T -= 2
-    #     results = Simulated_Annealing(my_rooster, initial_T).run()
-    #     plt.scatter(results[1], results[0])
-    #     plt.show()
-
-#experiment = experiment(my_rooster, 50)
-
-def experiment(initial_T=50, nr_runs=10, type_rooster='random'):
-    '''
-    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
-    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
-    corresponding maluspoints in a histogram.
-    '''
-    random_dict = {}
-    reheat_list = [5000, 10000, 20000, 25000, 50000]
-    malus_list = []
-    for i in range(nr_runs):
-        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-        my_rooster = Initialize(my_rooster)
-        my_rooster.make_rooster_greedy()
-        malus = sum(Evaluation(my_rooster).malus_count())
-        random_dict[my_rooster] = malus
-
-    lowest_rooster = min(random_dict, key=random_dict.get)
-
-    # for j in range(6):
-    #     for heat in reheat_list:
-    start = time.time()
-    result = Simulated_Annealing(lowest_rooster, initial_T, 100000).run()
-    sa_rooster = result[0]
-    malus_list.append(result[1])
-    stop = time.time()
-    print(f'Runtime for simulated annealing is : {stop-start}')
-    #print(j, malus_list)
-
-    return malus_list
-
-experiment()
-
-
-
-# maluses = []
-# for i in range(5000):
-#     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-#     my_rooster = Initialize(my_rooster)
-#     my_rooster.make_rooster_random(4, 5, 7)
-#     maluses.append(sum(Evaluation(my_rooster).malus_count()))
-#
-# std = np.std(maluses)
-# print(std)
-#
-# sns.histplot(x=maluses, binwidth=20, kde=True)
-# plt.show()
