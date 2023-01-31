@@ -130,8 +130,8 @@ try:
 
 except:
     print('Welkom,')
-    Print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
-    Print('You can choose between the following experiments:')
+    print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
+    print('You can choose between the following experiments:')
     print('\t - random')
     print('\t - greedy')
     print('\t - random hillclimber')
