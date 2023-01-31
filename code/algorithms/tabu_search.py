@@ -1,6 +1,5 @@
 import random
 import copy
-import time
 from .evaluation import *
 from .hillclimber import *
 
@@ -16,8 +15,8 @@ class Tabu():
         Kies een initiële oplossing en bepaal hoe goed die oplossing is
         Herhaal
             Bepaal de naburige oplossingen die niet taboe zijn en bepaal hoe goed deze zijn
-            Kies de beste naburige oplossing en plaats de vorige oplossing in de Tabu lijst
             Als de nieuwe oplossing beter is onthoud dan de nieuwe oplossing
+            Kies de beste naburige oplossing en plaats de vorige oplossing in de Tabu lijst
         Tot de stop-conditie vervuld is
         '''
         self.maluses = []
@@ -30,21 +29,28 @@ class Tabu():
         for nr in range(max_iter):
             # Get the neighbours for this rooster
             neighbours = self.get_neighbours()
-            # Randomly get 
+            # Randomly get a candidate from the neighbours to start
             best_cand = random.choice(neighbours)
+            # Loop over all the neighbours
             for cand in random.sample(neighbours, len(neighbours)):
+                # Check if this rooster is not in the tabu list and malus is lower
                 if cand[0] not in tabu_list and cand[1] < best_cand[1]:
+                    # Set the best candidate to this candidate
                     best_cand = cand
 
+            # If this best candidate is better than the best found rooster set it to the best
             if best_cand[1] < self.best[1]:
                 print('BETTER')
                 self.best = copy.deepcopy(best_cand)
                 self.iter = (nr, self.best[1])
 
-            self.students, self.rooms, self.activities, self.activities = \
+            # Update self to use the rooster of the best candidate
+            self.students, self.rooms, self.activities = \
             Evaluation(self).rooster_object(dict(best_cand[0]))
 
+            # Append the best candidate to the tabu list
             tabu_list.append(best_cand[0])
+            # Remove the first entry of the list
             if len(tabu_list) > max_size:
                 tabu_list.pop(0)
 
@@ -102,32 +108,3 @@ class Tabu():
         # Update the malus counts for both rooms
         room1.update_malus()
         room2.update_malus()
-
-    def rooster_object(self, rooster_dict):
-        '''
-        Updates all the students, rooms and activities to get the rooster from
-        the given dictionary
-        '''
-        for stud in self.students:
-            stud.clear_rooster()
-
-        for slot in list(rooster_dict.items()):
-            for room in self.rooms:
-                if room.name == slot[0][0]:
-                    break
-
-            if slot[1] != 0:
-                for act in self.activities:
-                    if act.code == slot[1][0]:
-                        break
-
-                studs = []
-                for stud in self.students:
-                    if stud.nr in slot[1][1]:
-                        studs.append(stud)
-
-                act.studs = studs
-                room.swap_course(0, act, slot[0][1])
-            else:
-                room.rooster[slot[0][1]] = 0
-                room.update_malus()

@@ -75,15 +75,15 @@ def malus_count(df, cap_dict):
     # Loop over all the students
     for student in df['student'].unique():
         # Get the dagen and tijdsloten of the student
-        rooster = df[df['student'] == student].sort_values(by=['dag', 'tijdslot']).loc[:,('dag', 'tijdslot')]
+        rooster = df[df['student'] == student].sort_values(by=['day', 'timeslot']).loc[:,('day', 'timeslot')]
         # Check if there are more than 1 lecture at the same time for this student
-        malus += sum(rooster.groupby(['dag', 'tijdslot']).size() - 1)
+        malus += sum(rooster.groupby(['day', 'timeslot']).size() - 1)
 
         # Loop over the days in the students rooster
-        for day in rooster['dag'].unique():
+        for day in rooster['day'].unique():
             # Get the times of this day
-            dag = rooster[rooster['dag'] == day]
-            time = dag['tijdslot'].unique()
+            dag = rooster[rooster['day'] == day]
+            time = dag['timeslot'].unique()
 
             # Check if the student has tussenuren
             tussenuur = 0
@@ -103,9 +103,9 @@ def malus_count(df, cap_dict):
                 malus += 1
 
     # Loop over the different rooms
-    for room in df['zaal'].unique():
+    for room in df['room'].unique():
         # Get expected people of the rooms
-        expected = df[df['zaal'] == room].sort_values(by=['tijdslot']).groupby(['dag', 'tijdslot']).size()
+        expected = df[df['room'] == room].sort_values(by=['timeslot']).groupby(['day', 'timeslot']).size()
         # print(df[df['zaal'] == room])
         # print(room)
         # print(expected)
@@ -115,7 +115,8 @@ def malus_count(df, cap_dict):
 
     return malus
 
-print(malus_count(student_rooster, cap_dict))
+my_rooster = pd.read_csv('TESTCSV44')
+print(malus_count(my_rooster, cap_dict))
 
 # Made an extra column with a set of all the vakken of each student
 # df = pd.read_csv('LecturesLesroosters/studenten_en_vakken.csv')
