@@ -1,9 +1,4 @@
-import pandas as pd
-import numpy as np
-import math
-import random
 import argparse
-import yaml
 
 from code.student_rooster import *
 from code.classes.rooster import *
@@ -12,7 +7,7 @@ from code.algorithms.hillclimber import *
 from code.algorithms.initialize import *
 from code.algorithms.tabu_search import *
 from code.algorithms.simulated_annealing import *
-# from code.experiments import *
+from code.experiments import *
 
 try:
     def main(algorithm, csv, plot):
