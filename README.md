@@ -68,13 +68,13 @@ pip install pyyaml
 
 ### Gebruik
 
-Een voorbeeldje kan gerund worden door aanroepen van:
+Een voorbeeldje kan gerund worden door het aanroepen van:
 
 ```
 python main.py
 ```
 
-Het bestand geeft een voorbeeld voor gebruik van de verschillende functies.
+Het bestand geeft aan hoe verschillende functies gebruikt kunnen worden.
 
 ### Structuur
 
@@ -85,7 +85,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/classes**: bevat de benodigde classes voor deze case
   - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
 - **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren
-- **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster
+- **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
 
 ## Auteurs
 - Martijn Kievit
