@@ -1,6 +1,6 @@
 # Rooster-Rats
 
-# Lectures & Lesroosters
+## Lectures & Lesroosters
 
 Het inroosteren van lessen is een ingewikkeld probleem. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park. 
 
@@ -20,7 +20,7 @@ We hebben te maken met 609 Studenten.
 - Elke student volgt maximaal 5 vakken
 
 
-## Constraints
+### Constraints
 
 De hard constraints van onze case zijn als volgt:
 - Alle activiteiten moeten worden ingeroosterd
@@ -35,13 +35,21 @@ Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit
 - Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
 
-## Doel:
+### Doel
 De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective function, die geminimaliseerd moet worden:
 
 f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
 
-## State space:
-Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend.
+## State space
+Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
+
+n! / (n - r)! 
+- # tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
+- # activiteiten = 131
+145! / 14! = 9.23 * 10^240 opties 
+
+Hierbij is nog niet eens rekening gehouden met de 92 werkcollege- en practicumgroepen waarin studenten kunnen worden verwisseld!
+Met dit idee in ons achterhoofd hebben wij geprobeerd een zo goed mogelijk rooster te maken met behulp van verschillende algoritmen en heuristieken.
 
 ## Aan de slag
 
