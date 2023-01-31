@@ -37,6 +37,7 @@ sys.setrecursionlimit(5000)
 # plt.grid(which='both')
 # plt.show()
 
+<<<<<<< HEAD
 
 
 # prev_malus = 65

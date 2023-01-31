@@ -85,12 +85,14 @@ def hc_students(self, tut_or_prac):
         # print(malus, malus, nr, tut_or_prac)
 
 
-#
 def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities'):
     '''
-    nr_runs = integer
-    type_rooster = 'random', 'greedy', 'large to small'
-    hc_activities = 'hc_activities', 'hc_students', 'hc_activities_and_students'
+    Accepts three optional arguments:
+    · nr_runs = integer
+    · type_rooster = 'random', 'greedy', 'large to small'
+    · hc_activities = 'hc_activities', 'hc_students', 'hc_activities_and_students'
+    Keeps track of malus count per iteration for each run and creates a lineplot
+    of the average, minimum and maximum malus count per iteration.
     '''
     malus_lists = []
     avg_maluses = []
@@ -152,11 +154,9 @@ def make_histogram(nr_runs=500, type_rooster='random'):
 
         if type_rooster == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
-            # binwidth = 20
         else:
             my_rooster.make_rooster_greedy()
-            # binwidth = 3
-        print(i)
+        # print(i)
         malus = sum(Evaluation(my_rooster).malus_count())
         maluses.append(malus)
 

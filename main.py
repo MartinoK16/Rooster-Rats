@@ -6,8 +6,11 @@ import numpy as np
 import time
 import argparse
 import yaml
+import pdfschedule
 
-from student_rooster import *
+from classes.rooster import Rooster
+
+from student_rooster import rooster_per_student
 from classes.rooster import *
 from algorithms.evaluation import *
 from algorithms.hillclimber import *

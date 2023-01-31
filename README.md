@@ -2,7 +2,8 @@
 
 # Lectures & Lesroosters
 
-Lesroosters, of roosters in het algemeen, zijn buitengewoon lastig goed in te richten. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park.
+Het inroosteren van lessen is een ingewikkeld probleem. In deze case ...
+In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park.
 
 ## Aan de slag
 
@@ -12,6 +13,9 @@ Deze codebase is volledig geschreven in Python 3.9.13 en we gaan ervan uit dat e
 
 ```
 python3 -m pip install pdfschedule
+```
+```
+pip install pyyaml
 ```
 
 ### Gebruik
