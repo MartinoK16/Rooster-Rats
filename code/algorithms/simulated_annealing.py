@@ -17,9 +17,9 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 sys.setrecursionlimit(5000)
 
-
 class Simulated_Annealing():
-    def __init__(self, lowest_rooster, initial_T, reheat_point, nr_runs = 500000, g = 0.998, final_T=0.0001):
+    def __init__(self, lowest_rooster, initial_T, reheat_point,
+     nr_runs = 500000, g = 0.998, final_T=0.0001):
         self.g = g
         self.nr_runs = nr_runs
         self.initial_T = initial_T
@@ -32,22 +32,40 @@ class Simulated_Annealing():
         self.courses = lowest_rooster.courses
         self.students = lowest_rooster.students
         self.lowest_rooster = lowest_rooster
-        self.value_count = 0
-        self.malus_list = []
 
     def geometric(self):
+        '''
+        Geometric cooling method
+        '''
         self.current_T *= (self.g) ** self.i
 
     def linear(self, alpha=0.001):
+        '''
+        Linear cooling method
+        '''
         self.current_T -= alpha
 
     def logarithmic(self):
+        '''
+        Logarithmic cooling method
+        '''
         self.current_T = self.initial_T / (1 + math.log(1 + self.i))
 
     def exponential(self):
+        '''
+        Exponential cooling method
+        '''
         self.current_T = max(0.05, self.current_T * self.g)
 
     def run(self):
+        '''
+        This function applies the simulated annealing algorithm,
+        where it declines a lecture swap with a random
+        chance > e ^ (delta / T). It cools down via one of the
+        called cooling methods above. The lecture swap swaps two
+        randomly chosen lectures. It saves the malus for each rooster
+        and it returns the best rooster with best malus.
+        '''
         dict = {}
 
         while self.i < self.nr_runs:
@@ -65,17 +83,25 @@ class Simulated_Annealing():
             slot2 = random.choice(slots)
             lecture2 = room2.rooster[slot2]
 
+            # Malus before swap
             old = sum(Evaluation(self).malus_count())
+
+            # Swapping lectures
             Hillclimber(self).swap_course(room1, lecture1, slot1, room2, lecture2, slot2)
+
+            # Malus after swap
             new = sum(Evaluation(self).malus_count())
 
+            # Decline swap with delta > 50 or random chance
             if new > old + 50 or random.uniform(0, 1) > round(math.exp((old-new) / self.current_T),10):
                 Hillclimber(self).swap_course(room1, lecture2, slot1, room2, lecture1, slot2)
 
+            # Apply cooling method
             self.exponential()
 
             print(sum(Evaluation(self).malus_count()), "\t", self.current_T)
 
+            # Save rooster with corresponding malus
             dict[self.lowest_rooster] = sum(Evaluation(self).malus_count())
             self.i += 1
             #self.malus_list.append(sum(Evaluation(self).malus_count()))
@@ -83,8 +109,11 @@ class Simulated_Annealing():
             if self.i % self.reheat_point == 0:
                 self.current_T += 5
 
+        # Get rooster with lowest malus
         best_rooster = min(dict, key=dict.get)
         best_malus = min(dict.values())
+
+        # Save rooster to file
         with open(f'SA_RoosterWith{min(dict.values())}Points_{self.nr_runs/self.reheat_point}reheats', 'wb') as outp:
             pickle.dump(best_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
@@ -130,7 +159,7 @@ def experiment(initial_T=50, nr_runs=10, type_rooster='random'):
     # for j in range(6):
     #     for heat in reheat_list:
     start = time.time()
-    result = Simulated_Annealing(lowest_rooster, initial_T, 50000).run()
+    result = Simulated_Annealing(lowest_rooster, initial_T, 100000).run()
     sa_rooster = result[0]
     malus_list.append(result[1])
     stop = time.time()
