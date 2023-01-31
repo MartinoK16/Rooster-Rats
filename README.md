@@ -24,13 +24,13 @@ We hebben te maken met 609 Studenten.
 
 De hard constraints van onze case zijn als volgt:
 - Alle activiteiten moeten worden ingeroosterd
-- Maximaal één activiteit per tijdslot per zaal
+- Maximaal één activiteit per tijdslot per zaal inplannen
 - Student mag maximaal twee tussenuren na elkaar hebben
-- Maximumgrootte van werkcolleges en practica
-- Zo min mogelijk werkcolleges en practica
+- Houden aan de maximumgrootte van werkcolleges en practica
+- Zo min mogelijk werkcollege- en practicumgroepen
 
 Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit van het rooster. Er wordt een aantal maluspunten toegekend bij het overtreden van de volgende soft constraints:
-- Studenten met tussenuren (α = een tussenuur per dag per student, β = twee tussenuren per dag per student)
+- Studenten met tussenuren (α = # keren een tussenuur per dag per student, β = # keren twee tussenuren per dag per student)
 - Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
 - Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
@@ -46,8 +46,8 @@ De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective
 Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
 
 - n! / (n - r)! 
-  - '# tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
-  - '# activiteiten = 131
+  - # tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
+  - # activiteiten = 131
 - 145! / 14! = 9.23 * 10^240 opties 
 
 Hierbij is nog niet eens rekening gehouden met de 92 werkcollege- en practicumgroepen waarin studenten kunnen worden verwisseld!
