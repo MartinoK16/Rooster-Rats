@@ -2,7 +2,8 @@
 
 # Lectures & Lesroosters
 
-Lesroosters, of roosters in het algemeen, zijn buitengewoon lastig goed in te richten. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park.
+Het inroosteren van lessen is een ingewikkeld probleem. In deze case ...
+In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park.
 
 ## Aan de slag
 
