@@ -5,16 +5,16 @@
 Het inroosteren van lessen is een ingewikkeld probleem. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park. 
 
 Hiervoor moeten 131 activiteiten ingepland worden. Dit kunnen hoorcolleges, werkcolleges en practica zijn.
--Een activiteit duurt 2 uur (= tijdslot)
--Maximale groepsgrootte bij werkcolleges en practica
+- Een activiteit duurt 2 uur (= tijdslot)
+- Maximale groepsgrootte bij werkcolleges en practica
 
 Verder zijn er 7 zalen waarin de activiteiten kunnen plaatsvinden.
--Alle zalen zijn voor alle soorten activiteiten geschikt
--Capaciteit verschilt per zaal
+- Alle zalen zijn voor alle soorten activiteiten geschikt
+- Capaciteit verschilt per zaal
 
 Elk van de vakken kan worden ingedeeld in een van de 145 tijdsloten. Dit zijn periodes van 2 uur.
--Elke zaal heeft vier tijdsloten overdag (9-11u, 11-13u, 13-15u, 15-17u)
--Grootste zaal heeft ook een avondslot (17-19u)
+- Elke zaal heeft vier tijdsloten overdag (9-11u, 11-13u, 13-15u, 15-17u)
+- Grootste zaal heeft ook een avondslot (17-19u)
 
 We hebben te maken met 609 Studenten.
 
