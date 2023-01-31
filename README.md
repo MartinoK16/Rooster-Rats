@@ -38,16 +38,15 @@ Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit
 ### Doel
 De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective function, die geminimaliseerd moet worden:
 
-f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
+- f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
 
 ## State space
 Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
 
-n! / (n - r)! 
-- '# tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
-- '# activiteiten = 131
-
-145! / 14! = 9.23 * 10^240 opties 
+- n! / (n - r)! 
+  - '# tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
+  - '# activiteiten = 131
+- 145! / 14! = 9.23 * 10^240 opties 
 
 Hierbij is nog niet eens rekening gehouden met de 92 werkcollege- en practicumgroepen waarin studenten kunnen worden verwisseld!
 Met dit idee in ons achterhoofd hebben wij geprobeerd een zo goed mogelijk rooster te maken met behulp van verschillende algoritmen en heuristieken.
@@ -77,13 +76,14 @@ Het bestand geeft een voorbeeld voor gebruik van de verschillende functies.
 
 ### Structuur
 
-De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar je ze kan vinden:
+De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar deze gevonden kunnen worden:
 
 - **/code**: bevat alle code van dit project
   - **/code/algorithms**: bevat de code voor algoritmes
   - **/code/classes**: bevat de benodigde classes voor deze case
-  - **/code/visualisation**: bevat de code voor de visualisatie
-- **/data**: bevat de verschillende csv bestanden die nodig zijn om de roosters te vullen en te visualiseren
+  - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
+- **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren
+- **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster
 
 ## Auteurs
 - Martijn Kievit
