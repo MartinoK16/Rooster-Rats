@@ -26,7 +26,7 @@ rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 sys.setrecursionlimit(5000)
 
-def experiment(initial_T=50, nr_runs=10, type_rooster='random'):
+def SA_experiment(initial_T=50, nr_runs=10):
     '''
     Accepts an integer (nr_runs) and a string (type), which can be 'random' or
     'greedy'. Creates nr_runs times a greedy or random rooster and plots the
@@ -56,4 +56,4 @@ def experiment(initial_T=50, nr_runs=10, type_rooster='random'):
 
     return malus_list
 
-experiment()
+SA_experiment()
