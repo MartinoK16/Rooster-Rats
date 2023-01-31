@@ -36,17 +36,14 @@ sys.setrecursionlimit(5000)
 # plt.ylabel('Minpunten')
 # plt.show()
 
-
-
-prev_malus = 65
 maluses = []
-for i in range(186, 1000):
+for i in range(0, 1000):
     st = time.time()
     my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
     my_rooster = Initialize(my_rooster)
-    # my_rooster.make_rooster_random(4, 5, 7)
+    my_rooster.make_rooster_random(4, 5, 7)
     # my_rooster.make_rooster_largetosmall()
-    my_rooster.make_rooster_greedy()
+    # my_rooster.make_rooster_greedy()
     malus = sum(Evaluation(my_rooster).malus_count())
     new_malus = malus - 1
 
@@ -63,11 +60,10 @@ for i in range(186, 1000):
     malus = Evaluation(my_rooster).malus_count()
     maluses.append(malus)
     print(maluses)
-#
-#     # if sum(malus) < prev_malus:
-#     with open(f'RoosterWith{sum(malus)}Points_run{i+1}Test', 'wb') as outp:
-#         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
-#         prev_malus = sum(malus)
+
+    # if sum(malus) < prev_malus:
+    with open(f'RoosterWith{sum(malus)}Points_run{i+1}Test', 'wb') as outp:
+        pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
 #
 # for i in range(10, 1000):
 #     with open(r'RoosterWith56Points_run82', 'rb') as input_file:
