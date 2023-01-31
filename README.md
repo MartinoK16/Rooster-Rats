@@ -46,7 +46,7 @@ Om een idee te krijgen van de grootte van het probleem, hebben wij de state spac
 n! / (n - r)! 
 - '# tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
 - '# activiteiten = 131
-- 
+
 145! / 14! = 9.23 * 10^240 opties 
 
 Hierbij is nog niet eens rekening gehouden met de 92 werkcollege- en practicumgroepen waarin studenten kunnen worden verwisseld!
@@ -81,7 +81,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
 
 - **/code**: bevat alle code van dit project
   - **/code/algorithms**: bevat de code voor algoritmes
-  - **/code/classes**: bevat de drie benodigde classes voor deze case
+  - **/code/classes**: bevat de benodigde classes voor deze case
   - **/code/visualisation**: bevat de code voor de visualisatie
 - **/data**: bevat de verschillende csv bestanden die nodig zijn om de roosters te vullen en te visualiseren
 
