@@ -44,8 +44,8 @@ f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
 Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
 
 n! / (n - r)! 
-- # tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
-- # activiteiten = 131
+- '#' tijdsloten = # zalen (7) * # dagsloten (20) + # avondsloten (5) = 145
+- '#' activiteiten = 131
 145! / 14! = 9.23 * 10^240 opties 
 
 Hierbij is nog niet eens rekening gehouden met de 92 werkcollege- en practicumgroepen waarin studenten kunnen worden verwisseld!
