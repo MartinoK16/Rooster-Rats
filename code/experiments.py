@@ -1,30 +1,3 @@
-import pandas as pd
-import numpy as np
-import math
-import random
-import numpy as np
-import time
-import pickle
-import sys
-import argparse
-import yaml
-import pdfschedule
-
-from classes.rooster import Rooster
-from student_rooster import rooster_per_student
-from classes.rooster import *
-from algorithms.evaluation import *
-from algorithms.hillclimber import *
-from algorithms.initialize import *
-from algorithms.tabu_search import *
-from algorithms.simulated_annealing import *
-
-courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('../data/zalen.csv')
-evenings = {'C0.110'}
-sys.setrecursionlimit(5000)
-
 def SA_experiment(initial_T=50, nr_runs=10):
     '''
     Accepts an integer (nr_runs) and a string (type), which can be 'random' or
@@ -114,8 +87,7 @@ def make_plot(nr_runs=10, type_rooster='random', algorithm='hc_activities'):
     plt.ylabel('Aantal minpunten')
     plt.show()
 
-make_plot(nr_runs=20, type_rooster='greedy')
-
+# make_plot(nr_runs=20, type_rooster='greedy')
 
 def make_histogram(nr_runs=500, type_rooster='random'):
     '''
@@ -143,4 +115,4 @@ def make_histogram(nr_runs=500, type_rooster='random'):
     plt.ylabel('Aantal')
     plt.show()
 
-make_histogram(1000, 'greedy')
+# make_histogram(1000, 'greedy')
