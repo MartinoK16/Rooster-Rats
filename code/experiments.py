@@ -19,7 +19,6 @@ from algorithms.initialize import *
 from algorithms.tabu_search import *
 from algorithms.simulated_annealing import *
 
-
 courses_df = pd.read_csv('../data/vakken.csv')
 student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
@@ -44,20 +43,22 @@ def SA_experiment(initial_T=50, nr_runs=10):
 
     lowest_rooster = min(random_dict, key=random_dict.get)
 
-    # for j in range(6):
-    #     for heat in reheat_list:
     start = time.time()
     result = Simulated_Annealing(lowest_rooster, initial_T, 50000).run()
     sa_rooster = result[0]
     malus_list.append(result[1])
     stop = time.time()
     print(f'Runtime for simulated annealing is : {stop-start}')
+    print(f'Coördinates minimum: {result[3]}')
+    plt.plot(result[2])
+    plt.plot(result[3][0], result[3][1], markersize=8, marker="o", markerfacecolor="red")
+    plt.xlabel('Iteration')
+    plt.ylabel('Malus count')
+    plt.title('Simulated annealing with 10 reheats')
+    plt.show()
     #print(j, malus_list)
 
     return malus_list
-
-SA_experiment()
-
 
 def make_plot(nr_runs=10, type_rooster='random', algorithm='hc_activities'):
     '''
