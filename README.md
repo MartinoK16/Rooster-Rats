@@ -13,7 +13,9 @@ Verder zijn er 7 zalen waarin de activiteiten kunnen plaatsvinden.
 · Capaciteit verschilt per zaal
 
 Elk van de vakken kan worden ingedeeld in een van de 145 tijdsloten. Dit zijn periodes van 2 uur.
+
 · Elke zaal heeft vier tijdsloten overdag (9-11u, 11-13u, 13-15u, 15-17u)
+
 · Grootste zaal heeft ook een avondslot (17-19u)
 
 We hebben te maken met 609 Studenten.
