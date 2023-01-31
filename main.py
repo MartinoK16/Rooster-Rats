@@ -5,26 +5,25 @@ import random
 import argparse
 import yaml
 
-from student_rooster import *
-from classes.rooster import *
-from algorithms.evaluation import *
-from algorithms.hillclimber import *
-from algorithms.initialize import *
-from algorithms.tabu_search import *
-from experiments import *
+from code.student_rooster import *
+from code.classes.rooster import *
+from code.algorithms.evaluation import *
+from code.algorithms.hillclimber import *
+from code.algorithms.initialize import *
+from code.algorithms.tabu_search import *
+from code.algorithms.simulated_annealing import *
+# from code.experiments import *
 
 try:
     def main(algorithm, csv, plot):
-        courses_df = pd.read_csv('../data/vakken.csv')
-        student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-        rooms_df = pd.read_csv('../data/zalen.csv')
+        courses_df = pd.read_csv('data/vakken.csv')
+        student_df = pd.read_csv('data/studenten_en_vakken2.csv')
+        rooms_df = pd.read_csv('data/zalen.csv')
 
         # Rooms with evening timeslot
         evenings = {'C0.110'}
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
-
-        print('Malus points for version 2, 3 or 4:')
 
         if algorithm == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
@@ -66,7 +65,7 @@ try:
                 my_rooster.make_csv('../data/rooster_random_hillclimber.csv')
 
             if plot == 1:
-                make_plot(nr_runs=10, 'random', 'hc_activities')
+                make_plot('random', 'hc_activities', nr_runs=10)
 
         if algorithm == 'greedy hillclimber':
             my_rooster.make_rooster_greedy()
@@ -79,7 +78,7 @@ try:
                 my_rooster.make_csv('../data/rooster_greedy_hillclimber.csv')
 
             if plot == 1:
-                make_plot(nr_runs=10, 'greedy', 'hc_activities')
+                make_plot('greedy', 'hc_activities', nr_runs=10)
 
         if algorithm == 'random hillclimber with students':
             my_rooster.make_rooster_random(4, 5, 7)
@@ -94,7 +93,7 @@ try:
                 my_rooster.make_csv('../data/rooster_random_hillclimber_stud.csv')
 
             if plot == 1:
-                make_plot(nr_runs=10, 'random', 'hc_activities_and_students')
+                make_plot('random', 'hc_activities_and_students', nr_runs=10)
 
         if algorithm == 'greedy hillclimber with students':
             my_rooster.make_rooster_greedy()
@@ -109,7 +108,7 @@ try:
                 my_rooster.make_csv('../data/rooster_greedy_hillclimber_stud.csv')
 
             if plot == 1:
-                make_plot(nr_runs=10, 'greedy', 'hc_activities_and_students')
+                make_plot('greedy', 'hc_activities_and_students', nr_runs=10)
 
         if algorithm == 'greedy simulated annealing':
             my_rooster.make_rooster_greedy()
