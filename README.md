@@ -25,7 +25,7 @@ We hebben te maken met 609 Studenten.
 De hard constraints van onze case zijn als volgt:
 - Alle activiteiten moeten worden ingeroosterd
 - Maximaal één activiteit per tijdslot per zaal inplannen
-- Student mag maximaal twee tussenuren na elkaar hebben
+- Student mag maximaal twee tussenuren hebben
 - Houden aan de maximumgrootte van werkcolleges en practica
 - Zo min mogelijk werkcollege- en practicumgroepen
 
