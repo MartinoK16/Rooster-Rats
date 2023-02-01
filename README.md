@@ -85,6 +85,13 @@ pdfschedule --font Courier --color data/room{room_name}.yaml figures/room{room_n
 Hierbij kan voor {room_name} een van de volgende lokalen ingevuld worden:
 - A1.04, A1.06, A1.08, A1.10, B0.201, C0.110, C1.112
 
+ Een histogram van greedy of random kan gemaakt worden door het aanroepen van:
+ 
+ ```
+python experiments.py
+```
+ 
+
 ### Structuur
 
 De hierop volgende lijst beschrijft de belangrijkste mappen en files in het project, en waar deze gevonden kunnen worden:
