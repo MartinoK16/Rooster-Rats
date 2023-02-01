@@ -79,7 +79,7 @@ Het bestand geeft aan hoe verschillende functies gebruikt kunnen worden.
 Indien er met behulp van de instructies in main.py voor gekozen is om een yaml file van het rooster te maken, is het ook mogelijk om een visualisatie van het rooster per lokaal op te vragen. Dit kan door het aanroepen van:
 
 ```
-pdfschedule --font Courier --color ../data/roomC1.112.yaml ../code/visualisation/room{room_name}.pdf
+pdfschedule --font Courier --color ../data/room{room_name}.yaml ../code/visualisation/room{room_name}.pdf
 ```
 
 Hierbij kunnen voor {room_name} de volgende lokalen ingevuld worden:
