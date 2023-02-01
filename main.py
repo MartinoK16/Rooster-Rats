@@ -185,10 +185,12 @@ def main(con, iter, csv, yaml, plot):
             mng.full_screen_toggle()
 
             plt.show()
-
-    malus = sum(Evaluation(my_rooster).malus_count())
-    with open(f'data/{con}_{iter}_rooster_{malus}_points', 'wb') as outp:
-        pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
+    
+    save_object = input('Do you want to save the rooster object? [y/n] ')
+    if save_object == 'y':
+        malus = sum(Evaluation(my_rooster).malus_count())
+        with open(f'data/{con}_{iter}_rooster_{malus}_points', 'wb') as outp:
+            pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
 if __name__ == '__main__':
     # Set-up parsing command line arguments
