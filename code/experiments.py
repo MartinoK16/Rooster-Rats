@@ -1,36 +1,69 @@
+import pandas as pd
+import numpy as np
+import math
+import random
+import numpy as np
+import time
+import pickle
+import sys
+import argparse
+import yaml
+import pdfschedule
+
+from classes.rooster import Rooster
+from student_rooster import rooster_per_student
+from classes.rooster import *
+from algorithms.evaluation import *
+from algorithms.hillclimber import *
+from algorithms.initialize import *
+from algorithms.tabu_search import *
+from algorithms.simulated_annealing import *
+
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
+evenings = {'C0.110'}
+sys.setrecursionlimit(5000)
+
 def SA_experiment(initial_T=50, nr_runs=10):
     '''
-    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
-    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
-    corresponding maluspoints in a histogram.
+    Accepts two int arguments (initial_T and nr_runs) with default value.
+    Creates nr_runs times a greedy rooster and chooses the one with the
+    minimum malus points. The Simulated Annealing algorithm is calles on
+    this corresponding rooster object, with a variable amount of reheats.
+    It returns a list with the best malus points of each SA.
     '''
+    # Dict to store the greedy rooster objects with their malus
     random_dict = {}
-    reheat_list = [5000, 10000, 20000, 25000, 50000]
-    malus_list = []
     for i in range(nr_runs):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
         my_rooster.make_rooster_greedy()
-        malus = sum(Evaluation(my_rooster).malus_count())
-        random_dict[my_rooster] = malus
+        random_dict[my_rooster] = sum(Evaluation(my_rooster).malus_count())
 
+    # Get the best greedy rooster object
     lowest_rooster = min(random_dict, key=random_dict.get)
 
-    start = time.time()
-    result = Simulated_Annealing(lowest_rooster, initial_T, 50000).run()
-    sa_rooster = result[0]
-    malus_list.append(result[1])
-    stop = time.time()
-    print(f'Runtime for simulated annealing is : {stop-start}')
-    print(f'Coördinates minimum: {result[3]}')
-    plt.plot(result[2])
-    plt.plot(result[3][0], result[3][1], markersize=8, marker="o", markerfacecolor="red")
-    plt.xlabel('Iteration')
-    plt.ylabel('Malus count')
-    plt.title('Simulated annealing with 10 reheats')
-    plt.show()
+    # List to store the best malus of each SA
+    malus_list_25000 = []
+    for j in range(5):
+        result = Simulated_Annealing(lowest_rooster, initial_T, 25000).run()
+        malus_list_25000.append(result[1])
+        print(f'Coördinates minimum: {result[3]}')
 
-    return malus_list
+        # Plot malus_list
+        plt.plot(result[2])
+
+        # Plot min malus in same plot
+        plt.plot(result[3][0], result[3][1], markersize=8, marker="o", markerfacecolor="red")
+        plt.xlabel('Iteration')
+        plt.ylabel('Malus count')
+        plt.title('Simulated annealing with 20 reheats')
+        plt.savefig(f'plot25000-{result[1]}-{j}.png', dpi=300, bbox_inches='tight')
+
+    print(f'25000{malus_list_25000}')
+
+SA_experiment()
 
 def make_plot(nr_runs=10, type_rooster='random', algorithm='hc_activities'):
     '''
