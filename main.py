@@ -11,7 +11,7 @@ from code.algorithms.simulated_annealing import *
 from code.experiments import *
 
 def main(con, iter, csv, yaml, plot):
-    if con == '' and iter == '':
+    if con == '' and iter == 'none':
         print('Welcome,')
         print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
         print()
@@ -21,16 +21,14 @@ def main(con, iter, csv, yaml, plot):
         print('\t - greedy (g)')
         print()
         print('You can choose between the following iterative algorithms:')
-        print('\t - hillclimber without students once (hill or h)')
-        print('\t - hillclimber without students till no improvements (hill-while or hw)')
-        print('\t - hillclimber with students once (hill-stud or hs)')
-        print('\t - hillclimber with students till no improvements (hill-stud-while or hsw)')
+        print('\t - hillclimber (hill or h)')
         print('\t - tabu search (tabu or t)')
         print('\t - simulated annealing (anneal or a)')
         print()
-        print("If you chose an iterative algorithm you can plot the malus development by adding: '-plot True'")
-        print("You can save the rooster to csv by adding: '-csv True'")
-        print("You can save yaml files by adding: '-yaml True'")
+        print("If you chose an iterative algorithm you can plot the malus development by adding: -plot 'y'")
+        print("You can save the rooster to csv by adding: -csv 'y'")
+        print("You can save yaml files by adding: -yaml 'y'")
+        print('If you do not add these arguments it will be asked after making the rooster')
         print()
         print('Example:')
         print("python main.py -con 'r' -iter 'hw' -csv True -plot True -yaml True")
@@ -71,102 +69,132 @@ def main(con, iter, csv, yaml, plot):
         return
 
 
-    # Do a iterative algorithm
-    if iter == '':
+    # Do an iterative algorithm
+    if iter == 'none':
         print('If you want you can also add an iterative algorithm to improve the rooster')
 
+    # Hillclimber
     elif iter == 'hill' or iter == 'h':
         my_rooster = Hillclimber(my_rooster)
-        my_rooster.hc_activities()
+        do_while = input('Do you want to loop till no improvement? [y/n] ')
+        do_studs = input('Do you want to include student swaps? [y/n] ')
 
-    elif iter == 'hill-while' or iter == 'hw':
-        my_rooster = Hillclimber(my_rooster)
-        prev_malus = sum(Evaluation(my_rooster).malus_count())
-        malus = prev_malus - 1
-        while malus < prev_malus:
-            prev_malus = malus
+        # With while loop
+        if do_while == 'y':
+            prev_malus = sum(Evaluation(my_rooster).malus_count())
+            malus = prev_malus - 1
+
+            while malus < prev_malus:
+                prev_malus = malus
+                my_rooster.hc_activities()
+
+                # With student swaps
+                if do_studs == 'y':
+                    my_rooster.hc_students('T')
+                    my_rooster.hc_students('P')
+
+                malus = sum(Evaluation(my_rooster).malus_count())
+
+        # Without while loop
+        else:
             my_rooster.hc_activities()
-            malus = sum(Evaluation(my_rooster).malus_count())
+            # With student swaps
+            if do_studs == 'y':
+                my_rooster.hc_students('T')
+                my_rooster.hc_students('P')
 
-    elif iter == 'hill-stud' or iter == 'hs':
-        my_rooster = Hillclimber(my_rooster)
-        my_rooster.hc_activities()
-        my_rooster.hc_students('T')
-        my_rooster.hc_students('P')
-
-    elif iter == 'hill-stud-while' or iter == 'hsw':
-        my_rooster = Hillclimber(my_rooster)
-        prev_malus = sum(Evaluation(my_rooster).malus_count())
-        malus = prev_malus - 1
-        while malus < prev_malus:
-            prev_malus = malus
-            my_rooster.hc_activities()
-            my_rooster.hc_students('T')
-            my_rooster.hc_students('P')
-            malus = sum(Evaluation(my_rooster).malus_count())
-
+    # Tabu Search
     elif iter == 'tabu' or iter == 't':
         my_rooster = Tabu(my_rooster)
-        tabu_list = int(input('How long do you want the tabu list to be? '))
-        iters = int(input('How many iterations do you want to do? '))
-        my_rooster.tabu_search(tabu_list, iters)
 
+        iters = input('How many iterations do you want to do? [int] ')
+        list_len = input('How long do you want the tabu list to be? [int] ')
+
+        if iters == '' or iters == 'd':
+            iters = 1000
+        if list_len == '' or list_len == 'd':
+            list_len = 100
+
+        my_rooster.tabu_search(int(list_len), int(iters))
+
+    # Simulated Annealing
     elif iter == 'anneal' or iter == 'a':
-        my_rooster = Simulated_Annealing(my_rooster, 50, 50000)
+        iters = input('How many iterations do you want to do? [int] ')
+        start_temp = input('What do you want the start temperature to be? [int] ')
+        reheat_iter = input('After how many iterations do you want to reheat? [int] ')
+
+        if iters == '' or iters == 'd':
+            iters = 500000
+        if start_temp == '' or start_temp == 'd':
+            start_temp = 50
+        if reheat_iter == '' or reheat_iter == 'd':
+            reheat_iter = 50000
+
+        my_rooster = Simulated_Annealing(my_rooster, int(start_temp), int(reheat_iter), nr_runs=int(iters))
         my_rooster.run()
 
     else:
         print('Sorry we do not have this iterative algorithm try:')
         print('\t hill (h) or')
-        print('\t hill-while (hw) or ')
-        print('\t hill-stud (hs) or')
-        print('\t hill-stud-while (hsw) or')
         print('\t tabu (t) or')
         print('\t anneal (a)')
 
 
     # Create output csv
-    if csv:
+    if csv == 'n':
+        pass
+    elif csv != 'y':
+        csv = input('Do you want to save this rooster to a csv-file? [y/n] ')
+
+    if csv == 'y':
         eval = Evaluation(my_rooster)
         malus = sum(eval.malus_count())
         eval.make_csv(f'data/{con}_{iter}_rooster_{malus}_points')
-    else:
-        print("If you give an extra argument: '-csv True' the rooster will be saved to a csv-file in the data folder")
-
 
     # Save yaml files to the data folder
-    if yaml:
-        Evaluation(my_rooster).make_scheme()
-    else:
-        print("If you give an extra argument: '-yaml True' a yaml file per room will be made in the data folder")
-        print('From each file can then also be made a nice pdf to see each rooster per room')
+    if yaml == 'n':
+        pass
+    elif yaml != 'y':
+        yaml = input('Do you want to save yaml-files of this rooster? [y/n] ')
 
+    if yaml == 'y':
+        Evaluation(my_rooster).make_scheme()
 
     # Make a plot of the development of the malus points of the iterative algorithm
-    if iter != '' and plot:
-        plt.plot(my_rooster.maluses)
-        malus = min(my_rooster.maluses)
-        ind = my_rooster.maluses.index(malus)
-        plt.plot(ind, malus, markersize=8, marker="o", markerfacecolor="red")
-        plt.title(f'Least amount of malus points was {malus} at iteration {ind}')
-        plt.xlabel('Iterations')
-        plt.ylabel('Malus points')
-        plt.grid()
-        plt.show()
-    elif iter != '':
-        print("If you want to see how the malus points develop in the iterative algorithm you can add: '-plot True' as argument")
+    if iter != '':
 
+        if plot == 'n':
+            pass
+        elif plot != 'y':
+            plot = input('Do you want plot and save the development of the malus points? [y/n] ')
+
+        if plot == 'y':
+            plt.plot(my_rooster.maluses)
+            malus = min(my_rooster.maluses)
+            ind = my_rooster.maluses.index(malus)
+            plt.plot(ind, malus, markersize=8, marker="o", markerfacecolor="red")
+            plt.title(f'Least amount of malus points was {malus} at iteration {ind}')
+            plt.xlabel('Iterations')
+            plt.ylabel('Malus points')
+            plt.grid()
+
+            mng = plt.get_current_fig_manager()
+            mng.full_screen_toggle()
+            plt.savefig(f'{con}_{iter}_malus_development_{malus}_points.png')
+            mng.full_screen_toggle()
+
+            plt.show()
 
 if __name__ == '__main__':
     # Set-up parsing command line arguments
     parser = argparse.ArgumentParser(description = 'Run different versions of Rooster')
 
     # Adding arguments
-    parser.add_argument('-con', '--con', type=str, default='', help='Desired constructive algorithm (default = none)')
-    parser.add_argument('-iter', '--iter', type=str, default='', help='Desired iterative algorithm (default = none)')
-    parser.add_argument('-csv', '--csv', type=bool, default=False, help='Make csv: True or False (default = False)')
-    parser.add_argument('-yaml', '--yaml', type=bool, default=False, help='Make yaml files: True or False (default = False)')
-    parser.add_argument('-plot', '--plot', type=bool, default=False, help='Make plot: True or False (default = False)')
+    parser.add_argument('-con',  '--con',  type=str, default='', help='Desired constructive algorithm')
+    parser.add_argument('-iter', '--iter', type=str, default='none', help='Desired iterative algorithm')
+    parser.add_argument('-csv',  '--csv',  type=str, default='', help='Save csv [y/n]')
+    parser.add_argument('-yaml', '--yaml', type=str, default='', help='Save yamls [y/n]')
+    parser.add_argument('-plot', '--plot', type=str, default='', help='Save plot [y/n]')
 
     # Read arguments from command line
     args = parser.parse_args()
