@@ -132,7 +132,7 @@ def main(con, iter, csv, yaml, plot):
         Evaluation(my_rooster).make_scheme()
     else:
         print("If you give an extra argument: '-yaml True' a yaml file per room will be made in the data folder")
-        print('From each file can then also be made a nice pdf to seen each rooster per room')
+        print('From each file can then also be made a nice pdf to see each rooster per room')
 
 
     # Make a plot of the development of the malus points of the iterative algorithm
