@@ -29,7 +29,7 @@ def main(con, iter, csv, yaml, plot):
         print('If you do not add these arguments it will be asked after making the rooster')
         print()
         print('Example:')
-        print("python main.py -con 'r' -iter 'hw' -csv True -plot True -yaml True")
+        print("python main.py -con 'r' -iter 'hw' -csv 'n' -plot 'y' -yaml 'n'")
         print()
         return
 
