@@ -11,31 +11,39 @@ from algorithms.initialize import *
 from algorithms.tabu_search import *
 
 courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 sys.setrecursionlimit(5000)
 
-# my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-# my_rooster = Initialize(my_rooster)
-# # my_rooster.make_rooster_random(4, 5, 7)
-# my_rooster.make_rooster_greedy()
-# # print(Evaluation(my_rooster).malus_count())
-# # my_rooster = Hillclimber(my_rooster)
-# # my_rooster.hc_activities()
-# # my_rooster.hc_students('T')
-# # my_rooster.hc_students('P')
-# my_rooster = Tabu(my_rooster)
-# my_rooster.tabu_search(100, 10000)
-# print(my_rooster.iter[1])
-#
-# plt.plot(my_rooster.maluses)
-# plt.plot(my_rooster.iter[0], my_rooster.iter[1], markersize=8, marker="o", markerfacecolor="red")
-# plt.title('Tabu Search verloop minpunten')
-# plt.xlabel('Iteraties')
-# plt.ylabel('Minpunten')
-# plt.grid(which='both')
-# plt.show()
+for i in range(100):
+    my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+    my_rooster = Initialize(my_rooster)
+    # my_rooster.make_rooster_random(4, 5, 7)
+    my_rooster.make_rooster_greedy()
+    # print(Evaluation(my_rooster).malus_count())
+    # my_rooster = Hillclimber(my_rooster)
+    # my_rooster.hc_activities()
+    # my_rooster.hc_students('T')
+    # my_rooster.hc_students('P')
+    my_rooster = Tabu(my_rooster)
+    my_rooster.tabu_search(100, 10000)
+    print(my_rooster.iter[1])
+
+    plt.plot(my_rooster.maluses)
+    plt.plot(my_rooster.iter[0], my_rooster.iter[1], markersize=8, marker="o", markerfacecolor="red")
+    plt.title('Tabu Search verloop minpunten')
+    plt.xlabel('Iteraties')
+    plt.ylabel('Minpunten')
+    plt.grid(which='both')
+    mng = plt.get_current_fig_manager()
+    mng.full_screen_toggle()
+    plt.savefig(f'Tabu_run{i}_{my_rooster.iter[1]}P.png')
+    # plt.show()
+    plt.close()
+
+    with open(f'Tabu_run{i}', 'wb') as outp:
+        pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
 
 # prev_malus = 65

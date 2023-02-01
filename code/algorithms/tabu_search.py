@@ -1,4 +1,5 @@
 import copy
+import random
 from .evaluation import *
 
 class Tabu():
@@ -53,7 +54,7 @@ class Tabu():
                 tabu_list.pop(0)
 
             malus = Evaluation(self).malus_count()
-            print(malus, sum(malus), len(tabu_list), nr)
+            print(malus, sum(malus), self.best[1], nr)
             self.maluses.append(sum(malus))
 
     def get_neighbours(self):
