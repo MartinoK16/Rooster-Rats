@@ -122,18 +122,18 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
         max_maluses_3 = []
 
     for i in range(nr_runs):
+        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
+        my_rooster = Initialize(my_rooster)
+        if type_rooster == 'random':
+            my_rooster.make_rooster_random(4, 5, 7)
+        elif type_rooster == 'greedy':
+            my_rooster.make_rooster_greedy()
+        else:
+            my_rooster.make_rooster_largetosmall()
+
+        my_rooster = Hillclimber(my_rooster)
+
         for i in range(rep):
-            my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-            my_rooster = Initialize(my_rooster)
-
-            if type_rooster == 'random':
-                my_rooster.make_rooster_random(4, 5, 7)
-            elif type_rooster == 'greedy':
-                my_rooster.make_rooster_greedy()
-            else:
-                my_rooster.make_rooster_largetosmall()
-
-            my_rooster = Hillclimber(my_rooster)
 
             if algorithm == 'hc_activities':
                 my_rooster.hc_activities()
@@ -145,15 +145,15 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
                 my_rooster.hc_students('T')
                 my_rooster.hc_students('P')
 
-            if separated == False:
-                malus_lists.append(my_rooster.maluses)
-            else:
-                malus_lists_0.append([item[0] for item in my_rooster.separated_maluses])
-                malus_lists_1.append([item[1] for item in my_rooster.separated_maluses])
-                malus_lists_2.append([item[2] for item in my_rooster.separated_maluses])
-                malus_lists_3.append([item[3] for item in my_rooster.separated_maluses])
+        if separated == False:
+            malus_lists.append(my_rooster.maluses)
+        else:
+            malus_lists_0.append([item[0] for item in my_rooster.separated_maluses])
+            malus_lists_1.append([item[1] for item in my_rooster.separated_maluses])
+            malus_lists_2.append([item[2] for item in my_rooster.separated_maluses])
+            malus_lists_3.append([item[3] for item in my_rooster.separated_maluses])
 
-    # iterations = my_rooster.iterations
+        # iterations = my_rooster.iterations
     if separated == False:
         for j in range(len(malus_lists[0])):
             combine_numbers = [item[j] for item in malus_lists]
@@ -183,20 +183,20 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
             max_maluses_3.append(np.max(combine_numbers_3))
 
     if separated == False:
-        plt.fill_between(x=np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0], y1=min_maluses, y2=max_maluses, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0]), avg_maluses)
+        plt.fill_between(x=np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0])), y1=min_maluses, y2=max_maluses, alpha=0.4)
+        plt.plot(np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0])), avg_maluses)
     else:
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0], y1=min_maluses_0, y2=max_maluses_0, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0]), avg_maluses_0, label='overlap activiteiten')
+        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_0, y2=max_maluses_0, alpha=0.4)
+        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_0, label='overlap activiteiten')
 
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0]), y1=min_maluses_1, y2=max_maluses_1, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0], avg_maluses_1, label='tussenuren')
+        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_1, y2=max_maluses_1, alpha=0.4)
+        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_1, label='tussenuren')
 
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0]), y1=min_maluses_2, y2=max_maluses_2, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0]), avg_maluses_2, label='avondsloten')
+        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_2, y2=max_maluses_2, alpha=0.4)
+        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_2, label='avondsloten')
 
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0], num=len(malus_lists_0[0]), y1=min_maluses_3, y2=max_maluses_3, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0], len(malus_lists_0[0]), avg_maluses_3, label='capaciteit')
+        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_3, y2=max_maluses_3, alpha=0.4)
+        plt.plot(np.linspace(1, len(malus_lists_0[0]), len(malus_lists_0[0])), avg_maluses_3, label='capaciteit')
 
         plt.legend()
 
@@ -205,7 +205,7 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
     plt.ylabel('Aantal minpunten')
     plt.show()
 
-make_plot(nr_runs=2, separated=True, algorithm='hc_students')
+make_plot(nr_runs=20, type_rooster='random', separated=False, algorithm='hc_activities', rep=1)
 
 def make_histogram(nr_runs=500, type_rooster='random'):
     '''
