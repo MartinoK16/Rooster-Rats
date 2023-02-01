@@ -1,4 +1,5 @@
 import argparse
+import matplotlib.pyplot as plt
 
 from code.student_rooster import *
 from code.classes.rooster import *
@@ -9,7 +10,32 @@ from code.algorithms.tabu_search import *
 from code.algorithms.simulated_annealing import *
 from code.experiments import *
 
-def main(con, iter, csv, plot):
+def main(con, iter, csv, yaml, plot):
+    if con == '' and iter == '':
+        print('Welkom,')
+        print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
+        print()
+        print('You can choose between the following constructive algorithms:')
+        print('\t - random (r)')
+        print('\t - greedy (g)')
+        print()
+        print('You can choose between the following iterative algorithms:')
+        print('\t - hillclimber without students once (hill or h)')
+        print('\t - hillclimber without students till no improvements (hill-while or hw)')
+        print('\t - hillclimber with students once (hill-stud or hs)')
+        print('\t - hillclimber with students till no improvements (hill-stud-while or hsw)')
+        print('\t - tabu search (tabu or t)')
+        print('\t - simulated annealing (anneal or a)')
+        print()
+        print("If you chose an iterative algorithm you can plot the malus development by adding: '-plot True'")
+        print("You can save the rooster to csv by adding: '-csv True'")
+        print("You can save yaml files by adding: '-yaml True'")
+        print()
+        print('Example:')
+        print("python main.py -con 'r' -iter 'hw' -csv True -plot True -yaml True")
+        print()
+        return
+
     courses_df = pd.read_csv('data/vakken.csv')
     student_df = pd.read_csv('data/studenten_en_vakken.csv')
     rooms_df = pd.read_csv('data/zalen.csv')
@@ -24,7 +50,8 @@ def main(con, iter, csv, plot):
 
     # Do a constructive initialization
     if con == '':
-        pass
+        print('Please enter a constructive algorithm')
+        return
 
     elif con == 'random' or con == 'r':
         my_rooster.make_rooster_random(4, 5, 7)
@@ -36,22 +63,42 @@ def main(con, iter, csv, plot):
         print('Sorry we do not have this constructive algorithm try:')
         print('\t random (r) or')
         print('\t greedy (g)')
-        print()
+        return
 
 
     # Do a iterative algorithm
     if iter == '':
-        pass
+        print('If you want you can also add an iterative algorithm to improve the rooster')
 
     elif iter == 'hill' or iter == 'h':
         my_rooster = Hillclimber(my_rooster)
         my_rooster.hc_activities()
+
+    elif iter == 'hill-while' or iter == 'hw':
+        prev_malus = sum(Evaluation(my_rooster).malus_count())
+        malus = prev_malus - 1
+        while malus < prev_malus:
+            prev_malus = malus
+            my_rooster = Hillclimber(my_rooster)
+            my_rooster.hc_activities()
+            malus = sum(Evaluation(my_rooster).malus_count())
 
     elif iter == 'hill-stud' or iter == 'hs':
         my_rooster = Hillclimber(my_rooster)
         my_rooster.hc_activities()
         my_rooster.hc_students('T')
         my_rooster.hc_students('P')
+
+    elif iter == 'hill-stud-while' or iter == 'hsw':
+        prev_malus = sum(Evaluation(my_rooster).malus_count())
+        malus = prev_malus - 1
+        while malus < prev_malus:
+            prev_malus = malus
+            my_rooster = Hillclimber(my_rooster)
+            my_rooster.hc_activities()
+            my_rooster.hc_students('T')
+            my_rooster.hc_students('P')
+            malus = sum(Evaluation(my_rooster).malus_count())
 
     elif iter == 'tabu' or iter == 't':
         my_rooster = Tabu(my_rooster)
@@ -64,21 +111,11 @@ def main(con, iter, csv, plot):
     else:
         print('Sorry we do not have this iterative algorithm try:')
         print('\t hill (h) or')
+        print('\t hill-while (hw) or ')
         print('\t hill-stud (hs) or')
+        print('\t hill-stud-while (hsw) or')
         print('\t tabu (t) or')
         print('\t anneal (a)')
-
-    # if algorithm == 'greedy simulated annealing':
-    #     my_rooster.make_rooster_greedy()
-    #     Simulated_Annealing(my_rooster, 50, 50000).run()
-    #     print(Evaluation(my_rooster).malus_count())
-    #
-    #     # Create output csv
-    #     if csv == 1:
-    #         my_rooster.make_csv('../data/rooster_simulated_annealing.csv')
-    #
-    #     if plot == 1:
-    #         SA_experiment()
 
 
     # Create output csv
@@ -86,11 +123,24 @@ def main(con, iter, csv, plot):
         eval = Evaluation(my_rooster)
         malus = sum(eval.malus_count())
         eval.make_csv(f'data/{con}_{iter}_rooster_{malus}_points')
+    else:
+        print("If you give an extra argument: '-csv True' the rooster will be saved to a csv-file in the data folder")
 
-    if plot:
-        make_histogram(1000, 'greedy')
+
+    # Save yaml files to the data folder
+    if yaml:
+        Evaluation(my_rooster).make_scheme()
+    else:
+        print("If you give an extra argument: '-yaml True' a yaml file per room will be made in the data folder")
+        print('From each file can then also be made a nice pdf to seen each rooster per room')
 
 
+    # Make a plot of the development of the malus points of the iterative algorithm
+    if iter != '' and plot:
+        plt.plot(my_rooster.maluses)
+        plt.show()
+    elif iter != '':
+        print("If you want to see how the malus points develop in the iterative algorithm you can add: '-plot True' as argument")
 
 # """
 # Create rooster visualisation of all 7 rooms.
@@ -100,19 +150,6 @@ def main(con, iter, csv, plot):
 # in terminal for each different room.
 # """
 
-print('Welkom,')
-print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
-print('You can choose between the following constructive algorithms:')
-print('\t - random (r)')
-print('\t - greedy (g)')
-print()
-print('You can choose between the following iterative algorithms:')
-print('\t - hillclimber without students (hill or h)')
-print('\t - hillclimber with students (hill-stud or hs)')
-print('\t - tabu search (tabu or t)')
-print('\t - simulated annealing (anneal or a)')
-print()
-
 if __name__ == '__main__':
     # Set-up parsing command line arguments
     parser = argparse.ArgumentParser(description = 'Run different versions of Rooster')
@@ -121,10 +158,11 @@ if __name__ == '__main__':
     parser.add_argument('-con', '--con', type=str, default='', help='Desired constructive algorithm (default = none)')
     parser.add_argument('-iter', '--iter', type=str, default='', help='Desired iterative algorithm (default = none)')
     parser.add_argument('-csv', '--csv', type=bool, default=False, help='Make csv: True or False (default = False)')
+    parser.add_argument('-yaml', '--yaml', type=bool, default=False, help='Make yaml files: True or False (default = False)')
     parser.add_argument('-plot', '--plot', type=bool, default=False, help='Make plot: True or False (default = False)')
 
     # Read arguments from command line
     args = parser.parse_args()
 
     # Run main with provide arguments
-    main(args.con, args.iter, args.csv, args.plot)
+    main(args.con, args.iter, args.csv, args.yaml, args.plot)

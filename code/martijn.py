@@ -38,9 +38,10 @@ for i in range(100):
     plt.grid(which='both')
     mng = plt.get_current_fig_manager()
     mng.full_screen_toggle()
-    plt.savefig(f'Tabu_run{i}_{my_rooster.iter[1]}P.png')
-    # plt.show()
-    plt.close()
+    plt.show()
+    # plt.savefig(f'Tabu_run{i}_{my_rooster.iter[1]}P.png')
+    # # plt.show()
+    # plt.close()
 
     with open(f'Tabu_run{i}', 'wb') as outp:
         pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)

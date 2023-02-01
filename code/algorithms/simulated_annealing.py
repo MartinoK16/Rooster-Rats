@@ -94,7 +94,7 @@ class Simulated_Annealing():
             # Save rooster with corresponding malus
             dict[self.lowest_rooster] = malus
             self.i += 1
-            self.malus_list.append(malus)
+            self.maluses.append(malus)
 
             if self.i % self.reheat_point == 0:
                 self.current_T += 5
@@ -103,4 +103,4 @@ class Simulated_Annealing():
         best_rooster = min(dict, key=dict.get)
         best_malus = min(dict.values())
 
-        return best_rooster, best_malus, self.malus_list, (self.malus_list.index(min(self.malus_list)), min(self.malus_list))
+        return best_rooster, best_malus, self.maluses, (self.maluses.index(min(self.maluses)), min(self.maluses))

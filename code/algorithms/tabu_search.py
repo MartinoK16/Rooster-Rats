@@ -1,6 +1,7 @@
 import copy
 import random
 from .evaluation import *
+from .hillclimber import *
 
 class Tabu():
     def __init__(self, rooster):
@@ -72,38 +73,8 @@ class Tabu():
                 # Get which lecture is placed in this room and slot
                 act2 = room2.rooster[slot2]
                 # Swap these 2 activities, get the new malus and put it in the dict and swap them back
-                self.swap_course(room1, act1, slot1, room2, act2, slot2)
+                Hillclimber(self).swap_course(room1, act1, slot1, room2, act2, slot2)
                 tries[Evaluation(self).rooster_dict()] = sum(Evaluation(self).malus_count())
-                self.swap_course(room1, act2, slot1, room2, act1, slot2)
+                Hillclimber(self).swap_course(room1, act2, slot1, room2, act1, slot2)
 
         return list(tries.items())
-
-    def swap_course(self, room1, lec1, slot1, room2, lec2, slot2):
-        '''
-        Swaps 2 activities from room and slot and updates the corresponding student roosters
-        '''
-        # Swap the 2 activities in the room roosters
-        room1.rooster[slot1] = lec2
-        room2.rooster[slot2] = lec1
-
-        # Check if it is a lecture and not an empty slot
-        if lec1 != 0:
-            # Update the lecture attributes
-            lec1.room = room2
-            lec1.slot = slot2
-            # Update all the roosters for the students with this lecture
-            for stud in lec1.studs:
-                stud.swap_activity(lec1, slot1, lec1, slot2)
-
-        # Check if it is a lecture and not an empty slot
-        if lec2 != 0:
-            # Update the lecture attributes
-            lec2.room = room1
-            lec2.slot = slot1
-            # Update all the roosters for the students with this lecture
-            for stud in lec2.studs:
-                stud.swap_activity(lec2, slot2, lec2, slot1)
-
-        # Update the malus counts for both rooms
-        room1.update_malus()
-        room2.update_malus()
