@@ -8,7 +8,6 @@ from code.algorithms.hillclimber import *
 from code.algorithms.initialize import *
 from code.algorithms.tabu_search import *
 from code.algorithms.simulated_annealing import *
-from code.experiments import *
 
 def main(con, iter, csv, yaml, plot):
     if con == '' and iter == 'none':
@@ -162,7 +161,6 @@ def main(con, iter, csv, yaml, plot):
 
     # Make a plot of the development of the malus points of the iterative algorithm
     if iter != '':
-
         if plot == 'n':
             pass
         elif plot != 'y':
