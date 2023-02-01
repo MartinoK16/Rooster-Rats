@@ -1,7 +1,6 @@
 import argparse
 import matplotlib.pyplot as plt
 
-from code.student_rooster import *
 from code.classes.rooster import *
 from code.algorithms.evaluation import *
 from code.algorithms.hillclimber import *
@@ -24,7 +23,7 @@ def main(con, iter, csv, yaml, plot):
         print('\t - tabu search (tabu or t)')
         print('\t - simulated annealing (anneal or a)')
         print()
-        print("If you chose an iterative algorithm you can plot the malus development by adding: -plot 'y'")
+        print("If you chose an iterative algorithm you can plot and save the malus development by adding: -plot 'y'")
         print("You can save the rooster to csv by adding: -csv 'y'")
         print("You can save yaml files by adding: -yaml 'y'")
         print('If you do not add these arguments it will be asked after making the rooster')
