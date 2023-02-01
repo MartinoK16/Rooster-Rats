@@ -1,14 +1,15 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
-from classes.rooster import Rooster
-from student_rooster import rooster_per_student
 from classes.rooster import *
 from algorithms.evaluation import *
 from algorithms.hillclimber import *
 from algorithms.initialize import *
 
 courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken.csv')
 rooms_df = pd.read_csv('../data/zalen.csv')
 evenings = {'C0.110'}
 
@@ -139,10 +140,14 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
     plt.ylabel('Aantal minpunten')
     plt.show()
 
+
 def make_histogram(nr_runs=500, type_rooster='random'):
     '''
-    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
-    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
+    Accepts two optional arguments:
+    · nr_runs = integer; tells how often the experiment should be conducted
+    · type_rooster = 'random', 'greedy'
+
+    Creates nr_runs times a greedy or random rooster and plots the
     corresponding maluspoints in a histogram.
     '''
     maluses = []
@@ -164,3 +169,8 @@ def make_histogram(nr_runs=500, type_rooster='random'):
     plt.xlabel('Minpunten')
     plt.ylabel('Aantal')
     plt.show()
+
+
+# Run the experiments
+make_plot(nr_runs=3, type_rooster='random', separated=True, algorithm='hc_activities', rep=1)
+make_histogram(100, 'random')
