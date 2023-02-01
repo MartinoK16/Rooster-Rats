@@ -102,7 +102,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
 - **/code**: bevat alle code van dit project
   - **/code/algorithms**: bevat de code voor algoritmes
   - **/code/classes**: bevat de benodigde classes voor deze case
-  - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
+  - **/code/experiments.py**: bevat de code voor het uitvoeren van experimenten
 - **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren; bevat ook het Rooster object van het beste rooster (44 maluspunten) en eventuele andere Rooster objecten indien ervoor gekozen wordt om deze op te slaan
 - **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
 - **/presentation**: bevat de eindpresentatie van ons project
