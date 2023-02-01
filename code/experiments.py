@@ -1,30 +1,3 @@
-import pandas as pd
-import numpy as np
-import math
-import random
-import numpy as np
-import time
-import pickle
-import sys
-import argparse
-import yaml
-import pdfschedule
-
-from classes.rooster import Rooster
-from student_rooster import rooster_per_student
-from classes.rooster import *
-from algorithms.evaluation import *
-from algorithms.hillclimber import *
-from algorithms.initialize import *
-from algorithms.tabu_search import *
-from algorithms.simulated_annealing import *
-
-courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('../data/zalen.csv')
-evenings = {'C0.110'}
-sys.setrecursionlimit(5000)
-
 def SA_experiment(initial_T=50, nr_runs=10):
     '''
     Accepts two int arguments (initial_T and nr_runs) with default value.
@@ -62,8 +35,6 @@ def SA_experiment(initial_T=50, nr_runs=10):
         plt.savefig(f'plot25000-{result[1]}-{j}.png', dpi=300, bbox_inches='tight')
 
     print(f'25000{malus_list_25000}')
-
-SA_experiment()
 
 def make_plot(nr_runs=10, type_rooster='random', algorithm='hc_activities'):
     '''

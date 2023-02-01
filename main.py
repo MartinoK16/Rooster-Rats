@@ -12,11 +12,12 @@ from code.experiments import *
 
 def main(con, iter, csv, yaml, plot):
     if con == '' and iter == '':
-        print('Welkom,')
+        print('Welcome,')
         print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
         print()
         print('You can choose between the following constructive algorithms:')
         print('\t - random (r)')
+        print('\t - big-to-small (bs)')
         print('\t - greedy (g)')
         print()
         print('You can choose between the following iterative algorithms:')
@@ -56,12 +57,16 @@ def main(con, iter, csv, yaml, plot):
     elif con == 'random' or con == 'r':
         my_rooster.make_rooster_random(4, 5, 7)
 
+    elif con == 'big-to-small' or con == 'bs':
+        my_rooster.make_rooster_largetosmall()
+
     elif con == 'greedy' or con == 'g':
         my_rooster.make_rooster_greedy()
 
     else:
         print('Sorry we do not have this constructive algorithm try:')
         print('\t random (r) or')
+        print('\t big-to-small (bs) or')
         print('\t greedy (g)')
         return
 
@@ -75,11 +80,11 @@ def main(con, iter, csv, yaml, plot):
         my_rooster.hc_activities()
 
     elif iter == 'hill-while' or iter == 'hw':
+        my_rooster = Hillclimber(my_rooster)
         prev_malus = sum(Evaluation(my_rooster).malus_count())
         malus = prev_malus - 1
         while malus < prev_malus:
             prev_malus = malus
-            my_rooster = Hillclimber(my_rooster)
             my_rooster.hc_activities()
             malus = sum(Evaluation(my_rooster).malus_count())
 
@@ -90,11 +95,11 @@ def main(con, iter, csv, yaml, plot):
         my_rooster.hc_students('P')
 
     elif iter == 'hill-stud-while' or iter == 'hsw':
+        my_rooster = Hillclimber(my_rooster)
         prev_malus = sum(Evaluation(my_rooster).malus_count())
         malus = prev_malus - 1
         while malus < prev_malus:
             prev_malus = malus
-            my_rooster = Hillclimber(my_rooster)
             my_rooster.hc_activities()
             my_rooster.hc_students('T')
             my_rooster.hc_students('P')
@@ -102,7 +107,9 @@ def main(con, iter, csv, yaml, plot):
 
     elif iter == 'tabu' or iter == 't':
         my_rooster = Tabu(my_rooster)
-        my_rooster.tabu_search(100, 10000)
+        tabu_list = int(input('How long do you want the tabu list to be? '))
+        iters = int(input('How many iterations do you want to do? '))
+        my_rooster.tabu_search(tabu_list, iters)
 
     elif iter == 'anneal' or iter == 'a':
         my_rooster = Simulated_Annealing(my_rooster, 50, 50000)
@@ -138,17 +145,17 @@ def main(con, iter, csv, yaml, plot):
     # Make a plot of the development of the malus points of the iterative algorithm
     if iter != '' and plot:
         plt.plot(my_rooster.maluses)
+        malus = min(my_rooster.maluses)
+        ind = my_rooster.maluses.index(malus)
+        plt.plot(ind, malus, markersize=8, marker="o", markerfacecolor="red")
+        plt.title(f'Least amount of malus points was {malus} at iteration {ind}')
+        plt.xlabel('Iterations')
+        plt.ylabel('Malus points')
+        plt.grid()
         plt.show()
     elif iter != '':
         print("If you want to see how the malus points develop in the iterative algorithm you can add: '-plot True' as argument")
 
-# """
-# Create rooster visualisation of all 7 rooms.
-# 1) python -m pip install pdfschedule
-# 2) pip install pyyaml
-# 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
-# in terminal for each different room.
-# """
 
 if __name__ == '__main__':
     # Set-up parsing command line arguments
