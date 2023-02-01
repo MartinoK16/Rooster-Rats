@@ -12,7 +12,7 @@ from code.experiments import *
 
 def main(con, iter, csv, yaml, plot):
     if con == '' and iter == '':
-        print('Welkom,')
+        print('Welcome,')
         print('We are Rooster-Rats and we tried to solve the Scheduling problem.')
         print()
         print('You can choose between the following constructive algorithms:')
@@ -141,14 +141,6 @@ def main(con, iter, csv, yaml, plot):
         plt.show()
     elif iter != '':
         print("If you want to see how the malus points develop in the iterative algorithm you can add: '-plot True' as argument")
-
-# """
-# Create rooster visualisation of all 7 rooms.
-# 1) python -m pip install pdfschedule
-# 2) pip install pyyaml
-# 3) run < pdfschedule --font Courier --color ../data/roomB0.201.yaml ../code/visualisation/roomB0.201.pdf >
-# in terminal for each different room.
-# """
 
 if __name__ == '__main__':
     # Set-up parsing command line arguments
