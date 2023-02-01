@@ -1,87 +1,36 @@
-def SA_experiment(initial_T=50, nr_runs=10):
+import pandas as pd
+
+from classes.rooster import Rooster
+from student_rooster import rooster_per_student
+from classes.rooster import *
+from algorithms.evaluation import *
+from algorithms.hillclimber import *
+from algorithms.initialize import *
+
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
+evenings = {'C0.110'}
+
+
+def make_plot(nr_runs=10, type_rooster='random', algorithm='hc_activities'):
     '''
-    Accepts two int arguments (initial_T and nr_runs) with default value.
-    Creates nr_runs times a greedy rooster and chooses the one with the
-    minimum malus points. The Simulated Annealing algorithm is calles on
-    this corresponding rooster object, with a variable amount of reheats.
-    It returns a list with the best malus points of each SA.
-    '''
-    # Dict to store the greedy rooster objects with their malus
-    random_dict = {}
-    for i in range(nr_runs):
-        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-        my_rooster = Initialize(my_rooster)
-        my_rooster.make_rooster_greedy()
-        random_dict[my_rooster] = sum(Evaluation(my_rooster).malus_count())
-
-    # Get the best greedy rooster object
-    lowest_rooster = min(random_dict, key=random_dict.get)
-
-    # List to store the best malus of each SA
-    malus_list_25000 = []
-    for j in range(5):
-        result = Simulated_Annealing(lowest_rooster, initial_T, 25000).run()
-        malus_list_25000.append(result[1])
-        print(f'Coördinates minimum: {result[3]}')
-
-        # Plot malus_list
-        plt.plot(result[2])
-
-        # Plot min malus in same plot
-        plt.plot(result[3][0], result[3][1], markersize=8, marker="o", markerfacecolor="red")
-        plt.xlabel('Iteration')
-        plt.ylabel('Malus count')
-        plt.title('Simulated annealing with 20 reheats')
-        plt.savefig(f'plot25000-{result[1]}-{j}.png', dpi=300, bbox_inches='tight')
-
-    print(f'25000{malus_list_25000}')
-
-def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', separated=False, rep=1):
-    '''
-    Accepts five optional arguments:
-    · nr_runs = integer; tells how often the experiment should be conducted
+    Accepts three optional arguments:
+    · nr_runs = integer
     · type_rooster = 'random', 'greedy', 'large to small'
-    · hc_activities = 'hc_activities', 'hc_students', 'hc_activities_and_students';
-      tells which hillclimber should be used
-    · separated = boolean; tells if the malus counts are shown separately or as their sum
-    · rep = integer; tells how often the Hillclimber should be repeated for one experiment
-
+    · hc_activities = 'hc_activities', 'hc_students', 'hc_activities_and_students'
     Keeps track of malus count per iteration for each run and creates a lineplot
     of the average, minimum and maximum malus count per iteration.
     '''
-    if separated == False:
-        # Create lists to track the total malus count
-        malus_lists = []
-        avg_maluses = []
-        min_maluses = []
-        max_maluses = []
-    else:
-        # Create lists to track the four different malus counts
-        malus_lists_0 = []
-        avg_maluses_0 = []
-        min_maluses_0 = []
-        max_maluses_0 = []
+    malus_lists = []
+    avg_maluses = []
+    min_maluses = []
+    max_maluses = []
 
-        malus_lists_1 = []
-        avg_maluses_1 = []
-        min_maluses_1 = []
-        max_maluses_1 = []
-
-        malus_lists_2 = []
-        avg_maluses_2 = []
-        min_maluses_2 = []
-        max_maluses_2 = []
-
-        malus_lists_3 = []
-        avg_maluses_3 = []
-        min_maluses_3 = []
-        max_maluses_3 = []
-
-    # Conduct experiment nr_runs times
     for i in range(nr_runs):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
-        # Create starting rooster
+
         if type_rooster == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
         elif type_rooster == 'greedy':
@@ -90,73 +39,27 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
             my_rooster.make_rooster_largetosmall()
 
         my_rooster = Hillclimber(my_rooster)
-        for i in range(rep):
-            # Perform chosen Hillclimber
-            if algorithm == 'hc_activities':
-                my_rooster.hc_activities()
-            elif algorithm == 'hc_students':
-                my_rooster.hc_students('T')
-                my_rooster.hc_students('P')
-            else:
-                my_rooster.hc_activities()
-                my_rooster.hc_students('T')
-                my_rooster.hc_students('P')
 
-        # Append malus data from experiment to the correct list(s)
-        if separated == False:
-            malus_lists.append(my_rooster.maluses)
+        if algorithm == 'hc_activities':
+            my_rooster.hc_activities()
+        elif algorithm == 'hc_students':
+            my_rooster.hc_students('T')
+            my_rooster.hc_students('P')
         else:
-            malus_lists_0.append([item[0] for item in my_rooster.separated_maluses])
-            malus_lists_1.append([item[1] for item in my_rooster.separated_maluses])
-            malus_lists_2.append([item[2] for item in my_rooster.separated_maluses])
-            malus_lists_3.append([item[3] for item in my_rooster.separated_maluses])
+            my_rooster.hc_activities()
+            my_rooster.hc_students('T')
+            my_rooster.hc_students('P')
 
-    # Create and plot lists of average, minimum and maximum maluses for each iteration
-    if separated == False:
-        for j in range(len(malus_lists[0])):
-            combine_numbers = [item[j] for item in malus_lists]
-            avg_maluses.append(np.mean(combine_numbers))
-            min_maluses.append(np.min(combine_numbers))
-            max_maluses.append(np.max(combine_numbers))
+        malus_lists.append(my_rooster.maluses)
 
-        plt.fill_between(x=np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0])), y1=min_maluses, y2=max_maluses, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists[0]), num=len(malus_lists[0])), avg_maluses)
-    else:
-        for j in range(len(malus_lists_0[0])):
-            combine_numbers_0 = [item[j] for item in malus_lists_0]
-            avg_maluses_0.append(np.mean(combine_numbers_0))
-            min_maluses_0.append(np.min(combine_numbers_0))
-            max_maluses_0.append(np.max(combine_numbers_0))
+    for j in range(len(malus_lists[0])):
+        combine_numbers = [item[j] for item in malus_lists]
+        avg_maluses.append(np.mean(combine_numbers))
+        min_maluses.append(np.min(combine_numbers))
+        max_maluses.append(np.max(combine_numbers))
 
-            combine_numbers_1 = [item[j] for item in malus_lists_1]
-            avg_maluses_1.append(np.mean(combine_numbers_1))
-            min_maluses_1.append(np.min(combine_numbers_1))
-            max_maluses_1.append(np.max(combine_numbers_1))
-
-            combine_numbers_2 = [item[j] for item in malus_lists_2]
-            avg_maluses_2.append(np.mean(combine_numbers_2))
-            min_maluses_2.append(np.min(combine_numbers_2))
-            max_maluses_2.append(np.max(combine_numbers_2))
-
-            combine_numbers_3 = [item[j] for item in malus_lists_3]
-            avg_maluses_3.append(np.mean(combine_numbers_3))
-            min_maluses_3.append(np.min(combine_numbers_3))
-            max_maluses_3.append(np.max(combine_numbers_3))
-
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_0, y2=max_maluses_0, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_0, label='overlap activiteiten')
-
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_1, y2=max_maluses_1, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_1, label='tussenuren')
-
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_2, y2=max_maluses_2, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), avg_maluses_2, label='avondsloten')
-
-        plt.fill_between(x=np.linspace(1, len(malus_lists_0[0]), num=len(malus_lists_0[0])), y1=min_maluses_3, y2=max_maluses_3, alpha=0.4)
-        plt.plot(np.linspace(1, len(malus_lists_0[0]), len(malus_lists_0[0])), avg_maluses_3, label='capaciteit')
-
-        plt.legend()
-
+    plt.fill_between(x=np.linspace(1, 131, num=131), y1=min_maluses, y2=max_maluses, alpha=0.4)
+    plt.plot(np.linspace(1, 131, num=131), avg_maluses)
     plt.title(f'Gemiddeld aantal minpunten Hillclimbers (n={nr_runs}) met {type_rooster} beginrooster')
     plt.xlabel('Iteraties')
     plt.ylabel('Aantal minpunten')
@@ -164,28 +67,24 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
 
 def make_histogram(nr_runs=500, type_rooster='random'):
     '''
-    Accepts two optional arguments:
-    · nr_runs = integer; tells how often the experiment should be conducted
-    · type_rooster = 'random', 'greedy'; tells which rooster should be created
-
-    Creates nr_runs times a greedy or random rooster and plots the corresponding maluspoints
-    in a histogram.
+    Accepts an integer (nr_runs) and a string (type), which can be 'random' or
+    'greedy'. Creates nr_runs times a greedy or random rooster and plots the
+    corresponding maluspoints in a histogram.
     '''
     maluses = []
     for i in range(nr_runs):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
 
-        # Create correct rooster
         if type_rooster == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
         else:
             my_rooster.make_rooster_greedy()
-
-        # Compute and store the total malus count of the rooster
+        # print(i)
         malus = sum(Evaluation(my_rooster).malus_count())
         maluses.append(malus)
 
+    print(maluses, min(maluses), max(maluses), np.mean(maluses), np.std(maluses))
     sns.histplot(x=maluses, kde=True)
     plt.title(f'Verdeling minpunten van {nr_runs} {type_rooster} roosters')
     plt.xlabel('Minpunten')
