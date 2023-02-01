@@ -86,12 +86,14 @@ pdfschedule --font Courier --color data/room{room_name}.yaml figures/room{room_n
 Hierbij kan voor {room_name} een van de volgende lokalen ingevuld worden:
 - A1.04, A1.06, A1.08, A1.10, B0.201, C0.110, C1.112
 
- Een histogram van greedy of random kan gemaakt worden door het aanroepen van:
- 
- ```
+Een plot waarin het verloop van een van de Hillclimbers wordt getoond kan worden aangeroepen met de make_plot() functie.
+Een histogram van de score van een aantal Random of Greedy roosters kan worden aangeroepen met de make_histogram() functie.
+Allebei de functies kunnen worden gerund door het aanroepen van:
+```
 python experiments.py
 ```
- 
+
+Onderaan het bovengenoemde bestand kunnen de verschillende optionele arguments handmatig aangepast worden.
 
 ### Structuur
 
@@ -101,8 +103,9 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/algorithms**: bevat de code voor algoritmes
   - **/code/classes**: bevat de benodigde classes voor deze case
   - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
-- **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren
+- **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren; bevat ook het Rooster object van het beste rooster (44 maluspunten)
 - **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
+- **/presentatie**: bevat de eindpresentatie van ons project
 
 ## Auteurs
 - Martijn Kievit
