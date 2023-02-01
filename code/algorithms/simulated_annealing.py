@@ -1,21 +1,11 @@
 import pandas as pd
-from classes.rooster import *
-from algorithms.evaluation import *
-from algorithms.hillclimber import *
-from algorithms.initialize import *
-import matplotlib.pyplot as plt
-import seaborn as sns
+from .evaluation import *
+from .hillclimber import *
+from .initialize import *
 import numpy as np
 import math
-import time
-import pickle
-import sys
 
-courses_df = pd.read_csv('../data/vakken.csv')
-student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
-rooms_df = pd.read_csv('../data/zalen.csv')
-evenings = {'C0.110'}
-sys.setrecursionlimit(5000)
+
 
 class Simulated_Annealing():
     def __init__(self, lowest_rooster, initial_T, reheat_point,
@@ -112,9 +102,5 @@ class Simulated_Annealing():
         # Get rooster with lowest malus
         best_rooster = min(dict, key=dict.get)
         best_malus = min(dict.values())
-
-        # Save rooster to file
-        with open(f'SA_RoosterWith{min(dict.values())}Points_{self.nr_runs/self.reheat_point}reheats', 'wb') as outp:
-            pickle.dump(best_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
         return best_rooster, best_malus, self.malus_list, (self.malus_list.index(min(self.malus_list)), min(self.malus_list))
