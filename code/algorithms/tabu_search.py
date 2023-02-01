@@ -12,12 +12,12 @@ class Tabu():
 
     def tabu_search(self, max_size, max_iter):
         '''
-        Kies een initiële oplossing en bepaal hoe goed die oplossing is
-        Herhaal
-            Bepaal de naburige oplossingen die niet taboe zijn en bepaal hoe goed deze zijn
-            Als de nieuwe oplossing beter is onthoud dan de nieuwe oplossing
-            Kies de beste naburige oplossing en plaats de vorige oplossing in de Tabu lijst
-        Tot de stop-conditie vervuld is
+        Take an initial rooster and get the malus count for it
+        Loop for #iterations
+            Get the neighbours for this state and the corresponding malus points
+            If there is a better rooster, remember this rooster
+            Put the last state in the tabu list
+        Return the best seen rooster
         '''
         self.maluses = []
         # Set the input rooster as the best rooster that was seen and get the malus points

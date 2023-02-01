@@ -25,12 +25,13 @@ We hebben te maken met 609 Studenten.
 De hard constraints van onze case zijn als volgt:
 - Alle activiteiten moeten worden ingeroosterd
 - Maximaal één activiteit per tijdslot per zaal inplannen
-- Student mag maximaal twee tussenuren na elkaar hebben
+- Student mag maximaal twee tussenuren hebben
 - Houden aan de maximumgrootte van werkcolleges en practica
 - Zo min mogelijk werkcollege- en practicumgroepen
 
 Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit van het rooster. Er wordt een aantal maluspunten toegekend bij het overtreden van de volgende soft constraints:
-- Studenten met tussenuren (α = # keren een tussenuur per dag per student, β = # keren twee tussenuren per dag per student)
+- Studenten met tussenuren (α = # keren een tussenuur per dag per student)
+- Studenten met 2 tussenuren (β = # keren twee tussenuren per dag per student)
 - Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
 - Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
@@ -79,11 +80,20 @@ Het bestand geeft aan hoe verschillende functies en algoritmes gebruikt kunnen w
 Indien er met behulp van de instructies in main.py voor gekozen is om een yaml file van het rooster te maken, is het ook mogelijk om een visualisatie van het rooster per lokaal op te vragen. Dit kan door het aanroepen van:
 
 ```
-pdfschedule --font Courier --color ../data/room{room_name}.yaml ../code/figures/room{room_name}.pdf
+pdfschedule --font Courier --color data/room{room_name}.yaml figures/room{room_name}.pdf
 ```
 
 Hierbij kan voor {room_name} een van de volgende lokalen ingevuld worden:
 - A1.04, A1.06, A1.08, A1.10, B0.201, C0.110, C1.112
+
+Een plot waarin het verloop van een van de Hillclimbers wordt getoond kan worden aangeroepen met de make_plot() functie.
+Een histogram van de score van een aantal Random of Greedy roosters kan worden aangeroepen met de make_histogram() functie.
+Allebei de functies kunnen worden gerund door het aanroepen van:
+```
+python experiments.py
+```
+
+Onderaan het bovengenoemde bestand kunnen de verschillende optionele arguments handmatig aangepast worden.
 
 ### Structuur
 
@@ -93,8 +103,9 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/algorithms**: bevat de code voor algoritmes
   - **/code/classes**: bevat de benodigde classes voor deze case
   - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
-- **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren
+- **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren; bevat ook het Rooster object van het beste rooster (44 maluspunten)
 - **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
+- **/presentation**: bevat de eindpresentatie van ons project
 
 ## Auteurs
 - Martijn Kievit

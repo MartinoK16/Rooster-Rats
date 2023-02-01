@@ -1,40 +1,18 @@
-def SA_experiment(initial_T=50, nr_runs=10):
-    '''
-    Accepts two int arguments (initial_T and nr_runs) with default value.
-    Creates nr_runs times a greedy rooster and chooses the one with the
-    minimum malus points. The Simulated Annealing algorithm is calles on
-    this corresponding rooster object, with a variable amount of reheats.
-    It returns a list with the best malus points of each SA.
-    '''
-    # Dict to store the greedy rooster objects with their malus
-    random_dict = {}
-    for i in range(nr_runs):
-        my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
-        my_rooster = Initialize(my_rooster)
-        my_rooster.make_rooster_greedy()
-        random_dict[my_rooster] = sum(Evaluation(my_rooster).malus_count())
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
-    # Get the best greedy rooster object
-    lowest_rooster = min(random_dict, key=random_dict.get)
+from classes.rooster import *
+from algorithms.evaluation import *
+from algorithms.hillclimber import *
+from algorithms.initialize import *
 
-    # List to store the best malus of each SA
-    malus_list_25000 = []
-    for j in range(5):
-        result = Simulated_Annealing(lowest_rooster, initial_T, 25000).run()
-        malus_list_25000.append(result[1])
-        print(f'Coördinates minimum: {result[3]}')
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
+evenings = {'C0.110'}
 
-        # Plot malus_list
-        plt.plot(result[2])
-
-        # Plot min malus in same plot
-        plt.plot(result[3][0], result[3][1], markersize=8, marker="o", markerfacecolor="red")
-        plt.xlabel('Iteration')
-        plt.ylabel('Malus count')
-        plt.title('Simulated annealing with 20 reheats')
-        plt.savefig(f'plot25000-{result[1]}-{j}.png', dpi=300, bbox_inches='tight')
-
-    print(f'25000{malus_list_25000}')
 
 def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', separated=False, rep=1):
     '''
@@ -162,27 +140,27 @@ def make_plot(nr_runs=20, type_rooster='random', algorithm='hc_activities', sepa
     plt.ylabel('Aantal minpunten')
     plt.show()
 
+
 def make_histogram(nr_runs=500, type_rooster='random'):
     '''
     Accepts two optional arguments:
     · nr_runs = integer; tells how often the experiment should be conducted
-    · type_rooster = 'random', 'greedy'; tells which rooster should be created
+    · type_rooster = 'random', 'greedy'
 
-    Creates nr_runs times a greedy or random rooster and plots the corresponding maluspoints
-    in a histogram.
+    Creates nr_runs times a greedy or random rooster and plots the
+    corresponding maluspoints in a histogram.
     '''
     maluses = []
     for i in range(nr_runs):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
 
-        # Create correct rooster
+        # Perform the correct experiment
         if type_rooster == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
         else:
             my_rooster.make_rooster_greedy()
 
-        # Compute and store the total malus count of the rooster
         malus = sum(Evaluation(my_rooster).malus_count())
         maluses.append(malus)
 
@@ -191,3 +169,8 @@ def make_histogram(nr_runs=500, type_rooster='random'):
     plt.xlabel('Minpunten')
     plt.ylabel('Aantal')
     plt.show()
+
+
+# Run the experiments
+make_plot(nr_runs=3, type_rooster='random', separated=True, algorithm='hc_activities', rep=1)
+make_histogram(100, 'random')
