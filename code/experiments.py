@@ -155,15 +155,15 @@ def make_histogram(nr_runs=500, type_rooster='random'):
         my_rooster = Rooster(courses_df, student_df, rooms_df, evenings)
         my_rooster = Initialize(my_rooster)
 
+        # Perform the correct experiment
         if type_rooster == 'random':
             my_rooster.make_rooster_random(4, 5, 7)
         else:
             my_rooster.make_rooster_greedy()
-        # print(i)
+
         malus = sum(Evaluation(my_rooster).malus_count())
         maluses.append(malus)
 
-    print(maluses, min(maluses), max(maluses), np.mean(maluses), np.std(maluses))
     sns.histplot(x=maluses, kde=True)
     plt.title(f'Verdeling minpunten van {nr_runs} {type_rooster} roosters')
     plt.xlabel('Minpunten')
