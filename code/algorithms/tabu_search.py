@@ -9,6 +9,7 @@ class Tabu():
         self.courses = rooster.courses
         self.students = rooster.students
         self.activities = rooster.activities
+        self.maluses = []
 
     def tabu_search(self, max_size, max_iter):
         '''
@@ -19,7 +20,6 @@ class Tabu():
             Put the last state in the tabu list
         Return the best seen rooster
         '''
-        self.maluses = []
         # Set the input rooster as the best rooster that was seen and get the malus points
         self.best = [Evaluation(self).rooster_dict(), sum(Evaluation(self).malus_count())]
         # Add the input rooster to the tabu list
@@ -40,9 +40,7 @@ class Tabu():
 
             # If this best candidate is better than the best found rooster set it to the best
             if best_cand[1] < self.best[1]:
-                print('BETTER')
                 self.best = copy.deepcopy(best_cand)
-                self.iter = (nr, self.best[1])
 
             # Update self to use the rooster of the best candidate
             self.students, self.rooms, self.activities = \
@@ -57,6 +55,8 @@ class Tabu():
             malus = Evaluation(self).malus_count()
             print(malus, sum(malus), self.best[1], nr)
             self.maluses.append(sum(malus))
+
+        self.students, self.rooms, self.activities = Evaluation(self).rooster_object(dict(self.best[0]))
 
     def get_neighbours(self):
         '''

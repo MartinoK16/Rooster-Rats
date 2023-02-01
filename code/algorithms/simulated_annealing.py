@@ -4,6 +4,7 @@ from .hillclimber import *
 from .initialize import *
 import numpy as np
 import math
+import copy
 
 class Simulated_Annealing():
     def __init__(self, lowest_rooster, initial_T, reheat_point,
@@ -18,7 +19,7 @@ class Simulated_Annealing():
         self.activities = lowest_rooster.activities
         self.courses = lowest_rooster.courses
         self.students = lowest_rooster.students
-        self.lowest_rooster = lowest_rooster
+        self.maluses = []
 
     def geometric(self):
         '''
@@ -53,10 +54,11 @@ class Simulated_Annealing():
         randomly chosen lectures. It saves the malus for each rooster
         and it returns the best rooster with best malus.
         '''
-        dict = {}
+        prev_malus = sum(Evaluation(self).malus_count())
+        self.best = Evaluation(self).rooster_dict()
 
         while self.i < self.nr_runs:
-
+            self.i += 1
             # Random room and slot from activities
             lecture1 = random.choice(self.activities)
             room1 = lecture1.room
@@ -85,20 +87,19 @@ class Simulated_Annealing():
 
             # Apply cooling method
             self.exponential()
-            malus = sum(Evaluation(self).malus_count())
 
-            print(malus, "\t", self.current_T)
-
-            # Save rooster with corresponding malus
-            dict[self.lowest_rooster] = malus
-            self.i += 1
-            self.maluses.append(malus)
-
+            # Reheat when neccessary
             if self.i % self.reheat_point == 0:
                 self.current_T += 5
 
-        # Get rooster with lowest malus
-        best_rooster = min(dict, key=dict.get)
-        best_malus = min(dict.values())
+            # Add malus to list
+            malus = sum(Evaluation(self).malus_count())
+            self.maluses.append(malus)
+            print(malus, "\t", self.current_T)
 
-        return best_rooster, best_malus, self.maluses, (self.maluses.index(min(self.maluses)), min(self.maluses))
+            if malus < prev_malus:
+                prev_malus = malus
+                self.best = Evaluation(self).rooster_dict()
+
+        # Get rooster with lowest malus
+        self.students, self.rooms, self.activities = Evaluation(self).rooster_object(dict(self.best))

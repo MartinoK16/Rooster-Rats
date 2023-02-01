@@ -177,7 +177,7 @@ def main(con, iter, csv, yaml, plot):
 
             mng = plt.get_current_fig_manager()
             mng.full_screen_toggle()
-            plt.savefig(f'{con}_{iter}_malus_development_{malus}_points.png')
+            plt.savefig(f'figures/{con}_{iter}_malus_development_{malus}_points.png')
             mng.full_screen_toggle()
 
             plt.show()
