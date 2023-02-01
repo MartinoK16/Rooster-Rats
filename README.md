@@ -30,7 +30,8 @@ De hard constraints van onze case zijn als volgt:
 - Zo min mogelijk werkcollege- en practicumgroepen
 
 Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit van het rooster. Er wordt een aantal maluspunten toegekend bij het overtreden van de volgende soft constraints:
-- Studenten met tussenuren (α = # keren een tussenuur per dag per student, β = # keren twee tussenuren per dag per student)
+- Studenten met tussenuren (α = # keren een tussenuur per dag per student)
+- Studenten met 2 tussenuren (β = # keren twee tussenuren per dag per student)
 - Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
 - Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
