@@ -105,7 +105,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
 - **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren; bevat ook het Rooster object van het beste rooster (44 maluspunten)
 - **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
-- **/presentatie**: bevat de eindpresentatie van ons project
+- **/presentation**: bevat de eindpresentatie van ons project
 
 ## Auteurs
 - Martijn Kievit
