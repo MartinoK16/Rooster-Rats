@@ -1,7 +1,6 @@
 import argparse
 import matplotlib.pyplot as plt
 
-from code.student_rooster import *
 from code.classes.rooster import *
 from code.algorithms.evaluation import *
 from code.algorithms.hillclimber import *
