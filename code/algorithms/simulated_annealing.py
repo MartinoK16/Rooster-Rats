@@ -5,11 +5,9 @@ from .initialize import *
 import numpy as np
 import math
 
-
-
 class Simulated_Annealing():
     def __init__(self, lowest_rooster, initial_T, reheat_point,
-     nr_runs = 500000, g = 0.998):
+     nr_runs=500000, g=0.998):
         self.g = g
         self.nr_runs = nr_runs
         self.initial_T = initial_T
