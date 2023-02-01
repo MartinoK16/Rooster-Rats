@@ -19,6 +19,7 @@ class Simulated_Annealing():
         self.courses = lowest_rooster.courses
         self.students = lowest_rooster.students
         self.lowest_rooster = lowest_rooster
+        self.maluses = []
 
     def geometric(self):
         '''
