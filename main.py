@@ -7,7 +7,6 @@ from code.algorithms.hillclimber import *
 from code.algorithms.initialize import *
 from code.algorithms.tabu_search import *
 from code.algorithms.simulated_annealing import *
-from code.experiments import *
 
 def main(con, iter, csv, yaml, plot):
     if con == '' and iter == 'none':
@@ -24,13 +23,13 @@ def main(con, iter, csv, yaml, plot):
         print('\t - tabu search (tabu or t)')
         print('\t - simulated annealing (anneal or a)')
         print()
-        print("If you chose an iterative algorithm you can plot the malus development by adding: -plot 'y'")
+        print("If you chose an iterative algorithm you can plot and save the malus development by adding: -plot 'y'")
         print("You can save the rooster to csv by adding: -csv 'y'")
         print("You can save yaml files by adding: -yaml 'y'")
         print('If you do not add these arguments it will be asked after making the rooster')
         print()
         print('Example:')
-        print("python main.py -con 'r' -iter 'hw' -csv True -plot True -yaml True")
+        print("python main.py -con 'r' -iter 'hw' -csv 'n' -plot 'y' -yaml 'n'")
         print()
         return
 
@@ -161,7 +160,6 @@ def main(con, iter, csv, yaml, plot):
 
     # Make a plot of the development of the malus points of the iterative algorithm
     if iter != '':
-
         if plot == 'n':
             pass
         elif plot != 'y':
