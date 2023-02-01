@@ -54,4 +54,4 @@ class Student():
                     self.malus[1] += 3
                 # The rooster is not possible if a student has 3 tussenuren
                 elif tus == 3:
-                    self.malus[1] += 10
+                    self.malus[1] += 10000
