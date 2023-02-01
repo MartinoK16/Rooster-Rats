@@ -1,6 +1,6 @@
-# Rooster-Rats
+### Rooster-Rats
 
-## Lectures & Lesroosters
+# Lectures & Lesroosters
 
 Het inroosteren van lessen is een ingewikkeld probleem. In deze case moet een weekrooster gemaakt worden voor een vakkenlijst op Science Park. 
 
@@ -24,23 +24,25 @@ We hebben te maken met 609 Studenten.
 
 De hard constraints van onze case zijn als volgt:
 - Alle activiteiten moeten worden ingeroosterd
-- Maximaal één activiteit per tijdslot per zaal
+- Maximaal één activiteit per tijdslot per zaal inplannen
 - Student mag maximaal twee tussenuren na elkaar hebben
-- Maximumgrootte van werkcolleges en practica
-- Zo min mogelijk werkcolleges en practica
+- Houden aan de maximumgrootte van werkcolleges en practica
+- Zo min mogelijk werkcollege- en practicumgroepen
 
 Naast het genereren van een geldige oplossing wordt er gekeken naar de kwaliteit van het rooster. Er wordt een aantal maluspunten toegekend bij het overtreden van de volgende soft constraints:
-- Studenten met tussenuren (α = een tussenuur per dag per student, β = twee tussenuren per dag per student)
+- Studenten met tussenuren (α = # keren een tussenuur per dag per student, β = # keren twee tussenuren per dag per student)
 - Studenten met twee activiteiten in hetzelfde tijdslot (γ = # lessen die overlappen per student)
 - Gebruik van avondslot (δ = # gebruikte avondsloten per lokaal)
 - Studenten die niet in het lokaal passen (ε = # studenten die niet in lokaal passen)
 
 ### Doel
+
 De kwaliteit van het rooster wordt gemeten aan de hand van de volgende objective function, die geminimaliseerd moet worden:
 
 - f(α, β, γ, δ, ε) = α + 3⋅β + γ + 5⋅δ + ε
 
-## State space
+### State space
+
 Om een idee te krijgen van de grootte van het probleem, hebben wij de state space berekend voor een weekrooster.
 
 - n! / (n - r)! 
@@ -66,13 +68,13 @@ pip install pyyaml
 
 ### Gebruik
 
-Een voorbeeldje kan gerund worden door aanroepen van:
+Een voorbeeldje kan gerund worden door het aanroepen van:
 
 ```
 python main.py
 ```
 
-Het bestand geeft een voorbeeld voor gebruik van de verschillende functies.
+Het bestand geeft aan hoe verschillende functies gebruikt kunnen worden.
 
 ### Structuur
 
@@ -83,7 +85,7 @@ De hierop volgende lijst beschrijft de belangrijkste mappen en files in het proj
   - **/code/classes**: bevat de benodigde classes voor deze case
   - **/code/experiment.py**: bevat de code voor het uitvoeren van experimenten
 - **/data**: bevat de verschillende bestanden die nodig zijn om de roosters te vullen en te visualiseren
-- **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster
+- **/figures**: bevat de verschillende resultaten van de experimenten en de visualisatie van het beste rooster per lokaal
 
 ## Auteurs
 - Martijn Kievit

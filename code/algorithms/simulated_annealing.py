@@ -1,7 +1,8 @@
 import pandas as pd
-from .evaluation import *
-from .hillclimber import *
-from .initialize import *
+from classes.rooster import *
+from algorithms.evaluation import *
+from algorithms.hillclimber import *
+from algorithms.initialize import *
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -10,14 +11,19 @@ import time
 import pickle
 import sys
 
+courses_df = pd.read_csv('../data/vakken.csv')
+student_df = pd.read_csv('../data/studenten_en_vakken2.csv')
+rooms_df = pd.read_csv('../data/zalen.csv')
+evenings = {'C0.110'}
+sys.setrecursionlimit(5000)
+
 class Simulated_Annealing():
     def __init__(self, lowest_rooster, initial_T, reheat_point,
-     nr_runs = 500000, g = 0.998, final_T=0.0001):
+     nr_runs = 500000, g = 0.998):
         self.g = g
         self.nr_runs = nr_runs
         self.initial_T = initial_T
         self.current_T = initial_T
-        self.final_T = final_T
         self.reheat_point = reheat_point
         self.i = 0
         self.rooms = lowest_rooster.rooms
@@ -91,13 +97,14 @@ class Simulated_Annealing():
 
             # Apply cooling method
             self.exponential()
+            malus = sum(Evaluation(self).malus_count())
 
-            print(sum(Evaluation(self).malus_count()), "\t", self.current_T)
+            print(malus, "\t", self.current_T)
 
             # Save rooster with corresponding malus
-            dict[self.lowest_rooster] = sum(Evaluation(self).malus_count())
+            dict[self.lowest_rooster] = malus
             self.i += 1
-            self.malus_list.append(sum(Evaluation(self).malus_count()))
+            self.malus_list.append(malus)
 
             if self.i % self.reheat_point == 0:
                 self.current_T += 5
