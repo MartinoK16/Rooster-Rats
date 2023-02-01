@@ -1,4 +1,6 @@
 import argparse
+import pickle
+import sys
 import matplotlib.pyplot as plt
 
 from code.classes.rooster import *
@@ -7,6 +9,8 @@ from code.algorithms.hillclimber import *
 from code.algorithms.initialize import *
 from code.algorithms.tabu_search import *
 from code.algorithms.simulated_annealing import *
+
+sys.setrecursionlimit(5000)
 
 def main(con, iter, csv, yaml, plot):
     if con == '' and iter == 'none':
@@ -181,6 +185,10 @@ def main(con, iter, csv, yaml, plot):
             mng.full_screen_toggle()
 
             plt.show()
+
+    malus = sum(Evaluation(my_rooster).malus_count())
+    with open(f'data/{con}_{iter}_rooster_{malus}_points', 'wb') as outp:
+        pickle.dump(my_rooster, outp, pickle.HIGHEST_PROTOCOL)
 
 if __name__ == '__main__':
     # Set-up parsing command line arguments
