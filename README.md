@@ -82,7 +82,7 @@ Indien er met behulp van de instructies in main.py voor gekozen is om een yaml f
 pdfschedule --font Courier --color ../data/room{room_name}.yaml ../code/visualisation/room{room_name}.pdf
 ```
 
-Hierbij kunnen voor {room_name} de volgende lokalen ingevuld worden:
+Hierbij kan voor {room_name} een van de volgende lokalen ingevuld worden:
 - A1.04, A1.06, A1.08, A1.10, B0.201, C0.110, C1.112
 
 ### Structuur
